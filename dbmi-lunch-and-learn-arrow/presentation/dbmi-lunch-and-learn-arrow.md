@@ -117,7 +117,28 @@ They're all just dataframes, right?
 
 <br>
 
-Which data approach is more _"correct"_?
+- Which data approach is more _"correct"_?
+- Is this a false dilemma?
+
+---
+
+## Software Diversity
+
+<br>
+
+🪴 __Software gardening:__
+
+A practice of growing and cultivating software using parallels from horticulture.
+
+---
+
+## Software Diversity
+
+<br>
+
+![](2023-04-12-09-58-07.png)
+
+Software tends to follow patterns from life.
 
 ---
 
