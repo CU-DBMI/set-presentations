@@ -33,15 +33,98 @@ Software Engineering Team
 
 ## Presentation Outline
 
-1. 📚 Background
+<br>
+
 1. ✍️ Data Literacy and Software Diversity
+1. 📚 Apache Arrow
 1. ⏯️ Demonstrations
 
 ---
 
-## Background
+## Data Literacy
 
 <br>
+
+Data Literacy ([Wikipedia](https://en.wikipedia.org/wiki/Data_literacy))
+
+> _"Data literacy is the ability to read, understand, create, and communicate data as information."_
+
+---
+
+## Data Literacy
+
+<br>
+
+![](2023-04-12-08-49-53.png)
+
+How we might imagine data conversations.
+
+---
+
+## Data Literacy
+
+<br>
+
+![](2023-04-12-09-13-23.png)
+
+The spreadsheets should be the same, right?
+
+---
+
+## Data Literacy
+
+<br>
+
+What is data, ___really___?
+
+<br>
+
+- What is a table?
+- What is a schema?
+- What is a dataframe?
+
+---
+
+## Data Literacy
+
+<br>
+
+![](2023-04-12-08-55-53.png)
+
+We can develop our way around this!
+
+---
+
+## Data Literacy
+
+<br>
+
+Maybe it gets better if we choose one language?
+
+---
+
+## Data Literacy
+
+<br>
+
+![](2023-04-12-09-02-26.png)
+
+They're all just dataframes, right?
+
+---
+
+## Data Literacy
+
+<br>
+
+Which data approach is more _"correct"_?
+
+---
+
+## Apache Arrow
+
+<br>
+
 ![](assets/arrow.png)
 
 <br>
