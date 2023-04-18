@@ -12,7 +12,6 @@ format:
   revealjs: 
     theme: simple
     transition: slide
-    center: true
     slide-number: true
     auto-stretch: false
 ---
@@ -33,7 +32,7 @@ University of Colorado Anschutz Medical Campus<br> Department of Biomedical Info
 
 <br>
 
-1.  ✍️ Data Literacy and Software Diversity
+1.  ✍️ Data Literacy, Data Grammar, and Software Diversity
 2.  📚 Apache Arrow
 3.  ⏯️ Demonstrations
 
@@ -41,9 +40,15 @@ University of Colorado Anschutz Medical Campus<br> Department of Biomedical Info
 
 ## Preface
 
+<br>
+
+Why does this matter?
+
 ![](2023-04-17-10-18-33.png)
 
-Data is locked away until made available to others.
+-   Data is locked away until made available to others.
+
+-   How can you free your data to create opportunity?
 
 ------------------------------------------------------------------------
 
@@ -96,6 +101,27 @@ What is data, ***really***?
 
 <br>
 
+A CSV file:
+
+<br>
+
+``` csv
+a_string , b_int , c_float
+"dog"    , 1     , NaN
+'cat'    , NULL  ,  "0.2f"
+         , 3     ,  0.8
+```
+
+<br>
+
+What datatypes are these columns?
+
+------------------------------------------------------------------------
+
+## Data Literacy
+
+<br>
+
 ![](2023-04-12-08-55-53.png)
 
 We can develop our way around this!
@@ -122,13 +148,16 @@ We can develop our way around this!
 
 <br>
 
-How different could R `data.table`'s and Python `Pandas.DataFrame`'s be?
+How different could R and Python be?
 
 ------------------------------------------------------------------------
 
 ## Data Literacy
 
 <br>
+
+<br>
+
 
 Maybe it gets better if we choose one language?
 
@@ -137,6 +166,7 @@ Maybe it gets better if we choose one language?
 ## Data Literacy
 
 <br>
+
 
 ![](2023-04-12-09-02-26.png)
 
@@ -148,32 +178,9 @@ They're all just dataframes, right?
 
 <br>
 
-+--------------------------------------+---------------------------------+
-| Pandas.DataFrame                     | PySpark.DataFrame               |
-+======================================+=================================+
-| ``` python                           | ``` python                      |
-| import pandas as pd                  | ...                             |
-|                                      |                                 |
-| df = pd.read_csv(...)                | df = spark.read.csv(...)        |
-|                                      |                                 |
-| df[df["Petal.Width"] > 1.0].groupby( | iris_df.filter(                 |
-|     "Species"                        |     iris_df["Petal.Width"] > 1  |
-| )["Petal.Length"].mean()             | ).groupBy("Species").agg(       |
-| ```                                  |     mean("Petal.Length"))       |
-|                                      | ```                             |
-+--------------------------------------+---------------------------------+
-
 <br>
 
-Close but different enough to cause challenges.
-
-------------------------------------------------------------------------
-
-## Data Literacy
-
-<br>
-
--   Which data approach is more ***"correct"***?
+Which data approach is more ***"correct"***?
 
 ------------------------------------------------------------------------
 
@@ -184,6 +191,35 @@ Close but different enough to cause challenges.
 ![](2023-04-17-13-35-23.png)
 
 In addition to understanding what data is (**literacy**),<br> we need ways to use the data too (**grammar**).
+
+------------------------------------------------------------------------
+
+## Data Grammar
+
+<br>
+
+![](2023-04-18-11-08-09.png)
+
+We often assume data stored in a file will be the same as data in memory.
+
+------------------------------------------------------------------------
+
+## Data Grammar
+
+<br>
+
+![](2023-04-18-10-16-54.png)
+
+Each processor uses opinionated translations.
+
+------------------------------------------------------------------------
+
+## Data Grammar
+
+<br>
+
+-   Each translation without a common grammar is different.
+-   How much can we hope to understand one another?
 
 ------------------------------------------------------------------------
 
@@ -205,17 +241,11 @@ Music notes and how they are played together.
 
 <br>
 
+<br>
+
 -   What kind of data "music" do you play?
 
 -   How does your "band" play together?
-
-
-------------------------------------------------------------------------
-
-## Data Grammar
-
-<br>
-
 
 ------------------------------------------------------------------------
 
@@ -231,17 +261,44 @@ A practice of growing and cultivating software using parallels from horticulture
 
 ## Software Diversity
 
-<br>
-
 ![](2023-04-12-09-58-07.png)
 
-Software tends to follow patterns from life.
+Software can follow patterns from life.
 
 ------------------------------------------------------------------------
 
 ## Software Diversity
 
 <br>
+
+![](2023-04-18-11-17-50.png)
+
+Time influences software.
+
+------------------------------------------------------------------------
+
+## Software Diversity
+
+![](2023-04-18-10-47-59.png)
+
+Single-stack or mono-lingual restrictions <br>for your ecosystem means isolation.
+
+------------------------------------------------------------------------
+
+## Software Diversity
+
+![](2023-04-18-10-49-12.png)
+
+Isolation may mean lower chances of survival (what's next?).
+
+------------------------------------------------------------------------
+
+## Software Diversity
+
+<br>
+
+-   How can software diversity and common <br>data grammar be handled together?
+-   Isn't this all contradictory?
 
 ------------------------------------------------------------------------
 
@@ -251,8 +308,87 @@ Software tends to follow patterns from life.
 
 ![](assets/arrow.png)
 
-<br> Apache Arrow is a library for managing data across many languages. ([https://arrow.apache.org](https://arrow.apache.org/))
+<br> Apache Arrow is a library for processing<br> data across many languages.
+
+([https://arrow.apache.org](https://arrow.apache.org/))
 
 ------------------------------------------------------------------------
 
-## Background
+## Apache Arrow
+
+![](2023-04-18-11-08-48.png)
+
+A data grammar to enable software diversity.
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+<br>
+
+Arrow's key features:
+
+- __Language interoperability__ <br>(bindings for R, Python, Julia, Java, more...)
+- __Metadata compatibility and availability__ <br>(types, schema, descriptions, more...)
+- __"zero-copy" availability__ <br>(shared memory buffers, avoid conversions)
+
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+<br>
+
+![](2023-04-18-15-36-41.png)
+
+An example of "zero-copy" at work between R and Python.
+
+------------------------------------------------------------------------
+
+## Apache Arrow - Concepts
+
+<br>
+
+<br>
+
+Covering a few brief concepts (there's much more!).
+
+------------------------------------------------------------------------
+
+## Apache Arrow - Concepts
+
+![](2023-04-18-14-57-01.png)
+
+**Arrays** are "columns": they include values of a single type.
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+![](2023-04-18-14-37-06.png)
+
+Array **Fields** may include a name, data type, and other metadata.
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+![](2023-04-18-14-38-27.png)
+
+**Record Batches** are collections of arrays.
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+![](2023-04-18-14-45-00.png){width="600"}
+
+**Tables** are collections of Record Batches.
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+![](2023-04-18-14-51-10.png){width="680"}
+
+Tables include **Schema** which collect fields, data description, and metadata tools.
