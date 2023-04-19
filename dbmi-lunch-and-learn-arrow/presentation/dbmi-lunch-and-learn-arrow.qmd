@@ -3,11 +3,8 @@ title: |
   Cross-language <br>
   Data Development <br> 
   with Apache Arrow <br><br>
-
-subtitle: "DBMI Lunch & Learn"
 description-meta: |
     Tired of running into data development challenges like conversion, datatyping, and performance without a unified standard? This talk will cover Apache Arrow: a unique opportunity to enable standardized multi-lingual and high-performance data development. We'll cover a brief background, how Arrow compares to similar software, and some development examples.
-author: "Dave Bunten"
 format:
   revealjs: 
     theme: simple
@@ -46,7 +43,7 @@ Why does this matter?
 
 ![](2023-04-17-10-18-33.png)
 
--   Data is locked away until made available to others.
+-   Data is locked up by technology and language differences.
 
 -   How can you free your data to create opportunity?
 
@@ -114,7 +111,7 @@ a_string , b_int , c_float
 
 <br>
 
-What datatypes are these columns?
+What data type are these columns (strings, floats, integers)?
 
 ------------------------------------------------------------------------
 
@@ -158,7 +155,6 @@ How different could R and Python be?
 
 <br>
 
-
 Maybe it gets better if we choose one language?
 
 ------------------------------------------------------------------------
@@ -166,7 +162,6 @@ Maybe it gets better if we choose one language?
 ## Data Literacy
 
 <br>
-
 
 ![](2023-04-12-09-02-26.png)
 
@@ -200,7 +195,7 @@ In addition to understanding what data is (**literacy**),<br> we need ways to us
 
 ![](2023-04-18-11-08-09.png)
 
-We often assume data stored in a file will be the same as data in memory.
+Data in-memory isn't the same as data in a file.
 
 ------------------------------------------------------------------------
 
@@ -227,9 +222,13 @@ Each processor uses opinionated translations.
 
 <br>
 
+A quick analogy:
+
+<br>
+
 ![](2023-04-17-13-21-41.png)
 
-Music notes and how they are played together.
+ Music notes and how they are played together.
 
 <br>
 
@@ -281,7 +280,7 @@ Time influences software.
 
 ![](2023-04-18-10-47-59.png)
 
-Single-stack or mono-lingual restrictions <br>for your ecosystem means isolation.
+Single-stack or mono-lingual restrictions <br>for your ecosystem mean isolation.
 
 ------------------------------------------------------------------------
 
@@ -318,7 +317,7 @@ Isolation may mean lower chances of survival (what's next?).
 
 ![](2023-04-18-11-08-48.png)
 
-A data grammar to enable software diversity.
+Arrow enables a data grammar for software diversity.
 
 ------------------------------------------------------------------------
 
@@ -328,10 +327,9 @@ A data grammar to enable software diversity.
 
 Arrow's key features:
 
-- __Language interoperability__ <br>(bindings for R, Python, Julia, Java, more...)
-- __Metadata compatibility and availability__ <br>(types, schema, descriptions, more...)
-- __"zero-copy" availability__ <br>(shared memory buffers, avoid conversions)
-
+-   **Language interoperability** <br>(bindings for R, Python, Julia, Java, more...)
+-   **Metadata compatibility and availability** <br>(types, schema, descriptions, more...)
+-   **Performance and "zero-copy" capabilities** <br>(shared memory buffers, avoid conversions)
 
 ------------------------------------------------------------------------
 
@@ -341,7 +339,17 @@ Arrow's key features:
 
 ![](2023-04-18-15-36-41.png)
 
-An example of "zero-copy" at work between R and Python.
+Illustration of "zero-copy" at work between R and Python.
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+![](2023-04-19-08-16-41.png){width="700"}
+
+Performance is another reason to make use of Arrow.
+
+[[*Chart from: Ursa Labs (Voltron Data), Measuring and Monitoring Arrow's Performance: Some Updated R Benchmarks*](https://ursalabs.org/blog/2021-r-benchmarks-part-1/)]{style="font-size:.5em;"}
 
 ------------------------------------------------------------------------
 
@@ -392,3 +400,99 @@ Array **Fields** may include a name, data type, and other metadata.
 ![](2023-04-18-14-51-10.png){width="680"}
 
 Tables include **Schema** which collect fields, data description, and metadata tools.
+
+------------------------------------------------------------------------
+
+## Apache Arrow - Examples
+
+``` r
+library(dplyr)
+library(arrow)
+
+# read iris data into arrow table
+iris_table <- arrow::arrow_table(iris)
+
+# Use arrow and dplyr to form result
+result <- iris_table %>%
+  filter(Petal.Width > 1.0) %>%
+  group_by(Species) %>%
+  dplyr::summarize(mean_Petal_Length = mean(Petal.Length)) %>%
+  # lazy evaluation
+  collect()
+
+# Print the result
+print(result)
+```
+R with Arrow and Dplyr example.
+
+------------------------------------------------------------------------
+
+## Apache Arrow - Examples
+
+```r
+# Load the necessary packages
+library(dplyr)
+library(arrow)
+library(reticulate)
+
+# create pyarrow python environment
+virtualenv_create("my-pyarrow-env")
+use_virtualenv("my-pyarrow-env")
+install_pyarrow("my-pyarrow-env")
+
+# read iris data into arrow table
+iris_table <- arrow::arrow_table(iris)
+
+# print out the R-based arrow iris table
+print(iris_table)
+
+# send the R-based arrow iris table to pyarrow
+pyarrow_table <- r_to_py(iris_table)
+
+# print out the Python-based arrow iris table
+print(pyarrow_table)
+```
+
+Opening up the PyArrow API via R.
+
+------------------------------------------------------------------------
+
+## Apache Arrow - Examples
+
+```python
+import duckdb
+from pyarrow import csv
+
+# read iris CSV data into arrow table
+arrow_table = csv.read_csv("iris.csv")
+
+# perform a SQL query on arrow table using duckdb
+duckdb.connect().execute(
+    """
+    SELECT
+        Species,
+        AVG(Petal_Length) as mean_Petal_Length
+    FROM arrow_table
+    WHERE Petal_Width > 1.0
+    GROUP BY Species
+    """
+).arrow()
+```
+Performing a SQL query on Arrow data in Python.
+
+------------------------------------------------------------------------
+
+## Thank you!
+
+<br>
+<br>
+
+Questions / Comments?
+
+<br>
+<br>
+
+__Further References__
+
+-   [Arrow for R Cheatsheet](https://github.com/apache/arrow/blob/main/r/cheatsheet/arrow-cheatsheet.pdf)
+-   [PyArrow Documentation](https://arrow.apache.org/docs/python/index.html)
