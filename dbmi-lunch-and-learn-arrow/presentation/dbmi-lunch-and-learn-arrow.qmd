@@ -30,8 +30,8 @@ University of Colorado Anschutz Medical Campus<br> Department of Biomedical Info
 <br>
 
 1.  ✍️ Data Literacy, Data Grammar, and Software Diversity
-2.  📚 Apache Arrow
-3.  ⏯️ Demonstrations
+2.  📚 Apache Arrow Concepts
+3.  ⏯️ Examples
 
 ------------------------------------------------------------------------
 
@@ -44,7 +44,7 @@ Why does this matter?
 ![](2023-04-17-10-18-33.png)
 
 -   Data is locked up by technology and language differences.
-
+-   Sometimes this happens by accident or for performance.
 -   How can you free your data to create opportunity?
 
 ------------------------------------------------------------------------
@@ -73,6 +73,27 @@ How we might imagine data conversations.
 
 <br>
 
+A CSV file:
+
+<br>
+
+``` csv
+a_string , b_int , c_float
+"dog"    , 1     , NaN
+'cat'    , NULL  ,  "0.2f"
+         , 3     ,  0.8
+```
+
+<br>
+
+What data type are these columns (strings, floats, integers)?
+
+------------------------------------------------------------------------
+
+## Data Literacy
+
+<br>
+
 ![](2023-04-12-09-13-23.png)
 
 The spreadsheets should be the same, right?
@@ -91,27 +112,6 @@ What is data, ***really***?
 -   What is a "table"?
 -   What is a "schema"?
 -   What is a "dataframe"?
-
-------------------------------------------------------------------------
-
-## Data Literacy
-
-<br>
-
-A CSV file:
-
-<br>
-
-``` csv
-a_string , b_int , c_float
-"dog"    , 1     , NaN
-'cat'    , NULL  ,  "0.2f"
-         , 3     ,  0.8
-```
-
-<br>
-
-What data type are these columns (strings, floats, integers)?
 
 ------------------------------------------------------------------------
 
