@@ -1,0 +1,84 @@
+---
+title: |
+  Development Prioritization <br>
+  using Value and Time
+description-meta: |
+    Outline:
+
+    - 3 minutes: Background (what's ahead of us):
+      - Brief coverage of Cytomining projects (pycytominer, deepprofiler, cytominer-eval, cytotable )
+      - Talk about number of issues in each project
+      - Talk about number of developers working on each project
+      - Talk about general progress made (PR's per month, etc?)
+
+    - 3 minutes: Time:
+      - Talk about time as a primary limitation and how it differs from money (one can't regain time)
+      - Talk about how time is effected by number of people involved (mythical person-month, complexity doesn't reduce with more people)
+      - Talk about how complexity is related to time
+
+    - 3 minutes: Value:
+      - Cover what value means in the cytomining context
+      - Talk about how value can be measured using time reduction, enhancements, etc (vitamin vs painkiller? Enhancements vs burden or risk reduction)
+      - Talk about Value streams (use pictures, https://en.wikipedia.org/wiki/Value_stream) and how time effects things here for the Cytomining community
+
+    - 6 minutes: Agile iteration:
+      - Talk about modularization of work, small chunks of reasonable work, and iterations from an Agile context
+      - Quick demonstration of using Time and Value to understand specific issues / features from a develepment perspective
+      - Reason through why high value low time/complexity tasks are a good way to be productive with changes
+      - Briefly cover that there are exceptions (high priority items which require circumventing the work)
+      - Talk about Github tools which can help with this process
+
+    - Jump into engagement:
+      - 5 minutes: Initial work estimations:
+        - Use a whiteboard, Jamboard, or similar to assign 3 issues to each of the meeting group
+        - Talk about how each person should attempt to quantify the issues by time and value using a 1-5 point scale (1 being least, 5 being most)
+        - Have each person interactively plot their issues on an X, Y chart available for all to see (X as Time, Y as Value?)
+        - Give a reasonable amount of time to complete this (allow for thinking time / not rushing)
+
+      - 10 minutes: estimation discussion
+        - Did we estimate the items correctly? Should we adjust anything? (allow for person to speak up or for the group to talk through how they feel)
+        - Once all items are talked through, "birds-eye view": what patterns do we see emerging?
+
+      - 10 minutes: work classifications
+        - Draw quadrants on the Time vs Value chart, talk about what each mean generally
+        - Target the top left quadrant (high value, low time/complexity), talk through what items are there
+        - Ask / consider: are we missing the mark by focusing on only these?
+        - Are there stretch items which we could focus on?
+
+      - 10 minutes: stretch items modularization
+        - For the desirable stretch (high value, higher time/complexity), talk through modularization (breaking down the task into smaller chunks)
+        - Take 1 or 2 examples here, how might these be broken down into 2-part or 3-part issues instead of 1 big one.
+        - Talk through how we might plot these new "sub-tasks". 
+        - How does this change things for the previous work classifications?
+
+      - 10 minutes: work volunteering
+        - Ask who should be involved in what? Are there any issues which speak to folks?
+        - Use issue assignments in Github to delegate and provide responsible / observable actions (?)
+
+    - 5 minutes: Meeting closeout
+      - Recap the topics
+      - Celebrate Cytomining progress (understanding and organizing the work is work!)
+      - 
+
+format:
+  revealjs: 
+    theme: simple
+    transition: slide
+    slide-number: true
+    auto-stretch: false
+---
+
+## Brief Introduction
+
+
+
+------------------------------------------------------------------------
+
+## Presentation Outline
+
+<br>
+
+1.  ✍️ 
+2.  📚 
+3.  ⏯️ 
+
