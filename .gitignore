@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+dev-time-and-value/presentation/dev-time-and-value_files/*
