@@ -55,6 +55,19 @@ format:
     auto-stretch: false
 ---
 
+
+<br>
+<br> 
+<br>
+<br> 
+<br>
+<br> 
+<center>__Gratitude!__</center>
+
+
+
+------------------------------------------------------------------------
+
 ## Presentation Outline
 
 <br>
@@ -149,12 +162,20 @@ An example: [pycytominer#250](https://github.com/cytomining/pycytominer/issues/2
 
 ------------------------------------------------------------------------
 
-## Time - Code Decay
+## Time - Hofstadter's Law
 
 <br>
 
-- 🕑 [__Hofstadter's Law__](https://en.wikipedia.org/wiki/Hofstadter%27s_law): "It always takes longer than you expect, even when you take into account Hofstadter's Law." ()
+- 🕑 [__Hofstadter's Law__](https://en.wikipedia.org/wiki/Hofstadter%27s_law): "It always takes longer than you expect, even when you take into account Hofstadter's Law."
 - Plan for delays; time taken will almost always be more than you expect.
+
+------------------------------------------------------------------------
+
+## Time - Hofstadter's Law - continued
+
+<br>
+
+- 🕑 [Planning Fallacy](https://en.wikipedia.org/wiki/Planning_fallacy): predictions about how much time it will take are often wrong and fall victim to optimism bias.
 
 ------------------------------------------------------------------------
 
@@ -162,7 +183,7 @@ An example: [pycytominer#250](https://github.com/cytomining/pycytominer/issues/2
 
 <br>
 
-- Total open Cytomining repo issues: 130
+- Total open Cytomining repo issues: 230 (an estimate!)
 
 _[Calculations reference](https://gist.github.com/d33bs/ad6e6d188bdf59e33f52b0517eb97a55)_
 
@@ -185,9 +206,9 @@ Let's assume each open issue needs a minimum:
 
 That makes:
 
-- 130 open issues * 3 hrs = __390 hours of work (minimum)__
-- 390 hrs / 8 hrs = __48.75 full work days__
-- 48.75 / 5 work days per week = __9.75 full work weeks__
+- 230 open issues * 3 hrs = __690 hours of work (minimum)__
+- 690 hrs / 8 hrs = __86.25 full work days__
+- 86.25 / 5 work days per week = __17.25 full work weeks__
 
 😬
 
@@ -251,3 +272,40 @@ That makes:
 ![](2023-06-06-16-01-02.png)
 
 Value-added vs waiting time
+
+------------------------------------------------------------------------
+
+## Strategies - Agile 
+
+> Deliver working software frequently, from a
+couple of weeks to a couple of months, with a
+preference to the shorter timescale.
+
+[Agile Manifesto: Principles behind the Agile Manifesto](https://agilemanifesto.org/principles.html)
+
+------------------------------------------------------------------------
+
+## Strategies - Agile thinking
+
+- Focus on modularization, breaking big problems into smaller ones
+- Keep _kairos_ in mind, or the opportune time to do things
+- Use time and value to prefer high value, low time items
+
+------------------------------------------------------------------------
+ 
+![](2023-06-07-10-25-13.png)
+
+
+------------------------------------------------------------------------
+
+## Strategies - Backcasting
+
+- High value, high time duration ("Major Projects")
+- Use Backcasting to "think with this end in mind"
+- Backcasting: picturing the steps which take place before the end result
+
+------------------------------------------------------------------------
+
+## Strategies - Backtracing
+
+![](2023-06-07-11-00-52.png)
