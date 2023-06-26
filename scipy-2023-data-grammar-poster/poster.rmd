@@ -38,29 +38,6 @@ main_textsize: "160px"
 main_fontfamily: "Roboto Condensed"
 ---
 
-
-```{r, include=FALSE}
-knitr::opts_chunk$set(results = 'asis',
-                      echo = FALSE,
-                      warning = FALSE,
-                      tidy = FALSE,
-                      message = FALSE,
-                      fig.align = 'center',
-                      out.width = "100%")
-options(knitr.table.format = "html") 
-```
-
-```{r myplot, include=FALSE}
-svg('myplot.svg')
-plot(iris$Sepal.Length, iris$Sepal.Width)
-dev.off()
-```
-
-```{r, include=FALSE}
-knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
-```
-
-
 # Introduction
 
 <script type="module">
