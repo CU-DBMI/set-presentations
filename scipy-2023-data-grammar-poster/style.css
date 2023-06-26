@@ -1,0 +1,25 @@
+#title {
+    line-height: 100% !important;
+}
+
+.outer h1,
+.outer h2 {
+    text-align: left !important;
+}
+
+.section .section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.mermaid {
+    max-width: none !important;
+}
+
+.mermaid svg {
+    max-width: none !important;
+}
+
+#data-apache-arrow {
+    padding-top: 10px;
+}
