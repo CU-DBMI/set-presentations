@@ -108,7 +108,7 @@ DuckDB delivers in-memory capabilities through SQL, treating variable data as a 
 
 ## <i class="fa fa-file-alt fa-lg"></i> Output: Apache Parquet
 
-![Figure 5. Chart showing read time durations for data from various file formats.](https://github.com/d33bs/CytoTable-benchmarks/blob/a09af753408185eaa31389aed0ccecbf0aefabb4/notebooks/images/file-read-time-all.png?raw=true)
+![Figure 5. Chart showing read time durations for data from various file formats.](https://github.com/d33bs/CytoTable-benchmarks/blob/init-benchmarks/notebooks/images/file-read-time-all.png?raw=true)
 <p class="caption">Figure 5. Chart showing read time durations for data from various file formats.</p>
 
 Work is saved in Apache Parquet files, which are compatible with Apache Arrow, and designed for storage and retrieval efficiency.
