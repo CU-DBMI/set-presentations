@@ -4,6 +4,8 @@ This directory includes content related to building a poster via [Posterdown](ht
 
 Related charts for various benchmarks may be found in the related repository: [CytoTable-benchmarks](https://github.com/cytomining/CytoTable-benchmarks).
 
+Poster dimensions follow SciPy 2023's specifications: `3 ft tall by 4 ft wide in “horizontal”/“landscape” format`.
+
 ## Development
 
 [Renv](https://rstudio.github.io/renv/index.html) is used to maintain the R environment.
