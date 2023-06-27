@@ -1,9 +1,13 @@
 ---
-title: Cross-language Data Grammar for Single-cell Research Software Engineering
+title: Cross-language Data Grammar for Single-cell Research Feature Engineering
 author:
     - name: Dave Bunten
       affil: 1
       orcid: 0000-0001-6041-3665
+      main: true
+    - name: Faisal Alquaddoomi
+      affil: 1
+      orcid: 0000-0003-4297-8747
       main: true
     - name: Gregory P. Way
       affil: 1
@@ -13,10 +17,10 @@ affiliation:
   - num: 1
     address: Department of Biomedical Informatics, University of Colorado Anschutz
 main_findings:
-  - "Impelmenting data grammar through **SQL**, **Arrow**, **Parquet**, ... "
-  - '![](){.main_pic}'
+  - "CytoTable implements **data grammar** through **Apache Arrow**, **DuckDB SQL**, **Apache Parquet** for increased research velocity, cross-language integration, and understandability."
+  - '![](images/main-diagram.png){.main_pic}'
 logoleft_name: '![](){.main-img-left}'
-logoright_name: '![](){.main-img-right}'
+logoright_name: '![](images/combined.png){.main-img-right}'
 output: 
   posterdown::posterdown_betterland:
     self_contained: false
@@ -65,7 +69,7 @@ flowchart LR
 </pre>
 <p class="figcaption">Figure 1. A diagram showing many different feature data and common challenges.</p>
 
-Research in the Way Lab involves intensive data engineering over high-dimensional single-cell morphology data from large-scale microscopy drug screening applications.
+Research in the [Way Lab](https://www.waysciencelab.com/) involves intensive data engineering over high-dimensional single-cell morphology data from large-scale microscopy drug screening applications.
 Software development surrounding this work often entails scalability (larger than memory data handling) and understandability (syntax complexity and software sustainability) challenges.
 
 # Solution design
@@ -85,7 +89,7 @@ flowchart LR
 </pre>
 <p class="figcaption">Figure 2. A diagram illustrating data grammar as an abstract linguistic algorithm.</p>
 
-To address these challenges we have developed a python package called CytoTable which implements "cross-language data grammar" capabilities (vocabulary + syntax = output) orchestrated with Parsl workflows.
+To address these challenges we have developed a python package called [CytoTable](https://github.com/cytomining/CytoTable) which implements "cross-language data grammar" capabilities (vocabulary + syntax = output) orchestrated with [Parsl](https://github.com/Parsl/parsl) workflows.
 Our vision is for CytoTable to increase consistency and reliability of data and enable more scientists to quickly access single-cell insights from microscopy images.
 
 <br>
@@ -93,21 +97,28 @@ Our vision is for CytoTable to increase consistency and reliability of data and 
 
 ##  <i class="fa fa-circle fa-lg"></i> Data: Apache Arrow
 
-![Figure 3. Chart showing relative memory size for data using various Python libraries.](https://raw.githubusercontent.com/d33bs/CytoTable-benchmarks/init-benchmarks/notebooks/images/mem-read-size.png)
+![Figure 3. Chart showing relative memory size for data using various Python libraries.](https://raw.githubusercontent.com/cytomining/CytoTable-benchmarks/init-benchmarks/notebooks/images/mem-read-size.png)
 
-Apache Arrow represents a new frontier for data implementation flexibility, enabling a unified, multi-language, zero-copy format for in-memory analysis.
+[Apache Arrow](https://arrow.apache.org/) represents a new frontier for data implementation flexibility, enabling a unified, multi-language, zero-copy format for in-memory analysis.
 Arrow is like a high-performance Pandas dataframe which may be used across languages with fewer scalability challenges.
 
 ## <i class="fa fa-stream fa-lg"></i> Syntax: DuckDB SQL
 
-![Figure 4. ](https://raw.githubusercontent.com/d33bs/CytoTable-benchmarks/init-benchmarks/notebooks/images/mem-read-size.png)
+![Figure 4. Chart showing read time durations of Pandas and DuckDB with SQLite databases of various sizes.](https://raw.githubusercontent.com/cytomining/CytoTable-benchmarks/init-benchmarks/notebooks/images/join-read-time.png)
 
-Structured Query Language (SQL) through DuckDB provides an Arrow-compatible embedded database system optimized for vectorized execution.
+Structured Query Language (SQL) through [DuckDB](https://duckdb.org/) provides an Arrow-compatible embedded database system optimized for vectorized execution.
 DuckDB delivers in-memory capabilities through SQL, treating variable data as a loose collection of database tables without needing conversion.
 
 ## <i class="fa fa-file-alt fa-lg"></i> Output: Apache Parquet
 
-![Figure 5. Chart showing read time durations for data from various file formats.](https://github.com/d33bs/CytoTable-benchmarks/blob/init-benchmarks/notebooks/images/file-read-time-all.png?raw=true)
+![Figure 5. Chart showing read time durations for data from various file formats.](https://github.com/cytomining/CytoTable-benchmarks/blob/init-benchmarks/notebooks/images/file-read-time-all.png?raw=true)
 
-Work is saved in Apache Parquet files, which are compatible with Apache Arrow, and designed for storage and retrieval efficiency.
+Work is saved in [Apache Parquet](https://parquet.apache.org/) files, which are compatible with Apache Arrow, and designed for storage and retrieval efficiency.
 Parquet is a columnar data format which may be partitioned across one or many files.
+
+## Acknowledgements
+
+Special thanks goes to the following for their help in contributing to CytoTable, this poster, or related work.
+
+- The Way Lab (https://www.waysciencelab.com/)
+- The Broad Institute (https://www.broadinstitute.org/)

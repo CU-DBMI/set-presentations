@@ -1,0 +1,25 @@
+flowchart LR
+
+    csv[(CSV Files)]
+    npz[(NPZ Files)]
+    sqlite[(SQLite Files)]
+    
+    subgraph data_grammar ["Data Grammar\n"]
+        subgraph spacer [" "]
+            subgraph sql["DuckDB SQL"]
+                arrow["Arrow Table(s)"]
+            end
+            parquet[("Parquet File(s)")]
+        end
+    end
+
+    csv --> sql
+    sqlite --> sql
+    npz --> sql
+
+    arrow --> parquet
+
+
+    style sql fill:#6EE7B7,stroke:#999999;
+    style data_grammar fill:#ffffff,stroke:#444444;
+    style spacer fill:#ffffff,stroke:#ffffff;

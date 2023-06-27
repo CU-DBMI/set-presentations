@@ -33,10 +33,35 @@
     color: #000000 !important;
 }
 
-#author {
+#author,
+#author sup,
+a {
     color: #164E63 !important;
 }
 
-#author sup {
-    color: #164E63 !important;
+img.main-img-right {
+    width: 95% !important;
+    bottom: 0.6in !important;
+}
+
+img.main-img-left {
+    width: 30% !important;
+    bottom: 0.6in !important;
+}
+
+.main p {
+    padding-top: 5% !important;
+    ;
+}
+
+.outer h2 {
+    margin-bottom: 0px;
+}
+
+.main_pic {
+    width: 85% !important;
+}
+
+li {
+    text-align: left;
 }
