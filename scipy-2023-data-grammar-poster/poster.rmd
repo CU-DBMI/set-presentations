@@ -26,10 +26,11 @@ output:
     css: "style.css"
 link-citations: true
 
-primary_colour: "#15803D"
-secondary_colour: "#0369A1"
+primary_colour: "#FEF3C7"
+secondary_colour: "#FED7AA"
 accent_colour: "#16A34A"
 main_width: 0.4
+main_textcol: "#444444"
 poster_height: "36in"
 poster_width: "48in"
 title_textsize: "120px"
@@ -62,7 +63,7 @@ flowchart LR
 
     style challenges fill:#FDA4AF,stroke:#881337
 </pre>
-<p class="caption">Figure 1. A diagram showing many different feature data and common challenges.</p>
+<p class="figcaption">Figure 1. A diagram showing many different feature data and common challenges.</p>
 
 Research in the Way Lab involves intensive data engineering over high-dimensional single-cell morphology data from large-scale microscopy drug screening applications.
 Software development surrounding this work often entails scalability (larger than memory data handling) and understandability (syntax complexity and software sustainability) challenges.
@@ -82,7 +83,7 @@ flowchart LR
     linkStyle 0 stroke:#dddddd,color:black;
     linkStyle 1 stroke:#dddddd,color:black;
 </pre>
-<p class="caption">Figure 2. A diagram illustrating data grammar as an abstract linguistic algorithm.</p>
+<p class="figcaption">Figure 2. A diagram illustrating data grammar as an abstract linguistic algorithm.</p>
 
 To address these challenges we have developed a python package called CytoTable which implements "cross-language data grammar" capabilities (vocabulary + syntax = output) orchestrated with Parsl workflows.
 Our vision is for CytoTable to increase consistency and reliability of data and enable more scientists to quickly access single-cell insights from microscopy images.
@@ -93,7 +94,6 @@ Our vision is for CytoTable to increase consistency and reliability of data and 
 ##  <i class="fa fa-circle fa-lg"></i> Data: Apache Arrow
 
 ![Figure 3. Chart showing relative memory size for data using various Python libraries.](https://raw.githubusercontent.com/d33bs/CytoTable-benchmarks/init-benchmarks/notebooks/images/mem-read-size.png)
-<p class="caption">Figure 3. Chart showing relative memory size for data using various Python libraries.</p>
 
 Apache Arrow represents a new frontier for data implementation flexibility, enabling a unified, multi-language, zero-copy format for in-memory analysis.
 Arrow is like a high-performance Pandas dataframe which may be used across languages with fewer scalability challenges.
@@ -101,7 +101,6 @@ Arrow is like a high-performance Pandas dataframe which may be used across langu
 ## <i class="fa fa-stream fa-lg"></i> Syntax: DuckDB SQL
 
 ![Figure 4. ](https://raw.githubusercontent.com/d33bs/CytoTable-benchmarks/init-benchmarks/notebooks/images/mem-read-size.png)
-<p class="caption">Figure 4.</p>
 
 Structured Query Language (SQL) through DuckDB provides an Arrow-compatible embedded database system optimized for vectorized execution.
 DuckDB delivers in-memory capabilities through SQL, treating variable data as a loose collection of database tables without needing conversion.
@@ -109,7 +108,6 @@ DuckDB delivers in-memory capabilities through SQL, treating variable data as a 
 ## <i class="fa fa-file-alt fa-lg"></i> Output: Apache Parquet
 
 ![Figure 5. Chart showing read time durations for data from various file formats.](https://github.com/d33bs/CytoTable-benchmarks/blob/init-benchmarks/notebooks/images/file-read-time-all.png?raw=true)
-<p class="caption">Figure 5. Chart showing read time durations for data from various file formats.</p>
 
 Work is saved in Apache Parquet files, which are compatible with Apache Arrow, and designed for storage and retrieval efficiency.
 Parquet is a columnar data format which may be partitioned across one or many files.

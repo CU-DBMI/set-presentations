@@ -23,3 +23,20 @@
 #data-apache-arrow {
     padding-top: 10px;
 }
+
+.figcaption {
+    font-size: 20pt;
+    font-style: italic;
+}
+
+.main strong {
+    color: #000000 !important;
+}
+
+#author {
+    color: #164E63 !important;
+}
+
+#author sup {
+    color: #164E63 !important;
+}
