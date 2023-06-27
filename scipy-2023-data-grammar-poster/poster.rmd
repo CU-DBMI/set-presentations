@@ -116,9 +116,10 @@ DuckDB delivers in-memory capabilities through SQL, treating variable data as a 
 Work is saved in [Apache Parquet](https://parquet.apache.org/) files, which are compatible with Apache Arrow, and designed for storage and retrieval efficiency.
 Parquet is a columnar data format which may be partitioned across one or many files.
 
-## Acknowledgements
+### Acknowledgements
 
-Special thanks goes to the following for their help in contributing to CytoTable, this poster, or related work.
+<p style="margin-bottom:5px;">Special thanks goes to the following for their help in contributing to CytoTable, this poster, or related work.<p>
 
 - The Way Lab (https://www.waysciencelab.com/)
 - The Broad Institute (https://www.broadinstitute.org/)
+- Vince Rubinetti (https://cu-dbmi.github.io/set-website/members/vincent-rubinetti.html)
