@@ -6,16 +6,25 @@ Related charts for various benchmarks may be found in the related repository: [C
 
 Poster dimensions follow SciPy 2023's specifications: `3 ft tall by 4 ft wide in “horizontal”/“landscape” format`.
 
+## Dependencies
+
+- [R](https://www.r-project.org/) >= 4.2.3
+- [Pandoc](https://pandoc.org/)
+- [mermaid-cli](https://github.com/mermaid-js/mermaid-cli)
+- [ImageMagick](http://www.imagemagick.org/)
+
 ## Development
 
 [Renv](https://rstudio.github.io/renv/index.html) is used to maintain the R environment.
-Change directory into this one and activate an R session.
+Change directory to scipy-2023-data-grammar and activate an R session.
 
 ```R
 # install renv
 install.packages("renv")
 
 # activate the renv environment
+# note: this may not be necessary depending on
+# whether the environment is automatically loaded.
 renv::activate()
 
 # next, restore the environment using the following command
@@ -25,6 +34,7 @@ renv::restore()
 ## Rendering
 
 Within your R session use the following to perform various steps related to the content found in this directory.
+Note: this depends on Pandoc in order to run.
 
 ```R
 # create an html and PDF copy of the poster from `poster.rmd`

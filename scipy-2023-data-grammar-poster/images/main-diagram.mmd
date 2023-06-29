@@ -4,12 +4,16 @@ flowchart LR
     npz[(NPZ Files)]
     sqlite[(SQLite Files)]
     
-    subgraph data_grammar ["Data Grammar\n"]
+    subgraph parsl["Parsl Workflows"]
         subgraph spacer [" "]
-            subgraph sql["DuckDB SQL"]
-                arrow["Arrow Table(s)"]
+            subgraph data_grammar ["Data Grammar\n"]
+                subgraph spacer2 [" "]
+                    subgraph sql["DuckDB SQL"]
+                        arrow["Arrow Table(s)"]
+                    end
+                    parquet[("Parquet File(s)")]
+                end
             end
-            parquet[("Parquet File(s)")]
         end
     end
 
@@ -20,6 +24,7 @@ flowchart LR
     arrow --> parquet
 
 
-    style sql fill:#6EE7B7,stroke:#999999;
-    style data_grammar fill:#ffffff,stroke:#444444;
-    style spacer fill:#ffffff,stroke:#ffffff;
+style sql fill:#6EE7B7,stroke:#999999;
+style parsl fill:#ffffff,stroke:#444444;
+style spacer fill:#ffffff,stroke:#ffffff;
+style spacer2 fill:#FFFFE1,stroke:#FFFFE1;

@@ -17,7 +17,7 @@ affiliation:
   - num: 1
     address: Department of Biomedical Informatics, University of Colorado Anschutz
 main_findings:
-  - "CytoTable implements **data grammar** through **Apache Arrow**, **DuckDB SQL**, **Apache Parquet** for increased research velocity, cross-language integration, and understandability."
+  - "CytoTable implements **data grammar** through **Apache Arrow**, **DuckDB SQL**, **Apache Parquet** via **Parsl** workflows for increased research velocity, cross-language integration, and understandability."
   - '![](images/main-diagram.png){.main_pic}'
 logoleft_name: '![](){.main-img-left}'
 logoright_name: '![](images/combined.png){.main-img-right}'
@@ -90,7 +90,7 @@ flowchart LR
 <p class="figcaption">Figure 2. A diagram illustrating data grammar as an abstract linguistic algorithm.</p>
 
 To address these challenges we have developed a python package called [CytoTable](https://github.com/cytomining/CytoTable) which implements "cross-language data grammar" capabilities (vocabulary + syntax = output) orchestrated with [Parsl](https://github.com/Parsl/parsl) workflows.
-Our vision is for CytoTable to increase consistency and reliability of data and enable more scientists to quickly access single-cell insights from microscopy images.
+Our vision is for CytoTable to increase data consistency and processing capabilities, enabling more scientists quick access to single-cell insights from microscopy images.
 
 <br>
 <br>
@@ -107,7 +107,7 @@ Arrow is like a high-performance Pandas dataframe which may be used across langu
 ![Figure 4. Chart showing read time durations of Pandas and DuckDB with SQLite databases of various sizes.](https://raw.githubusercontent.com/cytomining/CytoTable-benchmarks/init-benchmarks/notebooks/images/join-read-time.png)
 
 Structured Query Language (SQL) through [DuckDB](https://duckdb.org/) provides an Arrow-compatible embedded database system optimized for vectorized execution.
-DuckDB delivers in-memory capabilities through SQL, treating variable data as a loose collection of database tables without needing conversion.
+DuckDB delivers in-memory manipulation capabilities through a SQL interface, treating variable data as a loose collection of database tables without needing conversion.
 
 ## <i class="fa fa-file-alt fa-lg"></i> Output: Apache Parquet
 
@@ -118,8 +118,8 @@ Parquet is a columnar data format which may be partitioned across one or many fi
 
 ### Acknowledgements
 
-<p style="margin-bottom:5px;">Special thanks goes to the following for their help in contributing to CytoTable, this poster, or related work.<p>
+<p style="margin-bottom:5px;">Special thanks goes to the following for their help in contributing to CytoTable design and development or related work.<p>
 
-- The Way Lab (https://www.waysciencelab.com/)
-- The Broad Institute (https://www.broadinstitute.org/)
-- Vince Rubinetti (https://cu-dbmi.github.io/set-website/members/vincent-rubinetti.html)
+- The Way Lab: Erik Serrano, Jenna Tomkinson
+- The Broad Institute: Shantanu Singh, Beth Cimini
+- DBMI Software Engineering Team: Vince Rubinetti (logo design)
