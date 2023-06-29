@@ -104,7 +104,7 @@ Arrow is like a high-performance Pandas dataframe which may be used across langu
 
 ## <i class="fa fa-stream fa-lg"></i> Syntax: DuckDB SQL
 
-![Figure 4. Chart showing read time durations of Pandas and DuckDB with SQLite databases of various sizes.](https://raw.githubusercontent.com/cytomining/CytoTable-benchmarks/init-benchmarks/notebooks/images/duckdb-comparisons-join-read-time.png)
+![Figure 4. Chart showing read time durations of Pandas and DuckDB with SQLite databases of various sizes.](https://raw.githubusercontent.com/cytomining/CytoTable-benchmarks/main/notebooks/images/duckdb-comparisons-join-read-time.png)
 
 Structured Query Language (SQL) through [DuckDB](https://duckdb.org/) provides an Arrow-compatible embedded database system optimized for vectorized execution.
 DuckDB delivers in-memory manipulation capabilities through a SQL interface, treating variable data as a loose collection of database tables without needing conversion.
