@@ -120,6 +120,6 @@ Parquet is a columnar data format which may be partitioned across one or many fi
 
 <p style="margin-bottom:5px;">Special thanks goes to the following for their help in contributing to CytoTable design and development or related work.<p>
 
-- The Way Lab: Erik Serrano, Jenna Tomkinson
-- The Broad Institute: Shantanu Singh, Beth Cimini
-- DBMI Software Engineering Team: Vince Rubinetti (logo design)
+- [The Way Lab](https://www.waysciencelab.com/): Erik Serrano, Jenna Tomkinson
+- [The Broad Institute](https://www.broadinstitute.org/): Shantanu Singh, Beth Cimini
+- [DBMI Software Engineering Team](https://cu-dbmi.github.io/set-website/): Vince Rubinetti (logo design)
