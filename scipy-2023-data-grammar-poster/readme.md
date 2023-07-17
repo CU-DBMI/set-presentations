@@ -22,13 +22,13 @@ Change directory to scipy-2023-data-grammar and activate an R session.
 # install renv
 install.packages("renv")
 
+# next, restore the environment using the following command
+renv::restore()
+
 # activate the renv environment
 # note: this may not be necessary depending on
 # whether the environment is automatically loaded.
 renv::activate()
-
-# next, restore the environment using the following command
-renv::restore()
 ```
 
 ## Rendering

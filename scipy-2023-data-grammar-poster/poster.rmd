@@ -16,6 +16,7 @@ author:
 affiliation:
   - num: 1
     address: Department of Biomedical Informatics, University of Colorado Anschutz
+doi: https://doi.org/10.5281/zenodo.8137186
 main_findings:
   - "CytoTable implements **data grammar** through **Apache Arrow**, **DuckDB SQL**, **Apache Parquet** via **Parsl** workflows for increased research velocity, cross-language integration, and understandability."
   - '![](images/main-diagram.png){.main_pic}'
