@@ -1,0 +1,498 @@
+---
+title: |
+  Cross-language <br>
+  Data Development <br> 
+  with Apache Arrow <br><br>
+description-meta: |
+    Tired of running into data development challenges like conversion, datatyping, and performance without a unified standard? This talk will cover Apache Arrow: a unique opportunity to enable standardized multi-lingual and high-performance data development. We'll cover a brief background, how Arrow compares to similar software, and some development examples.
+format:
+  revealjs: 
+    theme: simple
+    transition: slide
+    slide-number: true
+    auto-stretch: false
+---
+
+## Brief Introduction
+
+<br>
+
+👋🤓 Hi, I'm Dave
+
+<br>
+
+University of Colorado Anschutz Medical Campus<br> Department of Biomedical Informatics<br> Software Engineering Team
+
+------------------------------------------------------------------------
+
+## Presentation Outline
+
+<br>
+
+1.  ✍️ Data Literacy, Data Grammar, and Software Diversity
+2.  📚 Apache Arrow Concepts
+3.  ⏯️ Examples
+
+------------------------------------------------------------------------
+
+## Preface
+
+<br>
+
+Why does this matter?
+
+![](assets/2023-04-17-10-18-33.png)
+
+-   Data is locked up by technology and language differences.
+-   Sometimes this happens by accident or for performance.
+-   How can you free your data to create opportunity?
+
+------------------------------------------------------------------------
+
+## Data Literacy
+
+<br>
+
+Data Literacy ([Wikipedia](https://en.wikipedia.org/wiki/Data_literacy))
+
+> *"Data literacy is the ability to read, understand, create, and communicate data as information."*
+
+------------------------------------------------------------------------
+
+## Data Literacy
+
+<br>
+
+![](assets/2023-04-12-08-49-53.png)
+
+How we might imagine data conversations.
+
+------------------------------------------------------------------------
+
+## Data Literacy
+
+<br>
+
+A CSV file:
+
+<br>
+
+``` csv
+a_string , b_int , c_float
+"dog"    , 1     , NaN
+'cat'    , NULL  ,  "0.2f"
+         , 3     ,  0.8
+```
+
+<br>
+
+What data type are these columns (strings, floats, integers)?
+
+------------------------------------------------------------------------
+
+## Data Literacy
+
+<br>
+
+![](assets/2023-04-12-09-13-23.png)
+
+The spreadsheets should be the same, right?
+
+------------------------------------------------------------------------
+
+## Data Literacy
+
+<br>
+
+What is data, ***really***?
+
+<br>
+
+-   What is a "datatype"?
+-   What is a "table"?
+-   What is a "schema"?
+-   What is a "dataframe"?
+
+------------------------------------------------------------------------
+
+## Data Literacy
+
+<br>
+
+![](assets/2023-04-12-08-55-53.png)
+
+We can develop our way around this!
+
+------------------------------------------------------------------------
+
+## Data Literacy
+
+<br>
+
++--------------------------+--------------------------------------+
+| R data.table             | Python Pandas.DataFrame              |
++==========================+======================================+
+| ``` r                    | ``` python                           |
+| library(data.table)      | import pandas as pd                  |
+|                          |                                      |
+| DT = as.data.table(iris) | df = pd.read_csv(...)                |
+|                          |                                      |
+| DT[Petal.Width > 1.0,    | df[df["Petal.Width"] > 1.0].groupby( |
+|    mean(Petal.Length),   |     "Species"                        |
+|    by = Species]         | )["Petal.Length"].mean()             |
+| ```                      | ```                                  |
++--------------------------+--------------------------------------+
+
+<br>
+
+How different could R and Python be?
+
+------------------------------------------------------------------------
+
+## Data Literacy
+
+<br>
+
+<br>
+
+Maybe it gets better if we choose one language?
+
+------------------------------------------------------------------------
+
+## Data Literacy
+
+<br>
+
+![](assets/2023-04-12-09-02-26.png)
+
+They're all just dataframes, right?
+
+------------------------------------------------------------------------
+
+## Data Literacy
+
+<br>
+
+<br>
+
+Which data approach is more ***"correct"***?
+
+------------------------------------------------------------------------
+
+## Data Grammar
+
+<br>
+
+![](assets/2023-04-17-13-35-23.png)
+
+In addition to understanding what data is (**literacy**),<br> we need ways to use the data too (**grammar**).
+
+------------------------------------------------------------------------
+
+## Data Grammar
+
+<br>
+
+![](assets/2023-04-18-11-08-09.png)
+
+Data in-memory isn't the same as data in a file.
+
+------------------------------------------------------------------------
+
+## Data Grammar
+
+<br>
+
+![](assets/2023-04-18-10-16-54.png)
+
+Each processor uses opinionated translations.
+
+------------------------------------------------------------------------
+
+## Data Grammar
+
+<br>
+
+-   Each translation without a common grammar is different.
+-   How much can we hope to understand one another?
+
+------------------------------------------------------------------------
+
+## Data Grammar
+
+<br>
+
+A quick analogy:
+
+<br>
+
+![](assets/2023-04-17-13-21-41.png)
+
+ Music notes and how they are played together.
+
+<br>
+
+[[**Image from Wikimedia Commons: Public Domain**](assets/https://commons.wikimedia.org/wiki/File:MozartClarConII.png)]{style="font-size:.5em"}
+
+------------------------------------------------------------------------
+
+## Data Grammar
+
+<br>
+
+<br>
+
+-   What kind of data "music" do you play?
+
+-   How does your "band" play together?
+
+------------------------------------------------------------------------
+
+## Software Diversity
+
+<br>
+
+🪴 **Software gardening:**
+
+A practice of growing and cultivating software using parallels from horticulture.
+
+------------------------------------------------------------------------
+
+## Software Diversity
+
+![](assets/2023-04-12-09-58-07.png)
+
+Software can follow patterns from life.
+
+------------------------------------------------------------------------
+
+## Software Diversity
+
+<br>
+
+![](assets/2023-04-18-11-17-50.png)
+
+Time influences software.
+
+------------------------------------------------------------------------
+
+## Software Diversity
+
+![](assets/2023-04-18-10-47-59.png)
+
+Single-stack or mono-lingual restrictions <br>for your ecosystem mean isolation.
+
+------------------------------------------------------------------------
+
+## Software Diversity
+
+![](assets/2023-04-18-10-49-12.png)
+
+Isolation may mean lower chances of survival (what's next?).
+
+------------------------------------------------------------------------
+
+## Software Diversity
+
+<br>
+
+-   How can software diversity and common <br>data grammar be handled together?
+-   Isn't this all contradictory?
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+<br>
+
+![](assets/arrow.png)
+
+<br> Apache Arrow is a library for processing<br> data across many languages.
+
+([https://arrow.apache.org](https://arrow.apache.org/))
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+![](assets/2023-04-18-11-08-48.png)
+
+Arrow enables a data grammar for software diversity.
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+<br>
+
+Arrow's key features:
+
+-   **Language interoperability** <br>(bindings for R, Python, Julia, Java, more...)
+-   **Metadata compatibility and availability** <br>(types, schema, descriptions, more...)
+-   **Performance and "zero-copy" capabilities** <br>(shared memory buffers, avoid conversions)
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+<br>
+
+![](assets/2023-04-18-15-36-41.png)
+
+Illustration of "zero-copy" at work between R and Python.
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+![](assets/2023-04-19-08-16-41.png){width="700"}
+
+Performance is another reason to make use of Arrow.
+
+[[*Chart from: Ursa Labs (Voltron Data), Measuring and Monitoring Arrow's Performance: Some Updated R Benchmarks*](https://ursalabs.org/blog/2021-r-benchmarks-part-1/)]{style="font-size:.5em;"}
+
+------------------------------------------------------------------------
+
+## Apache Arrow - Concepts
+
+<br>
+
+<br>
+
+Covering a few brief concepts (there's much more!).
+
+------------------------------------------------------------------------
+
+## Apache Arrow - Concepts
+
+![](assets/2023-04-18-14-57-01.png)
+
+**Arrays** are "columns": they include values of a single type.
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+![](assets/2023-04-18-14-37-06.png)
+
+Array **Fields** may include a name, data type, and other metadata.
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+![](assets/2023-04-18-14-38-27.png)
+
+**Record Batches** are collections of arrays.
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+![](assets/2023-04-18-14-45-00.png){width="600"}
+
+**Tables** are collections of Record Batches.
+
+------------------------------------------------------------------------
+
+## Apache Arrow
+
+![](assets/2023-04-18-14-51-10.png){width="680"}
+
+Tables include **Schema** which collect fields, data description, and metadata tools.
+
+------------------------------------------------------------------------
+
+## Apache Arrow - Examples
+
+``` r
+library(dplyr)
+library(arrow)
+
+# read iris data into arrow table
+iris_table <- arrow::arrow_table(iris)
+
+# Use arrow and dplyr to form result
+result <- iris_table %>%
+  filter(Petal.Width > 1.0) %>%
+  group_by(Species) %>%
+  dplyr::summarize(mean_Petal_Length = mean(Petal.Length)) %>%
+  # lazy evaluation
+  collect()
+
+# Print the result
+print(result)
+```
+R with Arrow and Dplyr example.
+
+------------------------------------------------------------------------
+
+## Apache Arrow - Examples
+
+```r
+# Load the necessary packages
+library(dplyr)
+library(arrow)
+library(reticulate)
+
+# create pyarrow python environment
+virtualenv_create("my-pyarrow-env")
+use_virtualenv("my-pyarrow-env")
+install_pyarrow("my-pyarrow-env")
+
+# read iris data into arrow table
+iris_table <- arrow::arrow_table(iris)
+
+# print out the R-based arrow iris table
+print(iris_table)
+
+# send the R-based arrow iris table to pyarrow
+pyarrow_table <- r_to_py(iris_table)
+
+# print out the Python-based arrow iris table
+print(pyarrow_table)
+```
+
+Opening up the PyArrow API via R.
+
+------------------------------------------------------------------------
+
+## Apache Arrow - Examples
+
+```python
+import duckdb
+from pyarrow import csv
+
+# read iris CSV data into arrow table
+arrow_table = csv.read_csv("iris.csv")
+
+# perform a SQL query on arrow table using duckdb
+duckdb.connect().execute(
+    """
+    SELECT
+        Species,
+        AVG(Petal_Length) as mean_Petal_Length
+    FROM arrow_table
+    WHERE Petal_Width > 1.0
+    GROUP BY Species
+    """
+).arrow()
+```
+Performing a SQL query on Arrow data in Python.
+
+------------------------------------------------------------------------
+
+## Thank you!
+
+<br>
+<br>
+
+Questions / Comments?
+
+<br>
+<br>
+
+__Further References__
+
+-   [Arrow for R Cheatsheet](https://github.com/apache/arrow/blob/main/r/cheatsheet/arrow-cheatsheet.pdf)
+-   [PyArrow Documentation](https://arrow.apache.org/docs/python/index.html)
