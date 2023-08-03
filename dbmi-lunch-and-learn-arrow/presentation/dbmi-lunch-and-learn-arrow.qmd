@@ -41,7 +41,7 @@ University of Colorado Anschutz Medical Campus<br> Department of Biomedical Info
 
 Why does this matter?
 
-![](2023-04-17-10-18-33.png)
+![](assets/2023-04-17-10-18-33.png)
 
 -   Data is locked up by technology and language differences.
 -   Sometimes this happens by accident or for performance.
@@ -63,7 +63,7 @@ Data Literacy ([Wikipedia](https://en.wikipedia.org/wiki/Data_literacy))
 
 <br>
 
-![](2023-04-12-08-49-53.png)
+![](assets/2023-04-12-08-49-53.png)
 
 How we might imagine data conversations.
 
@@ -94,7 +94,7 @@ What data type are these columns (strings, floats, integers)?
 
 <br>
 
-![](2023-04-12-09-13-23.png)
+![](assets/2023-04-12-09-13-23.png)
 
 The spreadsheets should be the same, right?
 
@@ -119,7 +119,7 @@ What is data, ***really***?
 
 <br>
 
-![](2023-04-12-08-55-53.png)
+![](assets/2023-04-12-08-55-53.png)
 
 We can develop our way around this!
 
@@ -163,7 +163,7 @@ Maybe it gets better if we choose one language?
 
 <br>
 
-![](2023-04-12-09-02-26.png)
+![](assets/2023-04-12-09-02-26.png)
 
 They're all just dataframes, right?
 
@@ -183,7 +183,7 @@ Which data approach is more ***"correct"***?
 
 <br>
 
-![](2023-04-17-13-35-23.png)
+![](assets/2023-04-17-13-35-23.png)
 
 In addition to understanding what data is (**literacy**),<br> we need ways to use the data too (**grammar**).
 
@@ -193,7 +193,7 @@ In addition to understanding what data is (**literacy**),<br> we need ways to us
 
 <br>
 
-![](2023-04-18-11-08-09.png)
+![](assets/2023-04-18-11-08-09.png)
 
 Data in-memory isn't the same as data in a file.
 
@@ -203,7 +203,7 @@ Data in-memory isn't the same as data in a file.
 
 <br>
 
-![](2023-04-18-10-16-54.png)
+![](assets/2023-04-18-10-16-54.png)
 
 Each processor uses opinionated translations.
 
@@ -226,13 +226,13 @@ A quick analogy:
 
 <br>
 
-![](2023-04-17-13-21-41.png)
+![](assets/2023-04-17-13-21-41.png)
 
  Music notes and how they are played together.
 
 <br>
 
-[[**Image from Wikimedia Commons: Public Domain**](https://commons.wikimedia.org/wiki/File:MozartClarConII.png)]{style="font-size:.5em"}
+[[**Image from Wikimedia Commons: Public Domain**](assets/https://commons.wikimedia.org/wiki/File:MozartClarConII.png)]{style="font-size:.5em"}
 
 ------------------------------------------------------------------------
 
@@ -260,7 +260,7 @@ A practice of growing and cultivating software using parallels from horticulture
 
 ## Software Diversity
 
-![](2023-04-12-09-58-07.png)
+![](assets/2023-04-12-09-58-07.png)
 
 Software can follow patterns from life.
 
@@ -270,7 +270,7 @@ Software can follow patterns from life.
 
 <br>
 
-![](2023-04-18-11-17-50.png)
+![](assets/2023-04-18-11-17-50.png)
 
 Time influences software.
 
@@ -278,7 +278,7 @@ Time influences software.
 
 ## Software Diversity
 
-![](2023-04-18-10-47-59.png)
+![](assets/2023-04-18-10-47-59.png)
 
 Single-stack or mono-lingual restrictions <br>for your ecosystem mean isolation.
 
@@ -286,7 +286,7 @@ Single-stack or mono-lingual restrictions <br>for your ecosystem mean isolation.
 
 ## Software Diversity
 
-![](2023-04-18-10-49-12.png)
+![](assets/2023-04-18-10-49-12.png)
 
 Isolation may mean lower chances of survival (what's next?).
 
@@ -315,7 +315,7 @@ Isolation may mean lower chances of survival (what's next?).
 
 ## Apache Arrow
 
-![](2023-04-18-11-08-48.png)
+![](assets/2023-04-18-11-08-48.png)
 
 Arrow enables a data grammar for software diversity.
 
@@ -337,7 +337,7 @@ Arrow's key features:
 
 <br>
 
-![](2023-04-18-15-36-41.png)
+![](assets/2023-04-18-15-36-41.png)
 
 Illustration of "zero-copy" at work between R and Python.
 
@@ -345,7 +345,7 @@ Illustration of "zero-copy" at work between R and Python.
 
 ## Apache Arrow
 
-![](2023-04-19-08-16-41.png){width="700"}
+![](assets/2023-04-19-08-16-41.png){width="700"}
 
 Performance is another reason to make use of Arrow.
 
@@ -365,7 +365,7 @@ Covering a few brief concepts (there's much more!).
 
 ## Apache Arrow - Concepts
 
-![](2023-04-18-14-57-01.png)
+![](assets/2023-04-18-14-57-01.png)
 
 **Arrays** are "columns": they include values of a single type.
 
@@ -373,7 +373,7 @@ Covering a few brief concepts (there's much more!).
 
 ## Apache Arrow
 
-![](2023-04-18-14-37-06.png)
+![](assets/2023-04-18-14-37-06.png)
 
 Array **Fields** may include a name, data type, and other metadata.
 
@@ -381,7 +381,7 @@ Array **Fields** may include a name, data type, and other metadata.
 
 ## Apache Arrow
 
-![](2023-04-18-14-38-27.png)
+![](assets/2023-04-18-14-38-27.png)
 
 **Record Batches** are collections of arrays.
 
@@ -389,7 +389,7 @@ Array **Fields** may include a name, data type, and other metadata.
 
 ## Apache Arrow
 
-![](2023-04-18-14-45-00.png){width="600"}
+![](assets/2023-04-18-14-45-00.png){width="600"}
 
 **Tables** are collections of Record Batches.
 
@@ -397,7 +397,7 @@ Array **Fields** may include a name, data type, and other metadata.
 
 ## Apache Arrow
 
-![](2023-04-18-14-51-10.png){width="680"}
+![](assets/2023-04-18-14-51-10.png){width="680"}
 
 Tables include **Schema** which collect fields, data description, and metadata tools.
 
