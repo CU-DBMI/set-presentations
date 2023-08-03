@@ -80,7 +80,7 @@ format:
 
 ## Context - What is Cytomining?
 
-![](2023-06-06-09-16-31.png)
+![](assets/2023-06-06-09-16-31.png)
 
 Cytomining is a GitHub Organization which includes several projects the Way Lab develops and uses for research.
 
@@ -114,7 +114,6 @@ Cytomining is a GitHub Organization which includes several projects the Way Lab 
 - Total stars for cytomining repos: 212
 - Total forks from cytomining repos: 161
 - Total number of unique contributors: 36
-- Total number of PyPI downloads (180 days): 18,672
 
 _[Calculations reference](https://gist.github.com/d33bs/ad6e6d188bdf59e33f52b0517eb97a55)_
 
@@ -156,7 +155,7 @@ _[Calculations reference](https://gist.github.com/d33bs/ad6e6d188bdf59e33f52b051
 
 <br>
 
-![](2023-06-06-13-25-39.png)
+![](assets/2023-06-06-13-25-39.png)
 
 An example: [pycytominer#250](https://github.com/cytomining/pycytominer/issues/250)
 
@@ -269,7 +268,7 @@ That makes:
 
 ## Value - Value Streams
 
-![](2023-06-06-16-01-02.png)
+![](assets/2023-06-06-16-01-02.png)
 
 Value-added vs waiting time
 
@@ -293,7 +292,7 @@ preference to the shorter timescale.
 
 ------------------------------------------------------------------------
  
-![](2023-06-07-10-25-13.png)
+![](assets/2023-06-07-10-25-13.png)
 
 
 ------------------------------------------------------------------------
@@ -306,6 +305,6 @@ preference to the shorter timescale.
 
 ------------------------------------------------------------------------
 
-## Strategies - Backtracing
+## Strategies - Backcasting
 
-![](2023-06-07-11-00-52.png)
+![](assets/2023-06-07-11-00-52.png)
