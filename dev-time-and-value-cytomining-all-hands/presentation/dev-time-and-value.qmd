@@ -1,0 +1,310 @@
+---
+title: |
+  Cytomining All-hands
+  <br>
+subtitle: Envisoning future software efforts! 🚀
+description-meta: |
+    Outline:
+
+    3 minutes: Background (what's ahead of us):
+    Brief coverage of Cytomining projects (high-level, one-sentence overview)
+    Pycytominer: “Pycytominer is a suite of common functions used to process high dimensional readouts from high-throughput cell experiments.”
+    DeepProfiler: DeepProfiler is a set of tools to use deep learning for analyzing imaging data in high-throughput biological experiments.
+    Cytominer-eval: Cytominer-eval contains functions to calculate quality metrics for perturbation profiling experiments.
+    CytoSnake (wayscience repo): Reproducible pipelines for processing high-dimensional systems morphology data with snakemake 
+    CytoTable: CytoTable enables single-cell morphology data analysis by cleaning and transforming output data at scale. 
+    Talk about number of issues in Pycytominer (~80) https://github.com/cytomining/pycytominer/issues
+    Talk about general progress made (PR's per month, etc?)
+    Talk about number of developers working on each project (limited time / etc)
+    Brainstorming: how can Pycytominer integrate better with CytoSnake, CytoTable, and other work we’re doing in the Way Lab? Think about specific things.
+
+    3 minutes: Time:
+    Software gardening ecosystem (time, habitat, and climate).
+    Time effects code: decay, maintenance, etc.
+    The ecosystem is constantly rebalancing
+    How can we maintain a garden with limited time and rebalancing ecosystem?
+    Talk about time and how it affects software.
+    Talk about how time is effected by number of people involved (mythical person-month, complexity doesn't reduce with more people)
+    Talk about how complexity is related to time, and how complexity affects decay
+
+    3 minutes: Value:
+    Cover what value means in the Cytomining context
+    Talk about how value can be measured using time reduction, enhancements, etc (vitamin vs painkiller? Enhancements vs burden or risk reduction)
+    Talk about Value streams (use pictures, https://en.wikipedia.org/wiki/Value_stream) and how time affects things here for the Cytomining community
+    Talk about interesting vs important
+
+    6 minutes: Agile iteration:
+    Talk about modularization of work, small chunks of reasonable work, and iterations from an Agile context
+    Quick demonstration of using Time and Value to understand specific issues / features from a development perspective
+    Reason through why high value low time/complexity tasks are a good way to be productive with changes
+    Briefly cover that there are exceptions (high priority items which require circumventing the work)
+    Talk about Github tools which can help with this process
+
+    5 minutes: Backtracing:
+    Identify the primary but distant goal
+    Identify the step which takes place before that goal is reached
+    Identify the smaller steps prior
+    Check the flow of the steps (is there anything missing)
+    Refinement: make sure the steps are accounted for.
+
+format:
+  revealjs: 
+    theme: simple
+    transition: slide
+    slide-number: true
+    auto-stretch: false
+---
+
+
+<br>
+<br> 
+<br>
+<br> 
+<br>
+<br> 
+<center>__Gratitude!__</center>
+
+
+
+------------------------------------------------------------------------
+
+## Presentation Outline
+
+<br>
+
+1.  📚 Context
+2.  📐 Measurements
+3.  🔮 Strategies
+
+------------------------------------------------------------------------
+
+## Context - What is Cytomining?
+
+![](assets/2023-06-06-09-16-31.png)
+
+Cytomining is a GitHub Organization which includes several projects the Way Lab develops and uses for research.
+
+[Link to Cytomining Github Org](https://github.com/cytomining)
+
+------------------------------------------------------------------------
+
+## Context - What projects are included?
+
+::: {style="font-size: .8em"}
+-   **Pycytominer**: "Pycytominer is a suite of common functions used to process high dimensional readouts from high-throughput cell experiments."
+
+-   **DeepProfiler**: DeepProfiler is a set of tools to use deep learning for analyzing imaging data in high-throughput biological experiments.
+
+-   **Cytominer-eval**: Cytominer-eval contains functions to calculate quality metrics for perturbation profiling experiments.
+
+-   **CytoSnake** (wayscience repo): Reproducible pipelines for processing high-dimensional systems morphology data with snakemake
+
+-   **CytoTable**: CytoTable enables single-cell morphology data analysis by cleaning and transforming output data at scale.
+
+- ... and others!
+:::
+
+------------------------------------------------------------------------
+
+## Context - How big is Cytomining?
+
+<br>
+
+- Total number of repos: 25
+- Total stars for cytomining repos: 212
+- Total forks from cytomining repos: 161
+- Total number of unique contributors: 36
+
+_[Calculations reference](https://gist.github.com/d33bs/ad6e6d188bdf59e33f52b0517eb97a55)_
+
+------------------------------------------------------------------------
+
+## Measurements - Time
+
+<br>
+
+> _The key is not spending time but investing it._
+
+[Steven R. Covey](https://twitter.com/StephenRCovey/status/154619150503915521)
+
+
+------------------------------------------------------------------------
+
+## Time
+
+<br>
+
+- 🪴 Software Garden Code Decay
+- 🕑 Hofstadter's Law
+- 🔢 A rough calculation
+
+
+------------------------------------------------------------------------
+
+## Time - Code Decay
+
+<br>
+
+- 🪴 __Software Garden Code Decay__: your software garden is growing and decaying through time.
+- Expect things to break as time goes on; the ecosystem changes fast!
+- Because of this, we must be selective with how and what we spend our time on.
+
+------------------------------------------------------------------------
+
+## Time - Code Decay
+
+<br>
+
+![](assets/2023-06-06-13-25-39.png)
+
+An example: [pycytominer#250](https://github.com/cytomining/pycytominer/issues/250)
+
+------------------------------------------------------------------------
+
+## Time - Hofstadter's Law
+
+<br>
+
+- 🕑 [__Hofstadter's Law__](https://en.wikipedia.org/wiki/Hofstadter%27s_law): "It always takes longer than you expect, even when you take into account Hofstadter's Law."
+- Plan for delays; time taken will almost always be more than you expect.
+
+------------------------------------------------------------------------
+
+## Time - Hofstadter's Law - continued
+
+<br>
+
+- 🕑 [Planning Fallacy](https://en.wikipedia.org/wiki/Planning_fallacy): predictions about how much time it will take are often wrong and fall victim to optimism bias.
+
+------------------------------------------------------------------------
+
+## Time - Cytomining work stats
+
+<br>
+
+- Total open Cytomining repo issues: 230 (an estimate!)
+
+_[Calculations reference](https://gist.github.com/d33bs/ad6e6d188bdf59e33f52b0517eb97a55)_
+
+------------------------------------------------------------------------
+
+## Time - A rough calculation
+
+<br>
+
+Let's assume each open issue needs a minimum:
+
+- __1 hour of development__
+- __2 hours of pull-request review / responses__
+
+------------------------------------------------------------------------
+
+## Time - A rough calculation
+
+<br>
+
+That makes:
+
+- 230 open issues * 3 hrs = __690 hours of work (minimum)__
+- 690 hrs / 8 hrs = __86.25 full work days__
+- 86.25 / 5 work days per week = __17.25 full work weeks__
+
+😬
+
+------------------------------------------------------------------------
+
+## Measurements - Value
+
+<br>
+
+> _People think focus means saying yes to the thing you've got to focus on. But that's not what it means at all. __It means saying no to the hundred other good ideas that there are.__ You have to pick carefully. I'm actually as proud of the things we haven't done as the things I have done. Innovation is saying no to 1,000 things._
+
+[Steve Jobs](https://www.cnn.com/2012/10/04/tech/innovation/steve-jobs-quotes/index.html)
+
+
+------------------------------------------------------------------------
+
+## Value
+
+<br>
+
+- 💊 Vitamin, Painkiller, or Cure?
+- ⚖️ Opportunity Cost
+- 🗺️ Value Streams
+
+
+------------------------------------------------------------------------
+
+## Value - Vitamin, Painkiller, or Cure
+
+<br>
+
+- 💊 Will your software solution(s) be a vitamin, painkiller, or cure?
+- Vitamins: enhance or strengthen existing things.
+- Painkiller: remove barriers or roadbumps.
+- Cure: completely resolve or predict resolutions.
+
+------------------------------------------------------------------------
+
+## Value - Opportunity Cost
+
+<br>
+
+- ⚖️ __Opportunity Cost__: choosing one thing may mean giving up another.
+- There are more software challenges than we have development time to accomplish.
+- Consider what solutions you strive for by respecting what didn't get attention.
+
+------------------------------------------------------------------------
+
+## Value - Value Streams
+
+<br>
+
+- 🗺️ __Value Streams__: the steps it takes from idea to value delivery to an audience.
+- We often think about "waste" alongside value streams
+- Value streams can get "blocked", meaning things aren't being completed.
+
+------------------------------------------------------------------------
+
+## Value - Value Streams
+
+![](assets/2023-06-06-16-01-02.png)
+
+Value-added vs waiting time
+
+------------------------------------------------------------------------
+
+## Strategies - Agile 
+
+> Deliver working software frequently, from a
+couple of weeks to a couple of months, with a
+preference to the shorter timescale.
+
+[Agile Manifesto: Principles behind the Agile Manifesto](https://agilemanifesto.org/principles.html)
+
+------------------------------------------------------------------------
+
+## Strategies - Agile thinking
+
+- Focus on modularization, breaking big problems into smaller ones
+- Keep _kairos_ in mind, or the opportune time to do things
+- Use time and value to prefer high value, low time items
+
+------------------------------------------------------------------------
+ 
+![](assets/2023-06-07-10-25-13.png)
+
+
+------------------------------------------------------------------------
+
+## Strategies - Backcasting
+
+- High value, high time duration ("Major Projects")
+- Use Backcasting to "think with this end in mind"
+- Backcasting: picturing the steps which take place before the end result
+
+------------------------------------------------------------------------
+
+## Strategies - Backcasting
+
+![](assets/2023-06-07-11-00-52.png)
