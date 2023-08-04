@@ -1,0 +1,125 @@
+---
+title: |
+  Packaging as Publishing
+subtitle: Python Code Formalizations
+format:
+  revealjs: 
+    theme: simple
+    transition: slide
+    slide-number: true
+    auto-stretch: false
+---
+
+## Presentation Outline
+
+<br>
+
+1.  ✍️ Publishing
+1. 📦 Python Packaging
+1. 🧰 Tools
+
+------------------------------------------------------------------------
+
+## Publishing
+
+<br>
+
+Why does this matter?
+
+> Following publishing conventions increases:
+>
+> - Understanding
+> - Trust
+> - Reach
+
+------------------------------------------------------------------------
+
+## Publishing
+
+<br>
+
+![](2023-08-04-09-35-31.png)
+
+How are these two different?
+
+
+------------------------------------------------------------------------
+
+## Publishing
+
+<br> 
+
+Articles generally include:
+
+- Unsurprising formatting for understanding (sections, cadence, spelling, etc.)
+- Sense of trust from location, review, or grammar
+- Connection to a wider audience
+
+------------------------------------------------------------------------
+
+## Publishing
+
+<br> 
+
+We sometimes forget that code is written language.
+
+<br> 
+
+When we ignore common conventions it can often result in poor grammar, or __[_code smell_](https://en.wikipedia.org/wiki/Code_smell)__.
+
+<br>
+
+Code smells are indications issues which should be avoided (they reduce the understanding, trust, and reach of your code).
+
+------------------------------------------------------------------------
+
+## Publishing
+
+<br>
+
+Publishing in Python involves the act of "packaging".
+
+
+------------------------------------------------------------------------
+
+## Python Packaging
+
+<br>
+
+- A Python __package__ is a collection of modules (`.py` files) which accomplish
+a related goal.
+
+- Python ___"packaging"___ is a broader term indicating formalization of
+code with publishing intent.
+
+- Python packages are commonly installed from __PyPI__ (Python Package Index, [https://pypi.org](https://pypi.org)).
+
+> For example: `pip install pandas` references PyPI to install for the `pandas` package.
+
+------------------------------------------------------------------------
+
+
+<table>
+<tr>
+<td>
+
+````text
+
+````
+
+</td>
+<td>
+
+```text
+
+```
+
+</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+</tr>
+</table>
+
+------------------------------------------------------------------------

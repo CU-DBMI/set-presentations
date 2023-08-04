@@ -131,3 +131,4 @@ dmypy.json
 # ignore intermediary html rendering files
 dev-time-and-value/presentation/dev-time-and-value_files/
 dbmi-lunch-and-learn-arrow/presentation/dbmi-lunch-and-learn-arrow_files/
+packaging-as-publishing/presentation/packaging-as-publishing_files/
