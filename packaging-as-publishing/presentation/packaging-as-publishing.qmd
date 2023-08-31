@@ -8,6 +8,9 @@ format:
     transition: slide
     slide-number: true
     auto-stretch: false
+    width: 1050
+    height: 800
+    margin: 0.01
 ---
 
 ## Presentation Outline
@@ -20,7 +23,7 @@ format:
 
 ------------------------------------------------------------------------
 
-## Publishing
+## Why?
 
 <br>
 
@@ -30,7 +33,20 @@ Why does this matter?
 >
 > - Understanding
 > - Trust
-> - Reach
+> - Reach (connection)
+
+------------------------------------------------------------------------
+
+## Why?
+
+<br>
+
+__🤷 "I'm not convinced. My work is only for _[ internal | quick | throwaway ]_ use so packaging / publishing for others doesn't matter."__ 
+
+
+- <span style="font-size:.8em">Good packaging practices work just as well for [inner source](https://en.wikipedia.org/wiki/Inner_source) collaboration (private or proprietary development within organizations).</span>
+- <span style="font-size:.8em">It also __increases your development velocity__ through reduced time necessary to understand and implement the code (or reuse it in the future)!</span>
+- <span style="font-size:.8em">Internal practice can be a great way to ready yourself for the needs of publicly available open source software maintainence.</span>
 
 ------------------------------------------------------------------------
 
@@ -54,7 +70,7 @@ How are these two different?
 
 ## Publishing - Trust
 
-![](2023-08-31-09-16-26.png)
+![](2023-08-31-15-37-35.png)
 
 - Sense of __trust__ from familiarity, connection, and authority (location, review, or style)
 
@@ -62,9 +78,9 @@ How are these two different?
 
 ## Publishing - Connection
 
-![](2023-08-31-09-19-12.png)
+![](2023-08-31-15-39-30.png)
 
-- __Connection__ to a wider audience (citations, domains, cataloging)
+- __Connection__ to a wider audience (citations, maintainability, reproducibility)
 
 ------------------------------------------------------------------------
 
@@ -148,12 +164,15 @@ code with publishing intent.
 ------------------------------------------------------------------------
 
 ## Python Packaging - Understanding
-<br>
+
 ```bash
 project_directory
 ├── README.md
 ├── LICENSE.txt
 ├── pyproject.toml
+├── docs
+│   └── source
+│       └── index.md
 ├── src
 │   └── package_name
 │       └── __init__.py
@@ -162,7 +181,7 @@ project_directory
     └── __init__.py
     └── test_module_a.py
 ```
-<br> 
+ 
 Python Packaging today generally assumes a specific directory design.
 Following this convention generally improves the __understanding__ of your code.
 
@@ -203,7 +222,7 @@ The __`LICENSE.txt`__ file is a text file which indicates licensing details for 
 It often includes information about how it may be used and
 protects the authors in disputes.
 
-- The `LICENSE.txt` file is akin to a book's copyright page.
+- The `LICENSE.txt` file can be thought of like a book's copyright page.
 - See [https://choosealicense.com/](https://choosealicense.com/) for more details on selecting an open source license.
 
 ------------------------------------------------------------------------
@@ -224,17 +243,35 @@ project_directory
 The __`pyproject.toml`__ file is a Python-specific [TOML](https://en.wikipedia.org/wiki/TOML) file 
 which helps organize how the project is used and built for wider distribution. More here later!
 
-- The `pyproject.toml` is akin to a book's table of contents, index, and printing or production specification.
+- The `pyproject.toml` file is similar to a book's table of contents, index, and printing or production specification.
+
 
 ------------------------------------------------------------------------
 
-## Python Packaging - Source Code
+## Python Packaging - Docs Dir
+
+<br>
 
 ```bash
 project_directory
-├── README.md
-├── LICENSE.txt
-├── pyproject.toml
+│...
+├── docs # directory for in-depth documentation and docs build code
+│   └── source
+│       └── index.md
+...
+```
+
+<span style="font-size:.8em">The __`docs`__ directory is used for in-depth documentation and related documentation build code (for example, when building documentation websites, aka "docsites").</span>
+
+- <span style="font-size:.8em">The `docs` directory includes information similar to a book's "study guide", providing content surrounding how to best make use of and understand the content found within.</span>
+
+------------------------------------------------------------------------
+
+## Python Packaging - Source Code Dir
+
+```bash
+project_directory
+│...
 ├── src # isolates source code for use in project
 │   └── package_name
 │       └── __init__.py
@@ -242,13 +279,190 @@ project_directory
 ...
 ```
 
+<span style="font-size:.8em">
 The __`src`__ directory includes primary source code for use in the project. Python projects
 generally use a nested package directory with modules and sub-packages.
+</span>
 
-- The `src` directory is akin to a book's body or general content 
-(perhaps thinking of modules as chapters or sections of related ideas).
+- <span style="font-size:.8em">The `src` directory is like a book's body or general content 
+(perhaps thinking of modules as chapters or sections of related ideas).</span>
+
 
 ------------------------------------------------------------------------
+
+## Python Packaging - Test Code Dir
+
+
+```bash
+project_directory
+│...
+├── src
+│   └── package_name
+│       └── __init__.py
+│       └── module_a.py
+│ 
+└── tests # organizes the validation of source code
+    └── __init__.py
+    └── test_module_a.py
+```
+<span style="font-size:.8em">
+The __`tests`__ directory includes testing code for validating functionality 
+of code found in the `src` directory. The above follows [pytest](https://docs.pytest.org/) conventions.
+</span>
+
+- <span style="font-size:.8em">The `tests` directory is for code which acts like a book's early reviewers or editors, 
+making sure that if you change things in `src` the impacts remain as expected.</span>
+
+------------------------------------------------------------------------
+
+## Python Packaging - Examples in the wild
+
+<br>
+
+The described Python directory structure can be witnessed in the wild from the following resources:
+
+- [`pypa/sampleproject`](https://github.com/pypa/sampleproject)
+- [`microsoft/python-package-template`](https://github.com/microsoft/python-package-template)
+- [`scientific-python/cookie`](https://github.com/scientific-python/cookie)
+- ... and so many more!
+
+------------------------------------------------------------------------
+
+## Python Packaging - Trust
+
+![](2023-08-31-11-50-00.png)
+
+Building an understandable body of content helps tremendously with audience trust.
+
+- What else can we do to enhance project trust?
+
+------------------------------------------------------------------------
+
+## Python Packaging - Be authentic
+
+![](2023-08-31-11-59-31.png)
+
+Be authentic! Fill out your profile to help your audience know the author and why you do what you do. See here for [GitHub's documentation on filling out your profile](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile).
+
+- Add a profile picture of yourself or something fun.
+- Make it customized and unique to you!
+
+------------------------------------------------------------------------
+
+## Python Packaging - Python versions
+<br> 
+
+![](2023-08-31-12-21-45.png)
+
+Use Python versions which are supported (this changes over time).
+Python versions which are end-of-life may be difficult to support and are a sign of [code decay](https://en.wikipedia.org/wiki/Software_rot) for projects.
+
+- See here for [updated information on Python version status](https://devguide.python.org/versions/).
+
+------------------------------------------------------------------------
+
+## Python Packaging - Security linters
+
+![](2023-08-31-12-41-49.png)
+
+<span style="font-size:.8em">Use security vulnerability linters to help prevent undesirable or risky processing for your audience.
+Doing this both practical to avoid issues and conveys that you care about those using your package!</span>
+
+
+- <span style="font-size:.8em">[PyCQA/bandit](https://github.com/PyCQA/bandit): checks Python code</span>
+- <span style="font-size:.8em">[pyupio/safety](https://github.com/pyupio/safety): checks Python dependencies</span>
+- <span style="font-size:.8em">[gitleaks](https://github.com/gitleaks/gitleaks): checks for sensitive passwords, keys, or tokens</span>
+
+------------------------------------------------------------------------
+
+## Python Packaging - GitHub Actions
+
+![](2023-08-31-12-53-33.png)
+
+<span style="font-size:.8em">Combining GitHub actions with security linters and tests from your software validation suite can add an observable ✅ for your project.
+This provides the audience with a sense that you're transparently testing and sharing results of those tests.</span>
+
+- <span style="font-size:.8em">See [GitHub's documentation on this topic for more information](https://docs.github.com/en/actions).</span>
+- <span style="font-size:.8em">See also [DBMI SET's blog post on "Automate Software Workflows with Github Actions"](https://cu-dbmi.github.io/set-website/2023/03/15/Automate-Software-Workflows-with-Github-Actions.html)</span>
+
+
+------------------------------------------------------------------------
+
+## Python Packaging - Connection
+
+![](2023-08-31-13-02-48.png)
+
+Understandability and trust set the stage for your project's __connection__ to other people and projects.
+
+- What can we do to facilitate connection with our project? 
+
+
+------------------------------------------------------------------------
+
+## Python Packaging - CITATION.cff
+
+<center>![](2023-08-31-13-04-18.png)</center>
+<span style="font-size:.8em">Add a __`CITATION.cff`__ file to your project root in order to describe project relationships and acknowledgements in a standardized way. The [CFF format](https://citation-file-format.github.io/) is also [GitHub compatible](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files), making it easier to cite your project.</span>
+
+- <span style="font-size:.8em">This is similar to a book's credits, acknowledgements, dedication, and author information sections.</span>
+- <span style="font-size:.8em">See here for a [`CITATION.cff` file generator (and updater)](https://citation-file-format.github.io/cff-initializer-javascript/#/).</span>
+
+
+------------------------------------------------------------------------
+
+## Python Packaging - CONTRIBUTING.md
+
+<center>![](2023-08-31-13-34-16.png)</center>
+
+<span style="font-size:.8em">Provide a __`CONTRIBUTING.md`__ file to your project root so as to make clear support details, development guidance, code of conduct, and overall documentation surrounding how the project is governed.</span>
+
+- <span style="font-size:.8em">See GitHub's documentation on ["Setting guidelines for repository contributors"](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)</span>
+- <span style="font-size:.8em">See opensource.guide's section on ["Writing your contributing guidelines"](https://opensource.guide/starting-a-project/#writing-your-contributing-guidelines)</span>
+
+------------------------------------------------------------------------
+
+## Python Packaging - Reproducibility
+
+<br>
+
+Code without an environment specification is difficult to run in a consistent way.
+This can lead to "works on my machine" scenarios where different things happen for different people, reducing the chance that people can connect with your code.
+
+- Using Python environment and packaging management can decouple a project from OS-level dependencies (in an image specification, for example) and opens the opportunity for it to become a dependency of another project (enabling reuse).
+
+------------------------------------------------------------------------
+
+## Python Packaging - Brief history
+
+<br>
+
+A brief history of Python environment and packaging tooling:
+
+1. `distutils`, `easy_install` + `setup.py` (primarily used during 1990's - early 2000's)
+1. `pip`, `setup.py` + `requirements.txt` (primarily used during late 2000's - early 2010's)
+1. `poetry` + `pyproject.toml` (began use around late 2010's - ongoing)
+1. Greater compatibility surrounding `pyproject.toml` (early 2020's)
+
+------------------------------------------------------------------------
+
+## Python Packaging - Environments
+
+![](2023-08-31-13-59-31.png)
+
+<span style="font-size:.8em">Use __Python environment and packaging managers__ to help unify how developers use or maintain your project.
+These tools commonly extend `pyproject.toml` files to declare environment and packaging metadata.</span>
+
+- <span style="font-size:.8em">Environment/dependency management facilitate how code is ___processed___.</span>
+- <span style="font-size:.8em">Packaging management facilitates how code is ___built___ for distribution.</span>
+
+
+------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------
+
+
 
 <table>
 <tr>
