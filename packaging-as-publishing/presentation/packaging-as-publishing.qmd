@@ -285,6 +285,8 @@ project_directory
 ...
 ```
 
+<br>
+
 <span style="font-size:.8em">The __`docs`__ directory is used for in-depth documentation and related documentation build code (for example, when building documentation websites, aka "docsites").</span>
 
 - <span style="font-size:.8em">The `docs` directory includes information similar to a book's "study guide", providing content surrounding how to best make use of and understand the content found within.</span>
@@ -292,6 +294,8 @@ project_directory
 ------------------------------------------------------------------------
 
 ## Python Packaging - Source Code Dir
+
+<br>
 
 ```bash
 project_directory
@@ -302,6 +306,8 @@ project_directory
 │       └── module_a.py
 ...
 ```
+
+<br>
 
 <span style="font-size:.8em">
 The __`src`__ directory includes primary source code for use in the project. Python projects
@@ -316,6 +322,7 @@ generally use a nested package directory with modules and sub-packages.
 
 ## Python Packaging - Test Code Dir
 
+<br>
 
 ```bash
 project_directory
@@ -329,6 +336,9 @@ project_directory
     └── __init__.py
     └── test_module_a.py
 ```
+
+
+
 <span style="font-size:.8em">
 The __`tests`__ directory includes testing code for validating functionality 
 of code found in the `src` directory. The above follows [pytest](https://docs.pytest.org/) conventions.
