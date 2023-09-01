@@ -16,10 +16,12 @@ format:
 ## Presentation Outline
 
 <br>
+<br>
+<br>
 
 1.  ✍️ Publishing
 1. 📦 Python Packaging
-1. 🧰 Tools
+1. 🛠️ Packaging Understanding, Trust, and Connection
 
 ------------------------------------------------------------------------
 
@@ -41,12 +43,23 @@ Why does this matter?
 
 <br>
 
-__🤷 "I'm not convinced. My work is only for _[ internal | quick | throwaway ]_ use so packaging / publishing for others doesn't matter."__ 
-
+__🤷‍♂️ "I'm not convinced. My work is only for _[ internal | quick | throwaway ]_ use so packaging / publishing for others doesn't matter."__ 
 
 - <span style="font-size:.8em">Good packaging practices work just as well for [inner source](https://en.wikipedia.org/wiki/Inner_source) collaboration (private or proprietary development within organizations).</span>
 - <span style="font-size:.8em">It also __increases your development velocity__ through reduced time necessary to understand and implement the code (or reuse it in the future)!</span>
 - <span style="font-size:.8em">Internal practice can be a great way to ready yourself for the needs of publicly available open source software maintainence.</span>
+
+
+------------------------------------------------------------------------
+
+## Why?
+
+<br>
+
+__🤷 "I'd rather use a bespoke method of packaging my work. It's not my responsibility to help others understand my customizations."__
+
+- Avoiding common practice and understanding weakens one of our collective superpowers: collaboration.
+- How much time will you or others spend on packaging vs providing human impact from the work?
 
 ------------------------------------------------------------------------
 
@@ -113,14 +126,25 @@ Who are you writing for? Do they understand, trust, and connect with your code?
 
 ![](2023-08-31-09-32-42.png)
 
-Publishing in Python involves the act of __"packaging"__.
+__"Packaging"__ is the craft of preparing for and reaching distribution of your Python work.
+
+------------------------------------------------------------------------
+
+## Publishing - Python
+
+<br>
+<br>
+<br>
+<br>
+<br>
+This presentation will focus on <ins>__preparations__</ins> for distribution.
 
 ------------------------------------------------------------------------
 
 ## Publishing - Python
 ![](2023-08-31-09-53-12.png)
 
-<span style="font-size:.8em">Python packaging is a loose practice which requires adjustment based on intention (there's no one-size fits all forever solution here).</span>
+<span style="font-size:.8em">Python packaging is a practice which requires adjustment based on intention (there's no one-size fits all forever solution here).</span>
 
 - <span style="font-size:.8em">For example: we'd package Python code differently for a patient bedside medical device use vs a freeware desktop videogame.</span>
 
@@ -423,25 +447,10 @@ Understandability and trust set the stage for your project's __connection__ to o
 
 ## Python Packaging - Reproducibility
 
-<br>
+![](2023-09-01-08-00-15.png)
 
-Code without an environment specification is difficult to run in a consistent way.
-This can lead to "works on my machine" scenarios where different things happen for different people, reducing the chance that people can connect with your code.
-
-- Using Python environment and packaging management can decouple a project from OS-level dependencies (in an image specification, for example) and opens the opportunity for it to become a dependency of another project (enabling reuse).
-
-------------------------------------------------------------------------
-
-## Python Packaging - Brief history
-
-<br>
-
-A brief history of Python environment and packaging tooling:
-
-1. `distutils`, `easy_install` + `setup.py` (primarily used during 1990's - early 2000's)
-1. `pip`, `setup.py` + `requirements.txt` (primarily used during late 2000's - early 2010's)
-1. `poetry` + `pyproject.toml` (began use around late 2010's - ongoing)
-1. Greater compatibility surrounding `pyproject.toml` (early 2020's)
+<span style="font-size:.8em">Code without an environment specification is difficult to run in a consistent way.
+This can lead to "works on my machine" scenarios where different things happen for different people, reducing the chance that people can connect with your code.</span>
 
 ------------------------------------------------------------------------
 
@@ -455,36 +464,168 @@ These tools commonly extend `pyproject.toml` files to declare environment and pa
 - <span style="font-size:.8em">Environment/dependency management facilitate how code is ___processed___.</span>
 - <span style="font-size:.8em">Packaging management facilitates how code is ___built___ for distribution.</span>
 
+------------------------------------------------------------------------
+
+## Python Packaging - Brief history
+
+<br>
+
+__"But why do we have to switch the way we do things?"__
+
+_We've always been switching approaches!_ A brief history of Python environment and packaging tooling:
+
+1. __`distutils`, `easy_install` + `setup.py`__ <br>(primarily used during 1990's - early 2000's)
+1. __`pip`, `setup.py` + `requirements.txt`__ <br>(primarily used during late 2000's - early 2010's)
+1. __`poetry` + `pyproject.toml`__ <br>(began use around late 2010's - ongoing)
 
 ------------------------------------------------------------------------
 
+## Python Packaging - Poetry
+<br>
+<center>![](2023-09-01-08-13-13.png)</center>
+<br>
 
+[Poetry](https://github.com/python-poetry/poetry) is one Pythonic environment and packaging manager which can help increase reproducibility using `pyproject.toml` files.
+
+- It's one of many other alternatives such as [`hatch`](https://hatch.pypa.io/latest/) and [`pipenv`](https://pipenv.pypa.io/en/latest/).
 
 ------------------------------------------------------------------------
 
+## Python Packaging - Poetry
 
+<br>
 
-<table>
-<tr>
-<td>
+```bash
+user@machine % poetry new --name=package_name --src .
+Created package package_name in .
 
-````text
+user@machine % tree .
+.
+├── README.md
+├── pyproject.toml
+├── src
+│   └── package_name
+│       └── __init__.py
+└── tests
+    └── __init__.py
+```
 
-````
+<br>
 
-</td>
-<td>
+After installation, Poetry gives us the ability to initialize a directory structure similar to what we presented earlier by using the `poetry new ...` command.
 
-```text
+------------------------------------------------------------------------
+
+## Python Packaging - Poetry
+
+<br>
+
+```toml
+# pyproject.toml
+[tool.poetry]
+name = "package-name"
+version = "0.1.0"
+description = ""
+authors = ["username <email@address>"]
+readme = "README.md"
+packages = [{include = "package_name", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+```
+
+Using this command also initializes the content of our `pyproject.toml` file with opinionated details.
+
+------------------------------------------------------------------------
+
+## Python Packaging - Poetry
+
+```bash
+user@machine % poetry add pandas
+
+Creating virtualenv package-name-1STl06GY-py3.9 in /pypoetry/virtualenvs
+Using version ^2.1.0 for pandas
+
+...
+
+Writing lock file
+```
+
+We can add dependencies directly using the `poetry add ...` command.
+
+- A local virtual environment is managed for us automatically.
+- A `poetry.lock` file is written when the dependencies are installed to help ensure the version you installed today will be what's used on other machines.
+
+------------------------------------------------------------------------
+
+## Python Packaging - Poetry
+
+<br>
+
+```bash
+% poetry run python -c "import pandas; print(pandas.__version__)"
+
+2.1.0
 
 ```
 
-</td>
-</tr>
-<tr>
-<td>1</td>
-<td>2</td>
-</tr>
-</table>
+<br>
+
+We can invoke the virtual environment directly using `poetry run ...`.
+
+- This allows us to quickly run code through the context of the project's environment.
+- Poetry can automatically switch between multiple environments based on the local directory structure.
 
 ------------------------------------------------------------------------
+
+## Python Packaging - Poetry
+
+<br>
+
+```bash
+% poetry build
+
+Building package-name (0.1.0)
+  - Building sdist
+  - Built package_name-0.1.0.tar.gz
+  - Building wheel
+  - Built package_name-0.1.0-py3-none-any.whl
+
+```
+
+<br>
+
+Poetry readies source-code and pre-compiled versions of our code for distribution platforms like PyPI by using the `poetry build ...` command.
+
+<br>
+
+------------------------------------------------------------------------
+
+## Python Packaging - Distribution
+
+<br>
+
+```bash
+% pip install git+https://github.com/project/package_name
+
+```
+<br>
+
+Even if we don't reach wider distribution on PyPI or elsewhere, source code managed by `pyproject.toml` and the other techniques mentioned in this presentation can be used for "manual" distribution (with reproducible results).
+
+
+------------------------------------------------------------------------
+
+## Thank you
+
+<br>
+<br>
+<br>
+<br>
+<br>
+Thank you! Questions / comments?
+
