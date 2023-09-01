@@ -1,4 +1,4 @@
-# DBMI Lunch & Learn: Cross-language Data Development with Apache Arrow
+# Packaging as Publishing: Python code formalizations
 
 Expects local availability of [Quarto](https://quarto.org/docs/) and [decktape](https://github.com/astefanutti/decktape) for development work.
 
