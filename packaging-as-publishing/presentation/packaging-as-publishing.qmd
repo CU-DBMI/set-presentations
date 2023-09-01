@@ -67,7 +67,7 @@ __🤷 "I'd rather use a bespoke method of packaging my work. It's not my respon
 
 <br>
 
-![](2023-08-31-09-08-45.png)
+![](assets/2023-08-31-09-08-45.png)
 
 How are these two different?
 
@@ -75,7 +75,7 @@ How are these two different?
 
 ## Publishing - Understanding
 
-![](2023-08-31-09-14-46.png)
+![](assets/2023-08-31-09-14-46.png)
 
 - Unsurprising formatting for __understanding__ (sections, cadence, spelling, etc.)
 
@@ -83,7 +83,7 @@ How are these two different?
 
 ## Publishing - Trust
 
-![](2023-08-31-15-37-35.png)
+![](assets/2023-08-31-15-37-35.png)
 
 - Sense of __trust__ from familiarity, connection, and authority (location, review, or style)
 
@@ -91,7 +91,7 @@ How are these two different?
 
 ## Publishing - Connection
 
-![](2023-08-31-15-39-30.png)
+![](assets/2023-08-31-15-39-30.png)
 
 - __Connection__ to a wider audience (citations, maintainability, reproducibility)
 
@@ -116,7 +116,7 @@ Code smells are indications that something might be going wrong. They generally 
 
 ## Publishing - Code as Language
 
-![](2023-08-31-09-22-54.png)
+![](assets/2023-08-31-09-22-54.png)
 
 Who are you writing for? Do they understand, trust, and connect with your code?
 
@@ -124,7 +124,7 @@ Who are you writing for? Do they understand, trust, and connect with your code?
 
 ## Publishing - Python
 
-![](2023-08-31-09-32-42.png)
+![](assets/2023-08-31-09-32-42.png)
 
 __"Packaging"__ is the craft of preparing for and reaching distribution of your Python work.
 
@@ -142,7 +142,7 @@ This presentation will focus on <ins>__preparations__</ins> for distribution.
 ------------------------------------------------------------------------
 
 ## Publishing - Python
-![](2023-08-31-09-53-12.png)
+![](assets/2023-08-31-09-53-12.png)
 
 <span style="font-size:.8em">Python packaging is a practice which requires adjustment based on intention (there's no one-size fits all forever solution here).</span>
 
@@ -168,7 +168,7 @@ my_package/
 
 ## Python Packaging - Definitions
 
-![](2023-08-31-09-54-47.png)
+![](assets/2023-08-31-09-54-47.png)
 
 - Python ___"packaging"___ is a broader term indicating formalization of
 code with publishing intent.
@@ -179,7 +179,7 @@ code with publishing intent.
 
 <br>
 
-<center>![](2023-08-31-09-55-13.png)</center>
+<center>![](assets/2023-08-31-09-55-13.png)</center>
 
 - Python packages are commonly installed from __PyPI__ (Python Package Index, [https://pypi.org](https://pypi.org)).
 
@@ -364,7 +364,7 @@ The described Python directory structure can be witnessed in the wild from the f
 
 ## Python Packaging - Trust
 
-![](2023-08-31-11-50-00.png)
+![](assets/2023-08-31-11-50-00.png)
 
 Building an understandable body of content helps tremendously with audience trust.
 
@@ -374,7 +374,7 @@ Building an understandable body of content helps tremendously with audience trus
 
 ## Python Packaging - Be authentic
 
-![](2023-08-31-11-59-31.png)
+![](assets/2023-08-31-11-59-31.png)
 
 Be authentic! Fill out your profile to help your audience know the author and why you do what you do. See here for [GitHub's documentation on filling out your profile](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile).
 
@@ -386,7 +386,7 @@ Be authentic! Fill out your profile to help your audience know the author and wh
 ## Python Packaging - Python versions
 <br> 
 
-![](2023-08-31-12-21-45.png)
+![](assets/2023-08-31-12-21-45.png)
 
 Use Python versions which are supported (this changes over time).
 Python versions which are end-of-life may be difficult to support and are a sign of [code decay](https://en.wikipedia.org/wiki/Software_rot) for projects.
@@ -397,7 +397,7 @@ Python versions which are end-of-life may be difficult to support and are a sign
 
 ## Python Packaging - Security linters
 
-![](2023-08-31-12-41-49.png)
+![](assets/2023-08-31-12-41-49.png)
 
 <span style="font-size:.8em">Use security vulnerability linters to help prevent undesirable or risky processing for your audience.
 Doing this both practical to avoid issues and conveys that you care about those using your package!</span>
@@ -411,7 +411,7 @@ Doing this both practical to avoid issues and conveys that you care about those 
 
 ## Python Packaging - GitHub Actions
 
-![](2023-08-31-12-53-33.png)
+![](assets/2023-08-31-12-53-33.png)
 
 <span style="font-size:.8em">Combining GitHub actions with security linters and tests from your software validation suite can add an observable ✅ for your project.
 This provides the audience with a sense that you're transparently testing and sharing results of those tests.</span>
@@ -424,7 +424,7 @@ This provides the audience with a sense that you're transparently testing and sh
 
 ## Python Packaging - Connection
 
-![](2023-08-31-13-02-48.png)
+![](assets/2023-08-31-13-02-48.png)
 
 Understandability and trust set the stage for your project's __connection__ to other people and projects.
 
@@ -435,7 +435,7 @@ Understandability and trust set the stage for your project's __connection__ to o
 
 ## Python Packaging - CITATION.cff
 
-<center>![](2023-08-31-13-04-18.png)</center>
+<center>![](assets/2023-08-31-13-04-18.png)</center>
 <span style="font-size:.8em">Add a __`CITATION.cff`__ file to your project root in order to describe project relationships and acknowledgements in a standardized way. The [CFF format](https://citation-file-format.github.io/) is also [GitHub compatible](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files), making it easier to cite your project.</span>
 
 - <span style="font-size:.8em">This is similar to a book's credits, acknowledgements, dedication, and author information sections.</span>
@@ -446,7 +446,7 @@ Understandability and trust set the stage for your project's __connection__ to o
 
 ## Python Packaging - CONTRIBUTING.md
 
-<center>![](2023-08-31-13-34-16.png)</center>
+<center>![](assets/2023-08-31-13-34-16.png)</center>
 
 <span style="font-size:.8em">Provide a __`CONTRIBUTING.md`__ file to your project root so as to make clear support details, development guidance, code of conduct, and overall documentation surrounding how the project is governed.</span>
 
@@ -457,7 +457,7 @@ Understandability and trust set the stage for your project's __connection__ to o
 
 ## Python Packaging - Reproducibility
 
-![](2023-09-01-08-00-15.png)
+![](assets/2023-09-01-08-00-15.png)
 
 <span style="font-size:.8em">Code without an environment specification is difficult to run in a consistent way.
 This can lead to "works on my machine" scenarios where different things happen for different people, reducing the chance that people can connect with your code.</span>
@@ -466,7 +466,7 @@ This can lead to "works on my machine" scenarios where different things happen f
 
 ## Python Packaging - Environments
 
-![](2023-08-31-13-59-31.png)
+![](assets/2023-08-31-13-59-31.png)
 
 <span style="font-size:.8em">Use __Python environment and packaging managers__ to help unify how developers use or maintain your project.
 These tools commonly extend `pyproject.toml` files to declare environment and packaging metadata.</span>
@@ -492,7 +492,7 @@ _We've always been switching approaches!_ A brief history of Python environment 
 
 ## Python Packaging - Poetry
 <br>
-<center>![](2023-09-01-08-13-13.png)</center>
+<center>![](assets/2023-09-01-08-13-13.png)</center>
 <br>
 
 [Poetry](https://github.com/python-poetry/poetry) is one Pythonic environment and packaging manager which can help increase reproducibility using `pyproject.toml` files.
