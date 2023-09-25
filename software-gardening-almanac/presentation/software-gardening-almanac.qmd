@@ -1,0 +1,46 @@
+---
+title: |
+  Software Gardening Almanac
+subtitle: Research in Progress
+format:
+  revealjs: 
+    theme: simple
+    transition: slide
+    slide-number: true
+    auto-stretch: false
+    width: 1050
+    height: 800
+    margin: 0.01
+---
+
+## Content Outline
+
+- Intro 
+- Background, BSSw Fellowship
+- Background, Almanacs and their purpose
+- 
+
+------------------------------------------------------------------------
+
+## Presentation Outline
+
+<br>
+<br>
+<br>
+
+1.  ✍️ Publishing
+1. 📦 Python Packaging
+1. 🛠️ Packaging Understanding, Trust, and Connection
+
+
+------------------------------------------------------------------------
+
+## Thank you
+
+<br>
+<br>
+<br>
+<br>
+<br>
+Thank you! Questions / comments?
+
