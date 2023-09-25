@@ -15,10 +15,32 @@ format:
 
 ## Content Outline
 
-- Intro 
+- Intro slide
+
 - Background, BSSw Fellowship
-- Background, Almanacs and their purpose
-- 
+
+- Problem: code works for now but not for long
+  - Sub problem: how much time do we lose to decay, repeated challenges, and seasonal change in the context of time?
+  - How does code change over time?
+  - Git-of-theseus: maintenance over time is implied if we're going to continue using something!
+  - Show git-of-theseus for something common like Pandas
+  - Show git-of-theseus for a near archived project? 
+
+- One solution: Software Gardening
+- Software gardening article surface: https://bssw.io/blog_posts/long-term-software-gardening-strategies-for-cultivating-scientific-development-ecosystems
+
+- Why a blog article isn't enough (it too faces the dynamics of time and decay)
+
+- Background, Almanacs and their purpose https://en.wikipedia.org/wiki/Almanac
+
+- The handbook:
+- A living community practicing software gardening to maintain practices
+- People: Software gardener lattices; growing, supporting, and synergizing software gardeners
+- Code: software gardening senescence; how and why code changes with time
+- Season: Software archeology, nowness, and proactivity; past, present, future, what patterns do we see
+
+- One applied observation:
+- Show demo for a "garden-of-theseus?"
 
 ------------------------------------------------------------------------
 
