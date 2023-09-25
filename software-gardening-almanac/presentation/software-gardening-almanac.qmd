@@ -35,12 +35,17 @@ format:
 
 - The handbook:
 - A living community practicing software gardening to maintain practices
-- People: Software gardener lattices; growing, supporting, and synergizing software gardeners
-- Code: software gardening senescence; how and why code changes with time
-- Season: Software archeology, nowness, and proactivity; past, present, future, what patterns do we see
+  - Planning for scale with common open source and inclusive documents
 
-- One applied observation:
-- Show demo for a "garden-of-theseus?"
+- People: Software gardener lattices; growing, supporting, and synergizing software gardeners
+  - One applied chapter: growing open source; when is it apt to add a new maintainer?
+
+- Code: software gardening senescence; how and why code changes with time
+  - One applied chapter: Show demo for a "garden-of-theseus?"
+
+- Season: Software archeology, nowness, and proactivity; past, present, future, what patterns do we see
+  - One applied chapter: project start?
+
 
 ------------------------------------------------------------------------
 
