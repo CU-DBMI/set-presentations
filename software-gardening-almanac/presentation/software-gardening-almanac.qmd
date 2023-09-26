@@ -50,7 +50,9 @@ format:
     - Fix: 
 
 - Season: Software archeology, nowness, and proactivity; past, present, future, what patterns do we see
-  - One applied chapter: 
+  - One applied chapter: seasonal climate checks
+  - SDA-S0001: no automated seasonal checks for repository will lead to accelerated decay
+  - Fix: 
 
 
 ------------------------------------------------------------------------
