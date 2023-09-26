@@ -22,9 +22,8 @@ format:
 - Problem: code works for now but not for long
   - Sub problem: how much time do we lose to decay, repeated challenges, and seasonal change in the context of time?
   - How does code change over time?
-  - Git-of-theseus: maintenance over time is implied if we're going to continue using something!
   - Show git-of-theseus for something common like Pandas
-  - Show git-of-theseus for a near archived project? 
+  - "garden-of-theseus": maintenance over time is implied if we're going to continue using something!
 
 - One solution: Software Gardening
 - Software gardening article surface: https://bssw.io/blog_posts/long-term-software-gardening-strategies-for-cultivating-scientific-development-ecosystems
@@ -36,15 +35,22 @@ format:
 - The handbook:
 - A living community practicing software gardening to maintain practices
   - Planning for scale with common open source and inclusive documents
+  - Providing a referenceable index of codes as "biomarkers" of patterns: https://pylint.readthedocs.io/en/latest/user_guide/messages/messages_overview.html
 
 - People: Software gardener lattices; growing, supporting, and synergizing software gardeners
   - One applied chapter: growing open source; when is it apt to add a new maintainer?
+    - SDA-P0001: Key-person dependency
+    - Observation: A key-person dependency can lead to low growth and disaster longterm for a project.
+    - Fix: 
 
 - Code: software gardening senescence; how and why code changes with time
-  - One applied chapter: Show demo for a "garden-of-theseus?"
+  - One applied chapter: dead code accumulation and ecosystem imbalance
+    - SDA-C0001: accelerated decay and environment imbalance detection
+    - Observation: More dead code accumulating without control over time
+    - Fix: 
 
 - Season: Software archeology, nowness, and proactivity; past, present, future, what patterns do we see
-  - One applied chapter: project start?
+  - One applied chapter: 
 
 
 ------------------------------------------------------------------------
