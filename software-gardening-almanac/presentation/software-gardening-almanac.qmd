@@ -17,13 +17,30 @@ format:
 
 - Intro slide
 
-- Background, BSSw Fellowship
 
-- Problem: code works for now but not for long
-  - Sub problem: how much time do we lose to decay, repeated challenges, and seasonal change in the context of time?
-  - How does code change over time?
-  - Show git-of-theseus for something common like Pandas
-  - "garden-of-theseus": maintenance over time is implied if we're going to continue using something!
+- Some philosophy:
+
+  - Stepping into an idea: Ship of theseus
+  > "...concerns a debate over whether or not a ship that had all of its components replaced one by one would remain the same ship."
+
+  - Some key questions:
+    
+    - Continuity vs. Change: how does the ship's identity continue despite changes which occur?
+      - How does your software's intent continue despite individual changes?
+
+    - Essential vs. Accidental Properties: Essential properties are those that are necessary for an object's identity, while accidental properties are those that can change without altering identity.
+      - What essential or accidental properties does your software hold?
+
+  - We don't have many standards of practice for continuity and essential properties of software.
+  
+  - Some inspiration towards this: git-of-theseus
+    - Show git-of-theseus for something common like Pandas
+
+  - Expanding these ideas:
+    - "garden-of-theseus": our garden's identity continues alongside _given_ change, effected by the essential and accidental
+
+- Problem: code is often developed with in a "one-time" waterfall style approach
+  - The challenge with this is that our code often has a continued lifespan.
 
 - One solution: Software Gardening
 - Software gardening article surface: https://bssw.io/blog_posts/long-term-software-gardening-strategies-for-cultivating-scientific-development-ecosystems
@@ -52,7 +69,9 @@ format:
           - Are there volunteer contributors who have shown interest and would benefit from increased roles?
         - Consider keeping the number of contributors >= 3 to retain diversity and resolve "ties"
   - Other ideas:
-    - Repositories with no PR reviews or PR reviews with no reviews / only reviews from the contributor
+    - SDA-P0002 Repositories with no PR reviews or PR reviews with no reviews / only reviews from the contributor
+    - SDA-P0003 Checking for git "no branching or forking" (commits only to main), and challenges with collaboration
+    - SDA-P0004 Looking at code of conduct inclusion and inclusive / equitable practices 
 
 - Code: software gardening senescence; how and why code changes with time
   - One applied chapter: unhealthy ecosystem in place for projects
@@ -60,7 +79,9 @@ format:
       - Observation: detect setup.py, pyproject.toml, renv.lock, environment.yml, etc.
       - Fix: Add environment management files related to the project language
   - Other ideas:
-    - Detecting repositories which have no testing frameworks installed.
+    - SDA-C0002 Detecting repositories which have no testing frameworks installed.
+    - SDA-C0003 Code removal vs code additions over time alongside dead code detection
+    - SDA-C0004 Tight vs loose coupling within the code and how this effects things
 
 - Season: Software archeology, nowness, and proactivity; past, present, future, what patterns do we see
   - One applied chapter: seasonal climate checks
@@ -68,8 +89,11 @@ format:
     - Observation: detect automated checks which occur at a regular rate in order to ensure the project stays up to date with wider environment.
     - Fix: Add, for example GitHub Actions workflow which runs at chronological schedule (once weekly, for example) to install build of project and run tests.
   - Other ideas:
-    - Projects where documentation is never updated.
-    - 
+    - SDA-S0002 Projects where documentation is never updated.
+    - SDA-S0003 Checking on version specification for Python, R, etc.
+    - SDA-S0004 Roadmap and/or architectural decision documentation inclusion to guide projects
+
+- Thanks / Q&A
 
 
 ------------------------------------------------------------------------
