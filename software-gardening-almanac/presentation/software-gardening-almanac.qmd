@@ -37,22 +37,39 @@ format:
   - Planning for scale with common open source and inclusive documents
   - Providing a referenceable index of codes as "biomarkers" of patterns: https://pylint.readthedocs.io/en/latest/user_guide/messages/messages_overview.html
 
+- A concept for each observation: relative "project git epoch's" starting from their initial commit. Using this we can measure the changes in the repository alongside the dynamics of time.
+
 - People: Software gardener lattices; growing, supporting, and synergizing software gardeners
   - One applied chapter: growing open source; when is it apt to add a new maintainer?
-    - SDA-P0001: Key-person dependency
-    - Observation: A key-person dependency can lead to low growth and disaster longterm for a project.
-    - Fix: 
+    - SDA-P0001: "It's dangerous to go alone...": A lack of contributor diversity can lead to low growth and disaster in the longterm for a project.
+      - Observation:
+        - Project has under 1 unique contributor for every 30,000 lines of code
+        - Warning: Grace period of 1 month after initial commit
+        - Exception: After 1 month
+      - Fix: Introduce the project to more people
+        - Add a contributors.md document to the repository
+        - Consider inviting others to work with you
+          - Are there volunteer contributors who have shown interest and would benefit from increased roles?
+        - Consider keeping the number of contributors >= 3 to retain diversity and resolve "ties"
+  - Other ideas:
+    - Repositories with no PR reviews or PR reviews with no reviews / only reviews from the contributor
 
 - Code: software gardening senescence; how and why code changes with time
-  - One applied chapter: dead code accumulation and ecosystem imbalance
-    - SDA-C0001: accelerated decay and environment imbalance detection
-    - Observation: More dead code accumulating without control over time
-    - Fix: 
+  - One applied chapter: unhealthy ecosystem in place for projects
+    - SDA-C0001: no environment management for project detected
+      - Observation: detect setup.py, pyproject.toml, renv.lock, environment.yml, etc.
+      - Fix: Add environment management files related to the project language
+  - Other ideas:
+    - Detecting repositories which have no testing frameworks installed.
 
 - Season: Software archeology, nowness, and proactivity; past, present, future, what patterns do we see
   - One applied chapter: seasonal climate checks
-  - SDA-S0001: no automated seasonal checks for repository will lead to accelerated decay
-  - Fix: 
+  - SDA-S0001: Disintegrated garden chronology - no automated seasonal checks for repository will lead to accelerated decay
+    - Observation: detect automated checks which occur at a regular rate in order to ensure the project stays up to date with wider environment.
+    - Fix: Add, for example GitHub Actions workflow which runs at chronological schedule (once weekly, for example) to install build of project and run tests.
+  - Other ideas:
+    - Projects where documentation is never updated.
+    - 
 
 
 ------------------------------------------------------------------------
