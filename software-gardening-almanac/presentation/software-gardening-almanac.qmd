@@ -17,13 +17,12 @@ format:
 
 - Intro slide
 
-
 - Some philosophy:
 
-  - Stepping into an idea: Ship of theseus
+  - Ship of theseus
   > "...concerns a debate over whether or not a ship that had all of its components replaced one by one would remain the same ship." ([https://en.wikipedia.org/wiki/Ship_of_Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus))
 
-  - Some key questions:
+  - Some key considerations from this story:
     
     - Continuity vs. Change: how does the ship's identity continue despite changes which occur?
       - How does your software's intent continue despite individual changes?
@@ -31,13 +30,17 @@ format:
     - Essential vs. Accidental Properties: Essential properties are those that are necessary for an object's identity, while accidental properties are those that can change without altering identity.
       - What essential or accidental properties does your software hold?
 
-  - We don't have many standards of practice for continuity and essential properties of software.
+  - Key aspects for "Software Gardens of Theseus"
+    - We don't have many standards of practice for continuity of software.
+    - We often forget essential properties of our software.
+    - We often mistake essential properties as accidental.
   
-  - Some inspiration towards this: git-of-theseus
+  - Some inspiration in the software landscape already for this: git-of-theseus
     - Show git-of-theseus for something common like Pandas
 
   - Expanding these ideas:
-    - "garden-of-theseus": our garden's identity continues alongside _given_ change, effected by the essential and accidental
+    - Our garden's identity continues alongside _given_ change, effected by the essential and accidental.
+    - Making our software gardens more essentially declarative increases continuity through time.
 
 - Problem: code is often developed with in a "one-time" waterfall style approach
   - The challenge with this is that our code often has a continued lifespan.
