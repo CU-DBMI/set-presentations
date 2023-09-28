@@ -1,7 +1,7 @@
 ---
 title: |
-  Software Gardening Almanac
-subtitle: _Cultivating Sustainable <br> Software Development <br> in the Generative Era_
+  <span style="font-size:.6em">The Software Gardening Almanac</em>
+subtitle: <br>_Cultivating Sustainable <br> Software Development <br> in the Generative Era_
 format:
   revealjs: 
     theme: simple
@@ -66,6 +66,25 @@ __Ship of theseus__
 
 ## A philosophical journey
 
+<img src="2023-09-28-16-01-14.png" width="700px"/>
+
+<span style="font-size:.7em">_Python [Pandas](https://pandas.pydata.org/docs/index.html) code additions over time_</span>
+
+Some existing investigation in this domain: [git-of-theseus](https://github.com/erikbern/git-of-theseus)
+
+
+------------------------------------------------------------------------
+
+## A philosophical journey
+
+![](2023-09-28-13-02-46.png)
+
+How do ___"Software Gardens"___ change over time?
+
+------------------------------------------------------------------------
+
+## A philosophical journey
+
 ![](2023-09-28-13-02-46.png)
 
 Key aspects for ___"Software Gardens of Theseus"___
@@ -81,7 +100,8 @@ Key aspects for ___"Software Gardens of Theseus"___
 
 ![](2023-09-28-13-09-14.png)
 
-- How does our garden's identity continue alongside _given_ change through essential and accidental properties?
+- How does our garden's identity continue alongside _given_ change?
+- How do essential and accidental properties effect continuity of our software garden?
 - A theory: Making our software gardens more essentially and accidentally declarative increases continuity through time.
 
 ------------------------------------------------------------------------
@@ -95,12 +115,13 @@ Key aspects for ___"Software Gardens of Theseus"___
 
 ------------------------------------------------------------------------
 
-## A philosophical journey
+## Historical exploration
 
-
-
-Some existing inspiration for this: [git-of-theseus](https://github.com/erikbern/git-of-theseus)
-- Show git-of-theseus for something common like Pandas
+<br>
+<br>
+<br>
+<br>
+Are there any tools we have historically used to understand and enhance our ability to address change over time?
 
 ------------------------------------------------------------------------
 
@@ -122,12 +143,17 @@ Patterns amidst time and season: __Almanacs__
 
 ## Historical exploration
 
-![](2023-09-28-13-21-53.png)
+<img src="2023-09-28-13-21-53.png" width="500px">
 
 __Menologium Rusticum Colotianum__
 
-> "A menologium rusticum (pl. menologia rustica), also known by other names, was a publicly displayed month-by-month inscription of the Roman calendar with notes on the farming activities appropriate for each part of the year." ([Wikipedia](https://en.wikipedia.org/wiki/Menologia_rustica))
+<span style="font-size:.7em">
+"A menologium rusticum (pl. menologia rustica), also known by other names, was a publicly displayed month-by-month inscription of the Roman calendar with notes on the farming activities appropriate for each part of the year." ([Wikipedia](https://en.wikipedia.org/wiki/Menologia_rustica))
+</span>
+
+<span style="font-size:.7em">
 (Image: [Accurimbono](https://commons.wikimedia.org/wiki/File:CIL_VI_2305_-_Menologium_Rusticum_Colotianum_05_Iul-Sep_Oct-Dec.jpg))
+</span>
 
 ------------------------------------------------------------------------
 
@@ -137,24 +163,30 @@ __Menologium Rusticum Colotianum__
 
 __Old Farmer's Almanac__
 
-- Can still find almanacs published today like the [Old Farmer's Almanac](https://en.wikipedia.org/wiki/Old_Farmer%27s_Almanac).
+<span style="font-size:.7em">
+You can still find almanacs published today like the [Old Farmer's Almanac](https://en.wikipedia.org/wiki/Old_Farmer%27s_Almanac).
+</span>
+
+<span style="font-size:.7em">
 (Image: [Unknown author](https://commons.wikimedia.org/wiki/File:Old_Farmer%27s_Almanac_1851_cover.jpg))
+</span>
 
 ------------------------------------------------------------------------
 
 ## The Software Gardening Almanac
 
-![](2023-09-28-13-30-06.png)
+<img src="2023-09-28-13-30-06.png" width="200px">
 
 A living community practicing software gardening to maintain practices
-- Planning for scale with common open source and inclusive documents
-- Providing a referenceable index of codes as "biomarkers" of patterns: https://pylint.readthedocs.io/en/latest/user_guide/messages/messages_overview.html
+
+- Planning for scale with common open source, inclusive, collaborative documents
+- Providing a referenceable index of codes as "biomarkers" of patterns (like [Pylint message index numbers](https://pylint.readthedocs.io/en/latest/user_guide/messages/messages_overview.html))
 
 ------------------------------------------------------------------------
 
 ## The Software Gardening Almanac
 
-![](2023-09-28-13-30-06.png)
+<img src="2023-09-28-13-30-06.png" width="200px">
 
 Guiding concepts:
 
@@ -191,50 +223,99 @@ Measurable approaches:
 
 ![](2023-09-28-13-57-02.png)
 
-Part 1: People
-Part 2: Code
-Part 3: Season
+- Part 1: 👤 People
+- Part 2: 📄 Code
+- Part 3: 🕰️ Season
 
 ------------------------------------------------------------------------
 
-## The Software Gardening Almanac - People
+## SGA - Part 1 - People
 
-- People: Software gardener lattices; growing, supporting, and synergizing software gardeners
+<img src="2023-09-28-16-24-54.png" width="450px">
+
+__Part 1: People__
+
+Software gardener lattices; growing, supporting, and synergizing software gardeners.
+
+<br>
+(Image: [Johnston, Frances Benjamin](https://commons.wikimedia.org/wiki/File:Reproduction_of_print_showing_Designs_for_lattice_work_LCCN2007686387.jpg))
 
 ------------------------------------------------------------------------
 
-## The Software Gardening Almanac - People
+## SGA - Part 1 - People
+
+<br>
 
 One applied chapter: growing open source; when is it apt to add a new maintainer?
-- SDA-P0001: "It's dangerous to go alone...": A lack of contributor diversity can lead to low growth and disaster in the longterm for a project.
-  - Observation:
-    - Project has under 1 unique contributor for every 30,000 lines of code
-    - Warning: Grace period of 1 month after initial commit
-    - Exception: After 1 month
-  - Fix: Introduce the project to more people
-    - Add a contributors.md document to the repository
-    - Consider inviting others to work with you
-      - Are there volunteer contributors who have shown interest and would benefit from increased roles?
-    - Consider keeping the number of contributors >= 3 to retain diversity and resolve "ties"
+
+<br><br>
+
+___"It's dangerous to go alone..."___: A lack of contributor diversity can lead to low growth and disaster in the longterm for a project.
+
 
 ------------------------------------------------------------------------
 
-## The Software Gardening Almanac - People
+## SGA - Part 1 - People
+
+<br>
+
+- SDA-P0001: __Observation__
+  - Project has under 1 unique contributor for every X(?) lines of code
+  - Warning: Grace period of 1 month after initial commit
+  - Exception: After 1 month
+
+------------------------------------------------------------------------
+
+## SGA - Part 1 - People
+
+<br>
+
+- SDA-P0001: __Fix__
+- Fix: Introduce the project to more people
+  - Add a contributors.md document to the repository
+  - Consider inviting others to work with you
+    - Are there volunteer contributors who have shown interest and would benefit from increased roles?
+  - Consider keeping the number of contributors >= 3 to retain diversity and resolve "ties"
+
+------------------------------------------------------------------------
+
+## SGA - Part 1 - People
+
+<br>
+
+- SDA-P0001: __Additional Resources__
+
+- [Wikipedia - Buddy System](https://en.wikipedia.org/wiki/Buddy_system)
+- [Opensource.guide - Best Practices - Share the workload](https://opensource.guide/best-practices/#share-the-workload)
+- [Python Core Developer - Commit privileges](https://devguide.python.org/core-developers/become-core-developer/index.html)
+
+------------------------------------------------------------------------
+
+## SGA - Part 1 - People
+
+<br>
 
 More ideas:
+
 - SDA-P0002 Repositories with no PR reviews or PR reviews with no reviews / only reviews from the contributor
 - SDA-P0003 Checking for git "no branching or forking" (commits only to main), and challenges with collaboration
 - SDA-P0004 Looking at code of conduct inclusion and inclusive / equitable practices 
 
 ------------------------------------------------------------------------
 
-## The Software Gardening Almanac - Code
+## SGA - Part 2 - Code
 
-Code: software gardening senescence; how and why code changes with time
+<img src="2023-09-28-16-57-53.png" width="450px">
+
+__Part 2: Code__
+
+Software gardening senescence; how and why code changes with time.
+
+(Image: [Shibata Zeshin](https://commons.wikimedia.org/wiki/File:Green_Fruits_on_Branch_by_Shibata_Zeshin_from_Comparing_Flowers,_Volume_6.JPG))
 
 ------------------------------------------------------------------------
 
-## The Software Gardening Almanac - Code
+## SGA - Part 2 - Code
 
 One applied chapter: unhealthy ecosystem in place for projects
 - SDA-C0001: no environment management for project detected
@@ -243,7 +324,7 @@ One applied chapter: unhealthy ecosystem in place for projects
 
 ------------------------------------------------------------------------
 
-## The Software Gardening Almanac - Code
+## SGA - Part 2 - Code
 
 Other ideas:
 - SDA-C0002 Detecting repositories which have no testing frameworks installed.
@@ -252,14 +333,13 @@ Other ideas:
 
 ------------------------------------------------------------------------
 
-## The Software Gardening Almanac - Season
-
+## SGA - Part 3 - Season
 
 - Season: Software archeology, nowness, and proactivity; past, present, future, what patterns do we see
 
 ------------------------------------------------------------------------
 
-## The Software Gardening Almanac - Season
+## SGA - Part 3 - Season
 
 - One applied chapter: seasonal climate checks
   - SDA-S0001: Disintegrated garden chronology - no automated seasonal checks for repository will lead to accelerated decay
@@ -268,7 +348,7 @@ Other ideas:
 
 ------------------------------------------------------------------------
 
-## The Software Gardening Almanac - Season
+## SGA - Part 3 - Season
 
   - Other ideas:
     - SDA-S0002 Projects where documentation is never updated.
