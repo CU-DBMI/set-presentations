@@ -21,7 +21,7 @@ format:
 - Some philosophy:
 
   - Stepping into an idea: Ship of theseus
-  > "...concerns a debate over whether or not a ship that had all of its components replaced one by one would remain the same ship."
+  > "...concerns a debate over whether or not a ship that had all of its components replaced one by one would remain the same ship." ([https://en.wikipedia.org/wiki/Ship_of_Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus))
 
   - Some key questions:
     
