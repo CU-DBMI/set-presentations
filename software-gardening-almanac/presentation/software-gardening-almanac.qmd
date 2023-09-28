@@ -1,7 +1,7 @@
 ---
 title: |
   Software Gardening Almanac
-subtitle: Research in Progress
+subtitle: _Cultivating Sustainable <br> Software Development <br> in the Generative Era_
 format:
   revealjs: 
     theme: simple
@@ -13,104 +13,267 @@ format:
     margin: 0.01
 ---
 
-## Content Outline
-
-- Intro slide
-
-- Some philosophy:
-
-  - Ship of theseus
-  > "...concerns a debate over whether or not a ship that had all of its components replaced one by one would remain the same ship." ([https://en.wikipedia.org/wiki/Ship_of_Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus))
-
-  - Some key considerations from this story:
-    
-    - Continuity vs. Change: how does the ship's identity continue despite changes which occur?
-      - How does your software's intent continue despite individual changes?
-
-    - Essential vs. Accidental Properties: Essential properties are those that are necessary for an object's identity, while accidental properties are those that can change without altering identity.
-      - What essential or accidental properties does your software hold?
-
-  - Key aspects for "Software Gardens of Theseus"
-    - We don't have many standards of practice for continuity of software.
-    - We often forget essential properties of our software.
-    - We often mistake essential properties as accidental.
-  
-  - Some inspiration in the software landscape already for this: git-of-theseus
-    - Show git-of-theseus for something common like Pandas
-
-  - Expanding these ideas:
-    - Our garden's identity continues alongside _given_ change, effected by the essential and accidental.
-    - Making our software gardens more essentially declarative increases continuity through time.
-
-- Problem: code is often developed with in a "one-time" waterfall style approach
-  - The challenge with this is that our code often has a continued lifespan.
-
-- One solution: Software Gardening
-- Software gardening article surface: https://bssw.io/blog_posts/long-term-software-gardening-strategies-for-cultivating-scientific-development-ecosystems
-
-- Why a blog article isn't enough (it too faces the dynamics of time and decay)
-
-- Background, Almanacs and their purpose https://en.wikipedia.org/wiki/Almanac
-
-- The handbook:
-- A living community practicing software gardening to maintain practices
-  - Planning for scale with common open source and inclusive documents
-  - Providing a referenceable index of codes as "biomarkers" of patterns: https://pylint.readthedocs.io/en/latest/user_guide/messages/messages_overview.html
-
-- A concept for each observation: relative "project git epoch's" starting from their initial commit. Using this we can measure the changes in the repository alongside the dynamics of time.
-
-- People: Software gardener lattices; growing, supporting, and synergizing software gardeners
-  - One applied chapter: growing open source; when is it apt to add a new maintainer?
-    - SDA-P0001: "It's dangerous to go alone...": A lack of contributor diversity can lead to low growth and disaster in the longterm for a project.
-      - Observation:
-        - Project has under 1 unique contributor for every 30,000 lines of code
-        - Warning: Grace period of 1 month after initial commit
-        - Exception: After 1 month
-      - Fix: Introduce the project to more people
-        - Add a contributors.md document to the repository
-        - Consider inviting others to work with you
-          - Are there volunteer contributors who have shown interest and would benefit from increased roles?
-        - Consider keeping the number of contributors >= 3 to retain diversity and resolve "ties"
-  - Other ideas:
-    - SDA-P0002 Repositories with no PR reviews or PR reviews with no reviews / only reviews from the contributor
-    - SDA-P0003 Checking for git "no branching or forking" (commits only to main), and challenges with collaboration
-    - SDA-P0004 Looking at code of conduct inclusion and inclusive / equitable practices 
-
-- Code: software gardening senescence; how and why code changes with time
-  - One applied chapter: unhealthy ecosystem in place for projects
-    - SDA-C0001: no environment management for project detected
-      - Observation: detect setup.py, pyproject.toml, renv.lock, environment.yml, etc.
-      - Fix: Add environment management files related to the project language
-  - Other ideas:
-    - SDA-C0002 Detecting repositories which have no testing frameworks installed.
-    - SDA-C0003 Code removal vs code additions over time alongside dead code detection
-    - SDA-C0004 Tight vs loose coupling within the code and how this effects things
-
-- Season: Software archeology, nowness, and proactivity; past, present, future, what patterns do we see
-  - One applied chapter: seasonal climate checks
-  - SDA-S0001: Disintegrated garden chronology - no automated seasonal checks for repository will lead to accelerated decay
-    - Observation: detect automated checks which occur at a regular rate in order to ensure the project stays up to date with wider environment.
-    - Fix: Add, for example GitHub Actions workflow which runs at chronological schedule (once weekly, for example) to install build of project and run tests.
-  - Other ideas:
-    - SDA-S0002 Projects where documentation is never updated.
-    - SDA-S0003 Checking on version specification for Python, R, etc.
-    - SDA-S0004 Roadmap and/or architectural decision documentation inclusion to guide projects
-
-- Thanks / Q&A
-
-
-------------------------------------------------------------------------
-
 ## Presentation Outline
 
 <br>
 <br>
 <br>
 
-1.  ✍️ Publishing
-1. 📦 Python Packaging
-1. 🛠️ Packaging Understanding, Trust, and Connection
+1. 🏛️ A philosophical and historical journey
+1. 📗 The Software Gardening Almanac
+1. 📖 Example sections and chapters
 
+------------------------------------------------------------------------
+
+## Preface
+
+
+![](2023-09-28-12-35-27.png)
+
+Preface: expanding and focusing on continuity for ideas found in: [Long-Term Software Gardening Strategies for Cultivating Scientific Development Ecosystems](https://bssw.io/blog_posts/long-term-software-gardening-strategies-for-cultivating-scientific-development-ecosystems)
+
+------------------------------------------------------------------------
+
+## A philosophical journey
+
+<center><img src="2023-09-28-12-43-55.png" width="400px"></center>
+
+__Ship of theseus__
+
+<span style="font-size:.8em">
+"...concerns a debate over whether or not a ship that had all of its components replaced one by one would remain the same ship."
+([Wikipedia](https://en.wikipedia.org/wiki/Ship_of_Theseus))
+([Image: Smith, William, Sir](https://commons.wikimedia.org/wiki/File:School_dictionary_of_Greek_and_Roman_antiquities_(1845)_(14596360589).jpg))
+</span>
+
+------------------------------------------------------------------------
+
+## A philosophical journey
+
+![](2023-09-28-12-53-56.png)
+
+- __Continuity vs. Change:__ how does the ship's identity continue despite changes which occur?
+
+------------------------------------------------------------------------
+
+## A philosophical journey
+
+![](2023-09-28-13-00-31.png)
+
+- __Essential vs. Accidental Properties:__ Essential properties are those that are necessary for an object's identity, while accidental properties are those that can change without altering identity.
+
+------------------------------------------------------------------------
+
+## A philosophical journey
+
+![](2023-09-28-13-02-46.png)
+
+Key aspects for ___"Software Gardens of Theseus"___
+
+- We don't have many standards of practice for continuity of software.
+- We often forget essential properties of our software.
+- We often mistake essential properties as accidental.
+- Accidental properties might still be important to the garden identity
+
+------------------------------------------------------------------------
+
+## A philosophical journey
+
+![](2023-09-28-13-09-14.png)
+
+- How does our garden's identity continue alongside _given_ change through essential and accidental properties?
+- A theory: Making our software gardens more essentially and accidentally declarative increases continuity through time.
+
+------------------------------------------------------------------------
+
+## A philosophical journey
+
+![](2023-09-28-13-11-46.png)
+
+- Problem: code is often developed with in a "one-time" waterfall style approach
+- The challenge with this is that our code often has a continued lifespan.
+
+------------------------------------------------------------------------
+
+## A philosophical journey
+
+
+
+Some existing inspiration for this: [git-of-theseus](https://github.com/erikbern/git-of-theseus)
+- Show git-of-theseus for something common like Pandas
+
+------------------------------------------------------------------------
+
+## Historical exploration
+
+![](2023-09-28-13-20-34.png)
+
+Patterns amidst time and season: __Almanacs__
+
+<span style="font-size:.8em">
+"[Almanacs include] ... information like weather forecasts, farmers' planting dates, tide tables, and other tabular data often arranged according to the calendar." ([Wikipedia](https://en.wikipedia.org/wiki/Almanac))
+</span>
+
+<span style="font-size:.8em">
+(Image: [Old Moore's Almanack from 1862 (cropped)](https://commons.wikimedia.org/wiki/File:OldMooresAlmanac1862.jpg))
+</span>
+
+------------------------------------------------------------------------
+
+## Historical exploration
+
+![](2023-09-28-13-21-53.png)
+
+__Menologium Rusticum Colotianum__
+
+> "A menologium rusticum (pl. menologia rustica), also known by other names, was a publicly displayed month-by-month inscription of the Roman calendar with notes on the farming activities appropriate for each part of the year." ([Wikipedia](https://en.wikipedia.org/wiki/Menologia_rustica))
+(Image: [Accurimbono](https://commons.wikimedia.org/wiki/File:CIL_VI_2305_-_Menologium_Rusticum_Colotianum_05_Iul-Sep_Oct-Dec.jpg))
+
+------------------------------------------------------------------------
+
+## Historical exploration
+
+![](2023-09-28-13-23-37.png)
+
+__Old Farmer's Almanac__
+
+- Can still find almanacs published today like the [Old Farmer's Almanac](https://en.wikipedia.org/wiki/Old_Farmer%27s_Almanac).
+(Image: [Unknown author](https://commons.wikimedia.org/wiki/File:Old_Farmer%27s_Almanac_1851_cover.jpg))
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac
+
+![](2023-09-28-13-30-06.png)
+
+A living community practicing software gardening to maintain practices
+- Planning for scale with common open source and inclusive documents
+- Providing a referenceable index of codes as "biomarkers" of patterns: https://pylint.readthedocs.io/en/latest/user_guide/messages/messages_overview.html
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac
+
+![](2023-09-28-13-30-06.png)
+
+Guiding concepts:
+
+- Seeking to define the essential properties of software for highly continuos software. 
+- Helping the undeclared essential become real for projects
+- Shifting the accidental to essential
+- Avoiding adventitious accidents
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac
+
+![](2023-09-28-13-39-12.png)
+
+Measurable approaches:
+
+- Relative "project git epoch's" starting from their initial commit. Using this we can measure the changes in the repository alongside the dynamics of time.
+
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac
+
+![](2023-09-28-13-55-29.png)
+
+Measurable approaches:
+
+- ["Unit-like" constraint testing](https://en.wikipedia.org/wiki/Unit_testing) for precision to expected essential or accidental form.
+- [Fitness functions](https://en.wikipedia.org/wiki/Fitness_function) for assessing "fit"
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac - parts
+
+![](2023-09-28-13-57-02.png)
+
+Part 1: People
+Part 2: Code
+Part 3: Season
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac - People
+
+- People: Software gardener lattices; growing, supporting, and synergizing software gardeners
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac - People
+
+One applied chapter: growing open source; when is it apt to add a new maintainer?
+- SDA-P0001: "It's dangerous to go alone...": A lack of contributor diversity can lead to low growth and disaster in the longterm for a project.
+  - Observation:
+    - Project has under 1 unique contributor for every 30,000 lines of code
+    - Warning: Grace period of 1 month after initial commit
+    - Exception: After 1 month
+  - Fix: Introduce the project to more people
+    - Add a contributors.md document to the repository
+    - Consider inviting others to work with you
+      - Are there volunteer contributors who have shown interest and would benefit from increased roles?
+    - Consider keeping the number of contributors >= 3 to retain diversity and resolve "ties"
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac - People
+
+More ideas:
+- SDA-P0002 Repositories with no PR reviews or PR reviews with no reviews / only reviews from the contributor
+- SDA-P0003 Checking for git "no branching or forking" (commits only to main), and challenges with collaboration
+- SDA-P0004 Looking at code of conduct inclusion and inclusive / equitable practices 
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac - Code
+
+Code: software gardening senescence; how and why code changes with time
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac - Code
+
+One applied chapter: unhealthy ecosystem in place for projects
+- SDA-C0001: no environment management for project detected
+  - Observation: detect setup.py, pyproject.toml, renv.lock, environment.yml, etc.
+  - Fix: Add environment management files related to the project language
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac - Code
+
+Other ideas:
+- SDA-C0002 Detecting repositories which have no testing frameworks installed.
+- SDA-C0003 Code removal vs code additions over time alongside dead code detection
+- SDA-C0004 Tight vs loose coupling within the code and how this effects things
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac - Season
+
+
+- Season: Software archeology, nowness, and proactivity; past, present, future, what patterns do we see
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac - Season
+
+- One applied chapter: seasonal climate checks
+  - SDA-S0001: Disintegrated garden chronology - no automated seasonal checks for repository will lead to accelerated decay
+    - Observation: detect automated checks which occur at a regular rate in order to ensure the project stays up to date with wider environment.
+    - Fix: Add, for example GitHub Actions workflow which runs at chronological schedule (once weekly, for example) to install build of project and run tests.
+
+------------------------------------------------------------------------
+
+## The Software Gardening Almanac - Season
+
+  - Other ideas:
+    - SDA-S0002 Projects where documentation is never updated.
+    - SDA-S0003 Checking on version specification for Python, R, etc.
+    - SDA-S0004 Roadmap and/or architectural decision documentation inclusion to guide projects
 
 ------------------------------------------------------------------------
 
