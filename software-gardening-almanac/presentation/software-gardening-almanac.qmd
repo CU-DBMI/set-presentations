@@ -25,7 +25,7 @@ format:
 
 ## Preface
 
-![](2023-09-28-12-35-27.png)
+![](assets/2023-09-28-12-35-27.png)
 
 Preface: expanding and focusing on continuity for ideas found in: [Long-Term Software Gardening Strategies for Cultivating Scientific Development Ecosystems](https://bssw.io/blog_posts/long-term-software-gardening-strategies-for-cultivating-scientific-development-ecosystems)
 
@@ -33,7 +33,7 @@ Preface: expanding and focusing on continuity for ideas found in: [Long-Term Sof
 
 ## Preface
 
-<img src="2023-09-28-16-01-14.png" width="700px"/>
+<img src="assets/2023-09-28-16-01-14.png" width="700px"/>
 
 [*Python [Pandas](https://pandas.pydata.org/docs/index.html) code additions over time*]{style="font-size:.7em"}
 
@@ -43,7 +43,7 @@ Preface: expanding and focusing on continuity for ideas found in: [Long-Term Sof
 
 ## A philosophical journey
 
-<center><img src="2023-09-28-12-43-55.png" width="400px"/></center>
+<center><img src="assets/2023-09-28-12-43-55.png" width="400px"/></center>
 
 **Ship of theseus**
 
@@ -53,7 +53,7 @@ Preface: expanding and focusing on continuity for ideas found in: [Long-Term Sof
 
 ## A philosophical journey
 
-![](2023-09-28-12-53-56.png)
+![](assets/2023-09-28-12-53-56.png)
 
 -   **Continuity vs. Change:** how does the ship's identity continue despite changes which occur?
 
@@ -61,7 +61,7 @@ Preface: expanding and focusing on continuity for ideas found in: [Long-Term Sof
 
 ## A philosophical journey
 
-![](2023-09-28-13-00-31.png)
+![](assets/2023-09-28-13-00-31.png)
 
 -   **Essential vs. Accidental Properties:** Essential properties are those that are necessary for an object's identity, while accidental properties are those that can change without altering identity.
 
@@ -69,7 +69,7 @@ Preface: expanding and focusing on continuity for ideas found in: [Long-Term Sof
 
 ## A philosophical journey
 
-![](2023-09-28-13-02-46.png)
+![](assets/2023-09-28-13-02-46.png)
 
 How do ***"Software Gardens"*** change over time?
 
@@ -77,7 +77,7 @@ How do ***"Software Gardens"*** change over time?
 
 ## A philosophical journey
 
-![](2023-09-28-13-02-46.png)
+![](assets/2023-09-28-13-02-46.png)
 
 ***"Software Gardens of Theseus"***
 
@@ -87,7 +87,7 @@ How do ***"Software Gardens"*** change over time?
 
 ## A philosophical journey
 
-![](2023-09-28-13-02-46.png)
+![](assets/2023-09-28-13-02-46.png)
 
 Key aspects for ***"Software Gardens of Theseus"***
 
@@ -100,7 +100,7 @@ Key aspects for ***"Software Gardens of Theseus"***
 
 ## A philosophical journey
 
-![](2023-09-28-13-09-14.png)
+![](assets/2023-09-28-13-09-14.png)
 
 <div style="font-size:.8em;">
 -   How does our garden's identity continue alongside *given* change?
@@ -112,7 +112,7 @@ Key aspects for ***"Software Gardens of Theseus"***
 
 ## A philosophical journey
 
-![](2023-09-28-13-11-46.png)
+![](assets/2023-09-28-13-11-46.png)
 
 -   Problem: code is often developed with in a "one-time" waterfall style approach
 -   The challenge with this is that our code often has a continued lifespan.
@@ -127,7 +127,7 @@ Key aspects for ***"Software Gardens of Theseus"***
 
 ## Historical exploration
 
-![](2023-09-28-13-20-34.png)
+![](assets/2023-09-28-13-20-34.png)
 
 Patterns amidst time and season: **Almanacs**
 
@@ -139,7 +139,7 @@ Patterns amidst time and season: **Almanacs**
 
 ## Historical exploration
 
-<img src="2023-09-28-13-21-53.png" width="500px"/>
+<img src="assets/2023-09-28-13-21-53.png" width="500px"/>
 
 **Menologium Rusticum Colotianum**
 
@@ -151,7 +151,7 @@ Patterns amidst time and season: **Almanacs**
 
 ## Historical exploration
 
-![](2023-09-28-13-23-37.png)
+![](assets/2023-09-28-13-23-37.png)
 
 **Old Farmer's Almanac**
 
@@ -163,7 +163,7 @@ Patterns amidst time and season: **Almanacs**
 
 ## The Software Gardening Almanac
 
-<img src="2023-09-28-13-30-06.png" width="200px"/>
+<img src="assets/2023-09-28-13-30-06.png" width="200px"/>
 
 A living community practicing software gardening to maintain practices
 
@@ -174,7 +174,7 @@ A living community practicing software gardening to maintain practices
 
 ## The Software Gardening Almanac
 
-<img src="2023-09-28-13-30-06.png" width="200px"/>
+<img src="assets/2023-09-28-13-30-06.png" width="200px"/>
 
 Guiding concepts:
 
@@ -187,7 +187,7 @@ Guiding concepts:
 
 ## The Software Gardening Almanac
 
-![](2023-09-28-13-39-12.png)
+![](assets/2023-09-28-13-39-12.png)
 
 Measurable approaches:
 
@@ -197,7 +197,7 @@ Measurable approaches:
 
 ## The Software Gardening Almanac
 
-![](2023-09-28-13-55-29.png)
+![](assets/2023-09-28-13-55-29.png)
 
 Measurable approaches:
 
@@ -208,7 +208,7 @@ Measurable approaches:
 
 ## The Software Gardening Almanac - parts
 
-![](2023-09-28-13-57-02.png)
+![](assets/2023-09-28-13-57-02.png)
 
 -   Part 1: 👤 People
 -   Part 2: 📄 Code
@@ -218,7 +218,7 @@ Measurable approaches:
 
 ## SGA - Part 1 - People
 
-<img src="2023-09-28-16-24-54.png" width="450px"/>
+<img src="assets/2023-09-28-16-24-54.png" width="450px"/>
 
 **Part 1: People**
 
@@ -230,7 +230,7 @@ Software gardener lattices; growing, supporting, and synergizing software garden
 
 ## SGA - Part 1 - People
 
-<img src="2023-09-29-08-38-56.png" width="800px"/>
+<img src="assets/2023-09-29-08-38-56.png" width="800px"/>
 
 One applied chapter: growing open source; when is it apt to add a new maintainer?
 
@@ -243,7 +243,7 @@ One applied chapter: growing open source; when is it apt to add a new maintainer
 
 ## SGA - Part 1 - People
 
-<img src="2023-09-29-08-38-56.png" width="800px"/>
+<img src="assets/2023-09-29-08-38-56.png" width="800px"/>
 
 SDA-P0001: **Observation**
 
@@ -255,7 +255,7 @@ SDA-P0001: **Observation**
 
 ## SGA - Part 1 - People
 
-<img src="2023-09-29-08-44-06.png" width="800px"/>
+<img src="assets/2023-09-29-08-44-06.png" width="800px"/>
 
 SDA-P0001: **Fix**
 
@@ -302,7 +302,7 @@ More ideas:
 
 ## SGA - Part 2 - Code
 
-<img src="2023-09-28-16-57-53.png" width="450px"/>
+<img src="assets/2023-09-28-16-57-53.png" width="450px"/>
 
 **Part 2: Code**
 
@@ -316,7 +316,7 @@ Software gardening senescence; how and why code changes with time.
 
 ## SGA - Part 2 - Code
 
-<img src="2023-09-29-09-15-43.png" width="600px">
+<img src="assets/2023-09-29-09-15-43.png" width="600px">
 
 One applied chapter: no ecosystem in place for projects
 
@@ -327,7 +327,7 @@ One applied chapter: no ecosystem in place for projects
 
 ## SGA - Part 2 - Code
 
-<img src="2023-09-29-09-15-43.png" width="600px">
+<img src="assets/2023-09-29-09-15-43.png" width="600px">
 
 SDA-C0001: **Observation**
 
@@ -339,7 +339,7 @@ SDA-C0001: **Observation**
 
 ## SGA - Part 2 - Code
 
-<img src="2023-09-29-09-21-19.png" width="600px">
+<img src="assets/2023-09-29-09-21-19.png" width="600px">
 
 SDA-C0001: **Fix**
 
@@ -374,7 +374,7 @@ More ideas:
 
 ## SGA - Part 3 - Season
 
-<img src="2023-09-29-09-38-13.png" width="600px">
+<img src="assets/2023-09-29-09-38-13.png" width="600px">
 
 **Part 3: Season**
 
@@ -388,7 +388,7 @@ Software archeology, nowness, and proactivity; past, present, future, what patte
 
 ## SGA - Part 3 - Season
 
-<img src="2023-09-29-09-48-50.png" width="700px">
+<img src="assets/2023-09-29-09-48-50.png" width="700px">
 
 One applied chapter: ecosystem time synchronization checks
 
@@ -399,7 +399,7 @@ One applied chapter: ecosystem time synchronization checks
 
 ## SGA - Part 3 - Season
 
-<img src="2023-09-29-09-48-50.png" width="700px">
+<img src="assets/2023-09-29-09-48-50.png" width="700px">
 
 SDA-S0001: **Observation**
 
@@ -413,7 +413,7 @@ SDA-S0001: **Observation**
 
 ## SGA - Part 3 - Season
 
-<img src="2023-09-29-09-57-40.png" width="600px">
+<img src="assets/2023-09-29-09-57-40.png" width="600px">
 
 SDA-S0001: **Fix**
 
