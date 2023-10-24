@@ -4,7 +4,7 @@ This directory includes content related to building a poster via [Posterdown](ht
 
 Related charts for various benchmarks may be found in the related repository: [CytoTable-benchmarks](https://github.com/cytomining/CytoTable-benchmarks).
 
-Poster dimensions follow SBI2 2023's specifications: `91" wide x 44.75” high`.
+Poster dimensions must abide (but not exactly match) SBI2 2023's maximum specifications: `91" wide x 44.75” high`.
 
 ## Dependencies
 
