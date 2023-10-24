@@ -139,14 +139,14 @@ style spacer4 fill:#DCFCE7,stroke:#DCFCE7;
 We are solving significant scalability and replicability challenges with high-dimensional single-cell morphology data (such as those extracted from CellProfiler[[1]](#citation-1))  by implementing novel and effective capabilities as a modular, portable, and cross-language single-cell data stack[[2]](#citation-2):
 (a) language frontend: SQL (DuckDB[[3]](#citation-3)), (b) intermediate representation: Apache Arrow[[4]](#citation-4) and Apache Parquet[[5]](#citation-5), (c) query optimizer: DuckDB[[3]](#citation-3), (d) execution engine: Parsl[[6]](#citation-6) with Pythonic MapReduce design patterns[[7]](#citation-7), (e) execution runtime, Python package (PyPI, source)(Figure 1).
 
-# Morphology Feature Data Scalability
+# Microscopy Feature Data Scalability
 
-```{r, echo=FALSE, out.width='80%', fig.align='center'}
+```{r, echo=FALSE, out.width='85%', fig.align='center'}
 knitr::include_graphics("https://raw.githubusercontent.com/d33bs/CytoTable-benchmarks/cytotable-scalability/notebooks/images/cytotable-and-pycytominer-comparisons-join-completion-time.png")
 ```
 <p class="figcaption">Figure 2. Plot showing processing time duration for CytoTable and Pycytominer for various datasets.</p>
 
-```{r, echo=FALSE, out.width='80%', fig.align='center'}
+```{r, echo=FALSE, out.width='85%', fig.align='center'}
 knitr::include_graphics("https://raw.githubusercontent.com/d33bs/CytoTable-benchmarks/cytotable-scalability/notebooks/images/cytotable-and-pycytominer-comparisons-join-memory-size.png")
 ```
 <p class="figcaption">Figure 3. Plot showing total memory consumption for CytoTable and Pycytominer for various datasets.</p>
