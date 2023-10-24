@@ -43,8 +43,8 @@ pagedown::chrome_print("poster.rmd")
 
 ## Additional notes
 
-- [mermaid-cli](https://github.com/mermaid-js/mermaid-cli) was used to render an image for the main/center block of the poster via the following command: `mmdc -i main-diagram.mmd -o main-diagram.png -b transparent -s 2`
 - [ImageMagick](http://www.imagemagick.org/) was used to form the bottom logos together as one and render the poster pdf as png using the following commands:
+- Python [qrcode](https://github.com/lincolnloop/python-qrcode) is used to generate various QR codes via `qr-code-generation.sh` script.
 
 ```shell
 # create a transparent spacer

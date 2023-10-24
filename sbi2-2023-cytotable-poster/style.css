@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,500;1,400;1,500&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
 #title {
     line-height: 100% !important;
+    font-weight: bold !important;
+    font-family: "Roboto" !important;
+}
+
+.poster_body h1 {
+    font-weight: bold !important;
+    font-family: "Roboto Condensed" !important;
 }
 
 .poster_title {
@@ -65,10 +74,10 @@ img.main-img-right {
 }
 
 .poster_title {
-    width: auto !important;
+    width: 40% !important;
     text-align: left !important;
     padding: 150px 50px 50px 40px;
-    top: 67% !important;
+    top: 52% !important;
 }
 
 .poster_title h3 {
@@ -95,6 +104,7 @@ img.main-img-left {
 
 li {
     text-align: left;
+    padding-bottom: 20px;
 }
 
 h3 {
@@ -102,12 +112,23 @@ h3 {
 }
 
 .poster_body h2 {
+    font-family: "Roboto Condensed" !important;
     color: #000000 !important;
     font-size: 55pt !important;
     padding-left: 4mm !important;
     text-align: center;
-    background-color: #FACC15;
+    background-color: #FEF9C3;
     margin-top: 3mm;
     padding: 10px 10px;
     margin-bottom: 2mm;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+}
+
+.text-block {
+    padding: 0px;
 }
