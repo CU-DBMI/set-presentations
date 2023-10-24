@@ -53,6 +53,17 @@ convert -size 200x453 xc:transparent images/spacer.png
 # combine the images together as one using the spacer for separation
 convert +append images/qr-code.png images/spacer.png images/waylab.png images/spacer.png images/dbmi.png images/combined.png
 
-# convert the poster pdf to png with 150 dpi
-convert -density 150 poster.pdf poster.png
+# downconvert png's to 200x200
+convert images/icon_pycytominer.png -resize 200x200 images/icon_pycytominer_small.png
+convert images/icon_cytosnake.png -resize 200x200 images/icon_cytosnake_small.png
+convert images/icon_cytotable.png -resize 200x200 images/icon_cytotable_small.png
+
+# create a small transparent spacer for icons
+convert -size 20x200 xc:transparent images/icon_spacer.png
+
+# combine the images together as one using the spacer for separation for icons
+convert +append images/icon_pycytominer_small.png images/icon_spacer.png images/icon_cytosnake_small.png images/icon_spacer.png images/icon_cytotable_small.png images/icon_spacer.png images/icon_cytomining.png images/icons_combined.png
+
+# convert the poster pdf to png with 150 dpi and a white background
+convert -density 150 -background white -flatten poster.pdf poster.png
 ```

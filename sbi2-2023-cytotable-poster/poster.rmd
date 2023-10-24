@@ -50,7 +50,7 @@ poster_width: "70in"
 primary_colour: "#FDE68A"
 
 secondary_colour: "#FED7AA"
-accent_colour: "#16A34A"
+accent_colour: "#148243"
 
 title_textcol: "#000000"
 author_textcol: "#333333"
@@ -136,8 +136,8 @@ style spacer4 fill:#DCFCE7,stroke:#DCFCE7;
 </center>
 <p class="figcaption">Figure 1. Diagram showing high-dimensional single-cell morphology data flow with relationship to CytoTable modular data stack components.</p>
 
-We are solving significant scalability and replicability challenges with high-dimensional single-cell morphology data (such as those extracted from CellProfiler[1])  by implementing novel and effective capabilities as a modular, portable, and cross-language single-cell data stack[2]:
-(a) language frontend: SQL (DuckDB[3]), (b) intermediate representation: Apache Arrow[4] and Apache Parquet[5], (c) query optimizer: DuckDB[3], (d) execution engine: Parsl[6] with Pythonic MapReduce design patterns[7], (e) execution runtime, Python package (PyPI, source)(Figure 1).
+We are solving significant scalability and replicability challenges with high-dimensional single-cell morphology data (such as those extracted from CellProfiler[[1]](#citation-1))  by implementing novel and effective capabilities as a modular, portable, and cross-language single-cell data stack[[2]](#citation-2):
+(a) language frontend: SQL (DuckDB[[3]](#citation-3)), (b) intermediate representation: Apache Arrow[[4]](#citation-4) and Apache Parquet[[5]](#citation-5), (c) query optimizer: DuckDB[[3]](#citation-3), (d) execution engine: Parsl[[6]](#citation-6) with Pythonic MapReduce design patterns[[7]](#citation-7), (e) execution runtime, Python package (PyPI, source)(Figure 1).
 
 # Morphology Feature Data Scalability
 
@@ -152,72 +152,107 @@ knitr::include_graphics("https://raw.githubusercontent.com/d33bs/CytoTable-bench
 <p class="figcaption">Figure 3. Plot showing total memory consumption for CytoTable and Pycytominer for various datasets.</p>
 
 CytoTable builds upon the shoulders of Pycytominer, helping to streamline the `SingleCells.merge_single_cells(...)` method.
-We decrease overall processsing completion time and memory consumption for large amounts of data by leveraging composable data stack elements.
+We decrease overall processsing completion time (Figure 2) and memory consumption (Figure 3) for large amounts of data by leveraging composable data stack elements.
 
 # Empowering the Cytomining Ecosystem
 
 ## Orchestration: CytoSnake
 
-_Authors: Erik Serrano, Jenna Tomkinson, Roshan Kern, Vince Rubinetti, Dave Bunten, Gregory P. Way_
+___Authors:___ Erik Serrano, Jenna Tomkinson, Roshan Kern, Vince Rubinetti, Dave Bunten, Gregory P. Way
 
 ```{r, echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/cytosnake_MP_processing_cropped.png")
 ```
-
+<p class="figcaption">Figure 4. Diagram showing how CytoSnake orchestration applied in multiple pipelines.</p>
 
 <div class="container">
   <div class="text-block"  style="padding-top:40px;">CytoSnake is an innovative tool for orchestrating high-dimensional cell morphology data processing pipelines, including those which leverage CytoTable and other applied usecases.</div>
-  <div class="text-block" style="text-align:center;"><img src="images/qr_cytosnake.png"/></div>
+  <div class="text-block" style="text-align:center;"><img src="images/qr_cytosnake.png" style="width:70%"/></div>
 </div>
 
-## Applied research: NF1 Schwann cell analysis
 
-_Authors: Jenna Tomkinson, Cameron Mattson, Erik Serrano, Gregory P. Way_
+## Applied research: NF1 Schwann cell project
+
+___Authors:___ Jenna Tomkinson, Cameron Mattson, Erik Serrano,<br> Gregory P. Way
 
 ```{r, echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/nf1_and_cfret_workflow.png")
 ```
-
+<p class="figcaption">Figure 5. Diagram showing NF1 pipeline implementation details including CytoTable and Pycytominer.</p>
 
 <div class="container">
   <div class="text-block"  style="padding-top:40px;">Comprehensive dataset analyses for cell painting assays, enabling the further understanding of cellular morphology NF1 Schwann cells and rare disease treatment.</div>
-  <div class="text-block" style="text-align:center;"><img src="images/qr_nf1.png"/></div>
+  <div class="text-block" style="text-align:center;"><img src="images/qr_nf1.png" style="width:70%"/></div>
 </div>
+
+<br>
+<br>
+<br>
 
 ## Applied research: Pyroptosis signature project
 
-_Authors: Michael J. Lippincott, Jenna Tomkinson, Gregory P. Way_
+___Authors:___ Michael J. Lippincott, Jenna Tomkinson, Gregory P. Way
 
-<div style="background-color:#cccccc;">
 ```{r, echo=FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("images/pyroptotic_changes.png")
+knitr::include_graphics("images/Cell_Painting_Figure_-_Interstellar_Poster_1.png")
 ```
-</div>
 
+<p class="figcaption">Figure 6. Diagram showing pyroptotic cell changes which are studied as part of the Pyroptosis signature project.</p>
 
 <div class="container">
   <div class="text-block"  style="padding-top:40px;">Identifying and characterizing pyroptosis signatures in cellular systems, aiding in the study of inflammatory cell death pathways as part of the Interstellar collaboration.</div>
-  <div class="text-block" style="text-align:center;"><img src="images/qr_pyroptosis.png"/></div>
+  <div class="text-block" style="text-align:center;"><img src="images/qr_pyroptosis.png" style="width:70%"/></div>
 </div>
 
 
 ## Applied research: CFReT project
 
-_Authors: Jenna Tomkinson, Erik Serrano, Gregory P. Way_
+___Authors:___ Jenna Tomkinson, Erik Serrano, Gregory P. Way
 
 ```{r, echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/nf1_and_cfret_workflow.png")
 ```
-
+<p class="figcaption">Figure 7. Diagram showing CFReT pipeline implementation details including CytoTable and Pycytominer.</p>
 
 <div class="container">
   <div class="text-block"  style="padding-top:40px;">Image-based analysis of cardiac fibroblast datasets to uncover proprietary drug impact on reversing fibrosis.</div>
-  <div class="text-block" style="text-align:center;"><img src="images/qr_cfret.png"/></div>
+  <div class="text-block" style="text-align:center;"><img src="images/qr_cfret.png" style="width:70%"/></div>
 </div>
+
+# Using CytoTable
+
+```python
+import cytotable
+result_file = cytotable.convert(
+    source_path="path/to/feature-data",
+    dest_path="destination/path.parqut",
+    dest_datatype="parquet",
+    preset="cellprofiler_csv",
+)
+```
+<p class="figcaption">Figure 8. Code block showing Pythonic syntax for using CytoTable.</p>
+
+CytoTable includes a Pythonic API which can be customized as needed or leverage existing presets (Figure 8).
+See the CytoTable documentation for more detail: [https://cytomining.github.io/CytoTable/](https://cytomining.github.io/CytoTable/)
+
+# Shape the future with us!
+
+```{r, echo=FALSE, out.width='90%', fig.align='center'}
+knitr::include_graphics("images/icons_combined.png")
+```
+<p class="figcaption">Figure 9. Cytomining Ecosystem software logos.</p>
+
+The Cytomining Ecosystem cultivates groundbreaking science and research software engineering in the realm of high-dimensional single-cell science, guiding in a new era of bioinformatic innovation.
+
+<center>
+__Interested in collaborating?<br>We welcome your input, contributions, and guidance!__
+
+Find us at [https://github.com/cytomining](https://github.com/cytomining).
+</center>
 
 # References
 
-1. Carpenter, A. E., Jones, T. R., Lamprecht, M. R., Clarke, C., Kang, I., Friman, O., Guertin, D. A., Chang, J., Lindquist, R. A., Moffat, J., Golland, P., & Sabatini, D. M. (2006). CellProfiler: Image analysis software for identifying and quantifying cell phenotypes. Genome Biology, 7(10), R100. https://doi.org/10.1186/gb-2006-7-10-r100
+1. <span id="citation-1">Carpenter, A. E., Jones, T. R., Lamprecht, M. R., Clarke, C., Kang, I., Friman, O., Guertin, D. A., Chang, J., Lindquist, R. A., Moffat, J., Golland, P., & Sabatini, D. M. (2006). CellProfiler: Image analysis software for identifying and quantifying cell phenotypes. Genome Biology, 7(10), R100. https://doi.org/10.1186/gb-2006-7-10-r100</span>
 1. Pedreira, P., Erling, O., Karanasos, K., Schneider, S., McKinney, W., Valluri, S. R., Zait, M., & Nadeau, J. (2023). The Composable Data Management System Manifesto. Proceedings of the VLDB Endowment, 16(10), 2679–2685. https://doi.org/10.14778/3603581.3603604
 1. Raasveldt, M., & Mühleisen, H. (2019). DuckDB: An Embeddable Analytical Database. Proceedings of the 2019 International Conference on Management of Data, 1981–1984. https://doi.org/10.1145/3299869.3320212
 1. Apache Arrow. (n.d.). [Computer software]. Apache Software Foundation. https://arrow.apache.org/docs/
@@ -225,11 +260,10 @@ knitr::include_graphics("images/nf1_and_cfret_workflow.png")
 1. Babuji, Y., Woodard, A., Li, Z., Katz, D. S., Clifford, B., Kumar, R., Lacinski, L., Chard, R., Wozniak, J. M., Foster, I., Wilde, M., & Chard, K. (2019). Parsl: Pervasive Parallel Programming in Python. Proceedings of the 28th International Symposium on High-Performance Parallel and Distributed Computing, 25–36. https://doi.org/10.1145/3307681.3325400
 1. Dean, J., & Ghemawat, S. (2008). MapReduce: Simplified data processing on large clusters. Communications of the ACM, 51(1), 107–113. https://doi.org/10.1145/1327452.1327492
 
-
 # Acknowledgements
 
 <p style="margin-bottom:5px;">Special thanks goes to the following for their help in contributing to CytoTable design and development or related work.<p>
 
 - [Way Lab](https://www.waysciencelab.com/): Cameron Mattson
-- [Broad Institute of MIT and Harvard](https://www.broadinstitute.org/): Shantanu Singh, Beth Cimini, Sam Chen
+- [Broad Institute](https://www.broadinstitute.org/): Shantanu Singh, Beth Cimini, Sam Chen
 - [Yale School of Medicine](https://medicine.yale.edu/): Samir Amin
