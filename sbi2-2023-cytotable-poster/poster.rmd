@@ -225,7 +225,7 @@ knitr::include_graphics("images/nf1_and_cfret_workflow.png")
 import cytotable
 result_file = cytotable.convert(
     source_path="path/to/feature-data",
-    dest_path="destination/path.parqut",
+    dest_path="destination/path.parquet",
     dest_datatype="parquet",
     preset="cellprofiler_csv",
 )
