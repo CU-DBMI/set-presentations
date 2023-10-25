@@ -1,0 +1,273 @@
+---
+title: "CytoTable: High performance and scalable<br>single-cell morphology feature engineering"
+author:
+    - name: Dave Bunten
+      affil: 1
+      orcid: 0000-0001-6041-3665
+      main: true
+    - name: Erik Serrano
+      affil: 1
+      orcid: 0000-0003-4188-9080
+      main: true
+    - name: Jenna Tomkinson
+      affil: 1
+      orcid: 0000-0003-2676-5813
+      main: true
+    - name: Michael J. Lippincott
+      affil: 1
+      orcid: 0000-0002-8637-1448
+      main: true
+    - name: Faisal Alquaddoomi
+      affil: 1
+      orcid: 0000-0003-4297-8747
+      main: true
+    - name: Vince Rubinetti
+      affil: 1
+      orcid: 0000-0002-4655-3773
+      main: true
+    - name: Gregory P. Way
+      affil: 1
+      orcid: 0000-0002-0503-9348
+      main: true
+affiliation:
+  - num: 1
+    address: Department of Biomedical Informatics, University of Colorado Anschutz
+column_numbers: 4
+output: 
+  posterdown::posterdown_html:
+    self_contained: false
+    pandoc_args: --mathjax
+    highlight: haddock
+    number_sections: false
+    css: "style.css"
+link-citations: true
+
+
+poster_height: " 44.75in"
+poster_width: "70in"
+
+
+primary_colour: "#FDE68A"
+
+secondary_colour: "#FED7AA"
+accent_colour: "#148243"
+
+title_textcol: "#000000"
+author_textcol: "#333333"
+affiliation_textcol: "#333333"
+title_textsize: "120px"
+logoleft_name: 'images/dbmi.png'
+logoright_name: 'images/header_combined_images.png'
+
+font_family: "Roboto"
+main_textsize: "160px"
+main_fontfamily: "Roboto Condensed"
+
+sectitle_textcol: "#222222"
+sectitle_bgcol:	"#FACC15"
+sectitle_bordercol: "#ffffff"
+
+body_textsize: "50px"
+---
+
+# Introduction
+
+<script type="module">
+  import mermaid from 'https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+
+<center>
+<pre class="mermaid" style="width:70%">
+flowchart LR
+
+    images[(Microscopy\nimages)]
+    csv[(CSV files)]
+    npz[(NPZ files)]
+    sqlite[(SQLite files)]
+    extract["Single-cell\nFeature extraction\n(for ex. CellProfiler)"]
+    csv[(CSV files)]
+    npz[(others ...)]
+    sqlite[(SQLite files)]
+    pycytominer["\nPycytominer\n\n"]
+        
+    subgraph cytotable["CytoTable (Python package)"]
+        subgraph spacer [" "]
+            subgraph parsl ["Data engine: Parsl\n"]
+                subgraph spacer2 [" "]
+                    subgraph sql["Data language: SQL (DuckDB)"]
+                        subgraph spacer3 [" "]
+                            subgraph queryopt["Query optimizer: DuckDB (runs SQL)"]
+                                subgraph spacer4 [" "]
+                                    subgraph representations["Data representations (intermediate and final)"]
+                                        arrow[("Apache Arrow\ntable(s)\n(in-memory)")]
+                                        parquet[("Parquet dataset(s)\n(serialized)")]
+                                    end
+                                end
+                            end
+                        end
+                    end
+                    
+                end
+            end
+        end
+    end
+
+    images --> extract
+    extract --> csv
+    extract --> sqlite
+    extract --> npz
+    csv --> cytotable
+    sqlite --> cytotable
+    npz --> cytotable
+    arrow --> parquet
+    cytotable --> pycytominer
+
+style sql fill:#A7F3D0,stroke:#999999;
+style cytotable fill:#FEF9C3,stroke:#444444;
+style parsl fill:#BAE6FD,stroke:#999999;
+style representations fill:#F0FDFA,stroke:#999999;
+style queryopt fill:#DCFCE7,stroke:#999999;
+style spacer fill:#FEF9C3,stroke:#FEF9C3;
+style spacer2 fill:#BAE6FD,stroke:#BAE6FD;
+style spacer3 fill:#A7F3D0,stroke:#A7F3D0;
+style spacer4 fill:#DCFCE7,stroke:#DCFCE7;
+</pre>
+</center>
+<p class="figcaption">Figure 1. The flow of high-dimensional single-cell morphology data with relationship to CytoTable modular data stack components.</p>
+
+We are solving significant scalability and replicability challenges with high-dimensional single-cell morphology data (such as those extracted from CellProfiler[[1]](#citation-1))  by implementing novel and effective capabilities as a modular, portable, and cross-language single-cell data stack[[2]](#citation-2):
+(a) language frontend: SQL (DuckDB[[3]](#citation-3)), (b) intermediate representation: Apache Arrow[[4]](#citation-4) and Apache Parquet[[5]](#citation-5), (c) query optimizer: DuckDB[[3]](#citation-3), (d) execution engine: Parsl[[6]](#citation-6) with Pythonic MapReduce design patterns[[7]](#citation-7), (e) execution runtime, Python package (PyPI, source)(Figure 1).
+
+# Microscopy feature data scalability
+
+```{r, echo=FALSE, out.width='85%', fig.align='center'}
+knitr::include_graphics("https://raw.githubusercontent.com/d33bs/CytoTable-benchmarks/cytotable-scalability/notebooks/images/cytotable-and-pycytominer-comparisons-join-completion-time.png")
+```
+<p class="figcaption">Figure 2. Comparing processing time duration for CytoTable and Pycytominer for various datasets of increasing size.</p>
+
+```{r, echo=FALSE, out.width='85%', fig.align='center'}
+knitr::include_graphics("https://raw.githubusercontent.com/d33bs/CytoTable-benchmarks/cytotable-scalability/notebooks/images/cytotable-and-pycytominer-comparisons-join-memory-size.png")
+```
+<p class="figcaption">Figure 3. Comparing processing total memory consumption for CytoTable and Pycytominer for various datasets of increasing size.</p>
+
+CytoTable builds upon the shoulders of Pycytominer, helping to streamline the `SingleCells.merge_single_cells(...)` method.
+We decrease overall processsing completion time (Figure 2) and memory consumption (Figure 3) for large amounts of data by leveraging composable data stack elements.
+
+# Empowering the Cytomining Ecosystem
+
+## Orchestration: CytoSnake
+
+___Authors:___ Erik Serrano, Jenna Tomkinson, Roshan Kern, Vince Rubinetti, Dave Bunten, Gregory P. Way
+
+```{r, echo=FALSE, out.width='82%', fig.align='center'}
+knitr::include_graphics("images/cytosnake_MP_processing_cropped.png")
+```
+<p class="figcaption">Figure 4. We orchestrate image-based profiling pipelines using CytoSnake. CytoTable is a critical tool for scalable orchestration.</p>
+
+<div class="container">
+  <div class="text-block"  style="padding-top:40px;">CytoSnake is an innovative tool for orchestrating high-dimensional cell morphology data processing pipelines, including those which leverage CytoTable and other applied usecases.</div>
+  <div class="text-block" style="text-align:center;"><img src="images/qr_cytosnake.png" style="width:70%"/></div>
+</div>
+
+
+## Applied research: NF1 Schwann cell project
+
+___Authors:___ Jenna Tomkinson, Michelle Mattson-Hoss, Cameron Mattson, Herb Sarnoff, Gregory P. Way
+
+```{r, echo=FALSE, out.width='82%', fig.align='center'}
+knitr::include_graphics("images/nf1_and_cfret_workflow.png")
+```
+<p class="figcaption">Figure 5. NF1 image-based profiling pipeline implementation details including CytoTable and Pycytominer.</p>
+
+<div class="container">
+  <div class="text-block"  style="padding-top:40px;">We process Cell Painting images of Schwann cells with different NF1 _genotypes_. This application will increase understanding of cell morphology impacts of NF1 in Schwann cells and help prioritize rare disease treatments.</div>
+  <div class="text-block" style="text-align:center;"><img src="images/qr_nf1.png" style="width:70%"/></div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Applied research: Pyroptosis signature project
+
+___Authors:___ Michael J. Lippincott, Jenna Tomkinson, Interstellar Collaborators*, Masafumi Tsuboi, Carla Basualto-Alarcon, Gregory P. Way
+
+```{r, echo=FALSE, out.width='82%', fig.align='center'}
+knitr::include_graphics("images/Cell_Painting_Figure_-_Interstellar_Poster_1.png")
+```
+
+<p class="figcaption">Figure 6. Image-based profiling pipeline of analyzing cells treated with various chemical agents to induce cell death. We are specifically focused on characterizing a cell morphology signature of pyroptosis that is distinct from apoptosis.</p>
+
+<div class="container">
+  <div class="text-block"  style="padding-top:40px;">Identifying and characterizing pyroptosis signatures in cellular systems, aiding in the study of inflammatory cell death pathways as part of the Interstellar collaboration.</div>
+  <div class="text-block" style="text-align:center;"><img src="images/qr_pyroptosis.png" style="width:70%"/></div>
+</div>
+
+
+## Applied research: CFReT project
+
+___Authors:___ Jenna Tomkinson, Erik Serrano, Gregory P. Way
+
+```{r, echo=FALSE, out.width='82%', fig.align='center'}
+knitr::include_graphics("images/nf1_and_cfret_workflow.png")
+```
+<p class="figcaption">Figure 7. Image based profiling pipeline for characterizing cell morphology of failing cardiac fibroblasts through the Consortium for Fibrosis Research Translation (CFReT) project.</p>
+
+<div class="container">
+  <div class="text-block"  style="padding-top:40px;">Image-based analysis of cardiac fibroblast datasets to uncover proprietary drug impact on reversing fibrosis.</div>
+  <div class="text-block" style="text-align:center;"><img src="images/qr_cfret.png" style="width:70%"/></div>
+</div>
+
+# Using CytoTable
+
+```python
+import cytotable
+result_file = cytotable.convert(
+    source_path="path/to/feature-data",
+    dest_path="destination/path.parquet",
+    dest_datatype="parquet",
+    preset="cellprofiler_csv",
+)
+```
+<p class="figcaption">Figure 8. Pythonic syntax for using CytoTable.</p>
+
+CytoTable may be installed from PyPI (`pip install cytotable`) and includes a Pythonic API which can be customized as needed or leverage existing presets (Figure 8).
+See the CytoTable documentation for more detail: [https://cytomining.github.io/CytoTable/](https://cytomining.github.io/CytoTable/)
+
+# Shape the future with us!
+
+```{r, echo=FALSE, out.width='75%', fig.align='center'}
+knitr::include_graphics("images/icons_combined.png")
+```
+<p class="figcaption">Figure 9. Cytomining Ecosystem software logos.</p>
+
+The Cytomining Ecosystem cultivates image-based profiling research through state-of-the-art software engineering and a vibrant, open-source community. We aim to provide the necessary infrastructure for a new era of bioinformatic innovation with high-throughput microscopy.
+
+<center>
+__Interested in collaborating?<br>We welcome your input, contributions, and guidance!__
+
+Find us at [https://github.com/cytomining](https://github.com/cytomining).
+</center>
+
+# References
+
+1. <span id="citation-1">Carpenter, A. E., Jones, T. R., Lamprecht, M. R., Clarke, C., Kang, I., Friman, O., Guertin, D. A., Chang, J., Lindquist, R. A., Moffat, J., Golland, P., & Sabatini, D. M. (2006). CellProfiler: Image analysis software for identifying and quantifying cell phenotypes. Genome Biology, 7(10), R100. https://doi.org/10.1186/gb-2006-7-10-r100</span>
+1. Pedreira, P., Erling, O., Karanasos, K., Schneider, S., McKinney, W., Valluri, S. R., Zait, M., & Nadeau, J. (2023). The Composable Data Management System Manifesto. Proceedings of the VLDB Endowment, 16(10), 2679–2685. https://doi.org/10.14778/3603581.3603604
+1. Raasveldt, M., & Mühleisen, H. (2019). DuckDB: An Embeddable Analytical Database. Proceedings of the 2019 International Conference on Management of Data, 1981–1984. https://doi.org/10.1145/3299869.3320212
+1. Apache Arrow. (n.d.). [Computer software]. Apache Software Foundation. https://arrow.apache.org/docs/
+1. Apache Parquet. (n.d.). [Computer software]. Apache Software Foundation. https://parquet.apache.org/docs/
+1. Babuji, Y., Woodard, A., Li, Z., Katz, D. S., Clifford, B., Kumar, R., Lacinski, L., Chard, R., Wozniak, J. M., Foster, I., Wilde, M., & Chard, K. (2019). Parsl: Pervasive Parallel Programming in Python. Proceedings of the 28th International Symposium on High-Performance Parallel and Distributed Computing, 25–36. https://doi.org/10.1145/3307681.3325400
+1. Dean, J., & Ghemawat, S. (2008). MapReduce: Simplified data processing on large clusters. Communications of the ACM, 51(1), 107–113. https://doi.org/10.1145/1327452.1327492
+
+# Acknowledgements
+
+<p style="margin-bottom:5px;">Special thanks goes to the following for their help in contributing to CytoTable design and development or related work.<p>
+
+- [Way Lab](https://www.waysciencelab.com/): Cameron Mattson
+- [Broad Institute](https://www.broadinstitute.org/): Shantanu Singh, Beth Cimini, Sam Chen
+- [Yale School of Medicine](https://medicine.yale.edu/): Samir Amin
