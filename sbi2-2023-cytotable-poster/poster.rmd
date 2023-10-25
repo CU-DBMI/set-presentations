@@ -160,7 +160,7 @@ We decrease overall processsing completion time (Figure 2) and memory consumptio
 
 ___Authors:___ Erik Serrano, Jenna Tomkinson, Roshan Kern, Vince Rubinetti, Dave Bunten, Gregory P. Way
 
-```{r, echo=FALSE, out.width='100%', fig.align='center'}
+```{r, echo=FALSE, out.width='82%', fig.align='center'}
 knitr::include_graphics("images/cytosnake_MP_processing_cropped.png")
 ```
 <p class="figcaption">Figure 4. We orchestrate image-based profiling pipelines using CytoSnake. CytoTable is a critical tool for scalable orchestration.</p>
@@ -175,7 +175,7 @@ knitr::include_graphics("images/cytosnake_MP_processing_cropped.png")
 
 ___Authors:___ Jenna Tomkinson, Michelle Mattson-Hoss, Cameron Mattson, Herb Sarnoff, Gregory P. Way
 
-```{r, echo=FALSE, out.width='100%', fig.align='center'}
+```{r, echo=FALSE, out.width='82%', fig.align='center'}
 knitr::include_graphics("images/nf1_and_cfret_workflow.png")
 ```
 <p class="figcaption">Figure 5. NF1 image-based profiling pipeline implementation details including CytoTable and Pycytominer.</p>
@@ -188,12 +188,15 @@ knitr::include_graphics("images/nf1_and_cfret_workflow.png")
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
 
 ## Applied research: Pyroptosis signature project
 
 ___Authors:___ Michael J. Lippincott, Jenna Tomkinson, Interstellar Collaborators*, Masafumi Tsuboi, Carla Basualto-Alarcon, Gregory P. Way
 
-```{r, echo=FALSE, out.width='100%', fig.align='center'}
+```{r, echo=FALSE, out.width='82%', fig.align='center'}
 knitr::include_graphics("images/Cell_Painting_Figure_-_Interstellar_Poster_1.png")
 ```
 
@@ -209,7 +212,7 @@ knitr::include_graphics("images/Cell_Painting_Figure_-_Interstellar_Poster_1.png
 
 ___Authors:___ Jenna Tomkinson, Erik Serrano, Gregory P. Way
 
-```{r, echo=FALSE, out.width='100%', fig.align='center'}
+```{r, echo=FALSE, out.width='82%', fig.align='center'}
 knitr::include_graphics("images/nf1_and_cfret_workflow.png")
 ```
 <p class="figcaption">Figure 7. Image based profiling pipeline for characterizing cell morphology of failing cardiac fibroblasts through the Consortium for Fibrosis Research Translation (CFReT) project.</p>
@@ -237,7 +240,7 @@ See the CytoTable documentation for more detail: [https://cytomining.github.io/C
 
 # Shape the future with us!
 
-```{r, echo=FALSE, out.width='90%', fig.align='center'}
+```{r, echo=FALSE, out.width='75%', fig.align='center'}
 knitr::include_graphics("images/icons_combined.png")
 ```
 <p class="figcaption">Figure 9. Cytomining Ecosystem software logos.</p>
