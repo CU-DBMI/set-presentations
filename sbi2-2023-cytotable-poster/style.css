@@ -43,7 +43,7 @@
 }
 
 .poster_body p.figcaption {
-    margin-bottom: 10mm;
+    margin-bottom: 5mm;
 }
 
 .main strong {
@@ -149,7 +149,7 @@ pre.sourceCode.python {
     border: none !important;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-    font-size: .85em !important;
+    font-size: .82em !important;
 }
 
 code.sourceCode.r,

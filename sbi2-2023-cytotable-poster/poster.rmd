@@ -191,6 +191,7 @@ knitr::include_graphics("images/nf1_and_cfret_workflow.png")
 <br>
 <br>
 <br>
+<br>
 
 ## Applied research: Pyroptosis signature project
 
@@ -235,7 +236,7 @@ result_file = cytotable.convert(
 ```
 <p class="figcaption">Figure 8. Pythonic syntax for using CytoTable.</p>
 
-CytoTable includes a Pythonic API which can be customized as needed or leverage existing presets (Figure 8).
+CytoTable may be installed from PyPI (`pip install cytotable`) and includes a Pythonic API which can be customized as needed or leverage existing presets (Figure 8).
 See the CytoTable documentation for more detail: [https://cytomining.github.io/CytoTable/](https://cytomining.github.io/CytoTable/)
 
 # Shape the future with us!
