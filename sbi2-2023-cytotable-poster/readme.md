@@ -72,6 +72,7 @@ convert -size 20x200 xc:transparent images/icon_spacer.png
 # combine the images together as one using the spacer for separation for icons
 convert +append images/icon_pycytominer_small.png images/icon_spacer.png images/icon_cytosnake_small.png images/icon_spacer.png images/icon_cytotable_small.png images/icon_spacer.png images/icon_cytomining.png images/icons_combined.png
 
-# convert the poster pdf to png with 150 dpi and a white background
-convert -density 150 -background white -flatten poster.pdf poster.png
+# convert the poster pdf to png and jpg with 150 dpi and a white background
+convert -antialias -density 300 -background white -flatten poster.pdf poster.png
+convert -antialias -density 300 -background white -flatten poster.pdf poster.jpg
 ```

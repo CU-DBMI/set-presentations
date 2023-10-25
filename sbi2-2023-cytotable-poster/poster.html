@@ -20,7 +20,7 @@ Google fonts api stuff
 
 
 
-<title>CytoTable: High Performance and Scalable  Single-cell Morphology Feature Engineering</title>
+<title>CytoTable: High performance and scalable single-cell morphology feature engineering</title>
 
 
 
@@ -364,13 +364,13 @@ font-size: 20pt;
 </div>
 <!-- Poster Title -->
 <div class= "poster_title">
-<h1 id="title">CytoTable: High Performance and Scalable <br>Single-cell Morphology Feature Engineering</h1>
+<h1 id="title">CytoTable: High performance and scalable<br>single-cell morphology feature engineering</h1>
 <h3 id="author">Dave Bunten<sup>1, <a class="orcid" href="https://orcid.org/0000-0001-6041-3665"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Erik Serrano<sup>1, <a class="orcid" href="https://orcid.org/0000-0003-4188-9080"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Jenna Tomkinson<sup>1, <a class="orcid" href="https://orcid.org/0000-0003-2676-5813"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Michael J. Lippincott<sup>1, <a class="orcid" href="https://orcid.org/0000-0002-8637-1448"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Faisal Alquaddoomi<sup>1, <a class="orcid" href="https://orcid.org/0000-0003-4297-8747"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Vince Rubinetti<sup>1, <a class="orcid" href="https://orcid.org/0000-0002-4655-3773"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Gregory P. Way<sup>1, <a class="orcid" href="https://orcid.org/0000-0002-0503-9348"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup></h3>
 <h5 id="affiliation"><sup>1</sup> Department of Biomedical Informatics, University of Colorado Anschutz</h5>
 </div>
 <!-- Right Logo  -->
 <div class="logo_right">
-<img src=images/combined.png style="width: 80%">
+<img src=images/header_combined_images.png style="width: 80%">
 </div>
 </div>
 
@@ -440,20 +440,20 @@ style spacer4 fill:#DCFCE7,stroke:#DCFCE7;
 </pre>
 </center>
 <p class="figcaption">
-Figure 1. Diagram showing high-dimensional single-cell morphology data flow with relationship to CytoTable modular data stack components.
+Figure 1. The flow of high-dimensional single-cell morphology data with relationship to CytoTable modular data stack components.
 </p>
 <p>We are solving significant scalability and replicability challenges with high-dimensional single-cell morphology data (such as those extracted from CellProfiler<a href="#citation-1">[1]</a>) by implementing novel and effective capabilities as a modular, portable, and cross-language single-cell data stack<a href="#citation-2">[2]</a>:
 (a) language frontend: SQL (DuckDB<a href="#citation-3">[3]</a>), (b) intermediate representation: Apache Arrow<a href="#citation-4">[4]</a> and Apache Parquet<a href="#citation-5">[5]</a>, (c) query optimizer: DuckDB<a href="#citation-3">[3]</a>, (d) execution engine: Parsl<a href="#citation-6">[6]</a> with Pythonic MapReduce design patterns<a href="#citation-7">[7]</a>, (e) execution runtime, Python package (PyPI, source)(Figure 1).</p>
 </div>
 <div id="microscopy-feature-data-scalability" class="section level1">
-<h1>Microscopy Feature Data Scalability</h1>
+<h1>Microscopy feature data scalability</h1>
 <img src="https://raw.githubusercontent.com/d33bs/CytoTable-benchmarks/cytotable-scalability/notebooks/images/cytotable-and-pycytominer-comparisons-join-completion-time.png" width="85%" style="display: block; margin: auto;" />
 <p class="figcaption">
-Figure 2. Plot showing processing time duration for CytoTable and Pycytominer for various datasets.
+Figure 2. Comparing processing time duration for CytoTable and Pycytominer for various datasets of increasing size.
 </p>
 <img src="https://raw.githubusercontent.com/d33bs/CytoTable-benchmarks/cytotable-scalability/notebooks/images/cytotable-and-pycytominer-comparisons-join-memory-size.png" width="85%" style="display: block; margin: auto;" />
 <p class="figcaption">
-Figure 3. Plot showing total memory consumption for CytoTable and Pycytominer for various datasets.
+Figure 3. Comparing processing total memory consumption for CytoTable and Pycytominer for various datasets of increasing size.
 </p>
 <p>CytoTable builds upon the shoulders of Pycytominer, helping to streamline the <code>SingleCells.merge_single_cells(...)</code> method.
 We decrease overall processsing completion time (Figure 2) and memory consumption (Figure 3) for large amounts of data by leveraging composable data stack elements.</p>
@@ -463,9 +463,9 @@ We decrease overall processsing completion time (Figure 2) and memory consumptio
 <div id="orchestration-cytosnake" class="section level2">
 <h2>Orchestration: CytoSnake</h2>
 <p><strong><em>Authors:</em></strong> Erik Serrano, Jenna Tomkinson, Roshan Kern, Vince Rubinetti, Dave Bunten, Gregory P. Way</p>
-<img src="images/cytosnake_MP_processing_cropped.png" width="100%" style="display: block; margin: auto;" />
+<img src="images/cytosnake_MP_processing_cropped.png" width="82%" style="display: block; margin: auto;" />
 <p class="figcaption">
-Figure 4. Diagram showing how CytoSnake orchestration applied in multiple pipelines.
+Figure 4. We orchestrate image-based profiling pipelines using CytoSnake. CytoTable is a critical tool for scalable orchestration.
 </p>
 <div class="container">
 <div class="text-block" style="padding-top:40px;">
@@ -478,14 +478,14 @@ CytoSnake is an innovative tool for orchestrating high-dimensional cell morpholo
 </div>
 <div id="applied-research-nf1-schwann-cell-project" class="section level2">
 <h2>Applied research: NF1 Schwann cell project</h2>
-<p><strong><em>Authors:</em></strong> Jenna Tomkinson, Cameron Mattson, Erik Serrano,<br> Gregory P. Way</p>
-<img src="images/nf1_and_cfret_workflow.png" width="100%" style="display: block; margin: auto;" />
+<p><strong><em>Authors:</em></strong> Jenna Tomkinson, Michelle Mattson-Hoss, Cameron Mattson, Herb Sarnoff, Gregory P. Way</p>
+<img src="images/nf1_and_cfret_workflow.png" width="82%" style="display: block; margin: auto;" />
 <p class="figcaption">
-Figure 5. Diagram showing NF1 pipeline implementation details including CytoTable and Pycytominer.
+Figure 5. NF1 image-based profiling pipeline implementation details including CytoTable and Pycytominer.
 </p>
 <div class="container">
 <div class="text-block" style="padding-top:40px;">
-Comprehensive dataset analyses for cell painting assays, enabling the further understanding of cellular morphology NF1 Schwann cells and rare disease treatment.
+We process Cell Painting images of Schwann cells with different NF1 <em>genotypes</em>. This application will increase understanding of cell morphology impacts of NF1 in Schwann cells and help prioritize rare disease treatments.
 </div>
 <div class="text-block" style="text-align:center;">
 <img src="images/qr_nf1.png" style="width:70%"/>
@@ -493,14 +493,17 @@ Comprehensive dataset analyses for cell painting assays, enabling the further un
 </div>
 <p><br>
 <br>
+<br>
+<br>
+<br>
 <br></p>
 </div>
 <div id="applied-research-pyroptosis-signature-project" class="section level2">
 <h2>Applied research: Pyroptosis signature project</h2>
-<p><strong><em>Authors:</em></strong> Michael J. Lippincott, Jenna Tomkinson, Gregory P. Way</p>
-<p><img src="images/Cell_Painting_Figure_-_Interstellar_Poster_1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><strong><em>Authors:</em></strong> Michael J. Lippincott, Jenna Tomkinson, Interstellar Collaborators*, Masafumi Tsuboi, Carla Basualto-Alarcon, Gregory P. Way</p>
+<p><img src="images/Cell_Painting_Figure_-_Interstellar_Poster_1.png" width="82%" style="display: block; margin: auto;" /></p>
 <p class="figcaption">
-Figure 6. Diagram showing pyroptotic cell changes which are studied as part of the Pyroptosis signature project.
+Figure 6. Image-based profiling pipeline of analyzing cells treated with various chemical agents to induce cell death. We are specifically focused on characterizing a cell morphology signature of pyroptosis that is distinct from apoptosis.
 </p>
 <div class="container">
 <div class="text-block" style="padding-top:40px;">
@@ -514,9 +517,9 @@ Identifying and characterizing pyroptosis signatures in cellular systems, aiding
 <div id="applied-research-cfret-project" class="section level2">
 <h2>Applied research: CFReT project</h2>
 <p><strong><em>Authors:</em></strong> Jenna Tomkinson, Erik Serrano, Gregory P. Way</p>
-<img src="images/nf1_and_cfret_workflow.png" width="100%" style="display: block; margin: auto;" />
+<img src="images/nf1_and_cfret_workflow.png" width="82%" style="display: block; margin: auto;" />
 <p class="figcaption">
-Figure 7. Diagram showing CFReT pipeline implementation details including CytoTable and Pycytominer.
+Figure 7. Image based profiling pipeline for characterizing cell morphology of failing cardiac fibroblasts through the Consortium for Fibrosis Research Translation (CFReT) project.
 </p>
 <div class="container">
 <div class="text-block" style="padding-top:40px;">
@@ -538,18 +541,18 @@ Image-based analysis of cardiac fibroblast datasets to uncover proprietary drug 
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>    preset<span class="op">=</span><span class="st">&quot;cellprofiler_csv&quot;</span>,</span>
 <span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>)</span></code></pre></div>
 <p class="figcaption">
-Figure 8. Code block showing Pythonic syntax for using CytoTable.
+Figure 8. Pythonic syntax for using CytoTable.
 </p>
 <p>CytoTable includes a Pythonic API which can be customized as needed or leverage existing presets (Figure 8).
 See the CytoTable documentation for more detail: <a href="https://cytomining.github.io/CytoTable/">https://cytomining.github.io/CytoTable/</a></p>
 </div>
 <div id="shape-the-future-with-us" class="section level1">
 <h1>Shape the future with us!</h1>
-<img src="images/icons_combined.png" width="90%" style="display: block; margin: auto;" />
+<img src="images/icons_combined.png" width="75%" style="display: block; margin: auto;" />
 <p class="figcaption">
 Figure 9. Cytomining Ecosystem software logos.
 </p>
-<p>The Cytomining Ecosystem cultivates groundbreaking science and research software engineering in the realm of high-dimensional single-cell science, guiding in a new era of bioinformatic innovation.</p>
+<p>The Cytomining Ecosystem cultivates image-based profiling research through state-of-the-art software engineering and a vibrant, open-source community. We aim to provide the necessary infrastructure for a new era of bioinformatic innovation with high-throughput microscopy.</p>
 <center>
 <p><strong>Interested in collaborating?<br>We welcome your input, contributions, and guidance!</strong></p>
 Find us at <a href="https://github.com/cytomining">https://github.com/cytomining</a>.
