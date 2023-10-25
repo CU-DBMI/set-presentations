@@ -45,13 +45,21 @@ pagedown::chrome_print("poster.rmd")
 
 - [ImageMagick](http://www.imagemagick.org/) was used to form the bottom logos together as one and render the poster pdf as png using the following commands:
 - Python [qrcode](https://github.com/lincolnloop/python-qrcode) is used to generate various QR codes via `qr-code-generation.sh` script.
+- QR codes with images were generated and saved manually via [https://github.com/kciter/qart.js](https://github.com/kciter/qart.js)
 
 ```shell
+# scale up images
+convert images/qr_cytomining.png -resize 453x453 images/qr_cytomining.png
+
+# append text to qr codes
+convert images/qr_cytotable.png -gravity South -background transparent -splice 0x15 -pointsize 40 -font Arial -weight Bold -annotate 0x15 'Scan for CytoTable!' images/qr_cytotable_text.png
+convert images/qr_cytomining.png -gravity South -background transparent -splice 0x15 -pointsize 40 -font Arial -weight Bold -annotate 0x15 'Scan for Cytomining!' images/qr_cytomining_text.png
+
 # create a transparent spacer
-convert -size 200x453 xc:transparent images/spacer.png
+convert -size 100x460 xc:transparent images/spacer.png
 
 # combine the images together as one using the spacer for separation
-convert +append images/qr-code.png images/spacer.png images/waylab.png images/spacer.png images/dbmi.png images/combined.png
+convert -background none images/qr_cytomining_text.png images/spacer.png images/qr_cytotable_text.png images/spacer.png images/waylab.png images/spacer.png images/dbmi.png +append images/header_combined_images.png
 
 # downconvert png's to 200x200
 convert images/icon_pycytominer.png -resize 200x200 images/icon_pycytominer_small.png

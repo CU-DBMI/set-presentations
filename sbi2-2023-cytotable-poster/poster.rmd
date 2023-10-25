@@ -57,7 +57,7 @@ author_textcol: "#333333"
 affiliation_textcol: "#333333"
 title_textsize: "120px"
 logoleft_name: 'images/dbmi.png'
-logoright_name: 'images/combined.png'
+logoright_name: 'images/header_combined_images.png'
 
 font_family: "Roboto"
 main_textsize: "160px"
