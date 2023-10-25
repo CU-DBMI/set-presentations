@@ -13,7 +13,7 @@ author:
       affil: 1
       orcid: 0000-0003-2676-5813
       main: true
-    - name: Michael J. Lippincott,
+    - name: Michael J. Lippincott
       affil: 1
       orcid: 0000-0002-8637-1448
       main: true
