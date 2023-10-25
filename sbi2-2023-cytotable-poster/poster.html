@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+
+
+<title>CytoTable: High Performance and Scalable  Single-cell Morphology Feature Engineering</title>
+
+
+
+
+<style type="text/css">pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */</style>
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<style>
+@page {
+size: 70in 44.75in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0;
+font-size: 50px;
+width: 70in;
+height: 44.75in;
+padding: 0;
+text-align: justify;
+font-family: Roboto;
+}
+.poster_wrap {
+width: 70in;
+height: 44.75in;
+padding: 0cm;
+}
+.title_container {
+width: 100%;
+height: 15%;
+overflow: hidden;
+background-color: #FDE68A;
+border: 0 solid #FDE68A
+;
+}
+.logo_left {
+float: left;
+width: 10%;
+height: 100%;
+background-color: #FDE68A;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.logo_right {
+float: right;
+width: 10%;
+height: 100%;
+background-color: #FDE68A;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.poster_title {
+text-align: center;
+position: relative;
+float: left;
+width: 80%;
+height: 100%;
+color: #000000;
+top: 50%;
+transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+}
+#title {
+font-family: Roboto;
+}
+/* unvisited link */
+a:link {
+color: #148243;
+text-decoration: none;
+}
+.mybreak {
+  break-before: column;
+}
+/* visited link */
+a:visited {
+color: #148243;
+text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+color: #148243;
+text-decoration: none;
+}
+
+/* selected link */
+a:active {
+color: #148243;
+text-decoration: none;
+}
+.poster_body {
+-webkit-column-count: 4; /* Chrome, Safari, Opera */
+-moz-column-count: 4; /* Firefox */
+column-count: 4;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+-webkit-column-rule-width: 1mm;
+-moz-column-rule-width: 1mm;
+column-rule-width: 1mm;
+-webkit-column-rule-style: dashed;
+-moz-column-rule-style: dashed;
+column-rule-style: dashed;
+-webkit-column-rule-color: #FDE68A;
+-moz-column-rule-color: #FDE68A;
+column-rule-color: #FDE68A;
+column-gap: 1em;
+padding-left: 0.5em;
+padding-right: 0.5em;
+height: 100%;
+color: #000000
+background-color: #ffffff;
+}
+.poster_title h1 {
+font-size: 120px;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_body_wrap{
+width: 70in;
+height: calc(100% - 17%);
+padding-top: calc(44.75in * 0.01);
+padding-bottom: calc(44.75in * 0.01);
+background-color: #ffffff;
+}
+.poster_title h3 {
+color: #333333;
+font-size: 50pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_title h3 > sup {
+  font-size: 35pt;
+  margin-left: 0.02em;
+}
+.poster_title h5 {
+color: #333333;
+font-size: 35pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+img {
+margin-top: 0;
+margin-bottom: 0;
+}
+.section {
+  padding: 0.2em;
+}
+.poster_body h1 {
+text-align: center;
+color: #222222;
+font-size: 65pt;
+border: 2mm solid #ffffff;
+background-color: #FACC15;
+border-radius: 4mm 0mm;
+margin-top: 2mm;
+margin-bottom: 2mm;
+font-weight: normal;
+}
+.poster_body h2 {
+color: #000000;
+font-size: 40pt;
+padding-left: 4mm;
+font-weight: normal;
+}
+.span {
+width: 200%;
+}
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r, pre.sourceCode.python {
+background-color: #ffffff20;
+border: solid #FED7AA 1mm;
+border-radius: 0.5em;
+padding: 4mm;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+div.sourceCode {
+background-color: transparent;
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+}
+code.sourceCode.r, code.sourceCode.python {
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #FED7AA24;
+color: #FED7AA;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+.caption {
+font-size: 20pt;
+}
+.table caption {
+font-size: 20pt;
+padding-bottom: 3mm;
+
+}
+code {
+font-size: 1em;
+font-family: monospace;
+background-color: #FED7AA24;
+color: #FDE68A;
+padding: 1.2mm;
+border-radius: 2mm;
+}
+.poster_title code {
+font-size: 1em;
+}
+table {
+font-size: 40px;
+margin: auto;
+border-top: 3px solid #666;
+border-bottom: 3px solid #666;
+}
+table thead th {
+border-bottom: 3px solid #ddd;
+}
+td {
+padding: 8px;
+}
+th {
+padding: 15px;
+}
+caption {
+margin-bottom: 10px;
+}
+.poster_body p {
+margin-right: 4mm;
+margin-left: 4mm;
+margin-top: 6mm;
+margin-bottom: 10mm;
+color: #000000
+}
+.poster_body ol {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+#ul {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+.references p {
+font-size: 20pt;
+}
+.orcid img {
+  width: 1em;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+<div class="title_container">
+<!-- Left Logo  -->
+<div class="logo_left">
+<img src=images/dbmi.png style="width: 80%">
+</div>
+<!-- Poster Title -->
+<div class= "poster_title">
+<h1 id="title">CytoTable: High Performance and Scalable <br>Single-cell Morphology Feature Engineering</h1>
+<h3 id="author">Dave Bunten<sup>1, <a class="orcid" href="https://orcid.org/0000-0001-6041-3665"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Erik Serrano<sup>1, <a class="orcid" href="https://orcid.org/0000-0003-4188-9080"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Jenna Tomkinson<sup>1, <a class="orcid" href="https://orcid.org/0000-0003-2676-5813"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Michael J. Lippincott<sup>1, <a class="orcid" href="https://orcid.org/0000-0002-8637-1448"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Faisal Alquaddoomi<sup>1, <a class="orcid" href="https://orcid.org/0000-0003-4297-8747"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Vince Rubinetti<sup>1, <a class="orcid" href="https://orcid.org/0000-0002-4655-3773"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Gregory P. Way<sup>1, <a class="orcid" href="https://orcid.org/0000-0002-0503-9348"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup></h3>
+<h5 id="affiliation"><sup>1</sup> Department of Biomedical Informatics, University of Colorado Anschutz</h5>
+</div>
+<!-- Right Logo  -->
+<div class="logo_right">
+<img src=images/combined.png style="width: 80%">
+</div>
+</div>
+
+<div class='poster_body_wrap'>
+<div class='poster_body'>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<script type="module">
+  import mermaid from 'https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+<center>
+<pre class="mermaid" style="width:70%">
+flowchart LR
+
+    images[(Microscopy\nimages)]
+    csv[(CSV files)]
+    npz[(NPZ files)]
+    sqlite[(SQLite files)]
+    extract["Single-cell\nFeature extraction\n(for ex. CellProfiler)"]
+    csv[(CSV files)]
+    npz[(others ...)]
+    sqlite[(SQLite files)]
+    pycytominer["\nPycytominer\n\n"]
+        
+    subgraph cytotable["CytoTable (Python package)"]
+        subgraph spacer [" "]
+            subgraph parsl ["Data engine: Parsl\n"]
+                subgraph spacer2 [" "]
+                    subgraph sql["Data language: SQL (DuckDB)"]
+                        subgraph spacer3 [" "]
+                            subgraph queryopt["Query optimizer: DuckDB (runs SQL)"]
+                                subgraph spacer4 [" "]
+                                    subgraph representations["Data representations (intermediate and final)"]
+                                        arrow[("Apache Arrow\ntable(s)\n(in-memory)")]
+                                        parquet[("Parquet dataset(s)\n(serialized)")]
+                                    end
+                                end
+                            end
+                        end
+                    end
+                    
+                end
+            end
+        end
+    end
+
+    images --> extract
+    extract --> csv
+    extract --> sqlite
+    extract --> npz
+    csv --> cytotable
+    sqlite --> cytotable
+    npz --> cytotable
+    arrow --> parquet
+    cytotable --> pycytominer
+
+style sql fill:#A7F3D0,stroke:#999999;
+style cytotable fill:#FEF9C3,stroke:#444444;
+style parsl fill:#BAE6FD,stroke:#999999;
+style representations fill:#F0FDFA,stroke:#999999;
+style queryopt fill:#DCFCE7,stroke:#999999;
+style spacer fill:#FEF9C3,stroke:#FEF9C3;
+style spacer2 fill:#BAE6FD,stroke:#BAE6FD;
+style spacer3 fill:#A7F3D0,stroke:#A7F3D0;
+style spacer4 fill:#DCFCE7,stroke:#DCFCE7;
+</pre>
+</center>
+<p class="figcaption">
+Figure 1. Diagram showing high-dimensional single-cell morphology data flow with relationship to CytoTable modular data stack components.
+</p>
+<p>We are solving significant scalability and replicability challenges with high-dimensional single-cell morphology data (such as those extracted from CellProfiler<a href="#citation-1">[1]</a>) by implementing novel and effective capabilities as a modular, portable, and cross-language single-cell data stack<a href="#citation-2">[2]</a>:
+(a) language frontend: SQL (DuckDB<a href="#citation-3">[3]</a>), (b) intermediate representation: Apache Arrow<a href="#citation-4">[4]</a> and Apache Parquet<a href="#citation-5">[5]</a>, (c) query optimizer: DuckDB<a href="#citation-3">[3]</a>, (d) execution engine: Parsl<a href="#citation-6">[6]</a> with Pythonic MapReduce design patterns<a href="#citation-7">[7]</a>, (e) execution runtime, Python package (PyPI, source)(Figure 1).</p>
+</div>
+<div id="microscopy-feature-data-scalability" class="section level1">
+<h1>Microscopy Feature Data Scalability</h1>
+<img src="https://raw.githubusercontent.com/d33bs/CytoTable-benchmarks/cytotable-scalability/notebooks/images/cytotable-and-pycytominer-comparisons-join-completion-time.png" width="85%" style="display: block; margin: auto;" />
+<p class="figcaption">
+Figure 2. Plot showing processing time duration for CytoTable and Pycytominer for various datasets.
+</p>
+<img src="https://raw.githubusercontent.com/d33bs/CytoTable-benchmarks/cytotable-scalability/notebooks/images/cytotable-and-pycytominer-comparisons-join-memory-size.png" width="85%" style="display: block; margin: auto;" />
+<p class="figcaption">
+Figure 3. Plot showing total memory consumption for CytoTable and Pycytominer for various datasets.
+</p>
+<p>CytoTable builds upon the shoulders of Pycytominer, helping to streamline the <code>SingleCells.merge_single_cells(...)</code> method.
+We decrease overall processsing completion time (Figure 2) and memory consumption (Figure 3) for large amounts of data by leveraging composable data stack elements.</p>
+</div>
+<div id="empowering-the-cytomining-ecosystem" class="section level1">
+<h1>Empowering the Cytomining Ecosystem</h1>
+<div id="orchestration-cytosnake" class="section level2">
+<h2>Orchestration: CytoSnake</h2>
+<p><strong><em>Authors:</em></strong> Erik Serrano, Jenna Tomkinson, Roshan Kern, Vince Rubinetti, Dave Bunten, Gregory P. Way</p>
+<img src="images/cytosnake_MP_processing_cropped.png" width="100%" style="display: block; margin: auto;" />
+<p class="figcaption">
+Figure 4. Diagram showing how CytoSnake orchestration applied in multiple pipelines.
+</p>
+<div class="container">
+<div class="text-block" style="padding-top:40px;">
+CytoSnake is an innovative tool for orchestrating high-dimensional cell morphology data processing pipelines, including those which leverage CytoTable and other applied usecases.
+</div>
+<div class="text-block" style="text-align:center;">
+<img src="images/qr_cytosnake.png" style="width:70%"/>
+</div>
+</div>
+</div>
+<div id="applied-research-nf1-schwann-cell-project" class="section level2">
+<h2>Applied research: NF1 Schwann cell project</h2>
+<p><strong><em>Authors:</em></strong> Jenna Tomkinson, Cameron Mattson, Erik Serrano,<br> Gregory P. Way</p>
+<img src="images/nf1_and_cfret_workflow.png" width="100%" style="display: block; margin: auto;" />
+<p class="figcaption">
+Figure 5. Diagram showing NF1 pipeline implementation details including CytoTable and Pycytominer.
+</p>
+<div class="container">
+<div class="text-block" style="padding-top:40px;">
+Comprehensive dataset analyses for cell painting assays, enabling the further understanding of cellular morphology NF1 Schwann cells and rare disease treatment.
+</div>
+<div class="text-block" style="text-align:center;">
+<img src="images/qr_nf1.png" style="width:70%"/>
+</div>
+</div>
+<p><br>
+<br>
+<br></p>
+</div>
+<div id="applied-research-pyroptosis-signature-project" class="section level2">
+<h2>Applied research: Pyroptosis signature project</h2>
+<p><strong><em>Authors:</em></strong> Michael J. Lippincott, Jenna Tomkinson, Gregory P. Way</p>
+<p><img src="images/Cell_Painting_Figure_-_Interstellar_Poster_1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p class="figcaption">
+Figure 6. Diagram showing pyroptotic cell changes which are studied as part of the Pyroptosis signature project.
+</p>
+<div class="container">
+<div class="text-block" style="padding-top:40px;">
+Identifying and characterizing pyroptosis signatures in cellular systems, aiding in the study of inflammatory cell death pathways as part of the Interstellar collaboration.
+</div>
+<div class="text-block" style="text-align:center;">
+<img src="images/qr_pyroptosis.png" style="width:70%"/>
+</div>
+</div>
+</div>
+<div id="applied-research-cfret-project" class="section level2">
+<h2>Applied research: CFReT project</h2>
+<p><strong><em>Authors:</em></strong> Jenna Tomkinson, Erik Serrano, Gregory P. Way</p>
+<img src="images/nf1_and_cfret_workflow.png" width="100%" style="display: block; margin: auto;" />
+<p class="figcaption">
+Figure 7. Diagram showing CFReT pipeline implementation details including CytoTable and Pycytominer.
+</p>
+<div class="container">
+<div class="text-block" style="padding-top:40px;">
+Image-based analysis of cardiac fibroblast datasets to uncover proprietary drug impact on reversing fibrosis.
+</div>
+<div class="text-block" style="text-align:center;">
+<img src="images/qr_cfret.png" style="width:70%"/>
+</div>
+</div>
+</div>
+</div>
+<div id="using-cytotable" class="section level1">
+<h1>Using CytoTable</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">import</span> cytotable</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>result_file <span class="op">=</span> cytotable.convert(</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>    source_path<span class="op">=</span><span class="st">&quot;path/to/feature-data&quot;</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>    dest_path<span class="op">=</span><span class="st">&quot;destination/path.parquet&quot;</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>    dest_datatype<span class="op">=</span><span class="st">&quot;parquet&quot;</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>    preset<span class="op">=</span><span class="st">&quot;cellprofiler_csv&quot;</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>)</span></code></pre></div>
+<p class="figcaption">
+Figure 8. Code block showing Pythonic syntax for using CytoTable.
+</p>
+<p>CytoTable includes a Pythonic API which can be customized as needed or leverage existing presets (Figure 8).
+See the CytoTable documentation for more detail: <a href="https://cytomining.github.io/CytoTable/">https://cytomining.github.io/CytoTable/</a></p>
+</div>
+<div id="shape-the-future-with-us" class="section level1">
+<h1>Shape the future with us!</h1>
+<img src="images/icons_combined.png" width="90%" style="display: block; margin: auto;" />
+<p class="figcaption">
+Figure 9. Cytomining Ecosystem software logos.
+</p>
+<p>The Cytomining Ecosystem cultivates groundbreaking science and research software engineering in the realm of high-dimensional single-cell science, guiding in a new era of bioinformatic innovation.</p>
+<center>
+<p><strong>Interested in collaborating?<br>We welcome your input, contributions, and guidance!</strong></p>
+Find us at <a href="https://github.com/cytomining">https://github.com/cytomining</a>.
+</center>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<ol style="list-style-type: decimal">
+<li><span id="citation-1">Carpenter, A. E., Jones, T. R., Lamprecht, M. R., Clarke, C., Kang, I., Friman, O., Guertin, D. A., Chang, J., Lindquist, R. A., Moffat, J., Golland, P., &amp; Sabatini, D. M. (2006). CellProfiler: Image analysis software for identifying and quantifying cell phenotypes. Genome Biology, 7(10), R100. <a href="https://doi.org/10.1186/gb-2006-7-10-r100" class="uri">https://doi.org/10.1186/gb-2006-7-10-r100</a></span></li>
+<li>Pedreira, P., Erling, O., Karanasos, K., Schneider, S., McKinney, W., Valluri, S. R., Zait, M., &amp; Nadeau, J. (2023). The Composable Data Management System Manifesto. Proceedings of the VLDB Endowment, 16(10), 2679–2685. <a href="https://doi.org/10.14778/3603581.3603604" class="uri">https://doi.org/10.14778/3603581.3603604</a></li>
+<li>Raasveldt, M., &amp; Mühleisen, H. (2019). DuckDB: An Embeddable Analytical Database. Proceedings of the 2019 International Conference on Management of Data, 1981–1984. <a href="https://doi.org/10.1145/3299869.3320212" class="uri">https://doi.org/10.1145/3299869.3320212</a></li>
+<li>Apache Arrow. (n.d.). [Computer software]. Apache Software Foundation. <a href="https://arrow.apache.org/docs/" class="uri">https://arrow.apache.org/docs/</a></li>
+<li>Apache Parquet. (n.d.). [Computer software]. Apache Software Foundation. <a href="https://parquet.apache.org/docs/" class="uri">https://parquet.apache.org/docs/</a></li>
+<li>Babuji, Y., Woodard, A., Li, Z., Katz, D. S., Clifford, B., Kumar, R., Lacinski, L., Chard, R., Wozniak, J. M., Foster, I., Wilde, M., &amp; Chard, K. (2019). Parsl: Pervasive Parallel Programming in Python. Proceedings of the 28th International Symposium on High-Performance Parallel and Distributed Computing, 25–36. <a href="https://doi.org/10.1145/3307681.3325400" class="uri">https://doi.org/10.1145/3307681.3325400</a></li>
+<li>Dean, J., &amp; Ghemawat, S. (2008). MapReduce: Simplified data processing on large clusters. Communications of the ACM, 51(1), 107–113. <a href="https://doi.org/10.1145/1327452.1327492" class="uri">https://doi.org/10.1145/1327452.1327492</a></li>
+</ol>
+</div>
+<div id="acknowledgements" class="section level1">
+<h1>Acknowledgements</h1>
+<p style="margin-bottom:5px;">
+Special thanks goes to the following for their help in contributing to CytoTable design and development or related work.
+<p>
+<ul>
+<li><a href="https://www.waysciencelab.com/">Way Lab</a>: Cameron Mattson</li>
+<li><a href="https://www.broadinstitute.org/">Broad Institute</a>: Shantanu Singh, Beth Cimini, Sam Chen</li>
+<li><a href="https://medicine.yale.edu/">Yale School of Medicine</a>: Samir Amin</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+</body>
+</html>
