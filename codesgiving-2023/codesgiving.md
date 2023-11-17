@@ -19,9 +19,9 @@ output: pdf_document
 
 <br>
 
-- Practice gratitude together
-- Share open-source contribution ideas
-- Make an impact
+- Concepts for approaching open-source
+- Open-source contribution ideas
+- Practice making an impact
 
 <!-- slide -->
 
