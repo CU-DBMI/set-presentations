@@ -229,6 +229,16 @@ Following this convention generally improves the __understanding__ of your code.
 
 ------------------------------------------------------------------------
 
+## Python Packaging - Understanding
+
+<br>
+
+- Note: Each file and directory has a specific purpose.
+- Beware of [dead code](https://en.wikipedia.org/wiki/Dead_code)
+- Each file should justify it's existence within the project.
+
+------------------------------------------------------------------------
+
 ## Python Packaging - README.md
 
 <br>
