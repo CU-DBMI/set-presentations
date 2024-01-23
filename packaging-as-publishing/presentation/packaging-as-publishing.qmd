@@ -413,6 +413,22 @@ Python versions which are end-of-life may be difficult to support and are a sign
 
 ------------------------------------------------------------------------
 
+## Python Packaging - Your versions
+<br> 
+
+![](assets/2024-01-23-06-40-54.png)
+
+Your software can also implement versioning.
+
+One way: [Semantic Versioning](https://en.wikipedia.org/wiki/Software_versioning#Semantic_versioning).
+
+What version is your software today? What will it be tomorrow? Does the previous one still work?
+
+- [Image from Wikimedia Commons: Maxime Lathuilière](https://commons.wikimedia.org/wiki/File:Semver.jpg)
+
+
+------------------------------------------------------------------------
+
 ## Python Packaging - Security linters
 
 ![](assets/2023-08-31-12-41-49.png)
