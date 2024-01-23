@@ -1,7 +1,7 @@
 ---
 title: |
   Packaging as Publishing
-subtitle: Python Code Formalizations
+subtitle: Formalizing your Python Code for Others
 format:
   revealjs: 
     theme: simple
@@ -29,13 +29,8 @@ format:
 
 <br>
 
-Why does this matter?
-
-> Following publishing conventions increases:
->
-> - Understanding
-> - Trust
-> - Reach (connection)
+> "Your job as a developer is not just to create code that you can work with easily, but to create code that others can also work with easily."
+― [John Ousterhout, A Philosophy of Software Design](https://www.goodreads.com/quotes/10054573-your-job-as-a-developer-is-not-just-to-create)
 
 ------------------------------------------------------------------------
 
@@ -43,27 +38,38 @@ Why does this matter?
 
 <br>
 
-__🤷‍♂️ "I'm not convinced. My work is only for _[ internal | quick | throwaway ]_ use so packaging / publishing for others doesn't matter."__ 
+Other people working with your code:
+
+- __Developers (_changing the code_)__
+- Users (_applying the code_)
+
+------------------------------------------------------------------------
+
+## Why?
+
+<br>
+
+__Developer Experience__
+
+> "DevEx refers to the systems, technology, process, and culture that influence the effectiveness of software development."
+- [GitHub Blog: Developer experience: What is it and why should you care?](https://github.blog/2023-06-08-developer-experience-what-is-it-and-why-should-you-care/)
+
+------------------------------------------------------------------------
+
+## Why?
+
+<br>
+
+__🤷‍♂️ "I'm not convinced. My work is only for _[ internal | quick | throwaway ]_ use so organizing / things for others doesn't matter."__ 
 
 - <span style="font-size:.8em">Good packaging practices work just as well for [inner source](https://en.wikipedia.org/wiki/Inner_source) collaboration (private or proprietary development within organizations).</span>
-- <span style="font-size:.8em">It also __increases your development velocity__ through reduced time necessary to understand and implement the code (or reuse it in the future)!</span>
-- <span style="font-size:.8em">Internal practice can be a great way to ready yourself for the needs of publicly available open source software maintainence.</span>
-
-
-------------------------------------------------------------------------
-
-## Why?
-
-<br>
-
-__🤷 "I'd rather use a bespoke method of packaging my work. It's not my responsibility to help others understand my customizations."__
-
-- Avoiding common practice and understanding weakens one of our collective superpowers: collaboration.
-- How much time will you or others spend on packaging vs providing human impact from the work?
+- <span style="font-size:.8em">Packaging practices __increase your development velocity__ through reduced time necessary to understand and implement the code (or reuse it in the future)!</span>
+- <span style="font-size:.8em">Avoiding common practice and understanding weakens one of our collective superpowers: collaboration.</span>
+- <span style="font-size:.8em">How much time will you or others spend on packaging vs providing human impact from the work?</span>
 
 ------------------------------------------------------------------------
 
-## Publishing - Text vs Book
+## Publishing - Scratch Paper vs Book
 
 <br>
 
@@ -139,6 +145,8 @@ __"Packaging"__ is the craft of preparing for and reaching distribution of your 
 <br>
 This presentation will focus on <ins>__preparations__</ins> for distribution.
 
+(Creating the "book", not yet sending it to the "library".)
+
 ------------------------------------------------------------------------
 
 ## Publishing - Python
@@ -184,6 +192,16 @@ code with publishing intent.
 - Python packages are commonly installed from __PyPI__ (Python Package Index, [https://pypi.org](https://pypi.org)).
 
 > For example: `pip install pandas` references PyPI by default to install for the `pandas` package.
+
+------------------------------------------------------------------------
+
+## Python Packaging - Definitions
+
+__Environment__
+
+> "... a runtime system or runtime __environment__ is a sub-system that exists both in the computer where a program is created, as well as in the computers where the program is intended to be run."
+
+- [Wikipedia: Runtime system](https://en.wikipedia.org/wiki/Runtime_system)
 
 ------------------------------------------------------------------------
 
