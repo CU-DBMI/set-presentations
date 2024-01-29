@@ -41,7 +41,7 @@ format:
 Other people working with your code:
 
 - __Developers (_changing the code_)__
-- Users (_applying the code_)
+- __Users (_applying the code_)__
 
 ------------------------------------------------------------------------
 
@@ -60,12 +60,23 @@ __Developer Experience__
 
 <br>
 
-__🤷‍♂️ "I'm not convinced. My work is only for _[ internal | quick | throwaway ]_ use so organizing / things for others doesn't matter."__ 
+__Developer Experience can become User Experience__
 
-- <span style="font-size:.8em">Good packaging practices work just as well for [inner source](https://en.wikipedia.org/wiki/Inner_source) collaboration (private or proprietary development within organizations).</span>
-- <span style="font-size:.8em">Packaging practices __increase your development velocity__ through reduced time necessary to understand and implement the code (or reuse it in the future)!</span>
-- <span style="font-size:.8em">Avoiding common practice and understanding weakens one of our collective superpowers: collaboration.</span>
-- <span style="font-size:.8em">How much time will you or others spend on packaging vs providing human impact from the work?</span>
+> "[O]rganizations which design systems (in the broad sense used here) are constrained to produce designs which are copies of the communication structures of these organizations."
+- ([Wikipedia: Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law))
+
+------------------------------------------------------------------------
+
+## Why?
+
+<br>
+
+__🤷‍♂️ "I'm not convinced. My work is only for _[ internal | quick | throwaway ]_ use so consistent organization doesn't matter."__ 
+
+- <span style="font-size:.7em">Avoiding common practice and understanding weakens one of our collective superpowers: collaboration.</span>
+- <span style="font-size:.7em">Packaging practices __increase your development velocity__ through reduced time necessary to understand and implement the code (or reuse it in the future)!</span>
+- <span style="font-size:.7em">Good packaging practices work just as well for [inner source](https://en.wikipedia.org/wiki/Inner_source) collaboration (private or proprietary development within organizations).</span>
+- <span style="font-size:.7em">How much time will you or others spend on packaging vs providing human impact from the work?</span>
 
 ------------------------------------------------------------------------
 
@@ -75,7 +86,7 @@ __🤷‍♂️ "I'm not convinced. My work is only for _[ internal | quick | th
 
 ![](assets/2023-08-31-09-08-45.png)
 
-How are these two different?
+How are these different?
 
 ------------------------------------------------------------------------
 
@@ -235,7 +246,7 @@ Following this convention generally improves the __understanding__ of your code.
 
 - Note: Each file and directory has a specific purpose.
 - Beware of [dead code](https://en.wikipedia.org/wiki/Dead_code)
-- Each file should justify it's existence within the project.
+- Each file should justify existence within the project.
 
 ------------------------------------------------------------------------
 
@@ -436,7 +447,6 @@ What version is your software today? What will it be tomorrow? Does the previous
 
 - [Image from Wikimedia Commons: Maxime Lathuilière](https://commons.wikimedia.org/wiki/File:Semver.jpg)
 
-
 ------------------------------------------------------------------------
 
 ## Python Packaging - Security linters
@@ -542,6 +552,27 @@ _We've always been switching approaches!_ A brief history of Python environment 
 [Poetry](https://github.com/python-poetry/poetry) is one Pythonic environment and packaging manager which can help increase reproducibility using `pyproject.toml` files.
 
 - It's one of many other alternatives such as [`hatch`](https://hatch.pypa.io/latest/) and [`pipenv`](https://pipenv.pypa.io/en/latest/).
+
+
+------------------------------------------------------------------------
+
+## Python Packaging - Poetry
+
+<img src="assets/2024-01-29-10-39-02.png" style="width:80%">
+
+<span style="font-size:.6em">Poetry in context. (Source: [Shamika Mohanan, Python Packaging User Survey, Oct 2022](https://drive.google.com/file/d/1U5d5SiXLVkzDpS0i1dJIA4Hu5Qg704T9/view))</span>
+
+------------------------------------------------------------------------
+
+## Python Packaging - Poetry
+
+<br>
+
+<center>
+<img src="assets/2024-01-29-10-44-41.png" style="width:50%">
+</center>
+
+[pyOpenSci has a great review of package build tools!](https://www.pyopensci.org/python-package-guide/package-structure-code/python-package-build-tools.html#)
 
 ------------------------------------------------------------------------
 
@@ -671,6 +702,67 @@ Poetry readies source-code and pre-compiled versions of our code for distributio
 
 Even if we don't reach wider distribution on PyPI or elsewhere, source code managed by `pyproject.toml` and the other techniques mentioned in this presentation can be used for "manual" distribution (with reproducible results).
 
+------------------------------------------------------------------------
+
+## Python Packaging - Poetry
+
+<br>
+
+__Addendum: What about Makefiles__?
+
+<br>
+
+We often include `Makefiles` to help run frequently used development commands (for example, the `poetry build` or related).
+
+Makefile-like definitions can be inlucded in Poetry files `pyproject.toml` files using __[Poe the Poet](https://github.com/nat-n/poethepoet)__
+
+------------------------------------------------------------------------
+
+## Python Packaging - Poetry
+
+<br>
+
+<table>
+<tr><th>`Makefile`</th><th>`pyproject.toml`</th></tr>
+<tr>
+<td>
+
+```makefile
+...
+
+.PHONY: build
+
+build:
+    poetry run pytest
+    poetry build
+
+...
+
+```
+
+</td>
+
+<td>
+
+```toml
+...
+
+[tool.poe.tasks]
+test   = "pytest"
+_build = "poetry build"
+build  = ["test", "_build"]
+
+...
+
+```
+
+</td>
+</tr>
+</table>
+
+<br>
+
+One less file and syntax to manage.
 
 ------------------------------------------------------------------------
 
