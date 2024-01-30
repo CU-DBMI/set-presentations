@@ -178,7 +178,11 @@ __"Packaging"__ is the craft of preparing for and reaching distribution of your 
 <br>
 This presentation will focus on <ins>__preparations__</ins> for distribution.
 
-(Creating the "book", not yet sending it to the "library".)
+(Creating a "book", not yet sending it to "bookstores".)
+
+<br><br>
+
+Package distribution is I feel another talk! 🙂
 
 ------------------------------------------------------------------------
 
