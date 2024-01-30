@@ -1,4 +1,4 @@
-# Packaging as Publishing: Python code formalizations
+# The Art and Craft of Python Packaging: Organizing your Python Code for Others
 
 Expects local availability of [Quarto](https://quarto.org/docs/) and [decktape](https://github.com/astefanutti/decktape) for development work.
 
