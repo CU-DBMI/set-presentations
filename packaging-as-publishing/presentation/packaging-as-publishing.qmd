@@ -1,7 +1,7 @@
 ---
 title: |
-  Packaging as Publishing
-subtitle: Formalizing your Python Code for Others
+  The Art and Craft of Python Packaging
+subtitle: Organizing your Python Code for Others
 format:
   revealjs: 
     theme: simple
@@ -12,6 +12,28 @@ format:
     height: 800
     margin: 0.01
 ---
+
+## Introduction
+
+<br><br><br>
+
+__Software Engineering Team__
+
+<img src="2024-01-30-09-11-31.png" style="width:60%">
+
+<br>
+
+Visit for more info: [https://cu-dbmi.github.io/set-website/](https://cu-dbmi.github.io/set-website/)
+
+------------------------------------------------------------------------
+
+## Gratitude
+
+<br><br><br><br>
+
+Big ___thank you___ for attending!
+
+------------------------------------------------------------------------
 
 ## Presentation Outline
 
@@ -247,6 +269,7 @@ Following this convention generally improves the __understanding__ of your code.
 - Note: Each file and directory has a specific purpose.
 - Beware of [dead code](https://en.wikipedia.org/wiki/Dead_code)
 - Each file should justify existence within the project.
+  - Consider each file as a __"cost"__ <br> (Someone, someday will have to figure it out.)
 
 ------------------------------------------------------------------------
 
@@ -558,9 +581,11 @@ _We've always been switching approaches!_ A brief history of Python environment 
 
 ## Python Packaging - Poetry
 
-<img src="assets/2024-01-29-10-39-02.png" style="width:80%">
+<span style="font-size:.5em">Which Python packaging tools do you use? (survey responses, October 2022)</span>
 
-<span style="font-size:.6em">Poetry in context. (Source: [Shamika Mohanan, Python Packaging User Survey, Oct 2022](https://drive.google.com/file/d/1U5d5SiXLVkzDpS0i1dJIA4Hu5Qg704T9/view))</span>
+<img src="assets/2024-01-29-10-39-02.png" style="width:70%">
+
+<span style="font-size:.5em">Poetry in context. (Source: [Shamika Mohanan, Python Packaging User Survey, Oct 2022](https://drive.google.com/file/d/1U5d5SiXLVkzDpS0i1dJIA4Hu5Qg704T9/view))</span>
 
 ------------------------------------------------------------------------
 
@@ -708,13 +733,13 @@ Even if we don't reach wider distribution on PyPI or elsewhere, source code mana
 
 <br>
 
-__Addendum: What about Makefiles__?
+__What about Makefiles__?
 
 <br>
 
 We often include `Makefiles` to help run frequently used development commands (for example, the `poetry build` or related).
 
-Makefile-like definitions can be inlucded in Poetry files `pyproject.toml` files using __[Poe the Poet](https://github.com/nat-n/poethepoet)__
+Makefile-like definitions can be inlucded in Poetry files `pyproject.toml` files using __[Poe the Poet](https://github.com/nat-n/poethepoet)__.
 
 ------------------------------------------------------------------------
 
@@ -762,16 +787,18 @@ build  = ["test", "_build"]
 
 <br>
 
-One less file and syntax to manage.
+One fewer file and syntax to manage. <br> (Again, think about the cost of each file.)
 
 ------------------------------------------------------------------------
 
-## Thank you
+## Thank you!
 
 <br>
 <br>
 <br>
 <br>
 <br>
-Thank you! Questions / comments?
+Thank you for attending! Questions / comments?
+
+Please don't hesitate to reach out!
 
