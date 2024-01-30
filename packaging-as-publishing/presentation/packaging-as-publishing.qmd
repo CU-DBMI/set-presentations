@@ -303,7 +303,7 @@ what the book will be about.
 ```bash
 project_directory
 ├── README.md
-├── LICENSE.txt # indicates usage persmissions and protections
+├── LICENSE.txt # indicates usage permissions and protections
 ...
 ```
 <br>
@@ -743,7 +743,7 @@ __What about Makefiles__?
 
 We often include `Makefiles` to help run frequently used development commands (for example, the `poetry build` or related).
 
-Makefile-like definitions can be inlucded in Poetry files `pyproject.toml` files using __[Poe the Poet](https://github.com/nat-n/poethepoet)__.
+Makefile-like definitions can be included in Poetry files `pyproject.toml` files using __[Poe the Poet](https://github.com/nat-n/poethepoet)__.
 
 ------------------------------------------------------------------------
 
@@ -805,4 +805,66 @@ One fewer file and syntax to manage. <br> (Again, think about the cost of each f
 Thank you for attending! Questions / comments?
 
 Please don't hesitate to reach out!
+
+------------------------------------------------------------------------
+
+## Question & Answer
+
+<span style="font-size:.5em;">
+<strong>Question: How can you know what's best for Python and packaging over time?</strong>
+</span>
+
+<span style="font-size:.43em;line-height:1;">
+The adage `"Change is the only constant."` holds true for Python and packaging over time. Elements shared through this presentation will eventually no longer be best practices or be outright wrong. Software development in general often entails continuous new "tool and approach deluge," with many different things appearing during short periods of time. Building opinion and forming taste about these new tools and approaches can take time. Try things you see and find out how they work (or don't) for you!
+</span>
+
+<span style="font-size:.43em;line-height:1;">
+If you notice something unpleasant about your developer or user experience which is related to packaging, it may be that someone has already felt the same way as you. One way to stay tuned into best practices within the scope of Python is to read [Python Enhancement Proposals (PEPs)](https://peps.python.org/) and relatedly, read [Python discussion board posts (https://discuss.python.org/)](https://discuss.python.org/). Searching through these resources can help you stay informed.
+</span>
+
+<span style="font-size:.43em;line-height:1;">
+Keep in mind there's no absolute perfection here. "Breaking" an accepted PEP doesn't mean that the software won't work. It might be that you need to use technologies or techniques which don't abide PEPs. However, it could be important to learn what others like you have run into and how they opted to solve it by reading their thoughts, especially if it was accepted by a wider community.
+</span>
+
+------------------------------------------------------------------------
+
+## Question & Answer
+
+<span style="font-size:.4em;">
+<strong>Question: How does standard Python packaging apply to data science projects (where goals or environments may differ from a Python package)?</strong>
+</span>
+
+<span style="font-size:.4em;">
+Data science Python projects may entail unique aspects that can change the way development best takes place. This might mean, for instance, that Poetry or what was presented here won't be the best fit. If that's the case, there likely are other tools which can enhance the project's ability to achieve outcomes (explore what's out there!).
+</span>
+
+<span style="font-size:.4em;">
+The practice of "packaging" and following an understandable organization of files and content for a Python project can still be immensely helpful, especially when considering the cycle of onboarding and offboarding members of a team. The more bespoke or unique the file organization, the more time and complexity will be associated with learning _how_ to develop for or use the project rather than creating impact or value from it.
+</span>
+
+<span style="font-size:.4em;">
+Sometimes data science projects emerge with software organization as a "secondary focus". Refactoring can take time and be difficult to undertake after a project has already achieved outcomes. Maintaining a data science project long-term can be improved by following software best practices like packaging. Packaging as a practice helps increase the sustainability of the project through common understanding (aligning to existing conventions for somewhat unified perspective), increased trust (for ex.sometimes as scientific reproducibility), and connection (for ex. illustrating how the conclusions were derived through citation).
+</span>
+
+------------------------------------------------------------------------
+
+## Question & Answer
+
+<span style="font-size:.5em;">
+<strong>Question: How can we engage others from the community using `CONTRIBUTING.md` and other community health files?</strong>
+</span>
+
+<span style="font-size:.5em">
+The `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `LICENSE.txt` are the starting point for opening the doors to your project for others. These files stipulate the introduction and mutual protections for people interested in engaging with the project as well as the repercussions for misbehavior. Without these files it might seem a bit mysterious or uninviting for someone to engage; they might assume it's a solely private endeavor or fear their contributions as being not valued (or deleted entirely!). Providing these files upfront sends an open and understood message to others about how the project works and how contributions are handled.
+</span>
+
+<span style="font-size:.5em">
+Ensuring project contributors abide what is outlined in community health files is often manual but may be enhanced through various checks or linters. 
+</span>
+
+<ul>
+<li style="font-size:.5em">For example, [alex (https://alexjs.com/)](https://alexjs.com/) is a tool which can be used to "lint" for considerate writing.</li>
+<li style="font-size:.5em">[Blocklint (https://github.com/PrincetonUniversity/blocklint)](https://github.com/PrincetonUniversity/blocklint) is another similar tool.</li>
+</ul>
+
 
