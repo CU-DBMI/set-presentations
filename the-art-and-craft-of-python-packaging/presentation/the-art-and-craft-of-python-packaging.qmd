@@ -1,7 +1,7 @@
 ---
 title: |
-  Packaging as Publishing
-subtitle: Python Code Formalizations
+  The Art and Craft of Python Packaging
+subtitle: Organizing your Python Code for Others
 format:
   revealjs: 
     theme: simple
@@ -12,6 +12,28 @@ format:
     height: 800
     margin: 0.01
 ---
+
+## Introduction
+
+<br><br><br>
+
+__Software Engineering Team__
+
+<img src="2024-01-30-09-11-31.png" style="width:60%">
+
+<br>
+
+Visit for more info: [https://cu-dbmi.github.io/set-website/](https://cu-dbmi.github.io/set-website/)
+
+------------------------------------------------------------------------
+
+## Gratitude
+
+<br><br><br><br>
+
+Big ___thank you___ for attending!
+
+------------------------------------------------------------------------
 
 ## Presentation Outline
 
@@ -29,13 +51,8 @@ format:
 
 <br>
 
-Why does this matter?
-
-> Following publishing conventions increases:
->
-> - Understanding
-> - Trust
-> - Reach (connection)
+> "Your job as a developer is not just to create code that you can work with easily, but to create code that others can also work with easily."
+― [John Ousterhout, A Philosophy of Software Design](https://www.goodreads.com/quotes/10054573-your-job-as-a-developer-is-not-just-to-create)
 
 ------------------------------------------------------------------------
 
@@ -43,12 +60,10 @@ Why does this matter?
 
 <br>
 
-__🤷‍♂️ "I'm not convinced. My work is only for _[ internal | quick | throwaway ]_ use so packaging / publishing for others doesn't matter."__ 
+Other people working with your code:
 
-- <span style="font-size:.8em">Good packaging practices work just as well for [inner source](https://en.wikipedia.org/wiki/Inner_source) collaboration (private or proprietary development within organizations).</span>
-- <span style="font-size:.8em">It also __increases your development velocity__ through reduced time necessary to understand and implement the code (or reuse it in the future)!</span>
-- <span style="font-size:.8em">Internal practice can be a great way to ready yourself for the needs of publicly available open source software maintainence.</span>
-
+- __Developers (_changing the code_)__
+- __Users (_applying the code_)__
 
 ------------------------------------------------------------------------
 
@@ -56,20 +71,44 @@ __🤷‍♂️ "I'm not convinced. My work is only for _[ internal | quick | th
 
 <br>
 
-__🤷 "I'd rather use a bespoke method of packaging my work. It's not my responsibility to help others understand my customizations."__
+__Developer Experience__
 
-- Avoiding common practice and understanding weakens one of our collective superpowers: collaboration.
-- How much time will you or others spend on packaging vs providing human impact from the work?
+> "DevEx refers to the systems, technology, process, and culture that influence the effectiveness of software development."
+- [GitHub Blog: Developer experience: What is it and why should you care?](https://github.blog/2023-06-08-developer-experience-what-is-it-and-why-should-you-care/)
 
 ------------------------------------------------------------------------
 
-## Publishing - Text vs Book
+## Why?
+
+<br>
+
+__Developer Experience can become User Experience__
+
+> "[O]rganizations which design systems (in the broad sense used here) are constrained to produce designs which are copies of the communication structures of these organizations."
+- ([Wikipedia: Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law))
+
+------------------------------------------------------------------------
+
+## Why?
+
+<br>
+
+__🤷‍♂️ "I'm not convinced. My work is only for _[ internal | quick | throwaway ]_ use so consistent organization doesn't matter."__ 
+
+- <span style="font-size:.7em">Avoiding common practice and understanding weakens one of our collective superpowers: collaboration.</span>
+- <span style="font-size:.7em">Packaging practices __increase your development velocity__ through reduced time necessary to understand and implement the code (or reuse it in the future)!</span>
+- <span style="font-size:.7em">Good packaging practices work just as well for [inner source](https://en.wikipedia.org/wiki/Inner_source) collaboration (private or proprietary development within organizations).</span>
+- <span style="font-size:.7em">How much time will you or others spend on packaging vs providing human impact from the work?</span>
+
+------------------------------------------------------------------------
+
+## Publishing - Scratch Paper vs Book
 
 <br>
 
 ![](assets/2023-08-31-09-08-45.png)
 
-How are these two different?
+How are these different?
 
 ------------------------------------------------------------------------
 
@@ -139,6 +178,12 @@ __"Packaging"__ is the craft of preparing for and reaching distribution of your 
 <br>
 This presentation will focus on <ins>__preparations__</ins> for distribution.
 
+(Creating a "book", not yet sending it to "bookstores".)
+
+<br><br>
+
+Package distribution is I feel another talk! 🙂
+
 ------------------------------------------------------------------------
 
 ## Publishing - Python
@@ -187,6 +232,16 @@ code with publishing intent.
 
 ------------------------------------------------------------------------
 
+## Python Packaging - Definitions
+
+__Environment__
+
+> "... a runtime system or runtime __environment__ is a sub-system that exists both in the computer where a program is created, as well as in the computers where the program is intended to be run."
+
+- [Wikipedia: Runtime system](https://en.wikipedia.org/wiki/Runtime_system)
+
+------------------------------------------------------------------------
+
 ## Python Packaging - Understanding
 
 ```bash
@@ -208,6 +263,17 @@ project_directory
  
 Python Packaging today generally assumes a specific directory design.
 Following this convention generally improves the __understanding__ of your code.
+
+------------------------------------------------------------------------
+
+## Python Packaging - Understanding
+
+<br>
+
+- Note: Each file and directory has a specific purpose.
+- Beware of [dead code](https://en.wikipedia.org/wiki/Dead_code)
+- Each file should justify existence within the project.
+  - Consider each file as a __"cost"__ <br> (Someone, someday will have to figure it out.)
 
 ------------------------------------------------------------------------
 
@@ -237,7 +303,7 @@ what the book will be about.
 ```bash
 project_directory
 ├── README.md
-├── LICENSE.txt # indicates usage persmissions and protections
+├── LICENSE.txt # indicates usage permissions and protections
 ...
 ```
 <br>
@@ -395,6 +461,21 @@ Python versions which are end-of-life may be difficult to support and are a sign
 
 ------------------------------------------------------------------------
 
+## Python Packaging - Your versions
+<br> 
+
+![](assets/2024-01-23-06-40-54.png)
+
+Your software can also implement versioning.
+
+One way: [Semantic Versioning](https://en.wikipedia.org/wiki/Software_versioning#Semantic_versioning).
+
+What version is your software today? What will it be tomorrow? Does the previous one still work?
+
+- [Image from Wikimedia Commons: Maxime Lathuilière](https://commons.wikimedia.org/wiki/File:Semver.jpg)
+
+------------------------------------------------------------------------
+
 ## Python Packaging - Security linters
 
 ![](assets/2023-08-31-12-41-49.png)
@@ -498,6 +579,29 @@ _We've always been switching approaches!_ A brief history of Python environment 
 [Poetry](https://github.com/python-poetry/poetry) is one Pythonic environment and packaging manager which can help increase reproducibility using `pyproject.toml` files.
 
 - It's one of many other alternatives such as [`hatch`](https://hatch.pypa.io/latest/) and [`pipenv`](https://pipenv.pypa.io/en/latest/).
+
+
+------------------------------------------------------------------------
+
+## Python Packaging - Poetry
+
+<span style="font-size:.5em">Which Python packaging tools do you use? (survey responses, October 2022)</span>
+
+<img src="assets/2024-01-29-10-39-02.png" style="width:70%">
+
+<span style="font-size:.5em">Poetry in context. (Source: [Shamika Mohanan, Python Packaging User Survey, Oct 2022](https://drive.google.com/file/d/1U5d5SiXLVkzDpS0i1dJIA4Hu5Qg704T9/view))</span>
+
+------------------------------------------------------------------------
+
+## Python Packaging - Poetry
+
+<br>
+
+<center>
+<img src="assets/2024-01-29-10-44-41.png" style="width:50%">
+</center>
+
+[pyOpenSci has a great review of package build tools!](https://www.pyopensci.org/python-package-guide/package-structure-code/python-package-build-tools.html#)
 
 ------------------------------------------------------------------------
 
@@ -627,15 +731,140 @@ Poetry readies source-code and pre-compiled versions of our code for distributio
 
 Even if we don't reach wider distribution on PyPI or elsewhere, source code managed by `pyproject.toml` and the other techniques mentioned in this presentation can be used for "manual" distribution (with reproducible results).
 
+------------------------------------------------------------------------
+
+## Python Packaging - Poetry
+
+<br>
+
+__What about Makefiles__?
+
+<br>
+
+We often include `Makefiles` to help run frequently used development commands (for example, the `poetry build` or related).
+
+Makefile-like definitions can be included in Poetry files `pyproject.toml` files using __[Poe the Poet](https://github.com/nat-n/poethepoet)__.
 
 ------------------------------------------------------------------------
 
-## Thank you
+## Python Packaging - Poetry
+
+<br>
+
+<table>
+<tr><th>`Makefile`</th><th>`pyproject.toml`</th></tr>
+<tr>
+<td>
+
+```makefile
+...
+
+.PHONY: build
+
+build:
+    poetry run pytest
+    poetry build
+
+...
+
+```
+
+</td>
+
+<td>
+
+```toml
+...
+
+[tool.poe.tasks]
+test   = "pytest"
+_build = "poetry build"
+build  = ["test", "_build"]
+
+...
+
+```
+
+</td>
+</tr>
+</table>
+
+<br>
+
+One fewer file and syntax to manage. <br> (Again, think about the cost of each file.)
+
+------------------------------------------------------------------------
+
+## Thank you!
 
 <br>
 <br>
 <br>
 <br>
 <br>
-Thank you! Questions / comments?
+Thank you for attending! Questions / comments?
+
+Please don't hesitate to reach out!
+
+------------------------------------------------------------------------
+
+## Question & Answer
+
+<span style="font-size:.5em;">
+<strong>Question: How can you know what's best for Python and packaging over time?</strong>
+</span>
+
+<span style="font-size:.43em;line-height:1;">
+The adage `"Change is the only constant."` holds true for Python and packaging over time. Elements shared through this presentation will eventually no longer be best practices or be outright wrong. Software development in general often entails continuous new "tool and approach deluge," with many different things appearing during short periods of time. Building opinion and forming taste about these new tools and approaches can take time. Try things you see and find out how they work (or don't) for you!
+</span>
+
+<span style="font-size:.43em;line-height:1;">
+If you notice something unpleasant about your developer or user experience which is related to packaging, it may be that someone has already felt the same way as you. One way to stay tuned into best practices within the scope of Python is to read [Python Enhancement Proposals (PEPs)](https://peps.python.org/) and relatedly, read [Python discussion board posts (https://discuss.python.org/)](https://discuss.python.org/). Searching through these resources can help you stay informed.
+</span>
+
+<span style="font-size:.43em;line-height:1;">
+Keep in mind there's no absolute perfection here. "Breaking" an accepted PEP doesn't mean that the software won't work. It might be that you need to use technologies or techniques which don't abide PEPs. However, it could be important to learn what others like you have run into and how they opted to solve it by reading their thoughts, especially if it was accepted by a wider community.
+</span>
+
+------------------------------------------------------------------------
+
+## Question & Answer
+
+<span style="font-size:.4em;">
+<strong>Question: How does standard Python packaging apply to data science projects (where goals or environments may differ from a Python package)?</strong>
+</span>
+
+<span style="font-size:.4em;">
+Data science Python projects may entail unique aspects that can change the way development best takes place. This might mean, for instance, that Poetry or what was presented here won't be the best fit. If that's the case, there likely are other tools which can enhance the project's ability to achieve outcomes (explore what's out there!).
+</span>
+
+<span style="font-size:.4em;">
+The practice of "packaging" and following an understandable organization of files and content for a Python project can still be immensely helpful, especially when considering the cycle of onboarding and offboarding members of a team. The more bespoke or unique the file organization, the more time and complexity will be associated with learning _how_ to develop for or use the project rather than creating impact or value from it.
+</span>
+
+<span style="font-size:.4em;">
+Sometimes data science projects emerge with software organization as a "secondary focus". Refactoring can take time and be difficult to undertake after a project has already achieved outcomes. Maintaining a data science project long-term can be improved by following software best practices like packaging. Packaging as a practice helps increase the sustainability of the project through common understanding (aligning to existing conventions for somewhat unified perspective), increased trust (for ex.sometimes as scientific reproducibility), and connection (for ex. illustrating how the conclusions were derived through citation).
+</span>
+
+------------------------------------------------------------------------
+
+## Question & Answer
+
+<span style="font-size:.5em;">
+<strong>Question: How can we engage others from the community using `CONTRIBUTING.md` and other community health files?</strong>
+</span>
+
+<span style="font-size:.5em">
+The `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `LICENSE.txt` are the starting point for opening the doors to your project for others. These files stipulate the introduction and mutual protections for people interested in engaging with the project as well as the repercussions for misbehavior. Without these files it might seem a bit mysterious or uninviting for someone to engage; they might assume it's a solely private endeavor or fear their contributions as being not valued (or deleted entirely!). Providing these files upfront sends an open and understood message to others about how the project works and how contributions are handled.
+</span>
+
+<span style="font-size:.5em">
+Ensuring project contributors abide what is outlined in community health files is often manual but may be enhanced through various checks or linters. 
+</span>
+
+<ul>
+<li style="font-size:.5em">For example, [alex (https://alexjs.com/)](https://alexjs.com/) is a tool which can be used to "lint" for considerate writing.</li>
+<li style="font-size:.5em">[Blocklint (https://github.com/PrincetonUniversity/blocklint)](https://github.com/PrincetonUniversity/blocklint) is another similar tool.</li>
+</ul>
+
 
