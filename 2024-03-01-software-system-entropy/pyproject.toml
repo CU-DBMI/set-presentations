@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "2024-03-01-software-system-entropy"
+version = "0.0.1"
+description = "Presentation on software system entropy given as part of periodic Way Lab meetings."
+authors = ["Dave Bunten"]
+license = "BSD-3-Clause"
+readme = "readme.md"
+packages = [{include = "notebooks", from="src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+poetry = "^1.7.1"
+poethepoet = "^0.24.4"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.13.0"
+black = "^24.0.1"
+jupyterlab-code-formatter = "^2.2.1"
+jupytext = "^1.16.0"
+jupyterlab = "^4.0.0"
+jupyterlab-rise = "^0.42.0"
+requests = "^2.31.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# defines a workflow for exporting a presentation
+[tool.poe.tasks.export_presentation]
+# sets a cwd relative for the shell script below
+cwd = "src/notebooks"
+shell = """
+"""
+
+[tool.jupytext]
+formats = "ipynb,py:light"
+
+[tool.isort]
+profile = "black"
+
+[tool.setuptools_scm]
+root = ".."
