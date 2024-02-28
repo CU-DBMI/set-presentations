@@ -115,11 +115,15 @@ render_mermaid_diagram(
 # + [markdown] editable=true slideshow={"slide_type": "subslide"}
 # __Complexity (information theory)__
 #
+# <center>
+#
 # ![image.png](attachment:42f84086-41ef-42ce-a68c-44402a83cc45.png)
 #
 # $$
 # I(E) = -\log_2(p(E))
 # $$
+#
+# </center>
 #
 # Information conveyed by an event or message is inversely proportional to its probability. That is, the less probable an event is, the more information it carries when it occurs.
 #
@@ -127,6 +131,8 @@ render_mermaid_diagram(
 
 # + [markdown] editable=true slideshow={"slide_type": "subslide"}
 # __Complexity (information theory)__
+#
+# <center>🪙</center>
 #
 # Imagine a coin toss as a "message" with two equally probable outcomes.
 
@@ -177,6 +183,8 @@ style noise_intersection fill:transparent,stroke:#aaa,stroke-width:1px
 # + [markdown] editable=true slideshow={"slide_type": "subslide"}
 # __Complexity (information theory)__
 #
+# <center>
+#
 # ![](images/shannon_information_communication.svg)
 #
 # Entropy:
@@ -184,6 +192,8 @@ style noise_intersection fill:transparent,stroke:#aaa,stroke-width:1px
 # $$
 # H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_b p(x)
 # $$
+#
+# </center>
 #
 # As understood through Shannon's communication system.
 
@@ -229,8 +239,18 @@ print(
     "\nWe have more information from heads as it's less likely. We have less information from tails as it's more likely. We have less entropy because the outcome is more predictable."
 )
 
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Complexity (information theory)__
+#
+# Questions in the context of software:
+#
+# - What are the software "messages"?
+# - What are the software "probabilities"?
+
 # + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Prior work with Software Failures and Complexity Measures__
+#
+# Mentioned in the article:
 #
 # - Prior modifications to a file are a good predictor of its fault potential (i.e., the more a file is changed, the more likely it will contain faults).
 #
@@ -243,6 +263,56 @@ print(
 # + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __"Predicting faults using the complexity of code changes" Conjecture__
 #
-#
 # - _A complex code change process negatively affects its product, the software system._
 # - _The more complex changes to a file, the higher the chance the file will contain faults._
+
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
+# __Section 4: Basic Code Change Model (BCC)__
+#
+# <center>
+#
+# ![image.png](attachment:9c1fb765-0325-460a-b705-6cfe6d940d9f.png)
+#
+# </center>
+#
+# - FI modifications context (file interactions?)
+# - Files A, B, C, D are part of a software system.
+# - Stars are when changes occur to the files over a certain time period (such as a week).
+# - __P__ gives the probability that a file is changed in a period.
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 4: Basic Code Change Model (BCC)__
+#
+# <center>
+#
+# ![image.png](attachment:ea056e0c-ca3e-440e-99a6-ffb0e442ead1.png)
+#
+# </center>
+#
+# - Instead of solely using the number of changes to the file, lines added or removed are summed to help build additional detail for understanding the modifications.
+# - In the above example, we'd have a total of __4__ concerning the lines modified for a single file.
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 4: Basic Code Change Model (BCC)__
+#
+# __Files vs internal modularity__
+#
+# - _"... choice of files is based on the belief that a file is a conceptual unit of development where developers tend to group related entities such as functions and data types"_ (functions and other in-file modularity change based on language or style).
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 4: Basic Code Change Model (BCC)__
+#
+# <center>
+#
+# ![image.png](attachment:b3b73094-580b-4550-92bf-10c80277a946.png)
+#
+# </center>
+#
+# - Entropy as measured through 4 time periods for multiple files in a software system using modified lines (number of added + deleted lines).
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 4: Basic Code Change Model (BCC)__
+#
+# __Suggested conclusions__
+#
+#
