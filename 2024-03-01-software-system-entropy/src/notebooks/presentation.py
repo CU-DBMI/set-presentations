@@ -431,4 +431,28 @@ print(
 # + [markdown] editable=true slideshow={"slide_type": "subslide"}
 # __History Complexity Metric (HCM)__
 #
+# <center>
 #
+# $$
+# HCM_{\{a,..,b\}}(j) = \sum_{i\in \{ a,..,b\}} HCPF_{i}(j)
+# $$
+#
+# </center>
+#
+# - HCM measures how files which have been modified during periods of high complexity/entropy will tend to be more prone to faults.
+# - HCM assigns to a file the effect of the change complexity of a period, as calculated by the ECC model.
+# - History Complexity Period Factor ($HCPFi$) is calculated for each file per time period.
+#
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __History Complexity Period Factor (HCPFi)__
+#
+# <center>
+#
+# $$
+# HCPF_{i}(j)=\cases{ c_{ij}{\ast} H_{i}, &$j\in F_{i}$\cr 0, &$otherwise$}
+# $$
+#
+# </center>
+#
+# - History Complexity Period Factor ($HCPFi$) is calculated for each file per time period.
