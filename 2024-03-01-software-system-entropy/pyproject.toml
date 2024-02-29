@@ -25,11 +25,12 @@ requests = "^2.31.0"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-# defines a workflow for exporting a presentation
-[tool.poe.tasks.export_presentation]
+# defines a workflow for running a presentation
+[tool.poe.tasks.present]
 # sets a cwd relative for the shell script below
 cwd = "src/notebooks"
 shell = """
+jupyter nbconvert --to slides presentation.ipynb --post serve
 """
 
 [tool.jupytext]

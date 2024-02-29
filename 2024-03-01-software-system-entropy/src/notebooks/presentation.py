@@ -15,7 +15,7 @@
 # + [markdown] editable=true slideshow={"slide_type": "slide"}
 # <center>
 #     
-# ## Software Entropy and Failure
+# # Software Entropy and Failure
 # #### Journal Club 2024-03-01
 #
 # </center>
@@ -190,7 +190,7 @@ style noise_intersection fill:transparent,stroke:#aaa,stroke-width:1px
 # Entropy:
 #
 # $$
-# H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_b p(x)
+# H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x)
 # $$
 #
 # </center>
@@ -295,6 +295,12 @@ print(
 # + [markdown] editable=true slideshow={"slide_type": "subslide"}
 # __Section 4: Basic Code Change Model (BCC)__
 #
+# <center>
+#
+# ![image.png](attachment:750408ea-34aa-4690-a2cd-81fcaef97c74.png)
+#
+# </center>
+#
 # __Files vs internal modularity__
 #
 # - _"... choice of files is based on the belief that a file is a conceptual unit of development where developers tend to group related entities such as functions and data types"_ (functions and other in-file modularity change based on language or style).
@@ -308,11 +314,121 @@ print(
 #
 # </center>
 #
-# - Entropy as measured through 4 time periods for multiple files in a software system using modified lines (number of added + deleted lines).
+# - Entropy as measured through 4 time periods for multiple files in a software system using modified lines.
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 4: Basic Code Change Model (BCC)__
+#
+# <center>
+#
+# ![image.png](attachment:4ba2cde1-2fc4-4fcc-8404-d16f09875a14.png)
+#
+# </center>
+#
 
 # + [markdown] editable=true slideshow={"slide_type": "subslide"}
 # __Section 4: Basic Code Change Model (BCC)__
 #
 # __Suggested conclusions__
+#
+# - Monitoring for unexpected spikes in entropy and investigating the reasons behind them would let developers plan ahead and be ready for future problems.
+# - Would expect the entropy to remain high for a limited time period then to drop as the refactoring eases future modifications to the code
+# - Complex code base may cause a consistent rise in entropy over an extended period of time, until the issues causing the rise in change entropy/complexity are addressed and resolved
+
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
+# __Section 5: Extended Code Change Model (ECC)__
+#
+# <center>
+#
+# ![image.png](attachment:0fe5e80a-094a-4d63-a902-319a8385aa85.png)
+#
+# </center>
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 5: Extended Code Change Model (ECC)__
+#
+# - The "basic" BCC model has limitations through static file count and time periods.
+# - As a result, we need to "extend" on the basic model.
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 5: Extended Code Change Model (ECC)__
+#
+# <center>
+#
+# ![image.png](attachment:f266993d-deee-46b4-b4b1-b6dd348df2db.png)
+#
+# </center>
+#
+# - Time "Evolution Periods" __Modification limit based periods__.
+# - Uses a certain number as a way to "chunk" by modifications over total time for the project.
+#
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 5: Extended Code Change Model (ECC)__
+#
+# <center>
+#
+# ![image.png](attachment:0c59a949-d267-41b7-9167-679fbd4d8590.png)
+#
+# </center>
+#
+# - Time "Evolution Periods" __Burst based periods__.
+# - Calculates dynamic periods based on modifications and time, segmenting by periods of modification vs none.
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 5: Extended Code Change Model (ECC)__
+#
+# <center>
+#
+# ![image.png](attachment:d72d168c-23c2-4e02-9e8d-a0a9dbc4183c.png)
+#
+# </center>
+#
+# - We now have a way to use more dynamic time periods for code changes.
+# - However, Shannon entropy calculations don't inherently allow for comparisons between distributions of different sizes (each software project could have a different number of distributions or in this case time periods).
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 5: Extended Code Change Model (ECC)__
+#
+# <center>
+#
+# $$
+# H(P) = -\sum_{k=1}^{n}\left(p_{k} {\ast} \log_{n}p_{k}\right)
+# $$
+#
+# </center>
+#
+# - A __normalized static entropy__ is introduced to help with varying distribution sizes to enable software project cross-comparisons.
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 5: Extended Code Change Model (ECC)__
+#
+# <center>
+#
+# ![image.png](attachment:1db44f92-e405-451f-90af-d966971e7643.png)
+#
+# </center>
+#
+# - Additionally, __adaptive sizing entropy__ ($H'$) is introduced.
+# - Adaptive sizing entropy includes only _recently_ modified files (relative to the project) to avoid discrepancies caused by rarely modified files.
+# - Recently can mean:
+#     -  __Time__: "modified within the last x months."
+#     -  __Previous periods__: "modified within the last x periods."
+
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
+# __Section 6: File Code Change Model__
+#
+# <center>
+#
+# ![image.png](attachment:4862caca-b154-44fc-a687-8747a597868d.png)
+#
+# </center>
+#
+# - __History Complexity Metric (HCM)__ is introduced.
+# - _"We believe that files that are modified during periods of high change complexity, as determined by our ECC Model, will have a higher tendency to contain faults."_
+#
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __History Complexity Metric (HCM)__
 #
 #
