@@ -15,7 +15,7 @@
 # + [markdown] editable=true slideshow={"slide_type": "slide"}
 # <center>
 #     
-# # Software Entropy and Failure
+# # Software Entropy <br>and Failure
 # #### Journal Club 2024-03-01
 #
 # </center>
@@ -132,7 +132,11 @@ render_mermaid_diagram(
 # + [markdown] editable=true slideshow={"slide_type": "subslide"}
 # __Complexity (information theory)__
 #
-# <center>🪙</center>
+# <center>
+#     
+# # 🪙
+#     
+# </center>
 #
 # Imagine a coin toss as a "message" with two equally probable outcomes.
 
@@ -246,6 +250,33 @@ print(
 #
 # - What are the software "messages"?
 # - What are the software "probabilities"?
+
+# + editable=true slideshow={"slide_type": "skip"}
+render_mermaid_diagram(
+    """
+flowchart LR
+
+subgraph info_communication["Biological Communication"]
+direction LR
+info_source["Biological\nInformation"]
+transmitters["Transmitter(s)"]
+receiver["Receiver(s)"]
+interpreted_image["Interpreted\nImage"]
+end
+
+info_source --> | encodes information\nthrough | transmitters
+transmitters --> | recevied through\ntechnology | receiver
+receiver --> | writes information to | interpreted_image
+    """,
+    "shannon_information_communication_biology.svg",
+)
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Complexity (information theory)__
+#
+# ![](images/shannon_information_communication_biology.svg)
+#
+# Why does this matter here? (one rough take!)
 
 # + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Prior work with Software Failures and Complexity Measures__
@@ -456,3 +487,80 @@ print(
 # </center>
 #
 # - History Complexity Period Factor ($HCPFi$) is calculated for each file per time period.
+# - $c_{ij}$ is the contribution of entropy for period $i(Hi)$ assigned to file $j$.
+# - $c_{ij}$ can be defined as follows:
+#     1. $HCM^{1s}$ $c_{ij} = 1$: assumes full complexity value to every file modified during a period.
+#     2. $HCM^{2s}$, $c_{ij} = p_{j}$: measures percentage of complexity per file within a period. Assumes that the frequency of modification effects how a file should be measured.
+#     3. $HCM^{3s}$, $c_{ij} = {1 \over |F_{i}|}$: distributes the complexity evenly among all files for a period.
+#     4. $HCM^{1d}$: which leverages $HCM^{1s}$ with a decay model $e^{\phi{\ast} (T_{i}-Current\ Time)}$  
+
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
+# __Section 7: Case Studies (Linear Regression Models)__
+#
+# <center>
+#
+# ![image.png](attachment:d6ed8d38-b40f-48e0-bbe1-81ff8b022765.png)
+#
+# </center>
+#
+# - Linear regression models were created to measure prediction capabilities of future faults.
+# - Faults are defined as: _"the number of Fault Repairing (FR) modifications which occurred in the subsystem during the fourth and fifth years."_
+#     1. __Modifications vs. Faults__ (Are modifications or prior faults a better predictor of future faults?)
+#     2. __Modifications vs. (HCM) Entropy__ (Are modifications or HCM entropy a better predictor of future faults?)
+#     3. __Faults vs. (HCM) Entropy__ (Are prior faults or HCM entropy a better predictor of future faults?)
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 7: Case Studies (Linear Regression Models)__
+#
+# <center>
+#
+# ![image.png](attachment:565df76e-3694-4280-a2c7-467eef5e5de9.png)
+#
+# </center>
+#
+# - All HCM models use the ECC bursty model with one hour quiet times between bursts.
+# - $HCM_{1d}$ uses decay ($\phi$) of 10.
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 7: Case Studies (Linear Regression Models)__
+#
+# <center>
+#
+# ![image.png](attachment:363fd11b-5922-4976-bd53-851e3ed0e776.png)
+#
+# </center>
+#
+# - $R^2$ (coefficient of determination) shows the quality of the model fit (0 is no correlation, 1 is maximum correlation).
+# - $HCM_{1d}$ (HCM entropy with decay model) performed best.
+
+# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# __Section 7: Case Studies (Linear Regression Models)__
+#
+# Key takeaways they found:
+#
+# 1. _"Prior faults are better predictors of future faults than the prior modifications."_
+# 2. _"The HCM based predictors are better predictors of future faults than prior modifications or prior faults."_
+
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
+# __Reflections__
+#
+# <center>
+#
+# # 🤔
+#
+# </center>
+#
+# - HCM entropy appears to be important when it comes to avoiding failure.
+# - However, less entropy would mean no growth, so we have to find balance.
+# - Perhaps [decision fatigue](https://en.wikipedia.org/wiki/Decision_fatigue) is important here with regards to the people involved.
+# - [Innovation](https://en.wikipedia.org/wiki/Innovation) requires an implicit risk of failure (more unpredictable) and learning.
+
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
+#
+#
+# <center>
+#
+# ## __Thanks!__
+# #### Questions / comments?
+#
+# </center>

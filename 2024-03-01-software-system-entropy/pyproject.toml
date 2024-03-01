@@ -33,6 +33,20 @@ shell = """
 jupyter nbconvert --to slides presentation.ipynb --post serve
 """
 
+# defines a workflow for exporting a presentation using decktape via docker
+[tool.poe.tasks.export_to_pdf]
+# sets a cwd relative for the shell script below
+cwd = "src/notebooks"
+shell = """
+jupyter nbconvert --to slides presentation.ipynb
+docker run --rm -t -v $PWD:/slides \
+ --platform=linux/arm64 \
+ ghcr.io/astefanutti/decktape:3.10.0 \
+ rise \
+ /slides/presentation.slides.html \
+ 2024-03-01-software-system-entropy-and-failure.pdf
+"""
+
 [tool.jupytext]
 formats = "ipynb,py:light"
 
