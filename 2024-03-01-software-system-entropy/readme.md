@@ -31,7 +31,7 @@ These notebooks leverage [Jupyter Lab extensions](https://jupyterlab.readthedocs
 Usage of the notebooks outside of Jupyter Lab as an IDE may have varied experiences.
 
 ```bash
-# context: within the root of the repository
+# context: within this directory
 # after creating poetry environment, run jupyter
 poetry run jupyter lab
 ```
@@ -41,10 +41,14 @@ poetry run jupyter lab
 We use [Poe the Poet](https://poethepoet.natn.io/index.html) to define and run tasks defined within `pyproject.toml` under the section `[tool.poe.tasks*]`.
 This allows for the definition and use of a task workflow when implementing multiple procedures in sequence.
 
-For example, use the following to run the `present` task:
+See the following examples:
 
 ```bash
-# context: within the root of the repository
-# run data_prep task using poethepoet defined within `pyproject.toml`
+# context: within this directory
+
+# run the notebook as a presentation
 poetry run poe present
+
+# export the notebook presentation content to PDF
+poetry run poe export_to_pdf
 ```
