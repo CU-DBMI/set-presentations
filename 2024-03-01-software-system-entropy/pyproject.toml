@@ -42,7 +42,6 @@ jupyter nbconvert --to slides presentation.ipynb
 docker run --rm -t -v $PWD:/slides \
  --platform=linux/arm64 \
  ghcr.io/astefanutti/decktape:3.10.0 \
- rise \
  /slides/presentation.slides.html \
  2024-03-01-software-system-entropy-and-failure.pdf
 """

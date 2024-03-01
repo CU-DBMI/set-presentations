@@ -90,7 +90,7 @@ render_mermaid_diagram(
 #
 # - Complexity as uncertainty or randomness may be understood as ___entropy___ from information theory.
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Complexity (information theory)__
 #
 # _In information theory, the entropy of a __random variable__ is the __average level__ of __"information", "surprise", or "uncertainty"__ inherent to the variable's __possible outcomes__._
@@ -99,20 +99,20 @@ render_mermaid_diagram(
 #
 #
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Complexity (information theory)__
 #
 # _Entropy: 1. A measure of the disorder present in a system._
 #
 # [Wiktionary: Entropy](https://en.wiktionary.org/wiki/entropy)
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Complexity (information theory)__
 #
 # Wait a minute, what even is "information" in this context?
 #
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Complexity (information theory)__
 #
 # <center>
@@ -129,7 +129,7 @@ render_mermaid_diagram(
 #
 #
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Complexity (information theory)__
 #
 # <center>
@@ -140,7 +140,7 @@ render_mermaid_diagram(
 #
 # Imagine a coin toss as a "message" with two equally probable outcomes.
 
-# + editable=true slideshow={"slide_type": "subslide"}
+# + editable=true slideshow={"slide_type": "slide"}
 import math
 
 # Probability of each outcome for a fair coin toss
@@ -184,7 +184,7 @@ style noise_intersection fill:transparent,stroke:#aaa,stroke-width:1px
     "shannon_information_communication.svg",
 )
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Complexity (information theory)__
 #
 # <center>
@@ -201,7 +201,7 @@ style noise_intersection fill:transparent,stroke:#aaa,stroke-width:1px
 #
 # As understood through Shannon's communication system.
 
-# + editable=true slideshow={"slide_type": "subslide"}
+# + editable=true slideshow={"slide_type": "slide"}
 import math
 
 # Probability of each outcome for a fair coin toss
@@ -219,7 +219,7 @@ print(
     "\nThe result can be understood as 'maximum uncertainty' as it's completely unpredictable (equal probabilities)."
 )
 
-# + editable=true slideshow={"slide_type": "subslide"}
+# + editable=true slideshow={"slide_type": "slide"}
 import math
 
 # Probabilities for the unfair coin toss
@@ -243,7 +243,7 @@ print(
     "\nWe have more information from heads as it's less likely. We have less information from tails as it's more likely. We have less entropy because the outcome is more predictable."
 )
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Complexity (information theory)__
 #
 # Questions in the context of software:
@@ -271,7 +271,7 @@ receiver --> | writes information to | interpreted_image
     "shannon_information_communication_biology.svg",
 )
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Complexity (information theory)__
 #
 # ![](images/shannon_information_communication_biology.svg)
@@ -311,7 +311,7 @@ receiver --> | writes information to | interpreted_image
 # - Stars are when changes occur to the files over a certain time period (such as a week).
 # - __P__ gives the probability that a file is changed in a period.
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 4: Basic Code Change Model (BCC)__
 #
 # <center>
@@ -323,7 +323,7 @@ receiver --> | writes information to | interpreted_image
 # - Instead of solely using the number of changes to the file, lines added or removed are summed to help build additional detail for understanding the modifications.
 # - In the above example, we'd have a total of __4__ concerning the lines modified for a single file.
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 4: Basic Code Change Model (BCC)__
 #
 # <center>
@@ -336,7 +336,7 @@ receiver --> | writes information to | interpreted_image
 #
 # - _"... choice of files is based on the belief that a file is a conceptual unit of development where developers tend to group related entities such as functions and data types"_ (functions and other in-file modularity change based on language or style).
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 4: Basic Code Change Model (BCC)__
 #
 # <center>
@@ -347,7 +347,7 @@ receiver --> | writes information to | interpreted_image
 #
 # - Entropy as measured through 4 time periods for multiple files in a software system using modified lines.
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 4: Basic Code Change Model (BCC)__
 #
 # <center>
@@ -357,7 +357,7 @@ receiver --> | writes information to | interpreted_image
 # </center>
 #
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 4: Basic Code Change Model (BCC)__
 #
 # __Suggested conclusions__
@@ -375,13 +375,13 @@ receiver --> | writes information to | interpreted_image
 #
 # </center>
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 5: Extended Code Change Model (ECC)__
 #
 # - The "basic" BCC model has limitations through static file count and time periods.
 # - As a result, we need to "extend" on the basic model.
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 5: Extended Code Change Model (ECC)__
 #
 # <center>
@@ -394,7 +394,7 @@ receiver --> | writes information to | interpreted_image
 # - Uses a certain number as a way to "chunk" by modifications over total time for the project.
 #
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 5: Extended Code Change Model (ECC)__
 #
 # <center>
@@ -406,7 +406,7 @@ receiver --> | writes information to | interpreted_image
 # - Time "Evolution Periods" __Burst based periods__.
 # - Calculates dynamic periods based on modifications and time, segmenting by periods of modification vs none.
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 5: Extended Code Change Model (ECC)__
 #
 # <center>
@@ -418,7 +418,7 @@ receiver --> | writes information to | interpreted_image
 # - We now have a way to use more dynamic time periods for code changes.
 # - However, Shannon entropy calculations don't inherently allow for comparisons between distributions of different sizes (each software project could have a different number of distributions or in this case time periods).
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 5: Extended Code Change Model (ECC)__
 #
 # <center>
@@ -431,7 +431,7 @@ receiver --> | writes information to | interpreted_image
 #
 # - A __normalized static entropy__ is introduced to help with varying distribution sizes to enable software project cross-comparisons.
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 5: Extended Code Change Model (ECC)__
 #
 # <center>
@@ -459,7 +459,7 @@ receiver --> | writes information to | interpreted_image
 # - _"We believe that files that are modified during periods of high change complexity, as determined by our ECC Model, will have a higher tendency to contain faults."_
 #
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __History Complexity Metric (HCM)__
 #
 # <center>
@@ -475,7 +475,7 @@ receiver --> | writes information to | interpreted_image
 # - History Complexity Period Factor ($HCPFi$) is calculated for each file per time period.
 #
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __History Complexity Period Factor (HCPFi)__
 #
 # <center>
@@ -509,7 +509,7 @@ receiver --> | writes information to | interpreted_image
 #     2. __Modifications vs. (HCM) Entropy__ (Are modifications or HCM entropy a better predictor of future faults?)
 #     3. __Faults vs. (HCM) Entropy__ (Are prior faults or HCM entropy a better predictor of future faults?)
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 7: Case Studies (Linear Regression Models)__
 #
 # <center>
@@ -521,7 +521,7 @@ receiver --> | writes information to | interpreted_image
 # - All HCM models use the ECC bursty model with one hour quiet times between bursts.
 # - $HCM_{1d}$ uses decay ($\phi$) of 10.
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 7: Case Studies (Linear Regression Models)__
 #
 # <center>
@@ -533,7 +533,7 @@ receiver --> | writes information to | interpreted_image
 # - $R^2$ (coefficient of determination) shows the quality of the model fit (0 is no correlation, 1 is maximum correlation).
 # - $HCM_{1d}$ (HCM entropy with decay model) performed best.
 
-# + [markdown] editable=true slideshow={"slide_type": "subslide"}
+# + [markdown] editable=true slideshow={"slide_type": "slide"}
 # __Section 7: Case Studies (Linear Regression Models)__
 #
 # Key takeaways they found:
