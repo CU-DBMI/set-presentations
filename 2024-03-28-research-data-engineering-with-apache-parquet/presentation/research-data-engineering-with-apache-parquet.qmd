@@ -1,0 +1,691 @@
+---
+title: |
+  <span style="font-size:.8em;">Research Data Engineering <br> with Apache Parquet</span>
+format:
+  revealjs: 
+    theme: simple
+    transition: slide
+    slide-number: true
+    auto-stretch: false
+    width: 1050
+    height: 800
+    margin: 0.01
+---
+
+## Introduction
+
+<br><br>
+
+Hi, I'm Dave Bunten!
+
+<br>
+
+With the __Software Engineering Team__ at CU Anschutz DBMI
+
+<img src="assets/dbmi-logo.png" style="width:60%">
+
+<br>
+
+Visit us for more info: [https://cu-dbmi.github.io/set-website/](https://cu-dbmi.github.io/set-website/)
+
+------------------------------------------------------------------------
+
+## Gratitude
+
+<br><br><br><br>
+
+Big ___thank you___ for attending!
+
+------------------------------------------------------------------------
+
+## Presentation Outline
+
+<br>
+<br>
+<br>
+
+1. 😰 Data Challenges
+1. 📂 Parquet Format
+1. ⏩ The Future
+
+------------------------------------------------------------------------
+
+## Why?
+
+<br><br>
+
+> "You will never ___find___ time for anything.<br>If you want time, you must ___make___ it."
+
+― [Charles Buxton, Notes of Thought (1883)](https://en.wikiquote.org/wiki/Charles_Buxton#Notes_of_Thought_(1883))
+
+------------------------------------------------------------------------
+
+## Why?
+
+<br><br>
+
+🕓😰 Data takes time to store and retrieve from files!
+
+<br> 
+
+- What is the time cost of the file formats you use today?
+- Are we prepared for the future of data needs?
+- Can we _"make"_ time by using alternatives?
+
+------------------------------------------------------------------------
+
+## Why?
+
+<br><br>
+
+A theory: we need to act a bit like time travelers in order to steward good research data engineering.
+
+<br>
+
+- Time traveling as reducing time durations.
+- Time traveling as avoiding the need to reduce time in the future.
+- Time traveling as informing those in the future about what's aleady happened.
+
+------------------------------------------------------------------------
+
+## Why?
+
+<br><br>
+
+![](assets/2024-03-28-09-08-16.png)
+
+This presentation will cover how [Apache Parquet](https://parquet.apache.org/) can help us be good stewards of research by using less time and enhancing the approaches with data.
+
+<br>
+
+First, we'll cover some brief examples of data challenges.
+
+------------------------------------------------------------------------
+
+## Data Challenges
+
+<br><br>
+
+<table>
+<tr><th>Col_A</th><th>Col_B</th><th>Col_C</th></tr>
+<tr><td>1</td><td>a</td><td>0.01</td></tr>
+<tr><td>2</td><td>b</td><td>0.02</td></tr>
+</table>
+
+<br>
+
+A visual example of tabular data.
+
+------------------------------------------------------------------------
+
+## Data Challenges - An Example
+
+<br><br>
+
+```csv
+Col_A,Col_B,Col_C
+1,a,0.01
+2,b,0.02
+```
+
+<br>
+
+A CSV (comma delimited spreadsheet) version of the same table.
+
+------------------------------------------------------------------------
+
+## Data Challenges - An Example
+
+<br><br>
+
+Strengths of CSV's
+
+- Simple
+- Interoperable
+- Human-readable
+
+------------------------------------------------------------------------
+
+## Data Challenges - An Example
+
+<br><br>
+
+```html
+Col_A,Col B,Col_C,COL_D
+,a,"0.01"
+2,null,0.02,{'color':'blue'}
+```
+
+<br>
+
+But what about more challenging scenarios?
+
+------------------------------------------------------------------------
+
+## Data Challenges - An Example
+
+<br><br>
+
+Challenges with CSV's
+
+- No data types (implied translation every read)
+- Expensive to slice (cols or rows)
+- Missing data handling
+- 2D dimensionality
+- Row-wise orientation (more on this later)
+
+------------------------------------------------------------------------
+
+## Data Challenges
+
+<br><br>
+
+CSV's are sometimes used because they were the best option available at the time.
+
+<center><span style="font-size:2em">👀</span></center>
+
+They also are used because they're easy to see (and as a result, trust).
+
+
+------------------------------------------------------------------------
+
+## Data Challenges
+
+<center>
+<img src="https://github.com/zarr-developers/zarr-illustrations-falk-2022/raw/1.0.2/300dpi/kits-deluge-300dpi.png" style="width:300px">
+</center>
+
+
+Large data handling often involve working with data values we cannot see (especially from [big data V's](https://en.wikipedia.org/wiki/Big_data#Characteristics): volume, variety, and velocity).
+
+<br>
+
+<span style="font-size:.7em;font-style:italic;">(Image: ["Kit's Deluge" by Henning Falk, ©2022 NumFOCUS, CC BY 4.0.](https://zenodo.org/records/7037679))</span>
+
+------------------------------------------------------------------------
+
+## Data Challenges
+
+<br><br>
+
+> "Some things have to be believed to be seen."
+
+- [Madeleine L'Engle, A Wrinkle in Time (1962)](https://www.goodreads.com/quotes/59274-some-things-have-to-be-believed-to-be-seen)
+
+<br>
+
+Believe with me for a moment in the promise of Parquet and the data that we cannot directly see.
+
+------------------------------------------------------------------------
+
+## Data Challenges
+
+<br>
+
+Besides believing, there are many measured performance benefits to using formats like Parquet (typically orders of magnitude).
+
+<br>
+
+See: 
+
+- CSV vs Parquet - [Speed up data analytics and wrangling with Parquet files (Posit)](https://posit.co/blog/speed-up-data-analytics-with-parquet-files/)
+- CSV vs Parquet - [Apache Parquet vs. CSV Files (DZone)](https://dzone.com/articles/how-to-be-a-hero-with-powerful-parquet-google-and)
+
+------------------------------------------------------------------------
+
+## Parquet - Definition
+
+<br><br>
+
+_"Apache Parquet is a columnar storage format available to any project in the Hadoop ecosystem, regardless of the choice of data processing framework, data model or programming language."_
+
+- [Apache Parquet Website](https://parquet.apache.org/)
+
+------------------------------------------------------------------------
+
+## Parquet - History
+
+<br><br>
+
+Some rough history:
+
+- Inspired by earlier work from Google Research in 2010: [Dremel: Interactive Analysis of Web-Scale Datasets](https://research.google/pubs/dremel-interactive-analysis-of-web-scale-datasets-2/).
+- Originally introduced by Twitter in collaboration with Cloudera in July 2013 ([link](https://blog.twitter.com/engineering/en_us/a/2013/announcing-parquet-10-columnar-storage-for-hadoop)).
+- Parquet joined the Apache Software Foundation in 2015 as a Top-Level Project (TLP) ([link](https://news.apache.org/foundation/entry/the_apache_software_foundation_announces75))
+
+------------------------------------------------------------------------
+
+## Parquet - As a file
+
+<br><br>
+
+```text
+file.parquet (unable to preview with a text editor)
+```
+
+<br>
+
+Parquet file of the table we saw earlier.
+
+------------------------------------------------------------------------
+
+## Parquet - "Columnar data"
+
+<br>
+
+
+![](assets/2024-03-28-10-12-29.png)
+
+What does ___"columnar data"___ mean?
+
+
+------------------------------------------------------------------------
+
+## Parquet - Internals
+
+<br><br>
+
+<!-- mermaid source:
+
+```mermaid
+flowchart TB
+subgraph parquet_file["Parquet File"]
+direction TB
+subgraph rowgroup_1 ["Row group 1"]
+    direction TB
+    subgraph column_1_a["Column A"]
+        direction TB
+        page_1_a_0["Page 0"]
+        page_1_a_1["Page 1"]
+    end
+    subgraph column_1_b["Column B"]
+        direction TB
+        page_1_b_0["Page 0"]
+        page_1_b_1["Page 1"]
+    end
+end
+
+subgraph rowgroup_2 ["Row group 2"]
+    direction TB
+    subgraph column_2_a["Column A"]
+        direction TB
+        page_2_a_0["Page 0"]
+        page_2_a_1["Page 1"]
+    end
+    subgraph column_2_b["Column B"]
+        direction TB
+        page_2_b_0["Page 0"]
+        page_2_b_1["Page 1"]
+    end
+
+end
+end
+```
+-->
+![](https://mermaid.ink/img/pako:eNqdkl1PgzAUhv9Kc67JQguswJ3z49qoV4ohhXaMCC12JXMu--8WdEySzbk1pOGcnoe8POkGcsUFxDCv1CpfMG3Q0yyRyzYrNGsWqGH6vRUmnZeVeEng_rtEd7ZM4DWRvNQiN6WSY0yrVaFV26QYWepBrVBfItxDyK4x2HUGOFdVW8sUp8yy132BrgbwMNythhWio1K3T1oI5I6o4RzvzvdxhOTHUmT7FLP_p8hOpMiOpui3Qy7J2CU5wyW5yCU54ZKc6ZJc5JKccEn-cPlj027gQC10zUpuL_umG0nALERtr3FsXznTbwkkcmvnWGvU41rmEBvdCgfahjMjbkpmf6aGeM6q5dC95aVRejfZMPmsVP2rhHgDHxBj15sQ6k6pj6Mg8F0aObC27RBPiB-F9gnCkFJCtw589l9wJ1MXezSIPOpPcRh42y9E-SLo?type=png)
+
+<br>
+
+Parquet organizes column values into __pages__ inside of __row groups__ ([link](https://parquet.apache.org/docs/file-format/)).
+
+------------------------------------------------------------------------
+
+## Parquet - Notable Features
+
+<br><br><br><br>
+
+"Okay already, show me why any of this matters!"
+
+<br><br>
+
+(___How can I use this today?!___)
+
+------------------------------------------------------------------------
+
+## Parquet - "Strongly-typed" Data
+
+<br><br>
+
+```html
+Col_A,Col B,Col_C,COL_D
+,a,"0.01"
+2,null,0.02,{'color':'blue'}
+```
+
+<br>
+
+Have you ever experienced mixed data types in your data?
+
+<br>
+
+These are challenging (and expensive) to resolve!
+
+------------------------------------------------------------------------
+
+## Parquet - "Strongly-typed" Data
+
+```python
+import pyarrow as pa
+from pyarrow import parquet
+
+# create a pyarrow table
+table = pa.Table.from_pydict(
+    {
+        "A": [1, 2, 3],
+        "B": ["foo", "bar", 1],
+        "C": [0.1, 0.2, 0.3],
+    }
+)
+
+# write the pyarrow table to a parquet file
+parquet.write_table(table=table, where="example.parquet")
+
+# raises exception:
+# ArrowTypeError: Expected bytes, got a 'int' object (for column B)
+# Note: while this is an Arrow in-memory data exception, it also
+# prevents us from attempting to perform incompatible operations
+# within the Parquet file.
+```
+
+Data within Parquet is considered ["strongly-typed"](https://en.wikipedia.org/wiki/Strong_and_weak_typing), entailing specific data types (such as integer, string, etc.) associated with each column and value.
+
+------------------------------------------------------------------------
+
+## Parquet - Complex data handling
+
+<br>
+
+![](https://mermaid.ink/img/pako:eNpVkL1OwzAUhV_FuhNIaZV_JxmYYGNAsIEZLo3TWtR2cBxBibrBxojECOIJ-whYcaha6Q73nO_oHtkDLHTNoQKmmrV-XqzQWHJ5zZTq5QM33R2D3ffnL5kkg3umOmuEWk7oh0xyRELiknvy8U68GgEagxsPvt6IVyNo0Tz13Dpy5TfSiDU_6U5HOtWS2eyMTMl9_7Hpu449X3PoQQCSG4midk8emCKEgV1xyRlUbq3RPDL3FVuXw97qm41aQGVNzwPo2xotPxe4NCihanDd7d2LWlht_pMtqlut5YGEaoAXqKIwmcc0zGkalVmWhrQMYOPsIprHaVm4yYqC0phuA3gdL4TzPIwSmpUJTfOoyJLtH3SGlcA?type=png)
+
+<br>
+
+Parquet files may store many data types that are complicated or impossible to store in other formats.
+
+------------------------------------------------------------------------
+
+## Parquet - Complex data handling
+
+```python
+import pyarrow as pa
+from pyarrow import parquet
+
+# create a pyarrow table with complex data types
+table = pa.Table.from_pydict(
+    {
+        "A": [{"key1": "val1"}, {"key2": "val2"}],
+        "B": [[1, 2], [3, 4]],
+        "C": [
+            bytearray("😊".encode("utf-8")),
+            bytearray("🌻".encode("utf-8")),
+        ],
+    }
+)
+
+# write the pyarrow table to a parquet file
+parquet.write_table(table=table, where="example.parquet")
+
+# read the schema of the parquet file
+print(parquet.read_schema(where="example.parquet"))
+
+# prints:
+# A: struct<key1: string, key2: string>
+#   child 0, key1: string
+#   child 1, key2: string
+# B: list<element: int64>
+#   child 0, element: int64
+# C: binary
+```
+
+Parquet can handle these complex types using various means.
+
+------------------------------------------------------------------------
+
+## Parquet - Compression
+
+
+```python
+import os
+import pyarrow as pa
+from pyarrow import parquet
+
+# create a pyarrow table
+table = pa.Table.from_pydict(
+    {
+        "A": [1, 2, 3, 4, 5],
+        "B": ["foo", "bar", "baz", "qux", "quux"],
+        "C": [0.1, 0.2, 0.3, 0.4, 0.5],
+    }
+)
+
+# Write Parquet file with Snappy compression
+parquet.write_table(table=table, 
+  where="example.snappy.parquet",
+  compression="SNAPPY"
+)
+```
+
+Parquet files may leverage compression to help reduce file size and increase data performance.
+
+------------------------------------------------------------------------
+
+## Parquet - Metadata as "first-class" object
+
+<br>
+
+![](https://mermaid.ink/img/pako:eNpNTstOxDAM_JXK56rqO22uWziBhIAThINpsjSiSUo2ESxV_510F9jaPtgzY3tm6A0XQGE_ms9-QOuix47pKMTBv75ZnIaIwR3aDy9cdC1HweBMr8GlFb2TRkc39xd0s7gzo1c66tDhdk9ofhmUcMiD4JnB7W_L4OXMn4RrQgxKWIWSB6_zSjJwg1DBDg0tR_u-PliCDr0zD0fdA3XWixj8FE6KTmIwpYDucTz8o1dcOmP_lBPqJ2PUZgQ6wxfQLC2SnKQ1KbO2qsqUtDEcA9xkSV62TaiqaQjJyRLD9-lCmtRpVpCqLUhZZ01VLD8oJG2d?type=png)
+
+<br>
+
+The Parquet format treats data about the data (metadata) distinctly from that of column value data ([link](https://parquet.apache.org/docs/file-format/metadata/)).
+
+------------------------------------------------------------------------
+
+## Parquet - Metadata as "first-class" object
+
+```python
+import pyarrow as pa
+from pyarrow import parquet
+
+# create a pyarrow table
+table = pa.Table.from_pydict(
+    {
+        "A": [1, 2, 3],
+        "B": ["foo", "bar", "baz"],
+        "C": [0.1, 0.2, 0.3],
+    }
+)
+
+# add custom metadata to table
+table = table.replace_schema_metadata(metadata={"data-producer": "CU DBMI SET"})
+
+# write the pyarrow table to a parquet file
+parquet.write_table(table=table, where="example.snappy.parquet", compression="SNAPPY")
+
+# read the schema
+print(parquet.read_schema(where="example.snappy.parquet"))
+
+# prints
+# A: int64
+# B: string
+# C: double
+# -- schema metadata --
+# data-producer: 'CU DBMI SET'
+```
+
+We can customize metadata inside of a Parquet file so that the files always include certain information.
+
+------------------------------------------------------------------------
+
+## Parquet - Multi-file "datasets"
+
+<br>
+
+```text
+parquet_datasets/
+├── dataset0/
+│   ├── part-0.parquet
+│   ├── part-1.parquet
+│   └── ...
+├── dataset1/
+│   ├── part-0.parquet
+│   ├── part-1.parquet
+│   └── ...
+└── ...
+```
+
+<br>
+
+Parquet files may be used individually or treated as a "[dataset](https://arrow.apache.org/docs/python/api/dataset.html)" through file groups which include the same schema (column names and types).
+
+------------------------------------------------------------------------
+
+## Parquet - Multi-file "datasets"
+
+```python
+import pathlib
+import pyarrow as pa
+from pyarrow import parquet
+
+pathlib.Path("./dataset").mkdir(exist_ok=True)
+
+# create pyarrow tables
+table_1 = pa.Table.from_pydict({"A": [1]})
+table_2 = pa.Table.from_pydict({"A": [2, 3]})
+
+# write the pyarrow table to parquet files
+parquet.write_table(table=table_1, where="./dataset/example_1.parquet")
+parquet.write_table(table=table_2, where="./dataset/example_2.parquet")
+
+# read the parquet dataset
+print(parquet.ParquetDataset("./dataset").read())
+
+# prints (note that, for ex., [1] is a row group of column A)
+# pyarrow.Table
+# A: int64
+# ----
+# A: [[1],[2,3]]
+```
+
+Parquet datasets may be read using directory paths (or lists of individual files).
+
+------------------------------------------------------------------------
+
+## Parquet - Arrow cross-lingual interchange
+
+
+![](assets/2024-03-28-10-40-41.png)
+
+
+The Parquet format has robust support and integration with the [Apache Arrow](https://arrow.apache.org/docs/index.html) memory format, enabling consistent multi-lingual interchange.
+
+------------------------------------------------------------------------
+
+## Parquet - Arrow cross-lingual interchange
+
+```python
+import pathlib
+import pyarrow as pa
+from pyarrow import parquet
+
+# create a pyarrow table
+table = pa.Table.from_pydict(
+    {
+        "A": [1, 2, 3],
+        "B": ["foo", "bar", "baz"],
+        "C": [0.1, 0.2, 0.3],
+    }
+)
+
+# write the pyarrow table to a parquet file
+parquet.write_table(table=table, where="example.parquet")
+
+# show schema of table and parquet file
+print(table.schema.types)
+print(parquet.read_schema("example.parquet").types)
+
+# prints
+# [DataType(int64), DataType(string), DataType(double)]
+# [DataType(int64), DataType(string), DataType(double)]
+```
+
+We can consistently read from Parquet files using Arrow to unify how in-memory data are treated.
+
+------------------------------------------------------------------------
+
+## Parquet - Arrow cross-lingual interchange
+
+<br>
+
+![](assets/2024-03-28-11-02-05.png)
+
+- Cross-lingual implementation means we have more people participating in the same "data conversations".
+- It also [decouples](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) us from the limitations of "one language".
+
+------------------------------------------------------------------------
+
+## Parquet - FAIR data
+
+![](assets/2024-03-28-11-04-36.png)
+
+- These same principles can help enable FAIR data practices.
+
+<span style="font-size:.7em;font-style:italic;">(Image: ["FAIR guiding principles for data resources" by SangyaPundir, 2016, Wikimedia Commons, CC BY-SA 4.0 DEED](https://commons.wikimedia.org/wiki/File:FAIR_data_principles.jpg))</span>
+
+
+------------------------------------------------------------------------
+
+## How can you use Parquet?
+
+<br>
+
+Below are a list of just a few popular places where you can use Parquet.
+
+- __Python__
+  - Pandas ([`pd.DataFrame.to_parquet()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_parquet.html), [`pd.read_parquet()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.html))
+  - Apache Spark ([Spark SQL Guide: Parquet Files](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html))
+  - PyTorch ([`ParquetDataFrameLoader`](https://pytorch.org/data/main/generated/torchdata.datapipes.iter.ParquetDataFrameLoader.html))
+  - PyArrow ([PyArrow: Reading and Writing the Apache Parquet Format](https://arrow.apache.org/docs/python/parquet.html))
+
+------------------------------------------------------------------------
+
+## How can you use Parquet?
+
+<br>
+
+Below are a list of just a few popular places where you can use Parquet.
+
+- __R__
+  - dplyr ([Arrow: Working with Arrow Datasets and dplyr](https://arrow.apache.org/docs/2.0/r/articles/dataset.html))
+  - Arrow ([`write_parquet()`](https://arrow.apache.org/docs/r/reference/write_parquet.html), [`read_parquet()`](https://arrow.apache.org/docs/r/reference/read_parquet.html))
+  - DuckDB ([DuckDB R API](https://duckdb.org/docs/api/r.html), [DuckDB: Reading and Writing Parquet Files](https://duckdb.org/docs/data/parquet/overview))
+
+
+------------------------------------------------------------------------
+
+## You might also be interested in...
+
+<br><br>
+
+- __Apache Arrow__ - an in-memory format which enables high-performance and unified memory handling across multiple languages. ([Apache Arrow documentation](https://arrow.apache.org/))
+- __DuckDB__ - which enables SQL queries over local or remote Parquet files. ([DuckDB documentation](https://duckdb.org/docs/data/parquet/overview), [CU-DBMI blog post](https://cu-dbmi.github.io/set-website/2022/12/05/Data-Engineering-with-SQL-Arrow-and-DuckDB.html))
+- __Ibis__ - Pythonic API for Parquet (and many other format) data handling ([Ibis documentation](https://ibis-project.org/how-to/input-output/duckdb-parquet))
+
+
+------------------------------------------------------------------------
+
+## Thank you!
+
+<br>
+<br>
+
+Thank you for attending! Questions / comments?
+
+<br>
+
+Please don't hesitate to reach out!
+
+<br>
+
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/htmx/black"> [CU Anschutz DBMI SET Team](https://cu-dbmi.github.io/set-website/about/#the-team)
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/github/black"> [@d33bs](https://github.com/d33bs)
+
