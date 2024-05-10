@@ -1,0 +1,476 @@
+---
+title: |
+  <span style="font-size:.8em;">Mud, energy, and containers</span>
+format:
+  revealjs: 
+    theme: simple
+    transition: slide
+    slide-number: true
+    auto-stretch: false
+    width: 1050
+    height: 800
+    margin: 0.01
+---
+
+## Gratitude
+
+<br><br><br><br>
+
+___Thank you___ for listening, asking questions,<br> and helping make this conversation better!
+
+------------------------------------------------------------------------
+
+## Outline
+
+<br>
+<br>
+<br>
+
+1. 🟤 Mud
+1. ⚡ Energy
+1. 🖼️ Scenario
+
+------------------------------------------------------------------------
+
+## We need to talk about mud
+
+<img src="assets/Ambroży_Sabatowski_Mud_in_the_forest_1922.jpeg" width="800px;"><br>
+Mud can be friend or foe.<br>
+<span style="font-size:.6em;font-style:italic;color:#555;">Image: Ambroży Sabatowski, Mud in the forest, 1922 (<a href="https://commons.wikimedia.org/wiki/File:Ambro%C5%BCy_Sabatowski_Mud_in_the_forest_1922.jpg">Wikimedia Commons</a>)</span>
+
+------------------------------------------------------------------------
+
+## Mud as friend
+
+<div style="float:left;width:50%;">
+<ul>
+<li>[Adobe](https://en.wikipedia.org/wiki/Adobe) (Spanish for _mudbrick_) is an over 7,000 year old technology.</li>
+<li>Innovations like [Superadobe](https://en.wikipedia.org/wiki/Superadobe) continue to enhance the use of mud.</li>
+<li>_Mud Futures_ demos 3D printed mud structures ([History Colorado Center, Denver](https://www.historycolorado.org/exhibit/mud-futures))</li>
+</ul>
+</div>
+
+<img src="assets/Flickr_-_DVIDSHUB_-_New_eco-dome_signals_changes_for_local_village_(Image_10_of_10).jpeg" height="600px;" style="float:right;">
+
+
+<div style="float:left;width:100%;">
+<span style="font-size:.6em;font-style:italic;color:#555;">Image: DVIDSHUB, 2012 (<a href="https://commons.wikimedia.org/wiki/File:Flickr_-_DVIDSHUB_-_New_eco-dome_signals_changes_for_local_village_(Image_10_of_10).jpg">Wikimedia Commons</a>)</span>
+</div>
+
+------------------------------------------------------------------------
+
+## Mud as foe
+
+<img src="assets/CA-84_Woodside_April_2023_002.jpeg" width="800px;"><br>
+Mud can also cause damage if left untended.<br>
+<span style="font-size:.6em;font-style:italic;color:#555;">Image: King of Hearts, 2023 (<a href="https://commons.wikimedia.org/wiki/File:CA-84_Woodside_April_2023_002.jpg">Wikimedia Commons</a>)</span>
+
+------------------------------------------------------------------------
+
+## Software mud
+
+![](assets/2024-05-07-12-30-52.png)
+
+<a href="http://www.laputan.org/mud/mud.html">Foote, Brian, and Joseph Yoder. "Big ball of mud." _Pattern languages of program design 4_ (1997)</a>
+
+<br>
+
+_"A BIG BALL OF MUD is haphazardly structured, sprawling, sloppy, duct-tape and bailing wire, spaghetti code jungle."_
+
+------------------------------------------------------------------------
+
+## Software mud as necessary
+
+<br><br>
+
+![](assets/2024-05-07-13-34-14.png)
+
+Software projects often move from ___"throwaway code"___ (little balls of mud) to ___"piecemeal growth"___ and ___"keep it working"___ which can emerge as ___"big balls of mud"___ along the journey.
+
+
+------------------------------------------------------------------------
+
+## Software mud as necessary
+
+![](assets/2024-05-10-08-08-23.png)
+
+A perspective: building a vessel for the mud.
+
+------------------------------------------------------------------------
+
+## Defining a space for challenges
+
+<br>
+
+![](assets/2024-05-07-14-51-55.png)
+
+Sometimes we need to ___"sweep it under the rug"___.
+
+_"Overgrown, tangled, haphazard spaghetti code is hard to comprehend, repair, or extend, and tends to grow even worse if it is not somehow brought under control."_
+
+------------------------------------------------------------------------
+
+## Defining a space for challenges
+
+<img src="assets/2024-05-10-08-13-22.png" style="width:450px;">
+
+Software exhibits ___"shearing layers"___.
+_"Our basic argument is that there isn't any such thing as a building. A building properly conceived is several layers of longevity of built components"_ (How Buildings Learn, Brand 1994).
+
+<br>
+__Organize artifacts together by rate of change.__
+
+------------------------------------------------------------------------
+
+## Software design as continuous
+
+<br>
+
+> _"Things that are good have a certain kind of structure. You can’t get that structure except dynamically. Period. __In nature you’ve got continuous very-small-feedback-loop adaptation going on, which is why things get to be harmonious__. That’s why they have the qualities we value. If it wasn’t for the time dimension, it wouldn’t happen."_
+>
+> \- Christopher Alexander (Brand, Stewart. _How buildings learn: What happens after they're built._ 1995)
+
+<br> 
+
+🪴🪴🪴
+
+------------------------------------------------------------------------
+
+## Software design as continuous
+
+<br>
+
+A good summary of general approach:
+
+<br>
+
+> "Make it work. Make it right. Make it fast."
+>
+> \- Kent Beck ([one reference](https://wiki.c2.com/?MakeItWorkMakeItRightMakeItFast))
+
+------------------------------------------------------------------------
+
+## Movement in mud
+
+
+<img src="assets/Moving_a_house_with_a_team_of_horses_through_the_mud_down_Front_St,_Nome,_Alaska,_August_27,_1900_(HEGG_468).jpeg" width="700px;"><br>
+Movement through mud takes energy!<br>
+<span style="font-size:.6em;font-style:italic;color:#555;">Image: Eric A. Hegg, 1900 (<a href="https://commons.wikimedia.org/wiki/File:Moving_a_house_with_a_team_of_horses_through_the_mud_down_Front_St,_Nome,_Alaska,_August_27,_1900_(HEGG_468).jpeg">Wikimedia Commons</a>)</span>
+
+
+------------------------------------------------------------------------
+
+## Knowledge work
+
+![](assets/2024-05-07-15-59-25.png)
+
+- Software work is [knowledge work](https://en.wikipedia.org/wiki/Knowledge_worker).
+- Knowledge work is afforded through a complex network of energy sources.
+
+
+------------------------------------------------------------------------
+
+## Software knowledge work fatigue
+
+<br>
+
+> "66% of developers rated the severity of fatigue during programming tasks as high or very high. 59% of developers rated the frequency of their fatigue during programming tasks as often or very often. Stress and sleepiness were the most voted causes."
+
+\- S. Sarkar and C. Parnin, "Characterizing and Predicting Mental Fatigue during Programming Tasks," 2017 ([link](ttps://ieeexplore.ieee.org/abstract/document/7961890))
+
+<br>
+
+__Software work can be toiling!__
+
+------------------------------------------------------------------------
+
+## Software fatigue - an estimate
+
+<br>
+
+🕒
+
+How much mud can we cultivate (an estimate)?
+
+- 6 hours a day to work (minus chats, restroom, food, travel)
+- 3 hours a day for ["deep work"](https://en.wikipedia.org/wiki/Cal_Newport#Attention_management) (minus interruptions)
+- 5 days a week * 3 hours = 15 hours a week for deep software work
+
+------------------------------------------------------------------------
+
+## Software fatigue and piecemeal growth
+
+<br>
+
+We're up against time on three fronts:
+
+- Piecemeal growth entails (somewhat slow) incremental change.
+- Development can only take place through a small time window.
+- We have due dates from people expecting us to do something.
+
+It's crucial to be selective about what software development we do.
+
+------------------------------------------------------------------------
+
+## A Scenario
+
+![](assets/2024-05-09-10-03-40.png)
+
+Accomplish a goal using ["good enough"](https://en.wikipedia.org/wiki/Principle_of_good_enough) tools for a project.
+
+- We don't have time to redevelop existing tools.
+- We need to balance our time to reach due dates without burnout.
+
+------------------------------------------------------------------------
+
+## Environments
+
+<img src="assets/2024-05-10-08-40-17.png" style="width:700px;">
+
+We can distinguish between development and runtime environments (not all are used for the same things).
+
+------------------------------------------------------------------------
+
+## Runtime environments
+
+![](assets/2024-05-09-10-55-32.png)
+
+__Runtime environments__: each language entails a unique journey to execution or processing (compilers, interpreters, executors).
+
+------------------------------------------------------------------------
+
+## Runtime environments
+
+![](assets/2024-05-10-08-35-07.png)
+
+These artifacts connect to others as a complex system.
+
+------------------------------------------------------------------------
+
+## Runtime environments
+
+![](assets/2024-05-09-12-09-10.png)
+
+It's healthy to wrap these in environment managers for reproducible results.
+
+------------------------------------------------------------------------
+
+## Runtime environments
+
+![](assets/2024-05-09-12-11-51.png)
+
+Sometimes we can use one environment manager for all.
+
+------------------------------------------------------------------------
+
+## Runtime environments
+
+![](assets/2024-05-09-12-13-38.png)
+
+Other times we can't do this.
+
+------------------------------------------------------------------------
+
+## Runtime environments {transition="fade" transition-speed="fast"}
+
+<br><br>
+
+How do we "make it work" without burning too much time learning another language, execution tool, or other aspects?
+
+------------------------------------------------------------------------
+
+## Runtime environments {transition="fade" transition-speed="fast"}
+
+<br><br>
+
+How do we "make it work" without burning too much time learning another language, execution tool, or other aspects?
+
+<br>
+
+- Sense and acknowledge ___"shearing layers"___ 
+  - Perhaps as changes of different time rates
+- Consider ___"sweep it under the [container]"___ to ___"keep it working"___
+
+------------------------------------------------------------------------
+
+## Environments within a "world"
+
+![](assets/2024-05-09-12-21-06.png)
+
+Environments exist within a "world" (an operating system).
+
+------------------------------------------------------------------------
+
+## Managing an OS {transition="fade" transition-speed="fast"}
+
+<img src="assets/2024-05-09-12-26-16.png" style="width:400px;">
+
+We can manage operating system aspects with container environments (a kind of "virtual OS").
+
+------------------------------------------------------------------------
+
+## {transition="fade" transition-speed="fast"}
+
+<br><br><br><br>
+
+What in the "world" is a container?
+
+------------------------------------------------------------------------
+
+## What is a container?
+
+<img src="assets/2024-05-09-13-41-11.png" style="width:900px;">
+
+Dockerfiles are used to build images which can be processed as containers.
+
+------------------------------------------------------------------------
+
+## What does a Dockerfile look like?
+
+```dockerfile
+# base image for java
+FROM openjdk:22-slim
+
+# provide a version argument
+ARG version=x.x.x
+
+# set the workdir to /app
+WORKDIR /app
+
+# copy local data to image
+COPY file.txt .
+
+# install required packages
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y wget
+
+# Set the entrypoint for app
+ENTRYPOINT ["/app/project"]
+```
+
+Dockerfiles are like a `bash` script to declare an environment.
+
+------------------------------------------------------------------------
+
+## How complicated are containers?
+
+<img src="assets/2024-05-09-15-24-54.png" style="width:800px;">
+
+This process can be triggered using the `docker` CLI.
+
+------------------------------------------------------------------------
+
+## How complicated are containers?
+
+<br>
+
+<img src="assets/2024-05-09-15-42-57.png" style="width:800px;">
+
+Commands are sent to a container CLI which then asks a container runtime to do something.
+
+- Docker is one container runtime of many.
+
+------------------------------------------------------------------------
+
+## How complicated are containers?
+
+<img src="assets/2024-05-09-15-32-01.png" style="width:800px;">
+
+Containers can also be used through <br> source development kits (SDK's) (like Python).
+
+------------------------------------------------------------------------
+
+## Why are you telling me about Docker? {transition="fade" transition-speed="fast"}
+
+<img src="assets/2024-05-09-15-58-23.png" style="width:500px;">
+
+- Dockerfiles and Docker are common (+ _collaboration_)
+- Well integrated (+ _toolbelt_)
+- Documented, versionable, and lintable (+ _DevEx_)
+- Reduce impacts of ___time___ (+ _layer control_)
+
+------------------------------------------------------------------------
+
+## {transition="fade" transition-speed="fast"}
+
+<br><br><br><br>
+
+Back to usage!
+
+------------------------------------------------------------------------
+
+## Isolated container environments
+
+<img src="assets/2024-05-09-12-30-11.png" style="width:400px;">
+
+Container environments can be handled independently.
+
+------------------------------------------------------------------------
+
+## Multiple environments
+
+<img src="assets/2024-05-09-12-34-35.png" style="width:400px;">
+
+We can balance container environments alongside other environments.
+
+------------------------------------------------------------------------
+
+## Loosely coupled container environments
+
+<img src="assets/2024-05-09-13-28-08.png" style="width:800px;">
+
+We can loosely couple with projects for reusability.
+
+------------------------------------------------------------------------
+
+## Registry decoupling
+
+<img src="assets/2024-05-09-16-23-36.png" style="width:800px;">
+
+Further decoupling could mean greater reuse.
+
+It could also be too much form before function.
+
+------------------------------------------------------------------------
+
+## Python decoupling
+
+<img src="assets/2024-05-10-09-48-23.png" style="width:800px;">
+
+The same pattern works with Python code.
+
+------------------------------------------------------------------------
+
+## Additional notes: FaaS and "Serverless"
+
+<img src="assets/2024-05-09-16-38-32.png" style="width:600px;">
+
+
+- Container technologies are for many purposes (including sophisticated engineering).
+- They form the basis of Function-as-a-Service ("Serverless").
+
+------------------------------------------------------------------------
+
+## Recap
+
+<br><br><br>
+
+- _"Make it work. Make it right. Make it fast."_
+- Balancing our time and energy.
+- Does this effectively manage the "shearing layers?" (or otherwise?)
+
+------------------------------------------------------------------------
+
+## Thank you!
+
+<br>
+<br>
+
+Thank you for attending! Questions / comments?
+
+<br>
+
+Please don't hesitate to reach out!
+
+
+
