@@ -171,4 +171,16 @@ __Questions for the audience:__
 
 ## Thank you
 
-<br> <br> <br> <br> <br> Thank you! Questions / comments?
+<br>
+<br>
+
+Thank you for attending! Questions / comments?
+
+<br>
+
+Please don't hesitate to reach out!
+
+<br>
+
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/htmx/black"> [Software Gardening](https://github.com/software-gardening)
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/github/black"> [@d33bs](https://github.com/d33bs)
