@@ -138,6 +138,11 @@ The package will detect, correct, or enhance <br>growth or decay patterns.
 
 <br> 
 
+<center><span style="font-size:2em;">🛠️</span></center>
+
+<br> 
+
+
 __Initial pattern foci:__
 
 <br>
@@ -149,6 +154,10 @@ __Initial pattern foci:__
 ------------------------------------------------------------------------
 
 ## Questions
+
+<br> 
+
+<center><span style="font-size:2em;background:grey;">❔</span></center>
 
 <br> 
 
