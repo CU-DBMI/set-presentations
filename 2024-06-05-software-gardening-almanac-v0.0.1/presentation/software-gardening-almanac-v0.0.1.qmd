@@ -1,0 +1,186 @@
+---
+title: |
+  <span style="font-size:.6em">🪴 Software Gardening Almanack v0.0.1</em>
+subtitle: <br>_Cultivating Sustainable Software in the Generative Era_
+format:
+  revealjs: 
+    theme: simple
+    transition: slide
+    slide-number: true
+    auto-stretch: false
+    width: 1050
+    height: 800
+    margin: 0.01
+---
+
+------------------------------------------------------------------------
+
+## Background
+
+<br>
+
+<img src="assets/2024-06-05-08-17-04.png" style="width:800px">
+
+<br>
+
+> Scientific software developed through factory assembly approaches often overlooks the dynamic evolution of code which leads to rapid decay.
+
+------------------------------------------------------------------------
+
+## Project
+
+<br>
+
+<img src="assets/2024-06-04-14-01-52.png" style="width:600px">
+
+<br>
+
+> The Software Gardening Almanack is an open-source handbook of applied guidance and tools for sustainable software development and maintenance.
+
+------------------------------------------------------------------------
+
+## Project
+
+<br>
+
+<img src="assets/2024-06-05-08-47-58.png" style="width:700px">
+
+<br>
+
+The Almanack focuses three main chapters:<br> people, code, and time.
+
+------------------------------------------------------------------------
+
+## Phases
+
+<br>
+
+Initial project development phases:
+
+<br>
+
+1. ✅ Build scaffolding
+2. 🌱 Primary development
+3. 🌱 Research software engineer mentorship
+4. Fellowship completion
+
+------------------------------------------------------------------------
+
+## Organization
+
+<img src="assets/2024-06-04-14-59-49.png" style="width:80%">
+
+<br>
+
+An organzation is used as a _"garden bed"_ for the Almanack.
+
+------------------------------------------------------------------------
+
+## Structure
+
+<img src="assets/2024-06-04-14-57-01.png" style="width:600px">
+
+<br>
+
+The Almanack includes a handbook and Python package with symbiotic relationships.
+
+------------------------------------------------------------------------
+
+## Handbook
+
+<br>
+
+<img src="assets/2024-06-05-08-22-29.png" style="width:700px">
+
+<br>
+
+We use `jupyter-book` to build the handbook at:<br> [https://software-gardening.github.io/almanac](https://software-gardening.github.io/almanac)
+
+------------------------------------------------------------------------
+
+## Handbook
+
+<br>
+
+<img src="assets/2024-06-04-16-00-48.png" style="width:700px">
+
+<br>
+
+The handbook can be read through a website, PDF, <br>PyPI package, or (eventually) ePub.
+
+------------------------------------------------------------------------
+
+## Package
+
+<br>
+
+<img src="assets/2024-06-05-08-25-15.png" style="width:800px">
+
+<br>
+
+The `almanack` package is distributed via PyPI.
+
+------------------------------------------------------------------------
+
+## Package
+
+<br> 
+
+<img src="assets/2024-06-04-16-06-05.png" style="width:800px">
+
+<br>
+
+The package will detect, correct, or enhance <br>growth or decay patterns.
+
+------------------------------------------------------------------------
+
+## Package
+
+<br> 
+
+<center><span style="font-size:2em;">🛠️</span></center>
+
+<br> 
+
+
+__Initial pattern foci:__
+
+<br>
+
+- Measuring code senescence through information theory.
+- Software environment management best practices.
+- Avoiding burnout or key-person dependencies through contributions.
+
+------------------------------------------------------------------------
+
+## Questions
+
+<br> 
+
+<center><span style="font-size:2em;background:grey;">❔</span></center>
+
+<br> 
+
+__Questions for the audience:__
+
+- What patterns are you interested in seeing addressed?
+- Are there funding opportunities which align with these efforts?
+- Any questions you have?
+
+------------------------------------------------------------------------
+
+## Thank you
+
+<br>
+<br>
+
+Thank you for attending! Questions / comments?
+
+<br>
+
+Please don't hesitate to reach out!
+
+<br>
+
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/htmx/black"> [Software Gardening](https://github.com/software-gardening)
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/github/black"> [@d33bs](https://github.com/d33bs)
