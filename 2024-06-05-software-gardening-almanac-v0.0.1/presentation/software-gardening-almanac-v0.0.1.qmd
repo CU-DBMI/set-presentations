@@ -1,6 +1,6 @@
 ---
 title: |
-  <span style="font-size:.6em">🪴 Software Gardening Almanack</em>
+  <span style="font-size:.6em">🪴 Software Gardening Almanack v0.0.1</em>
 subtitle: <br>_Cultivating Sustainable Software in the Generative Era_
 format:
   revealjs: 
@@ -13,19 +13,41 @@ format:
     margin: 0.01
 ---
 
-## Project Outline
+------------------------------------------------------------------------
+
+## Background
+
+<br>
+
+<img src="assets/2024-06-05-08-17-04.png" style="width:800px">
+
+<br>
+
+> Scientific software developed through factory assembly approaches often overlooks the dynamic evolution of code which leads to rapid decay.
+
+------------------------------------------------------------------------
+
+## Project
 
 <br>
 
 <img src="assets/2024-06-04-14-01-52.png" style="width:600px">
 
+<br>
+
 > The Software Gardening Almanack is an open-source handbook of applied guidance and tools for sustainable software development and maintenance.
 
 ------------------------------------------------------------------------
 
-## Project Outline
+## Project
 
+<br>
 
+<img src="assets/2024-06-05-08-47-58.png" style="width:700px">
+
+<br>
+
+The Almanack focuses three main chapters:<br> people, code, and time.
 
 ------------------------------------------------------------------------
 
@@ -33,7 +55,9 @@ format:
 
 <br>
 
-The project follows 4 phases:
+Initial project development phases:
+
+<br>
 
 1. ✅ Build scaffolding
 2. 🌱 Primary development
@@ -64,21 +88,75 @@ The Almanack includes a handbook and Python package with symbiotic relationships
 
 ## Handbook
 
-<img src="assets/2024-06-04-16-00-48.png" style="width:600px">
+<br>
+
+<img src="assets/2024-06-05-08-22-29.png" style="width:700px">
 
 <br>
 
-The handbook can be read through a website, PDF, PyPI package, or (eventually) ePub.
+We use `jupyter-book` to build the handbook at:<br> [https://software-gardening.github.io/almanac](https://software-gardening.github.io/almanac)
 
 ------------------------------------------------------------------------
 
 ## Handbook
 
-<img src="assets/2024-06-04-16-06-05.png" style="width:600px">
+<br>
+
+<img src="assets/2024-06-04-16-00-48.png" style="width:700px">
 
 <br>
 
+The handbook can be read through a website, PDF, <br>PyPI package, or (eventually) ePub.
 
+------------------------------------------------------------------------
+
+## Package
+
+<br>
+
+<img src="assets/2024-06-05-08-25-15.png" style="width:800px">
+
+<br>
+
+The `almanack` package is distributed via PyPI.
+
+------------------------------------------------------------------------
+
+## Package
+
+<br> 
+
+<img src="assets/2024-06-04-16-06-05.png" style="width:800px">
+
+<br>
+
+The package will detect, correct, or enhance <br>growth or decay patterns.
+
+------------------------------------------------------------------------
+
+## Package
+
+<br> 
+
+__Initial pattern foci:__
+
+<br>
+
+- Measuring code senescence through information theory.
+- Software environment management best practices.
+- Avoiding burnout or key-person dependencies through contributions.
+
+------------------------------------------------------------------------
+
+## Questions
+
+<br> 
+
+__Questions for the audience:__
+
+- What patterns are you interested in seeing addressed?
+- Are there funding opportunities which align with these efforts?
+- Any questions you have?
 
 ------------------------------------------------------------------------
 
