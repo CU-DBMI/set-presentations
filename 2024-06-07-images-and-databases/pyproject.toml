@@ -11,6 +11,12 @@ package-mode = false
 python = ">=3.11,<3.13"
 poetry = "^1.7.1"
 poethepoet = "^0.24.4"
+pyarrow = "^15.0.0"
+scikit-image = "^0.23.2"
+lancedb = "^0.8.2"
+awkward = "^2.6.5"
+matplotlib = "^3.9.0"
+pandas = "^2.2.2"
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.13.0"
@@ -30,7 +36,7 @@ build-backend = "poetry.core.masonry.api"
 # sets a cwd relative for the shell script below
 cwd = "src/notebooks"
 shell = """
-jupyter nbconvert --to slides presentation.ipynb --post serve
+jupyter nbconvert --to slides images_and_databases.ipynb --post serve
 """
 
 # defines a workflow for exporting a presentation using decktape via docker
@@ -38,12 +44,12 @@ jupyter nbconvert --to slides presentation.ipynb --post serve
 # sets a cwd relative for the shell script below
 cwd = "src/notebooks"
 shell = """
-jupyter nbconvert --to slides presentation.ipynb
+jupyter nbconvert --to slides images_and_databases.ipynb
 docker run --rm -t -v $PWD:/slides \
  --platform=linux/arm64 \
  ghcr.io/astefanutti/decktape:3.10.0 \
- /slides/presentation.slides.html \
- 2024-03-01-software-system-entropy-and-failure.pdf
+ /slides/images_and_databases.slides.html \
+ 2024-06-07-images_and_databases.pdf
 """
 
 [tool.jupytext]
