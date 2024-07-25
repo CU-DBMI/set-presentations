@@ -1,0 +1,326 @@
+---
+title: |
+  The Art and Craft of Python Packaging
+subtitle: Building and Delivering Your Python Package
+format:
+  revealjs: 
+    theme: simple
+    transition: slide
+    slide-number: true
+    auto-stretch: false
+    width: 1050
+    height: 800
+    margin: 0.01
+---
+
+## Gratitude
+
+<br><br><br><br>
+
+Big ___thank you___ for attending!
+
+------------------------------------------------------------------------
+
+## Presentation Outline
+
+<br>
+<br>
+<br>
+
+1. 📦 Python Packages
+2. <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/python/black"> Understanding PyPI
+4. 🚀 GitHub Releases
+3. 🏗️ Builds with Poetry
+5. 🤖 Automation
+
+------------------------------------------------------------------------
+
+## Why?
+
+<br>
+
+Software involves _connection_!
+
+> "The only way to go fast, is to go well."
+
+- [Robert C. Martin, Clean Architecture](https://www.goodreads.com/quotes/9701819-the-only-way-to-go-fast-is-to-go-well)
+
+------------------------------------------------------------------------
+
+## Python Packaging - Definitions
+
+<br><br>
+
+``` text
+my_package/
+│   __init__.py
+│   module_a.py
+│   module_b.py
+```
+
+<br>
+
+-   A Python **package** is a collection of **modules** (`.py` files) that usually include an "initialization file" `__init__.py`.
+
+------------------------------------------------------------------------
+
+## Python Packaging - Definitions
+
+
+![](assets/2023-08-31-09-54-47.png)
+
+-   Python ***"packaging"*** is a broader term indicating formalization of code with publishing intent.
+
+------------------------------------------------------------------------
+
+## Python Packaging - Definitions
+
+<br><br>
+
+***But wait, I don't intend to publish some of my code for anyone!***
+***Why does packaging even matter?***
+
+- Packaging practices provide a common way to organize your code so other developers may understand your project.
+- Good packaging practices will help you understand other people's code as a result.
+- What if you change your mind and you'd like to publish your work later on (no time like the present)?
+
+------------------------------------------------------------------------
+
+## Python Packaging - Definitions
+
+<br>
+
+<center>![](assets/2023-08-31-09-55-13.png)</center>
+
+-   Python packages are commonly installed from **PyPI** (Python Package Index, <https://pypi.org>).
+
+> For example: `pip install pandas` references PyPI by default to install for the `pandas` package.
+
+------------------------------------------------------------------------
+
+## PyPI: Python Package Index
+
+<img src="2024-07-25-16-22-15.png">
+
+The __Python Package Index (PyPI)__ ([pypi.org](https://pypi.org)) is the official repository for Python packages.
+It hosts thousands of projects, making it easy for developers to find, install, and share Python code.
+
+------------------------------------------------------------------------
+
+## Python Software Foundation
+
+<img src="2024-07-25-16-23-10.png">
+
+PyPI is maintained by the __Python Software Foundation__ ([python.org](https://www.python.org/)) a 501(c)(3) non-profit which also supports Python documentation, runs the PyCon US conference, and distributes grants for Python-related development.
+
+------------------------------------------------------------------------
+
+## What's in a PyPI package?
+
+<img src="2024-07-25-16-45-53.png">
+
+Let's look at Pandas on PyPI to learn about PyPI packages.
+
+- Note the release number and ✅ latest version checkmark.
+- Pandas uses semantic versioning schemes to distinguish between different versions.
+
+------------------------------------------------------------------------
+
+## Semantic Versioning
+
+
+![](assets/2024-01-23-06-40-54.png)
+
+[Semantic Versioning](https://semver.org/) distinguishes releases of software.
+
+<br>
+
+```bash
+Given a version number MAJOR.MINOR.PATCH, increment the:
+
+MAJOR version when you make incompatible API changes
+MINOR version when you add functionality in a backward compatible manner
+PATCH version when you make backward compatible bug fixes
+
+(from https://semver.org/)
+```
+
+------------------------------------------------------------------------
+
+## PyPI Releases
+
+<br>
+
+<img src="2024-07-25-16-55-10.png">
+
+PyPI provides multiple versions of software.
+
+
+------------------------------------------------------------------------
+
+## Wheels and Zip Files
+
+<br>
+
+- __Wheel files (.whl)__: A built package format for Python that is optimized for installation speed.
+- __Zip files (.zip)__: Compressed files that can contain the source code and other resources for a package.
+
+Wheel files are preferred because they do not require building during installation, making them faster and more efficient.
+
+------------------------------------------------------------------------
+
+## Semantic Versioning
+
+<br>
+
+__Semantic Versioning__ is a versioning scheme that uses a three-part number: `MAJOR.MINOR.PATCH`.
+
+- **MAJOR** version when you make incompatible API changes.
+- **MINOR** version when you add functionality in a backward-compatible manner.
+- **PATCH** version when you make backward-compatible bug fixes.
+
+Example: `1.4.2`
+- `1`: Major version
+- `4`: Minor version
+- `2`: Patch version
+
+------------------------------------------------------------------------
+
+## Building with Poetry
+
+<br>
+
+[Poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
+
+- Simplifies the process of building and publishing Python packages.
+- Uses the `pyproject.toml` file for configuration.
+
+### Step-by-Step
+
+1. **Initialize Poetry**: 
+   ```bash
+   poetry new my_package
+   cd my_package
+Update pyproject.toml:
+
+```toml
+[tool.poetry]
+name = "my_package"
+version = "0.1.0"
+description = "A sample Python package"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+```
+
+3. **Build the Package**:
+
+```bash
+poetry build
+```
+
+------------------------------------------------------------------------
+
+## GitHub Releases
+
+<br>
+
+GitHub releases are a way to package and distribute software versions from your repository.
+
+- Create a new release: Go to the Releases section on GitHub, click Draft a new release, and fill out the form.
+- Tag your release: Use semantic versioning for the tag.
+- Attach binaries or distribution files (like wheels).
+
+Benefits:
+- Keeps a history of releases.
+- Users can download specific versions.
+
+------------------------------------------------------------------------
+
+## Automating with GitHub Actions
+
+<br>
+
+GitHub Actions allows you to automate tasks in your development workflow, such as building and deploying packages.
+
+Example Workflow for Building and Releasing
+
+```yaml
+name: Build and Publish
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install
+
+      - name: Build package
+        run: poetry build
+
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          pip install twine
+          twine upload dist/*
+```
+
+------------------------------------------------------------------------
+
+## PyPI vs. Conda
+
+<br>
+
+| Feature                      | PyPI                                           | conda-forge                                   |
+|------------------------------|------------------------------------------------|----------------------------------------------|
+| **Ownership**                | Python Software Foundation (PSF)               | Community-driven (part of the conda ecosystem)|
+| **Primary Use Case**         | General Python package distribution            | Conda package distribution for Python and other languages|
+| **Package Manager**          | `pip`                                          | `conda`                                       |
+| **File Types**               | Source distributions (sdist) and wheels (.whl) | Conda packages (.tar.bz2)                     |
+| **Dependency Management**    | Minimal, relies on package metadata            | Robust, handles complex dependencies across multiple languages|
+| **Binary Compatibility**     | Platform-specific wheels, some limitations with binary dependencies | Built-in support for binary compatibility across platforms|
+| **Ease of Use**              | Simple and straightforward                      | More complex due to extensive feature set    |
+| **Platform Compatibility**   | Primarily focused on Python and its ecosystem  | Supports multiple languages and platforms    |
+
+
+------------------------------------------------------------------------
+
+## Thank you!
+
+<br>
+<br>
+
+Thank you for attending! Questions / comments?
+
+<br>
+
+Please don't hesitate to reach out!
+
+<br>
+
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/htmx/black"> [CU Anschutz DBMI SET Team](https://cu-dbmi.github.io/set-website/about/#the-team)
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/github/black"> [@d33bs](https://github.com/d33bs)
+
