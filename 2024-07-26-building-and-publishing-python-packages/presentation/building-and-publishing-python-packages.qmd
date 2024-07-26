@@ -1,0 +1,619 @@
+---
+title: |
+  Building and Publishing Python Packages
+format:
+  revealjs: 
+    theme: simple
+    transition: slide
+    slide-number: true
+    auto-stretch: false
+    width: 1050
+    height: 800
+    margin: 0.01
+---
+
+## Gratitude
+
+<br><br><br><br>
+
+Big ___thank you___ for attending!
+
+------------------------------------------------------------------------
+
+## Presentation Outline
+
+<br>
+<br>
+<br>
+
+1. 📦 Python Packages
+2. <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/python/black"> Understanding PyPI
+3. 🏗️ Builds with Poetry
+4. 🚀 GitHub Releases
+5. 🤖 Further Automation
+
+------------------------------------------------------------------------
+
+## Why?
+
+<br>
+
+Packaging is a matter of design and architecture.
+
+> "Architecture represents the significant design decisions that shape a system, where significant is measured by cost of change."
+
+- [Grady Booch, Software Architecture Zen](https://softwarearchitecturezen.blog/tag/grady-booch/page/2/)
+
+------------------------------------------------------------------------
+
+## Python Packaging - Definitions
+
+<br><br>
+
+``` text
+my_package/
+│   __init__.py
+│   module_a.py
+│   module_b.py
+```
+
+<br>
+
+-   A Python **package** is a collection of **modules** (`.py` files) that usually include an "initialization file" `__init__.py`.
+
+------------------------------------------------------------------------
+
+## Python Packaging - Definitions
+
+
+![](assets/2023-08-31-09-54-47.png)
+
+-   Python ***"packaging"*** is a broader term indicating formalization of code with publishing intent.
+
+------------------------------------------------------------------------
+
+## Python Packaging - Definitions
+
+<br><br>
+
+***But wait, I don't intend to publish some of my code for anyone!***
+***Why does packaging even matter?***
+
+- Packaging practices provide a common way to organize your code so other developers may understand your project.
+- Good packaging practices will help you understand other people's code as a result.
+- What if you change your mind and you'd like to publish your work later on (no time like the present)?
+
+------------------------------------------------------------------------
+
+## Python Packaging - Definitions
+
+<br>
+
+<center>![](assets/2023-08-31-09-55-13.png)</center>
+
+-   Python packages are commonly installed from **PyPI** (Python Package Index, <https://pypi.org>).
+
+> For example: `pip install pandas` references PyPI by default to install for the `pandas` package.
+
+------------------------------------------------------------------------
+
+## PyPI: Python Package Index
+
+<img src="2024-07-25-16-22-15.png">
+
+The __Python Package Index (PyPI)__ ([pypi.org](https://pypi.org)) is the official repository for Python packages.
+It hosts thousands of projects, making it easy for developers to find, install, and share Python code.
+
+------------------------------------------------------------------------
+
+## Python Software Foundation
+
+<img src="2024-07-25-16-23-10.png">
+
+PyPI is maintained by the __Python Software Foundation__ ([python.org](https://www.python.org/)) a 501(c)(3) non-profit which also supports Python documentation, runs the PyCon US conference, and distributes grants for Python-related development.
+
+------------------------------------------------------------------------
+
+## What's in a PyPI package?
+
+<img src="2024-07-25-16-45-53.png">
+
+Let's look at Pandas on PyPI to learn about PyPI packages.
+
+- Note the release number and ✅ latest version checkmark.
+- Pandas uses semantic versioning schemes to distinguish between different versions.
+
+------------------------------------------------------------------------
+
+## Semantic Versioning
+
+
+![](assets/2024-01-23-06-40-54.png)
+
+[Semantic Versioning](https://semver.org/) distinguishes releases of software.
+
+<br>
+
+```bash
+Given a version number MAJOR.MINOR.PATCH, increment the:
+
+MAJOR version when you make incompatible API changes
+MINOR version when you add functionality in a backward compatible manner
+PATCH version when you make backward compatible bug fixes
+
+(from https://semver.org/)
+```
+
+------------------------------------------------------------------------
+
+## PyPI Releases
+
+<br>
+
+<img src="2024-07-25-16-55-10.png">
+
+PyPI can provide multiple releases of packages.
+
+------------------------------------------------------------------------
+
+## PyPI Release Downloads
+
+
+<img src="2024-07-25-17-08-08.png">
+
+PyPI releases include source code and ***wheels***.
+
+------------------------------------------------------------------------
+
+## What are Python wheels (`.whl`)?
+
+```bash
+$ unzip pandas-2.2.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl -d pandas-2.2.2
+inflating: ...
+
+$ tree pandas-2.2.2
+pandas-2.2.2
+├── pandas
+│   ├── __init__.py
+│   ...
+├── pandas-2.2.2.dist-info
+│   ├── LICENSE
+│   ├── METADATA
+│   ├── RECORD
+│   ├── WHEEL
+│   └── entry_points.txt
+```
+
+- A Python wheel (`.whl`) is a zip file with package data.
+- Wheels can be managed through the [`wheel`](https://pypi.org/project/wheel/) package.
+- Includes metadata about packages and optional pre-compiled extensions (sometimes OS-specific).
+
+------------------------------------------------------------------------
+
+## Why pre-compile extensions?
+
+
+<img src="2024-07-26-08-11-15.png">
+
+Pre-compilation allows us to remove dependencies or system-specific build procedures for languages like C, C++, or Rust.
+
+------------------------------------------------------------------------
+
+## What about Python eggs (`.egg`)?
+
+<br>
+<center>
+<span style="font-size:2em">🐍🥚</span>
+</center>
+<br>
+
+- Python eggs (`.egg`) predate the wheel (`.whl`) format.
+- The wheel format solves various challenges with the egg format.
+- Wheels are an accepted standard via [PEP-0427](https://peps.python.org/pep-0427) (eggs are generally considered legacy).
+
+------------------------------------------------------------------------
+
+## What happens when there's no wheel?
+
+<br>
+
+<img src="2024-07-26-08-27-52.png">
+
+- When installing a package with no wheel (or egg) package management tools will attempt to build from source.
+- Generally this can involve additional build dependencies which may need manual configuration ahead of time.
+
+------------------------------------------------------------------------
+
+## How can I use PyPI?
+
+<img src="2024-07-26-09-24-37.png">
+
+- You must have a user account (free) in order to manage packages on PyPI.
+- Registration: https://pypi.org/account/register/
+- Be ready with a 2FA (2-factor authentication) method (required).
+
+------------------------------------------------------------------------
+
+## How do I send my package to PyPI?
+
+<br>
+
+<img src="2024-07-26-09-11-19.png">
+
+- We can use Python package managers like [Poetry](https://python-poetry.org/), [Hatch](https://hatch.pypa.io/latest/), [Flit](https://flit.pypa.io/en/stable/), or [setuptools](https://setuptools.pypa.io/en/latest/) to help build and publish our packages to PyPI.
+
+------------------------------------------------------------------------
+
+## Package builds
+
+<br>
+
+<img src="2024-07-26-09-11-49.png">
+
+- We'll cover the package build process with Poetry first.
+
+------------------------------------------------------------------------
+
+## Poetry Package Example Structure
+
+<br>
+
+``` bash
+user@machine % poetry new --name=package_name --src .
+Created package package_name in .
+
+user@machine % tree .
+.
+├── README.md
+├── pyproject.toml
+├── src
+│   └── package_name
+│       └── __init__.py
+└── tests
+    └── __init__.py
+```
+
+<br>
+
+After installation, Poetry gives us the ability to initialize a directory structure similar to what we presented earlier by using the `poetry new ...` command.
+
+------------------------------------------------------------------------
+
+## Poetry Package `pyproject.toml`
+
+<br>
+
+``` toml
+# pyproject.toml
+[tool.poetry]
+name = "package-name"
+version = "0.1.0"
+description = ""
+authors = ["username <email@address>"]
+readme = "README.md"
+packages = [{include = "package_name", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+```
+
+<br>
+
+Using this command also initializes the content of our `pyproject.toml` file with details.
+
+------------------------------------------------------------------------
+
+## Poetry's `build` command
+
+```bash
+$ poetry build
+Building package-name (0.1.0)
+  - Building sdist
+  - Built package_name-0.1.0.tar.gz
+  - Building wheel
+  - Built package_name-0.1.0-py3-none-any.whl
+$ tree .
+.
+├── README.md
+├── dist
+│   ├── package_name-0.1.0-py3-none-any.whl
+│   └── package_name-0.1.0.tar.gz
+├── pyproject.toml
+├── src
+│   └── package_name
+│       └── __init__.py
+└── tests
+    └── __init__.py
+```
+
+Poetry's [`build`](https://python-poetry.org/docs/cli#build) command will create a source code distribution tarball (`.tar.gz`) and wheel (`.whl`) files for the package.
+The build is based on the `pyproject.toml` file.
+
+------------------------------------------------------------------------
+
+## Package Publishing to PyPI
+
+<br>
+
+<img src="2024-07-26-09-18-29.png">
+
+- Next we'll cover the package publishing process, where we send the built package to PyPI.
+
+------------------------------------------------------------------------
+
+## PyPI Publishing Security
+
+<br>
+
+<img src="2024-07-26-10-10-09.png">
+
+<br>
+
+PyPI requires user tokens or trusted publisher authorization (more on this later) in order to publish packages.
+
+------------------------------------------------------------------------
+
+## PyPI Publishing Security
+
+<br>
+
+<img src="2024-07-26-10-09-20.png">
+
+<br>
+
+We'll talk about token-based publishing through Poetry first.
+
+------------------------------------------------------------------------
+
+## PyPI publishing Tokens
+
+<br>
+
+<img style="float:left;" src="2024-07-26-10-11-40.png">
+<img style="float:left;" src="2024-07-26-10-12-24.png">
+
+<br>
+<br>
+<br>
+
+<span style="float:left"><br>First, you need to create a scoped token from PyPI from your [account settings](https://pypi.org/manage/account/).</span>
+<span style="float:left">You'll copy the contents of the token for use within Poetry's configuration.</span>
+
+------------------------------------------------------------------------
+
+## Poetry configuration with tokens
+
+<br>
+
+```bash
+$ poetry config pypi-token.pypi <my-token>
+```
+
+<br>
+
+You then can add the token for Poetry to access using the [`config`](https://python-poetry.org/docs/repositories/#configuring-credentials) command.
+
+------------------------------------------------------------------------
+
+## Poetry's `publish` command
+
+<br>
+
+```bash
+$ poetry publish
+Publishing package-name (0.1.0) to PyPI
+ - Uploading package-name-0.1.0.tar.gz 100%
+ - Uploading package-name-0.1.0-py3-none-any.whl 100%
+```
+
+<br>
+
+- After the token has been configured, you can use the [`publish`](https://python-poetry.org/docs/cli/#publish) command to push the build to PyPI.
+- Doing this for the first time for a package is what creates the package on PyPI.
+
+------------------------------------------------------------------------
+
+## PyPI's Test Instance
+
+<br>
+
+<img src="2024-07-26-10-19-49.png">
+
+
+Note: there's also a test instance for PyPI (https://test.pypi.org/) which can be used to test your build and publish procedures before "production" changes.<br> This can help avoid surprises in production! 😅
+
+------------------------------------------------------------------------
+
+## PyPI's Test Instance Usage
+
+<br>
+
+```bash
+# add the test-pypi token to poetry configuration
+$ poetry config pypi-token.testpypi <your-token>
+# publish to test-pypi from poetry
+$ poetry publish -r test-pypi
+```
+
+<br>
+
+The test instance of PyPI requires similar setup steps including separate token, Poetry configuration, and an additional `publish` argument ("production" PyPI is the default for publishing).
+
+------------------------------------------------------------------------
+
+## PyPI's Test Instance Usage
+
+<br>
+
+<img src="2024-07-26-10-34-17.png">
+
+<br>
+
+Hopefully at this point during your publishing process you can celebrate - the package is now on PyPI! (be sure to check!)
+
+------------------------------------------------------------------------
+
+## GitHub Publishing Tools
+
+<img src="2024-07-26-10-40-44.png">
+
+GitHub includes tools which can help to automate this process from your repository (removing some of the manual steps).
+
+------------------------------------------------------------------------
+
+## GitHub Releases
+
+
+<img src="2024-07-26-10-37-08.png">
+
+
+- GitHub releases are a way to package and distribute software releases from your repository.
+- Each release will generally be tied to a commit, include source code, and release notes for the community.
+
+------------------------------------------------------------------------
+
+## GitHub Releases
+
+<img src="2024-07-26-10-41-21.png">
+
+<img src="2024-07-26-10-42-32.png">
+
+<br>
+
+- GitHub releases can be drafted manually using the "Draft new release" button.
+- You can select a tag (usually a semantic version) and generate release notes based on changes using the "Generate release notes" button.
+- Source code is automatically included, you can also add other software artifacts as needed.
+
+------------------------------------------------------------------------
+
+## Automation with `release-drafter`
+
+<br>
+
+<img src="2024-07-26-10-48-17.png">
+
+
+GitHub releases can automatically be drafted after pull requests are merged using [`release-drafter`](https://github.com/release-drafter/release-drafter).
+<br>It uses `.yaml` configuration and GitHub Actions.
+
+------------------------------------------------------------------------
+
+## GitHub Releases vs PyPI
+
+<br>
+
+<img src="2024-07-26-10-56-58.png">
+
+<br>
+
+Note: GitHub releases are separate from PyPI releases.
+Generally both are expected and good to have with a package.
+
+------------------------------------------------------------------------
+
+## Publishing to PyPI from GitHub
+
+<img src="2024-07-26-10-53-49.png">
+
+We can publish to PyPI from GitHub using the preferred "Trusted Publisher" authentication.
+
+------------------------------------------------------------------------
+
+## Publishing to PyPI from GitHub
+
+<img src="2024-07-26-10-58-51.png">
+
+We configure trusted publishing settings with various details using the PyPI package webpage.
+
+------------------------------------------------------------------------
+
+## Publishing to PyPI from GitHub
+
+<br>
+
+<img src="2024-07-26-11-11-30.png">
+
+<br>
+
+After trusted publishing settings are configured, one needs to add related source code files in alignment with the trusted publishing settings (workflow name, etc).
+
+------------------------------------------------------------------------
+
+## Publishing to PyPI from GitHub
+
+```yaml
+jobs:
+  pypi-publish:
+    name: upload release to PyPI
+    runs-on: ubuntu-latest
+    # Specifying a GitHub environment is optional, but strongly encouraged
+    environment: release
+    permissions:
+      # IMPORTANT: this permission is mandatory for trusted publishing
+      id-token: write
+    steps:
+      # retrieve your distributions here
+
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+```
+
+<br>
+
+Trusted publishing leverages the [`pypa/gh-action-pypi-publish`](https://github.com/pypa/gh-action-pypi-publish) GitHub Action with little additional configuration beyond the files.
+
+------------------------------------------------------------------------
+
+## Celebrate your Releases!
+
+<br>
+
+<img src="2024-07-26-11-21-27.png">
+
+<br>
+
+Celebrate your wins!
+They help connect your software with others.
+
+------------------------------------------------------------------------
+
+## Additional thoughts
+
+<br>
+
+<img src="2024-07-26-11-22-48.png">
+
+<br>
+
+A common mantra: ***release early, release often!***. Source:  Eric S. Raymond, _The Cathedral and the Bazaar_ ([link](http://www.catb.org/~esr/writings/cathedral-bazaar/)).
+
+------------------------------------------------------------------------
+
+## Additional thoughts
+
+<img src="2024-07-26-11-28-18.png">
+
+Engineers at Google wrote about a ***"Release Engineer"*** role in _Site Reliability Engineering_ ([link](https://sre.google/sre-book/release-engineering/)).
+
+------------------------------------------------------------------------
+
+## Thank you!
+
+<br>
+<br>
+
+Thank you for attending! Questions / comments?
+
+<br>
+
+Please don't hesitate to reach out!
+
+<br>
+
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/htmx/black"> [CU Anschutz DBMI SET Team](https://cu-dbmi.github.io/set-website/about/#the-team)
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/github/black"> [@d33bs](https://github.com/d33bs)
+
