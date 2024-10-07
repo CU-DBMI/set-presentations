@@ -29,7 +29,7 @@ Big ___thank you___ for attending!
 <center>
 1. 🗺️ Software as an adventure
 2. 😱 Dangers of the unknown
-3. 🕯️ Lamps for the dungeon
+3. 🕯️ Lanterns for the dungeon
 4. 🏰 ...
 </center>
 
@@ -75,7 +75,7 @@ Each ~~room~~ software component we explore can include treasure or grave danger
 
 <img src="assets/screenshot_nethack.png" style="width:70%">
 
-The processing of each software component might change each run (especially if the data change)! 
+The processing of each software component might change each time (especially with data or code changes)! 
 
 <span style="font-size:.71em">
 [Image: Modified from Linux Screenshots, Flickr](https://www.flickr.com/photos/xmodulo/13863751533)
@@ -122,7 +122,7 @@ Consider the lost time and potential for ripple effects!
 
 ------------------------------------------------------------------------
 
-## Lamps for the dungeon
+## Lanterns for the dungeon
 
 <img src="assets/mining-oil-lamps.png" style="width:65%">
 
@@ -134,19 +134,79 @@ Consider the lost time and potential for ripple effects!
 
 ------------------------------------------------------------------------
 
-## Lamps for the dungeon
+## Lanterns for the dungeon
 
 <img src="assets/oil-table-lamp.png" style="width:20%; float:right;">
 
 <br>
 <br>
 
-We can create "lamps" through tests to help explore our software and prepare it for use by others.
+We can create "lanterns" through tests to help explore our software and prepare it for use by others.
 
 <br>
 
 [Software testing](https://en.wikipedia.org/wiki/Software_testing) is a practice of ensuring software meets certain expecations.
 
+<br>
+<br>
+<br>
+
+<span style="font-size:.71em">
+[Image: Internet Archive Book Images, Wikimedia](https://commons.wikimedia.org/wiki/File:The_journal_of_the_Ministry_of_Agriculture._(1920)_(14784379543).jpg)
+</span>
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+<img src="assets/test-vs-production-code.png" style="width:60%;">
+
+Writing software tests involves distinguishing<br> "production" from "test" code.
+
+<br>
+
+Sometimes we already have test code but it's not implemented using a testing framework.
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+
+<img src="assets/pytest.png" style="width:200px;">
+<img src="assets/testthat.png" style="width:200px;">
+
+Programming languages often include built-in testing frameworks (for example, [`unittest`](https://docs.python.org/3/library/unittest.html) in Python).
+
+<br>
+
+They also might include external packages which can help test in a specific way (for example, [`pytest`](https://docs.pytest.org/en/stable/) in Python, or [`testthat`](https://testthat.r-lib.org/) in R).
+
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+<img src="assets/test-script-to-package.png" style="width:80%;">
+
+It's important to create or move testing scripts to testing frameworks which are versioned with production code.
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+As we develop our test code it's useful to classify different kinds of tests.
+Two test types that might be useful to think about:
+
+- Unit tests
+- Integration tests
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+<img src="assets/unit-test.png" style="width:80%;">
+
+Unit tests: validate small, isolated parts of your code, like functions or methods.
 
 ------------------------------------------------------------------------
 
