@@ -1,0 +1,173 @@
+---
+title: |
+  Software Testing
+format:
+  revealjs: 
+    theme: simple
+    transition: slide
+    slide-number: true
+    auto-stretch: false
+    width: 1050
+    height: 800
+    margin: 0.01
+---
+
+## Gratitude
+
+<br><br><br><br>
+
+Big ___thank you___ for attending!
+
+------------------------------------------------------------------------
+
+## Presentation Outline
+
+<br>
+<br>
+<br>
+
+<center>
+1. 🗺️ Software as an adventure
+2. 😱 Dangers of the unknown
+3. 🕯️ Lamps for the dungeon
+4. 🏰 ...
+</center>
+
+------------------------------------------------------------------------
+
+## Software as an adventure
+
+<img src="assets/rogue_title.png" style="width:70%">
+
+Software development can feel like a dungeon: full of surprises, risks, and hidden traps. 
+
+<span style="font-size:.7em">
+[Image: Blake Patterson, Flickr](https://www.flickr.com/photos/blakespot/6716383203/in/photostream/)
+</span>
+
+------------------------------------------------------------------------
+
+## Software as an adventure
+
+<img src="assets/Rogue_Screenshot.png" style="width:70%">
+
+Each room we explore can include treasure or grave danger!
+
+<span style="font-size:.7em">
+[Image: Thedarkb, Wikimedia](https://commons.wikimedia.org/wiki/File:Rogue_Screenshot.png)
+</span>
+
+------------------------------------------------------------------------
+
+## Software as an adventure
+
+<img src="assets/rogue_software_components.png" style="width:70%">
+
+Each ~~room~~ software component we explore can include treasure or grave danger!
+
+<span style="font-size:.71em">
+[Image: Modified from Thedarkb, Wikimedia](https://commons.wikimedia.org/wiki/File:Rogue_Screenshot.png)
+</span>
+
+------------------------------------------------------------------------
+
+## Software as an adventure
+
+<img src="assets/screenshot_nethack.png" style="width:70%">
+
+The processing of each software component might change each run (especially if the data change)! 
+
+<span style="font-size:.71em">
+[Image: Modified from Linux Screenshots, Flickr](https://www.flickr.com/photos/xmodulo/13863751533)
+</span>
+
+------------------------------------------------------------------------
+
+## Dangers of the unknown
+
+<br> 
+<br> 
+
+<img src="assets/screenshot_5_retractions.png" style="width:80%">
+
+<br>
+
+Adventures sometimes lead to major challenges ([source](https://doi.org/10.1126/science.314.5807.1856)).
+
+------------------------------------------------------------------------
+
+## Dangers of the unknown
+
+
+<img src="assets/retraction-watch.png" style="width:20%;">
+<img src="assets/screenshot_pidgeon_retraction.png" style="width:70%">
+
+
+> "... We have subsequently discovered, however, that the MATLAB script that was used for the analysis of reaction times in the pigeon paradigm was wrongly indexed. ..." ([source](https://www.cell.com/current-biology/fulltext/S0960-9822(20)30179-2))
+
+------------------------------------------------------------------------
+
+## Dangers of the unknown
+
+<br>
+<br>
+
+<img src="assets/retraction-watch-methods-analysis-results.png" style="width:100%">
+
+Searching on the [Retraction Watch Database](http://retractiondatabase.org/RetractionSearch.aspx) using similar reasons for retraction yielded 183 items.
+
+<br>
+
+Consider the lost time and potential for ripple effects!
+
+------------------------------------------------------------------------
+
+## Lamps for the dungeon
+
+<img src="assets/mining-oil-lamps.png" style="width:65%">
+
+> "As we work to create light for others, we naturally light our own way." ([Mary Anne Radmacher](https://www.goodreads.com/quotes/283422-as-we-work-to-create-light-for-others-we-naturally))
+
+<span style="font-size:.71em">
+[Image: Modified from the British Museum, Wikimedia](https://commons.wikimedia.org/wiki/File:Werksverblendung_Rollenabfahrt_H%C3%A4uerarbeit_(BM_1954,1103.433).jpg)
+</span>
+
+------------------------------------------------------------------------
+
+## Lamps for the dungeon
+
+<img src="assets/oil-table-lamp.png" style="width:20%; float:right;">
+
+<br>
+<br>
+
+We can create "lamps" through tests to help explore our software and prepare it for use by others.
+
+<br>
+
+[Software testing](https://en.wikipedia.org/wiki/Software_testing) is a practice of ensuring software meets certain expecations.
+
+
+------------------------------------------------------------------------
+
+## Additional thoughts
+
+
+------------------------------------------------------------------------
+
+## Thank you!
+
+<br>
+<br>
+
+Thank you for attending! Questions / comments?
+
+<br>
+
+Please don't hesitate to reach out!
+
+<br>
+
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/htmx/black"> [CU Anschutz DBMI SET Team](https://cu-dbmi.github.io/set-website/about/#the-team)
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/github/black"> [@d33bs](https://github.com/d33bs)
+
