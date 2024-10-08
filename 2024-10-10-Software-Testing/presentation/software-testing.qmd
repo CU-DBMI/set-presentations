@@ -1,6 +1,6 @@
 ---
 title: |
-  Software Testing
+  🏰 Quest for Quality: <br> <h2>Exploring Software Labyrinths <br> with Testing Tools and Techniques</h2>
 format:
   revealjs: 
     theme: simple
@@ -92,7 +92,7 @@ The processing of each software component might change each time (especially wit
 
 <br>
 
-Adventures sometimes lead to major challenges ([source](https://doi.org/10.1126/science.314.5807.1856)).
+Adventures without a display sometimes lead to major challenges ([source](https://doi.org/10.1126/science.314.5807.1856)).
 
 ------------------------------------------------------------------------
 
@@ -136,12 +136,34 @@ Consider the lost time and potential for ripple effects!
 
 ## Lanterns for the dungeon
 
+<img src="assets/atari_patent_with_controllers_and_tv.png" style="width:40%;float:left;">
+
+<br>
+<br>
+<br>
+
+Creating software without tests can be like playing a video game with no screen.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<span style="font-size:.71em">
+[Image: Modified from George C. Stone, Stuart E. Ross for Cbs Inc., Wikimedia](https://commons.wikimedia.org/wiki/File:Atari_2600_schematic.png)
+</span>
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
 <img src="assets/oil-table-lamp.png" style="width:20%; float:right;">
 
 <br>
 <br>
 
-We can create "lanterns" through tests to help explore our software and prepare it for use by others.
+We can create "lanterns" through tests to help make our software visible and prepare it for use by others.
 
 <br>
 
@@ -161,7 +183,7 @@ We can create "lanterns" through tests to help explore our software and prepare 
 
 <img src="assets/test-vs-production-code.png" style="width:60%;">
 
-Writing software tests involves distinguishing<br> "production" from "test" code.
+Writing software tests involves distinguishing<br> __"production"__ from __"test"__ code.
 
 <br>
 
@@ -175,7 +197,7 @@ Sometimes we already have test code but it's not implemented using a testing fra
 <img src="assets/pytest.png" style="width:200px;">
 <img src="assets/testthat.png" style="width:200px;">
 
-Programming languages often include built-in testing frameworks (for example, [`unittest`](https://docs.python.org/3/library/unittest.html) in Python).
+Programming languages often include built-in __testing frameworks__ (for example, [`unittest`](https://docs.python.org/3/library/unittest.html) in Python).
 
 <br>
 
@@ -186,7 +208,7 @@ They also might include external packages which can help test in a specific way 
 
 ## Lanterns for the dungeon
 
-<img src="assets/test-script-to-package.png" style="width:80%;">
+<img src="assets/tests-to-dir-structure.png" style="width:80%;">
 
 It's important to create or move testing scripts to testing frameworks which are versioned with production code.
 
@@ -194,19 +216,508 @@ It's important to create or move testing scripts to testing frameworks which are
 
 ## Lanterns for the dungeon
 
-As we develop our test code it's useful to classify different kinds of tests.
-Two test types that might be useful to think about:
+<img src="assets/adventure-inventory.png" style="width:80%;">
 
-- Unit tests
-- Integration tests
+Think of this like you would moving useful tools into your inventory as part of your software adventure.
 
 ------------------------------------------------------------------------
 
 ## Lanterns for the dungeon
 
+<img src="assets/pytest-workflow.png" style="width:60%;">
+
+We'll use `pytest` for the following examples.
+It is installed as an external package (e.g. `pip install pytest`).
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+<br>
+
+```text
+example_project
+├── pyproject.toml
+├── src
+│   └── package_name
+│       └── package_module.py
+└── tests
+    └── test_package_module.py
+```
+
+<br>
+<br>
+
+Python development often involves using the __`src` directory__ for production code and the __`test` directory__ for test code.
+
+`pytest` by default looks for tests under the `tests` dir and for modules which contain a `test_` prefix.
+
+------------------------------------------------------------------------
+
+## Asserts
+
+<br>
+
+```python
+# we can use the assert statements to determine
+# the truthiness (or lack thereof) of values.
+assert 1 == 1
+# returns True
+assert 1 == 0
+# returns False
+```
+
+<br>
+<br>
+
+[`assert` statements](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement) are a common part of writing tests in Python.
+We can use assert to determine the truthiness of certain output.
+
+------------------------------------------------------------------------
+
+## Asserts
+
+<img src="assets/dont-use-assert-in-production.png" style="width:70%;">
+
+It's highly recommended to avoid using `assert` in production code.
+`assert` can be disabled during processing, for example, using `python -O ...`.
+This is another reason to keep our production and testing code distinct.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<br>
+<br>
+
+As we develop our test code it's useful to classify different kinds of tests.
+Two test types that might be useful to think about:
+
+- __Unit tests__
+- __Integration tests__
+- __System / end-to-end tests__
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
 <img src="assets/unit-test.png" style="width:80%;">
 
-Unit tests: validate small, isolated parts of your code, like functions or methods.
+__Unit tests__: validate small, isolated parts of your code, like individual functions or methods.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<br>
+
+<table>
+<tr>
+<th>
+Production code
+</th>
+<th>
+Test code
+</th>
+</tr>
+<tr>
+<td>
+
+```python
+def is_even(number: int) -> bool:
+    # check that a number is even
+    return number % 2 == 0
+```
+
+</td>
+<td>
+
+```python
+def test_is_even():
+    # assert that 2 is an even number
+    assert is_even(2)
+```
+
+</td>
+
+</tr>
+</table>
+
+<br>
+
+Assume we have production code function `is_even()`.<br>
+We can test that code using a similar function (`pytest` conventions).
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system testsn
+
+<br>
+
+```text
+example_project
+├── pyproject.toml
+├── src
+│   └── package_name
+│       └── package_module.py # is_even() could go here
+└── tests
+    └── test_package_module.py # test_is_even() could go here
+```
+
+<br>
+<br>
+
+Reminder: these functions could be organized into the directory structure in their relevant locations.
+
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<img src="assets/integration-test.png" style="width:80%;">
+
+__Integration tests__: integration tests ensure software components work together.
+This is especially important in scientific software where different models, algorithms, and data structures interact.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<br>
+
+<table>
+<tr>
+<th>
+Production code
+</th>
+<th>
+Test code
+</th>
+</tr>
+<tr>
+<td>
+
+```python
+def is_even(number: int) -> bool:
+    # check that a number is even
+    return number % 2 == 0
+
+def is_odd(number: int) -> bool:
+    # check that a number is odd
+    return not is_even(number=number)
+```
+
+</td>
+<td>
+
+```python
+def test_is_odd():
+    # assert there's no inconsistency
+    assert is_even(2) != is_odd(2)
+    # assert that 3 is an odd number
+    assert is_odd(3)
+```
+
+</td>
+
+</tr>
+</table>
+
+<br>
+
+Assume we have another function `is_odd()` that leverages `is_even()`.
+We can build an integration test which involves the use of both functions.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<img src="assets/system-test.png" style="width:90%;">
+
+__System / end-to-end tests__: These check the software from a user’s perspective. For scientific software, this often means running entire workflows or simulations to make sure that everything from data input to output runs smoothly.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<br>
+
+<table>
+<tr>
+<th>
+Production code
+</th>
+<th>
+Test code
+</th>
+</tr>
+<tr>
+<td>
+
+```python
+def is_even(number: int) -> bool:
+    # check that a number is even
+    return number % 2 == 0
+
+def is_odd(number: int) -> bool:
+    # check that a number is odd
+    return not is_even(number=number)
+```
+
+</td>
+<td>
+
+```python
+import other_pkg
+
+def test_is_even_with_external():
+    # assert we get the expected 
+    # result when using is_even
+    # with other_pkg
+    assert other_pkg(is_even(2))
+```
+
+</td>
+
+</tr>
+</table>
+
+<br>
+
+We could build a test with an external package as a system / end-to-end test.
+This might simulate how someone experiences implementing the work.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<br>
+
+```bash
+# run pytest by using it through a CLI
+pytest
+
+# a report like the following will display
+============== test session starts ===============
+platform darwin -- Python 3.11.9, pytest-8.3.3,
+pluggy-1.5.0
+rootdir: /example_project
+configfile: pyproject.toml
+collected 1 item
+
+tests/test_package_module.py .             [100%]
+
+=============== 1 passed in 0.00s ================
+```
+
+<br>
+
+We can run pytest by using it as a CLI.
+It shows a report of passing or failing tests.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<br>
+<br>
+
+<center>
+<span style="font-size:2em;">🤷</span>
+</center>
+
+<br>
+
+"This looks complicated. Is there a faster way to add tests?"
+
+<br>
+ 
+__Tests like the ones mentioned earlier are a best practice and highly recommended.__
+Just the same, there are other tools which can help address different aspects of your software (relatively quickly).
+
+------------------------------------------------------------------------
+
+## Static and dynamic analysis
+
+<img src="assets/static-vs-dynamic-analysis.png" style="width:55%;float:right;">
+
+<br>
+
+So far, we've talked about [__dynamic analysis__](https://en.wikipedia.org/wiki/Dynamic_program_analysis) through tests (how software acts when it is processed).
+
+<br>
+
+We can also use various [__static analysis__](https://en.wikipedia.org/wiki/Static_program_analysis) (how the software alone looks without being processed).
+
+------------------------------------------------------------------------
+
+## Static and dynamic analysis
+
+<img src="assets/elixir-of-code-clarity.png" style="width:50%;">
+
+Static analysis tests are akin to enhancement items or "buffs" in video games.
+They are great learning tools and provide a chance to improve software with best practices.
+
+------------------------------------------------------------------------
+
+## Linters
+
+<img src="assets/linter.png" style="width:30%;">
+
+Linters are __static analysis__ tools to help address specific practices __before software is processed__.
+They can be a great way to ensure minimum levels of code quality without writing your own tests.
+
+
+<span style="font-size:.71em">
+[Image: Isarra, Wikimedia](https://commons.wikimedia.org/wiki/File:Linter_logo_v2.svg)
+</span>
+
+------------------------------------------------------------------------
+
+## Linters
+
+<br>
+
+<img src="assets/ruff.png" style="width:30%;">
+
+<br>
+
+[__`ruff`__](https://docs.astral.sh/ruff/) includes a collection of __linters__ and __formatters__ (for consistent formatting of your code) for Python which can be added to perform __automatic tests on your software__.
+
+<br>
+
+It builds upon existing work from projects like [`pylint`](https://github.com/pylint-dev/pylint), [`pyflakes`](https://github.com/PyCQA/pyflakes), [`flake8`](https://github.com/PyCQA/flake8), and others.
+
+------------------------------------------------------------------------
+
+## Linters
+
+<br>
+
+```bash
+# referenced from: https://docs.astral.sh/ruff/linter/
+ruff check                  # Lint all files in the current directory.
+ruff check --fix            # Lint all files and fix any fixable errors.
+ruff check --watch          # Lint all files and re-lint on change.
+ruff check path/to/code/    # Lint all files in `path/to/code`.
+```
+
+<br>
+
+__`ruff`__ can be `pip` installed (e.g. `pip install ruff`) and used from the command line to check, fix, or watch your software files.
+
+<br>
+
+Note: `fix` will attempt to automatically fix certain failing checks where possible.
+
+------------------------------------------------------------------------
+
+## Linters
+
+<img src="assets/linters-placement.png" style="width:80%;">
+
+Linters often get organized outside of the formal tests.
+
+------------------------------------------------------------------------
+
+## Linters
+
+<br>
+
+```text
+example_project
+├── .pre-commit-config.yaml # linters can be defined here
+├── pyproject.toml
+├── src
+│   └── package_name
+│       └── package_module.py
+└── tests
+    └── test_package_module.py
+```
+
+<img src="assets/pre-commit.png" style="width:300px;">
+
+<br>
+
+Linters can be defined using something called [`pre-commit`](https://pre-commit.com/).
+
+------------------------------------------------------------------------
+
+## Linters
+
+<img src="assets/pre-commit-workfow.png" style="width:80%;">
+
+`pre-commit` is designed to be used as a git hook.
+It can also be used as a standalone <br> ( for ex. `pre-commit run check-name`).
+
+------------------------------------------------------------------------
+
+## Linters
+
+<br>
+
+```yaml
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+default_language_version:
+  python: python3.11
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: "v0.6.8"
+    hooks:
+      - id: ruff
+```
+
+<br>
+
+This is an example `pre-commit-config.yaml` which will add `ruff` as a check.
+
+------------------------------------------------------------------------
+
+## Linters
+
+```bash
+# we can run pre-commit manually or as a git hook
+pre-commit run
+
+# a report like the following will display
+ruff.....................................................................Failed
+- hook id: ruff
+- exit code: 1
+
+src/package_name/module.py:5:8: F401 [*] `os` imported but unused
+  |
+3 | """
+4 |
+5 | import os
+  |        ^^ F401
+6 |
+7 | def is_even(number: int) -> bool:
+  |
+  = help: Remove unused import: `os`
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.
+```
+
+We can run `pre-commit` through the CLI.
+It will show a report of passing or failing checks like the above.
+
+------------------------------------------------------------------------
+
+## Dealing with Edge Cases 
+
+<img src="assets/nethack-screenshot.png" style="width:80%;">
+
+Okay great, so we've started to illuminate the labyrinth!
+
+We start to discover there are more bugs (and edge cases) than we thought. 😱
+
+<br>
+
+<span style="font-size:.71em">
+[Image: modified from Mielas, Wikimedia](https://commons.wikimedia.org/wiki/File:Ending_NetHack_(cropped).png)
+</span>
 
 ------------------------------------------------------------------------
 
