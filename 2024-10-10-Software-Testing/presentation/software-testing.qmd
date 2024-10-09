@@ -12,15 +12,26 @@ format:
     margin: 0.01
 ---
 
-## Gratitude
 
-<br><br><br><br>
+## Introduction
 
-Big ___thank you___ for attending!
+<br>
+
+Hi, I'm Dave Bunten!
+
+<br>
+
+With the __Software Engineering Team__ <br> at __CU Anschutz DBMI__.
+
+<img src="assets/dbmi-logo.png" style="width:50%">
+
+<br>
+
+Visit our webpage for more info!<br>[https://cu-dbmi.github.io/set-website/](https://cu-dbmi.github.io/set-website/)
 
 ------------------------------------------------------------------------
 
-## Presentation Outline
+## Introduction
 
 <br>
 <br>
@@ -30,8 +41,23 @@ Big ___thank you___ for attending!
 1. 🗺️ Software as an adventure
 2. 😱 Dangers of the unknown
 3. 🕯️ Lanterns for the dungeon
-4. 🏰 ...
 </center>
+
+------------------------------------------------------------------------
+
+## Software as an adventure
+
+
+<img src="assets/dcss-screenshot.png" style="width:72%">
+
+
+<span style="font-size:.8em">
+[Roguelikes](https://en.wikipedia.org/wiki/Roguelike): procedurally generated RPG games with permadeath.
+</span>
+
+<span style="font-size:.7em">
+[Image: Citrocipia, Wikimedia](https://commons.wikimedia.org/wiki/File:DCSS.png)
+</span>
 
 ------------------------------------------------------------------------
 
@@ -39,7 +65,7 @@ Big ___thank you___ for attending!
 
 <img src="assets/rogue_title.png" style="width:70%">
 
-Software development can feel like a dungeon: full of surprises, risks, and hidden traps. 
+Software development can feel like a roguelike dungeon: full of surprises, risks, and hidden traps. 
 
 <span style="font-size:.7em">
 [Image: Blake Patterson, Flickr](https://www.flickr.com/photos/blakespot/6716383203/in/photostream/)
@@ -75,7 +101,7 @@ Each ~~room~~ software component we explore can include treasure or grave danger
 
 <img src="assets/screenshot_nethack.png" style="width:70%">
 
-The processing of each software component might change each time (especially with data or code changes)! 
+The processing of each software component might change each time (especially with data or code changes).
 
 <span style="font-size:.71em">
 [Image: Modified from Linux Screenshots, Flickr](https://www.flickr.com/photos/xmodulo/13863751533)
@@ -92,7 +118,7 @@ The processing of each software component might change each time (especially wit
 
 <br>
 
-Adventures without a display sometimes lead to major challenges ([source](https://doi.org/10.1126/science.314.5807.1856)).
+Adventures without armor sometimes lead to major challenges ([source](https://doi.org/10.1126/science.314.5807.1856)).
 
 ------------------------------------------------------------------------
 
@@ -163,11 +189,11 @@ Creating software without tests can be like playing a video game with no screen.
 <br>
 <br>
 
-We can create "lanterns" through tests to help make our software visible and prepare it for use by others.
+[Software testing](https://en.wikipedia.org/wiki/Software_testing) is a practice of ensuring software meets certain expectations.
 
 <br>
 
-[Software testing](https://en.wikipedia.org/wiki/Software_testing) is a practice of ensuring software meets certain expecations.
+We can create "lanterns" through tests to help make our software visible and prepare it for use by others.
 
 <br>
 <br>
@@ -495,7 +521,7 @@ This might simulate how someone experiences implementing the work.
 
 ```bash
 # run pytest by using it through a CLI
-pytest
+$ pytest
 
 # a report like the following will display
 ============== test session starts ===============
@@ -553,7 +579,10 @@ We can also use various [__static analysis__](https://en.wikipedia.org/wiki/Stat
 
 ## Static and dynamic analysis
 
+<br>
+<center>
 <img src="assets/elixir-of-code-clarity.png" style="width:50%;">
+</center>
 
 Static analysis tests are akin to enhancement items or "buffs" in video games.
 They are great learning tools and provide a chance to improve software with best practices.
@@ -562,7 +591,9 @@ They are great learning tools and provide a chance to improve software with best
 
 ## Linters
 
+<center>
 <img src="assets/linter.png" style="width:30%;">
+</center>
 
 Linters are __static analysis__ tools to help address specific practices __before software is processed__.
 They can be a great way to ensure minimum levels of code quality without writing your own tests.
@@ -596,10 +627,10 @@ It builds upon existing work from projects like [`pylint`](https://github.com/py
 
 ```bash
 # referenced from: https://docs.astral.sh/ruff/linter/
-ruff check                  # Lint all files in the current directory.
-ruff check --fix            # Lint all files and fix any fixable errors.
-ruff check --watch          # Lint all files and re-lint on change.
-ruff check path/to/code/    # Lint all files in `path/to/code`.
+$ ruff check                  # Lint all files in the current directory.
+$ ruff check --fix            # Lint all files and fix any fixable errors.
+$ ruff check --watch          # Lint all files and re-lint on change.
+$ ruff check path/to/code/    # Lint all files in `path/to/code`.
 ```
 
 <br>
@@ -678,7 +709,7 @@ This is an example `pre-commit-config.yaml` which will add `ruff` as a check.
 
 ```bash
 # we can run pre-commit manually or as a git hook
-pre-commit run
+$ pre-commit run
 
 # a report like the following will display
 ruff.....................................................................Failed
@@ -731,10 +762,14 @@ How can we understand just how big the labyrinth might be?
 
 ## Understanding the shape of the labyrinth
 
+<center>
+<img src="assets/code-with-lightbulb-and-shield.png" style="width:30%;">
+</center>
+
 - __Line coverage:__ tracks the execution of lines of code
 - __Statement coverage:__ is similar but considers whether each statement (regardless of the number of lines).
 - __Function coverage:__ checks whether each function
-- __Branch coverage:__, helps verify whether every possible path through control structures (like if-else blocks).
+- __Branch coverage:__ helps verify whether every possible path through control structures (like if-else blocks).
 
 ------------------------------------------------------------------------
 
@@ -761,19 +796,161 @@ if 1 in statement:
 else:
     return False
 ```
+<br>
+
+The above are examples of each type of coverage.
 
 ------------------------------------------------------------------------
 
 ## Understanding the shape of the labyrinth
 
+<center>
+<img src="assets/coveragepy.png" style="width:20%;">
+</center>
+
+[`coverage.py`](https://coverage.readthedocs.io/) is a powerful tool for measuring code coverage in Python.
+It can be installed into your environment using, for example, <br> `pip install coverage`.
+
+<br>
+
+Afterwards, you can run your tests with coverage, and generate reports in various formats.
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+<br>
+
+<table>
+<tr>
+<th>
+Production code
+</th>
+<th>
+Test code
+</th>
+</tr>
+<tr>
+<td>
+
+```python
+# module.py
+
+def covered_test():
+    return "This is covered."
+
+def uncovered_test():
+    return "No coverage here."
+```
+
+</td>
+<td>
+
+```python
+# test_module.py
+
+from module import covered_test
+
+def test_add():
+    result = covered_test()
+    assert result == "This is covered."
+```
+
+</td>
+
+</tr>
+</table>
+
+<br>
+
+Consider the following example production and test code.
+One function is tested and one is not.
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+```bash
+# first we process test coverage
+$ coverage run -m pytest
+
+# then we show the reported output of
+# processed test coverage
+$ coverage report
+Name             Stmts   Miss  Cover
+------------------------------------
+module.py            4      1    75%
+test_module.py       3      0   100%
+------------------------------------
+TOTAL                7      1    86%
+```
+
+We can run `coverage.py` on the code by using the CLI.
+Afterwards, we create a report (note there are many different options, including HTML).
+
+<br>
+Note: `coverage.py` implements __statement coverage__ checking by default.
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+<br>
+
+<center>
+<img src="assets/codecov.png" style="width:20%;padding-right:20px;">
+<img src="assets/codacy.png" style="width:20%;padding-right:20px;">
+<img src="assets/codeclimate.png" style="width:20%;padding-right:20px;">
+</center>
+
+In addition to the `coverage.py` there are also code coverage platforms (often through software as a service (SaaS) companies).
+
+- [Codecov](https://about.codecov.io/) focuses on code coverage.
+- [Codacy](https://www.codacy.com/coverage) includes code coverage in addition to other features.
+- [Code Climate](https://codeclimate.com/) includes code coverage in addition to other features.
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+<img src="assets/codecov-pandas.png" style="width:60%">
+
 Just like a map of the labyrinth, we don't have to have 100% coverage to know the shape of the code.
 
-Generally 80-90% code coverage is considered pretty good!
+- Generally 80-90% code coverage is considered pretty good!
+
+<span style="font-size:.71em">
+[Image: Codecov, Pandas](https://app.codecov.io/github/pandas-dev/pandas)
+</span>
 
 ------------------------------------------------------------------------
 
 ## Additional thoughts
 
+<center>
+<img src="assets/code-in-dungeon.png" style="width:40%">
+</center>
+
+- Code coverage tools often don't include linting.
+- We can think about linting coverage similarly.
+- Strive to provide coverage with both tests and linting!
+
+<span style="font-size:.71em">
+[Image: modified from fellfeline, DeviantArt](https://www.deviantart.com/fellfeline/art/Underground-Tileset-888848119)
+</span>
+
+------------------------------------------------------------------------
+
+## Check out the DBMI SET blog for more...
+
+<center>
+<img src="assets/dbmi-set-blog.png" style="width:40%">
+</center>
+
+- [GitHub Actions](https://cu-dbmi.github.io/set-website/2023/03/15/Automate-Software-Workflows-with-Github-Actions.html): find out how to automate your testing!
+- [Linting](https://cu-dbmi.github.io/set-website/2022/10/17/Use-Linting-Tools-to-Save-Time.html): a deeper dive into linting.
+- [Code Coverage](https://cu-dbmi.github.io/set-website/2024/07/28/Uncovering-Code-Coverage.html): more on code coverage.
+- [Testing](https://cu-dbmi.github.io/set-website/2024/09/25/Testing-Scientific-Software.html): additional content on testing.
 
 ------------------------------------------------------------------------
 
