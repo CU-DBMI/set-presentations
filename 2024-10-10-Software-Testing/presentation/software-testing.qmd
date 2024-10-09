@@ -705,7 +705,7 @@ It will show a report of passing or failing checks like the above.
 
 ------------------------------------------------------------------------
 
-## Dealing with Edge Cases 
+## Understanding the shape of the labyrinth
 
 <img src="assets/nethack-screenshot.png" style="width:80%;">
 
@@ -713,11 +713,62 @@ Okay great, so we've started to illuminate the labyrinth!
 
 We start to discover there are more bugs (and edge cases) than we thought. 😱
 
-<br>
+How can we understand just how big the labyrinth might be?
 
 <span style="font-size:.71em">
 [Image: modified from Mielas, Wikimedia](https://commons.wikimedia.org/wiki/File:Ending_NetHack_(cropped).png)
 </span>
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+<img src="assets/code-coverage.png" style="width:80%;">
+
+[Code coverage](https://en.wikipedia.org/wiki/Code_coverage) is a measure of how much of your production code is executed as part of your test code.
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+- __Line coverage:__ tracks the execution of lines of code
+- __Statement coverage:__ is similar but considers whether each statement (regardless of the number of lines).
+- __Function coverage:__ checks whether each function
+- __Branch coverage:__, helps verify whether every possible path through control structures (like if-else blocks).
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+```python
+# example line
+print("A line which could be tested for coverage.")
+
+# example statement (potentially multi-line)
+statement = [
+    1,
+    2,
+    3,
+]
+
+# example function
+def example():
+    return "An example function."
+
+# example branching
+if 1 in statement:
+    return True
+else:
+    return False
+```
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+Just like a map of the labyrinth, we don't have to have 100% coverage to know the shape of the code.
+
+Generally 80-90% code coverage is considered pretty good!
 
 ------------------------------------------------------------------------
 
