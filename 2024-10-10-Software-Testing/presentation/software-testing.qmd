@@ -116,9 +116,9 @@ The processing of each software component might change each time (especially wit
 
 <img src="assets/screenshot_5_retractions.png" style="width:80%">
 
-<br>
-
 Adventures without armor sometimes lead to major challenges ([source](https://doi.org/10.1126/science.314.5807.1856)).
+
+> "... a homemade data-analysis program had flipped two columns of data ..."
 
 ------------------------------------------------------------------------
 
@@ -193,7 +193,7 @@ Creating software without tests can be like playing a video game with no screen.
 
 <br>
 
-We can create "lanterns" through tests to help make our software visible and prepare it for use by others.
+We can create "lanterns" through tests to help make our software visible and prepare it for use by ourselves or others.
 
 <br>
 <br>
