@@ -317,7 +317,7 @@ This is another reason to keep our production and testing code distinct.
 <br>
 
 As we develop our test code it's useful to classify different kinds of tests.
-Two test types that might be useful to think about:
+Three test types that might be useful to think about:
 
 - __Unit tests__
 - __Integration tests__
@@ -851,7 +851,7 @@ def uncovered_test():
 
 from module import covered_test
 
-def test_add():
+def test_one_function():
     result = covered_test()
     assert result == "This is covered."
 ```
