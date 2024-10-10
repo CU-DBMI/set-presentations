@@ -1,0 +1,972 @@
+---
+title: |
+  🏰 Quest for Quality: <br> <h2>Exploring Software Labyrinths <br> with Testing Tools and Techniques</h2>
+format:
+  revealjs: 
+    theme: simple
+    transition: slide
+    slide-number: true
+    auto-stretch: false
+    width: 1050
+    height: 800
+    margin: 0.01
+---
+
+
+## Introduction
+
+<br>
+
+Hi, I'm Dave Bunten!
+
+<br>
+
+With the __Software Engineering Team__ <br> at __CU Anschutz DBMI__.
+
+<img src="assets/dbmi-logo.png" style="width:50%">
+
+<br>
+
+Visit our webpage for more info!<br>[https://cu-dbmi.github.io/set-website/](https://cu-dbmi.github.io/set-website/)
+
+------------------------------------------------------------------------
+
+## Introduction
+
+<br>
+<br>
+<br>
+
+<center>
+1. 🗺️ Software as an adventure
+2. 😱 Dangers of the unknown
+3. 🕯️ Lanterns for the dungeon
+</center>
+
+------------------------------------------------------------------------
+
+## Software as an adventure
+
+
+<img src="assets/dcss-screenshot.png" style="width:72%">
+
+
+<span style="font-size:.8em">
+[Roguelikes](https://en.wikipedia.org/wiki/Roguelike): procedurally generated RPG games with permadeath.
+</span>
+
+<span style="font-size:.7em">
+[Image: Citrocipia, Wikimedia](https://commons.wikimedia.org/wiki/File:DCSS.png)
+</span>
+
+------------------------------------------------------------------------
+
+## Software as an adventure
+
+<img src="assets/rogue_title.png" style="width:70%">
+
+Software development can feel like a roguelike dungeon: full of surprises, risks, and hidden traps. 
+
+<span style="font-size:.7em">
+[Image: Blake Patterson, Flickr](https://www.flickr.com/photos/blakespot/6716383203/in/photostream/)
+</span>
+
+------------------------------------------------------------------------
+
+## Software as an adventure
+
+<img src="assets/Rogue_Screenshot.png" style="width:70%">
+
+Each room we explore can include treasure or grave danger!
+
+<span style="font-size:.7em">
+[Image: Thedarkb, Wikimedia](https://commons.wikimedia.org/wiki/File:Rogue_Screenshot.png)
+</span>
+
+------------------------------------------------------------------------
+
+## Software as an adventure
+
+<img src="assets/rogue_software_components.png" style="width:70%">
+
+Each ~~room~~ software component we explore can include treasure or grave danger!
+
+<span style="font-size:.71em">
+[Image: Modified from Thedarkb, Wikimedia](https://commons.wikimedia.org/wiki/File:Rogue_Screenshot.png)
+</span>
+
+------------------------------------------------------------------------
+
+## Software as an adventure
+
+<img src="assets/screenshot_nethack.png" style="width:70%">
+
+The processing of each software component might change each time (especially with data or code changes).
+
+<span style="font-size:.71em">
+[Image: Modified from Linux Screenshots, Flickr](https://www.flickr.com/photos/xmodulo/13863751533)
+</span>
+
+------------------------------------------------------------------------
+
+## Dangers of the unknown
+
+<br> 
+<br> 
+
+<img src="assets/screenshot_5_retractions.png" style="width:80%">
+
+Adventures without armor sometimes lead to major challenges ([source](https://doi.org/10.1126/science.314.5807.1856)).
+
+> "... a homemade data-analysis program had flipped two columns of data ..."
+
+------------------------------------------------------------------------
+
+## Dangers of the unknown
+
+
+<img src="assets/retraction-watch.png" style="width:20%;">
+<img src="assets/screenshot_pidgeon_retraction.png" style="width:70%">
+
+
+> "... We have subsequently discovered, however, that the MATLAB script that was used for the analysis of reaction times in the pigeon paradigm was wrongly indexed. ..." ([source](https://www.cell.com/current-biology/fulltext/S0960-9822(20)30179-2))
+
+------------------------------------------------------------------------
+
+## Dangers of the unknown
+
+<br>
+<br>
+
+<img src="assets/retraction-watch-methods-analysis-results.png" style="width:100%">
+
+Searching on the [Retraction Watch Database](http://retractiondatabase.org/RetractionSearch.aspx) using similar reasons for retraction yielded 183 items.
+
+<br>
+
+Consider the lost time and potential for ripple effects!
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+<img src="assets/mining-oil-lamps.png" style="width:65%">
+
+> "As we work to create light for others, we naturally light our own way." ([Mary Anne Radmacher](https://www.goodreads.com/quotes/283422-as-we-work-to-create-light-for-others-we-naturally))
+
+<span style="font-size:.71em">
+[Image: Modified from the British Museum, Wikimedia](https://commons.wikimedia.org/wiki/File:Werksverblendung_Rollenabfahrt_H%C3%A4uerarbeit_(BM_1954,1103.433).jpg)
+</span>
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+<img src="assets/atari_patent_with_controllers_and_tv.png" style="width:40%;float:left;">
+
+<br>
+<br>
+<br>
+
+Creating software without tests can be like playing a video game with no screen.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<span style="font-size:.71em">
+[Image: Modified from George C. Stone, Stuart E. Ross for Cbs Inc., Wikimedia](https://commons.wikimedia.org/wiki/File:Atari_2600_schematic.png)
+</span>
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+<img src="assets/oil-table-lamp.png" style="width:20%; float:right;">
+
+<br>
+<br>
+
+[Software testing](https://en.wikipedia.org/wiki/Software_testing) is a practice of ensuring software meets certain expectations.
+
+<br>
+
+We can create "lanterns" through tests to help make our software visible and prepare it for use by ourselves or others.
+
+<br>
+<br>
+<br>
+
+<span style="font-size:.71em">
+[Image: Internet Archive Book Images, Wikimedia](https://commons.wikimedia.org/wiki/File:The_journal_of_the_Ministry_of_Agriculture._(1920)_(14784379543).jpg)
+</span>
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+<img src="assets/test-vs-production-code.png" style="width:60%;">
+
+Writing software tests involves distinguishing<br> __"production"__ from __"test"__ code.
+
+<br>
+
+Sometimes we already have test code but it's not implemented using a testing framework.
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+
+<img src="assets/pytest.png" style="width:200px;">
+<img src="assets/testthat.png" style="width:200px;">
+
+Programming languages often include built-in __testing frameworks__ (for example, [`unittest`](https://docs.python.org/3/library/unittest.html) in Python).
+
+<br>
+
+They also might include external packages which can help test in a specific way (for example, [`pytest`](https://docs.pytest.org/en/stable/) in Python, or [`testthat`](https://testthat.r-lib.org/) in R).
+
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+<img src="assets/tests-to-dir-structure.png" style="width:80%;">
+
+It's important to create or move testing scripts to testing frameworks which are versioned with production code.
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+<img src="assets/adventure-inventory.png" style="width:80%;">
+
+Think of this like you would moving useful tools into your inventory as part of your software adventure.
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+<img src="assets/pytest-workflow.png" style="width:60%;">
+
+We'll use `pytest` for the following examples.
+It is installed as an external package (e.g. `pip install pytest`).
+
+------------------------------------------------------------------------
+
+## Lanterns for the dungeon
+
+<br>
+
+```text
+example_project
+├── pyproject.toml
+├── src
+│   └── package_name
+│       └── package_module.py
+└── tests
+    └── test_package_module.py
+```
+
+<br>
+<br>
+
+Python development often involves using the __`src` directory__ for production code and the __`test` directory__ for test code.
+
+`pytest` by default looks for tests under the `tests` dir and for modules which contain a `test_` prefix.
+
+------------------------------------------------------------------------
+
+## Asserts
+
+<br>
+
+```python
+# we can use the assert statements to determine
+# the truthiness (or lack thereof) of values.
+assert 1 == 1
+# returns True
+assert 1 == 0
+# returns False
+```
+
+<br>
+<br>
+
+[`assert` statements](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement) are a common part of writing tests in Python.
+We can use assert to determine the truthiness of certain output.
+
+------------------------------------------------------------------------
+
+## Asserts
+
+<img src="assets/dont-use-assert-in-production.png" style="width:70%;">
+
+It's highly recommended to avoid using `assert` in production code.
+`assert` can be disabled during processing, for example, using `python -O ...`.
+This is another reason to keep our production and testing code distinct.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<br>
+<br>
+
+As we develop our test code it's useful to classify different kinds of tests.
+Three test types that might be useful to think about:
+
+- __Unit tests__
+- __Integration tests__
+- __System / end-to-end tests__
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<img src="assets/unit-test.png" style="width:80%;">
+
+__Unit tests__: validate small, isolated parts of your code, like individual functions or methods.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<br>
+
+<table>
+<tr>
+<th>
+Production code
+</th>
+<th>
+Test code
+</th>
+</tr>
+<tr>
+<td>
+
+```python
+def is_even(number: int) -> bool:
+    # check that a number is even
+    return number % 2 == 0
+```
+
+</td>
+<td>
+
+```python
+def test_is_even():
+    # assert that 2 is an even number
+    assert is_even(2)
+```
+
+</td>
+
+</tr>
+</table>
+
+<br>
+
+Assume we have production code function `is_even()`.<br>
+We can test that code using a similar function (`pytest` conventions).
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system testsn
+
+<br>
+
+```text
+example_project
+├── pyproject.toml
+├── src
+│   └── package_name
+│       └── package_module.py # is_even() could go here
+└── tests
+    └── test_package_module.py # test_is_even() could go here
+```
+
+<br>
+<br>
+
+Reminder: these functions could be organized into the directory structure in their relevant locations.
+
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<img src="assets/integration-test.png" style="width:80%;">
+
+__Integration tests__: integration tests ensure software components work together.
+This is especially important in scientific software where different models, algorithms, and data structures interact.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<br>
+
+<table>
+<tr>
+<th>
+Production code
+</th>
+<th>
+Test code
+</th>
+</tr>
+<tr>
+<td>
+
+```python
+def is_even(number: int) -> bool:
+    # check that a number is even
+    return number % 2 == 0
+
+def is_odd(number: int) -> bool:
+    # check that a number is odd
+    return not is_even(number=number)
+```
+
+</td>
+<td>
+
+```python
+def test_is_odd():
+    # assert there's no inconsistency
+    assert is_even(2) != is_odd(2)
+    # assert that 3 is an odd number
+    assert is_odd(3)
+```
+
+</td>
+
+</tr>
+</table>
+
+<br>
+
+Assume we have another function `is_odd()` that leverages `is_even()`.
+We can build an integration test which involves the use of both functions.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<img src="assets/system-test.png" style="width:90%;">
+
+__System / end-to-end tests__: These check the software from a user’s perspective. For scientific software, this often means running entire workflows or simulations to make sure that everything from data input to output runs smoothly.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<br>
+
+<table>
+<tr>
+<th>
+Production code
+</th>
+<th>
+Test code
+</th>
+</tr>
+<tr>
+<td>
+
+```python
+def is_even(number: int) -> bool:
+    # check that a number is even
+    return number % 2 == 0
+
+def is_odd(number: int) -> bool:
+    # check that a number is odd
+    return not is_even(number=number)
+```
+
+</td>
+<td>
+
+```python
+import other_pkg
+
+def test_is_even_with_external():
+    # assert we get the expected 
+    # result when using is_even
+    # with other_pkg
+    assert other_pkg(is_even(2))
+```
+
+</td>
+
+</tr>
+</table>
+
+<br>
+
+We could build a test with an external package as a system / end-to-end test.
+This might simulate how someone experiences implementing the work.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<br>
+
+```bash
+# run pytest by using it through a CLI
+$ pytest
+
+# a report like the following will display
+============== test session starts ===============
+platform darwin -- Python 3.11.9, pytest-8.3.3,
+pluggy-1.5.0
+rootdir: /example_project
+configfile: pyproject.toml
+collected 1 item
+
+tests/test_package_module.py .             [100%]
+
+=============== 1 passed in 0.00s ================
+```
+
+<br>
+
+We can run pytest by using it as a CLI.
+It shows a report of passing or failing tests.
+
+------------------------------------------------------------------------
+
+## Unit, integration, and system tests
+
+<br>
+<br>
+
+<center>
+<span style="font-size:2em;">🤷</span>
+</center>
+
+<br>
+
+"This looks complicated. Is there a faster way to add tests?"
+
+<br>
+ 
+__Tests like the ones mentioned earlier are a best practice and highly recommended.__
+Just the same, there are other tools which can help address different aspects of your software (relatively quickly).
+
+------------------------------------------------------------------------
+
+## Static and dynamic analysis
+
+<img src="assets/static-vs-dynamic-analysis.png" style="width:55%;float:right;">
+
+<br>
+
+So far, we've talked about [__dynamic analysis__](https://en.wikipedia.org/wiki/Dynamic_program_analysis) through tests (how software acts when it is processed).
+
+<br>
+
+We can also use various [__static analysis__](https://en.wikipedia.org/wiki/Static_program_analysis) (how the software alone looks without being processed).
+
+------------------------------------------------------------------------
+
+## Static and dynamic analysis
+
+<br>
+<center>
+<img src="assets/elixir-of-code-clarity.png" style="width:50%;">
+</center>
+
+Static analysis tests are akin to enhancement items or "buffs" in video games.
+They are great learning tools and provide a chance to improve software with best practices.
+
+------------------------------------------------------------------------
+
+## Linters
+
+<center>
+<img src="assets/linter.png" style="width:30%;">
+</center>
+
+Linters are __static analysis__ tools to help address specific practices __before software is processed__.
+They can be a great way to ensure minimum levels of code quality without writing your own tests.
+
+
+<span style="font-size:.71em">
+[Image: Isarra, Wikimedia](https://commons.wikimedia.org/wiki/File:Linter_logo_v2.svg)
+</span>
+
+------------------------------------------------------------------------
+
+## Linters
+
+<br>
+
+<img src="assets/ruff.png" style="width:30%;">
+
+<br>
+
+[__`ruff`__](https://docs.astral.sh/ruff/) includes a collection of __linters__ and __formatters__ (for consistent formatting of your code) for Python which can be added to perform __automatic tests on your software__.
+
+<br>
+
+It builds upon existing work from projects like [`pylint`](https://github.com/pylint-dev/pylint), [`pyflakes`](https://github.com/PyCQA/pyflakes), [`flake8`](https://github.com/PyCQA/flake8), and others.
+
+------------------------------------------------------------------------
+
+## Linters
+
+<br>
+
+```bash
+# referenced from: https://docs.astral.sh/ruff/linter/
+$ ruff check                  # Lint all files in the current directory.
+$ ruff check --fix            # Lint all files and fix any fixable errors.
+$ ruff check --watch          # Lint all files and re-lint on change.
+$ ruff check path/to/code/    # Lint all files in `path/to/code`.
+```
+
+<br>
+
+__`ruff`__ can be `pip` installed (e.g. `pip install ruff`) and used from the command line to check, fix, or watch your software files.
+
+<br>
+
+Note: `fix` will attempt to automatically fix certain failing checks where possible.
+
+------------------------------------------------------------------------
+
+## Linters
+
+<img src="assets/linters-placement.png" style="width:80%;">
+
+Linters often get organized outside of the formal tests.
+
+------------------------------------------------------------------------
+
+## Linters
+
+<br>
+
+```text
+example_project
+├── .pre-commit-config.yaml # linters can be defined here
+├── pyproject.toml
+├── src
+│   └── package_name
+│       └── package_module.py
+└── tests
+    └── test_package_module.py
+```
+
+<img src="assets/pre-commit.png" style="width:300px;">
+
+<br>
+
+Linters can be defined using something called [`pre-commit`](https://pre-commit.com/).
+
+------------------------------------------------------------------------
+
+## Linters
+
+<img src="assets/pre-commit-workfow.png" style="width:80%;">
+
+`pre-commit` is designed to be used as a git hook.
+It can also be used as a standalone <br> ( for ex. `pre-commit run check-name`).
+
+------------------------------------------------------------------------
+
+## Linters
+
+<br>
+
+```yaml
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+default_language_version:
+  python: python3.11
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: "v0.6.8"
+    hooks:
+      - id: ruff
+```
+
+<br>
+
+This is an example `pre-commit-config.yaml` which will add `ruff` as a check.
+
+------------------------------------------------------------------------
+
+## Linters
+
+```bash
+# we can run pre-commit manually or as a git hook
+$ pre-commit run
+
+# a report like the following will display
+ruff.....................................................................Failed
+- hook id: ruff
+- exit code: 1
+
+src/package_name/module.py:5:8: F401 [*] `os` imported but unused
+  |
+3 | """
+4 |
+5 | import os
+  |        ^^ F401
+6 |
+7 | def is_even(number: int) -> bool:
+  |
+  = help: Remove unused import: `os`
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.
+```
+
+We can run `pre-commit` through the CLI.
+It will show a report of passing or failing checks like the above.
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+<img src="assets/nethack-screenshot.png" style="width:80%;">
+
+Okay great, so we've started to illuminate the labyrinth!
+
+We start to discover there are more bugs (and edge cases) than we thought. 😱
+
+How can we understand just how big the labyrinth might be?
+
+<span style="font-size:.71em">
+[Image: modified from Mielas, Wikimedia](https://commons.wikimedia.org/wiki/File:Ending_NetHack_(cropped).png)
+</span>
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+<img src="assets/code-coverage.png" style="width:80%;">
+
+[Code coverage](https://en.wikipedia.org/wiki/Code_coverage) is a measure of how much of your production code is executed as part of your test code.
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+<center>
+<img src="assets/code-with-lightbulb-and-shield.png" style="width:30%;">
+</center>
+
+- __Line coverage:__ tracks the execution of lines of code
+- __Statement coverage:__ is similar but considers whether each statement (regardless of the number of lines).
+- __Function coverage:__ checks whether each function
+- __Branch coverage:__ helps verify whether every possible path through control structures (like if-else blocks).
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+```python
+# example line
+print("A line which could be tested for coverage.")
+
+# example statement (potentially multi-line)
+statement = [
+    1,
+    2,
+    3,
+]
+
+# example function
+def example():
+    return "An example function."
+
+# example branching
+if 1 in statement:
+    return True
+else:
+    return False
+```
+<br>
+
+The above are examples of each type of coverage.
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+<center>
+<img src="assets/coveragepy.png" style="width:20%;">
+</center>
+
+[`coverage.py`](https://coverage.readthedocs.io/) is a powerful tool for measuring code coverage in Python.
+It can be installed into your environment using, for example, <br> `pip install coverage`.
+
+<br>
+
+Afterwards, you can run your tests with coverage, and generate reports in various formats.
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+<br>
+
+<table>
+<tr>
+<th>
+Production code
+</th>
+<th>
+Test code
+</th>
+</tr>
+<tr>
+<td>
+
+```python
+# module.py
+
+def covered_test():
+    return "This is covered."
+
+def uncovered_test():
+    return "No coverage here."
+```
+
+</td>
+<td>
+
+```python
+# test_module.py
+
+from module import covered_test
+
+def test_one_function():
+    result = covered_test()
+    assert result == "This is covered."
+```
+
+</td>
+
+</tr>
+</table>
+
+<br>
+
+Consider the following example production and test code.
+One function is tested and one is not.
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+```bash
+# first we process test coverage
+$ coverage run -m pytest
+
+# then we show the reported output of
+# processed test coverage
+$ coverage report
+Name             Stmts   Miss  Cover
+------------------------------------
+module.py            4      1    75%
+test_module.py       3      0   100%
+------------------------------------
+TOTAL                7      1    86%
+```
+
+We can run `coverage.py` on the code by using the CLI.
+Afterwards, we create a report (note there are many different options, including HTML).
+
+<br>
+Note: `coverage.py` implements __statement coverage__ checking by default.
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+<br>
+
+<center>
+<img src="assets/codecov.png" style="width:20%;padding-right:20px;">
+<img src="assets/codacy.png" style="width:20%;padding-right:20px;">
+<img src="assets/codeclimate.png" style="width:20%;padding-right:20px;">
+</center>
+
+In addition to the `coverage.py` there are also code coverage platforms (often through software as a service (SaaS) companies).
+
+- [Codecov](https://about.codecov.io/) focuses on code coverage.
+- [Codacy](https://www.codacy.com/coverage) includes code coverage in addition to other features.
+- [Code Climate](https://codeclimate.com/) includes code coverage in addition to other features.
+
+------------------------------------------------------------------------
+
+## Understanding the shape of the labyrinth
+
+<img src="assets/codecov-pandas.png" style="width:60%">
+
+Just like a map of the labyrinth, we don't have to have 100% coverage to know the shape of the code.
+
+- Generally 80-90% code coverage is considered pretty good!
+
+<span style="font-size:.71em">
+[Image: Codecov, Pandas](https://app.codecov.io/github/pandas-dev/pandas)
+</span>
+
+------------------------------------------------------------------------
+
+## Additional thoughts
+
+<center>
+<img src="assets/code-in-dungeon.png" style="width:40%">
+</center>
+
+- Code coverage tools often don't include linting.
+- We can think about linting coverage similarly.
+- Strive to provide coverage with both tests and linting!
+
+<span style="font-size:.71em">
+[Image: modified from fellfeline, DeviantArt](https://www.deviantart.com/fellfeline/art/Underground-Tileset-888848119)
+</span>
+
+------------------------------------------------------------------------
+
+## Check out the DBMI SET blog for more...
+
+<center>
+<img src="assets/dbmi-set-blog.png" style="width:40%">
+</center>
+
+- [GitHub Actions](https://cu-dbmi.github.io/set-website/2023/03/15/Automate-Software-Workflows-with-Github-Actions.html): find out how to automate your testing!
+- [Linting](https://cu-dbmi.github.io/set-website/2022/10/17/Use-Linting-Tools-to-Save-Time.html): a deeper dive into linting.
+- [Code Coverage](https://cu-dbmi.github.io/set-website/2024/07/28/Uncovering-Code-Coverage.html): more on code coverage.
+- [Testing](https://cu-dbmi.github.io/set-website/2024/09/25/Testing-Scientific-Software.html): additional content on testing.
+
+------------------------------------------------------------------------
+
+## Thank you!
+
+<br>
+<br>
+
+Thank you for attending! Questions / comments?
+
+<br>
+
+Please don't hesitate to reach out!
+
+<br>
+
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/htmx/black"> [CU Anschutz DBMI SET Team](https://cu-dbmi.github.io/set-website/about/#the-team)
+- <img width="40" height="40" style="margin: 0;" src="https://cdn.simpleicons.org/github/black"> [@d33bs](https://github.com/d33bs)
+
